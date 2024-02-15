@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Assets/stylesheet.css">
     <title>Connexion</title>
+    <script src="Assets/script.js"></script>
 </head>
 
 <body>
@@ -12,14 +13,14 @@
         
     </header>
     <main>
-        <form action="file:///C:/Users/Florian/Documents/CESI%20cours/A2/Blocs/4.%20Bloc%20d%C3%A9veloppement%20web/prosit%203/prosit/Inscription.html" method="post">
+        <form name="connexion"  action="" method="post"> <!-- action="lien avec la base de donnée" : L'attribut action permet de pointer vers un script serveur qui traitera les données du formulaire côté serveur -->
             <fieldset>
                 <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
                 <label for="user">Nom d'utilisateur</label>
                 <input type="text" id="user" name="user" required>
                 <label for="password">Mot de passe</label>
                 <input type="text" id="password" name="password" required>
-                <button class="submit" type="submit">Connexion</button>
+                <button class="button" type="button" onclick="redirectToAccueil()">Connexion</button>
             </fieldset>
         </form>
     </main>
