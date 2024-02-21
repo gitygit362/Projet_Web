@@ -1,0 +1,69 @@
+
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    background-image:url("images/entete.png");
+    background-size: cover;
+    background-repeat: repeat;
+    padding-bottom: 4rem;
+    /* padding-right: 15rem; */
+    color: black; 
+    margin-top: 0rem;
+}
+
+h1{
+    padding-left: 20rem;
+}
+
+header > img {
+    margin-left: 1rem;
+    max-width: 120px;
+}  
+ 
+form{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+}
+
+fieldset img {
+    max-width: 100%;
+    margin-bottom: 3rem;
+}
+
+label {
+    display: block;
+    color:grey;
+    margin-bottom:10px
+}
+
+input[type="text"]{
+    display: block;
+    border: 0.05rem solid grey; 
+    border-radius: 0.3rem; 
+    padding: 0.5rem 2rem;
+    margin-bottom: 1rem;
+    margin-left: calc(100% - 25rem);
+}
+
+fieldset {
+    border: none;
+    align-items:center;
+}
+
+.button{
+    margin: 1rem;
+    padding: 0.5rem 6rem;
+    border: none;
+    border-radius: 2rem;
+    background-color:rgb(255, 221, 0);
+    font-family: Arial;
+    font-size:1rem;
+}
+
+.button:hover{
+    font-weight: bold;
+}
