@@ -2,22 +2,23 @@
 
 header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
     background-image:url("images/entete.png");
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    padding-bottom: 60px;
-    padding-right: 45%;
-    text-align: center;
+    background-repeat: repeat;
+    padding-bottom: 4rem;
+    /* padding-right: 15rem; */
     color: black; 
     margin-top: 0rem;
 }
 
+h1{
+    padding-left: 20rem;
+}
+
 header > img {
     margin-left: 1rem;
-    max-width: 90px;
+    max-width: 120px;
 }  
  
 form{
@@ -26,12 +27,11 @@ form{
     flex-direction: column;
     align-items: center;
     text-align: center; 
-
 }
 
 fieldset img {
-    max-width: 70%;
-    margin-bottom: 2rem;
+    max-width: 100%;
+    margin-bottom: 3rem;
 }
 
 label {
