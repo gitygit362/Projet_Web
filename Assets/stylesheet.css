@@ -1,26 +1,59 @@
 
 
-header {
+.connexion {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
     background-image:url("images/entete.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     padding-bottom: 60px;
-    padding-right: 45%;
-    text-align: center;
+    padding-right: 40vw;
     color: black; 
     margin-top: 0rem;
 }
 
-header > img {
+.connexion > img {
     margin-left: 1rem;
     max-width: 90px;
 }  
- 
-form{
+
+@media only screen and (min-width: 892px) {
+    .connexion {
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        background-image:url("images/entete.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding-bottom: 60px;
+        padding-right: 42vw;
+        color: black; 
+        margin-top: 0rem;
+    }
+}
+@media only screen and (min-width: 1140px) {
+    .connexion {
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        background-image:url("images/entete.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding-bottom: 60px;
+        padding-right: 44vw;
+        color: black; 
+        margin-top: 0rem;
+    }
+}
+
+
+
+.connexionForm{
+    margin: 0 auto;
     margin-top: 5%;
     display: flex;
     flex-direction: column;
@@ -29,7 +62,7 @@ form{
 
 }
 
-fieldset img {
+fieldset > img {
     max-width: 70%;
     margin-bottom: 2rem;
 }
@@ -40,13 +73,13 @@ label {
     margin-bottom:10px
 }
 
-input[type="text"]{
+.connexionInput {
     display: block;
     border: 0.05rem solid grey; 
     border-radius: 0.3rem; 
     padding: 0.5rem 2rem;
+    margin: 0 auto;
     margin-bottom: 1rem;
-    margin-left: calc(100% - 25rem);
 }
 
 fieldset {
@@ -55,15 +88,79 @@ fieldset {
 }
 
 .button{
-    margin: 1rem;
+    margin: 0 auto;
+    margin-top: 1rem;
     padding: 0.5rem 6rem;
     border: none;
     border-radius: 2rem;
     background-color:rgb(255, 221, 0);
     font-family: Arial;
     font-size:1rem;
+    margin-bottom: 10rem;
 }
 
 .button:hover{
     font-weight: bold;
 }
+
+/*
+/*
+/*      Page offre de stage (faudra check pour opti la forme à la fin)      
+*/
+
+.flex-container1 {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 0%;
+ }
+
+.rechercher {
+    margin-top: 1%;
+    margin-right: 1%;
+    padding-left:60%;
+    border-radius: 5rem;
+    text-align: left;
+}
+
+.newOffre{
+    margin-top: 1%;
+    border-radius: 5rem;
+    margin-right: 1%;
+}
+
+#filtres {
+    margin-right: 5%;
+    align-self: flex-start;
+}
+
+.filtres {
+    flex-grow: 1; 
+}
+
+.sectionStages {
+    width: 80vw;
+    max-width: 400px;
+}
+
+.offre {
+    padding: 3rem 40rem;    
+    margin: 2% 2%;
+    background-color:rgb(220, 220, 220);
+}
+
+.flex-container2 {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10%;
+ }  
+
+.flex-container2 > .sectionStages {
+    max-width: 75%;
+}
+
+.filtres {
+    padding: 1rem 2%;
+    margin-right: 2%;
+}
+
