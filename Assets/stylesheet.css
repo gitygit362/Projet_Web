@@ -1,5 +1,6 @@
 
 
+
 header {
     display: flex;
     background-image:url("images/entete.png");
@@ -111,3 +112,19 @@ fieldset {
 .button:hover{
     font-weight: bold;
 }
+
+
+.back_to_hub {
+    width: 150px;
+    height: 5px;
+    background-color:green;/* rgb(255, 214, 0); */
+    position:fixed;
+    right: 10rem;
+  }
+
+  .texte_bth {
+    color: black;
+    position: absolute;
+    top: 8rem; 
+    right: 10rem;
+  }
