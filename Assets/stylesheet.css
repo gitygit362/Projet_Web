@@ -1,87 +1,25 @@
 
 
-<<<<<<< HEAD
-.connexion {
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-=======
-
 header {
     display: flex;
->>>>>>> 79cf498f3976d666fadba11ac7b7c4047a7d6652
     background-image:url("images/entete.png");
     padding-bottom: 4rem;
     background-size: auto 100%;
     background-position: left top;
     background-size: cover;
-<<<<<<< HEAD
-    background-repeat: no-repeat;
-    background-position: center center;
-    padding-bottom: 60px;
-    padding-right: 40vw;
-    color: black; 
-    margin-top: 0rem;
-}
-
-.connexion > img {
-=======
 }
 
 h1{
-    padding-left: 20rem;
+    padding-left: 35%;
 }
 
 
 header > img {
->>>>>>> 79cf498f3976d666fadba11ac7b7c4047a7d6652
     margin-left: 1rem;
     max-width: 120px;
     min-width: 120px;
     max-height: 80px; 
-}  
-<<<<<<< HEAD
-
-@media only screen and (min-width: 892px) {
-    .connexion {
-        display: flex;
-        justify-content:space-between;
-        align-items: center;
-        background-image:url("images/entete.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        padding-bottom: 60px;
-        padding-right: 42vw;
-        color: black; 
-        margin-top: 0rem;
-    }
 }
-@media only screen and (min-width: 1140px) {
-    .connexion {
-        display: flex;
-        justify-content:space-between;
-        align-items: center;
-        background-image:url("images/entete.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        padding-bottom: 60px;
-        padding-right: 44vw;
-        color: black; 
-        margin-top: 0rem;
-=======
- 
-input[type="text"]{
-    display: block;
-    border: 0.05rem solid grey; 
-    border-radius: 0.3rem; 
-    padding: 0.5rem 2rem;
-    margin-bottom: 1rem;
-    margin:auto;
-    align-items: center;
-}
-
 
 
 @media (max-width: 800px) {
@@ -118,18 +56,10 @@ input[type="text"]{
         min-width: 100px;
         max-height: 60px; 
         margin-top: 3rem;
->>>>>>> 79cf498f3976d666fadba11ac7b7c4047a7d6652
     }
 }
 
-
-
-<<<<<<< HEAD
-.connexionForm{
-    margin: 0 auto;
-=======
 form{
->>>>>>> 79cf498f3976d666fadba11ac7b7c4047a7d6652
     margin-top: 5%;
     display: flex;
     flex-direction: column;
@@ -137,15 +67,9 @@ form{
     text-align: center; 
 }
 
-<<<<<<< HEAD
-fieldset > img {
-    max-width: 70%;
-    margin-bottom: 2rem;
-=======
 fieldset img {
     max-width: 100%;
     margin-bottom: 3rem;
->>>>>>> 79cf498f3976d666fadba11ac7b7c4047a7d6652
 }
 
 label {
@@ -154,18 +78,15 @@ label {
     margin-bottom:10px
 }
 
-<<<<<<< HEAD
-.connexionInput {
+input {
     display: block;
     border: 0.05rem solid grey; 
     border-radius: 0.3rem; 
     padding: 0.5rem 2rem;
+    margin-bottom: 1rem;
     margin: 0 auto;
     margin-bottom: 1rem;
 }
-=======
-
->>>>>>> 79cf498f3976d666fadba11ac7b7c4047a7d6652
 
 fieldset {
     border: none;
@@ -173,59 +94,44 @@ fieldset {
 }
 
 .button{
-    margin: 0 auto;
-    margin-top: 1rem;
+    margin: 1rem;
     padding: 0.5rem 6rem;
     border: none;
     border-radius: 2rem;
     background-color:rgb(255, 221, 0);
     font-family: Arial;
     font-size:1rem;
-    margin-bottom: 10rem;
 }
 
 .button:hover{
     font-weight: bold;
 }
 
-<<<<<<< HEAD
-/*
-/*
-/*      Page offre de stage (faudra check pour opti la forme à la fin)      
-*/
+
+
+/* offre de stage */
 
 .flex-container1 {
     display: flex;
-    justify-content: flex-end;
-    margin-left: 0%;
+    justify-content: space-between;
+    margin-bottom: 1rem;
  }
 
-.rechercher {
-    margin-top: 1%;
-    margin-right: 1%;
-    padding-left:60%;
+.flex-container1 > .rechercher {
+    width: 60%;
     border-radius: 5rem;
-    text-align: left;
 }
 
 .newOffre{
-    margin-top: 1%;
     border-radius: 5rem;
-    margin-right: 1%;
+    
 }
 
 #filtres {
     margin-right: 5%;
     align-self: flex-start;
-}
-
-.filtres {
-    flex-grow: 1; 
-}
-
-.sectionStages {
-    width: 80vw;
-    max-width: 400px;
+    margin-bottom: 3rem;
+    margin-top: 0;
 }
 
 .offre {
@@ -235,35 +141,56 @@ fieldset {
 }
 
 .flex-container2 {
-    margin-top: 1rem;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10%;
+    justify-content: space-between;   
+    width: 90%; 
  }  
-
-.flex-container2 > .sectionStages {
-    max-width: 75%;
+#colonne2 {
+    width: 60%;
 }
 
-.filtres {
-    padding: 1rem 2%;
-    margin-right: 2%;
-}
-
-=======
-
-.back_to_hub {
-    width: 150px;
-    height: 5px;
-    background-color:green;/* rgb(255, 214, 0); */
-    position:fixed;
-    right: 10rem;
-  }
-
-  .texte_bth {
+.hide {
+    margin-left: 1rem;
     color: black;
-    position: absolute;
-    top: 8rem; 
-    right: 10rem;
-  }
->>>>>>> 79cf498f3976d666fadba11ac7b7c4047a7d6652
+}
+
+.hide1 {
+    color: black;
+    text-align: left;
+}
+
+h3 {
+    margin-top: 2rem;
+}
+
+input[type="range"] {
+    accent-color: rgb(255, 221, 0);
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+}
+
+
+input[type="number"] {
+    border: none;
+    font-size: 0.9rem;
+    border: 0.05rem solid rgb(220, 220, 220); 
+    border-radius: 0.3rem; 
+}
+
+.hideLieu {
+    color: black;
+    text-align: left;
+    margin-left: 2rem;
+}
+
+.inputLieu {
+    padding: 0.3rem 0.1rem;
+}
+
+input[type="checkbox"] {
+    display:inline;
+    border: 0.05rem solid black;
+    border-radius: 0.3rem;
+    margin-bottom: 0rem;
+}
+
