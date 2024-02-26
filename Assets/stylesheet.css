@@ -136,6 +136,12 @@ a {
     font-size: 1.5rem;
     text-align: right;
     margin: 2%;
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    text-decoration: bold;
+    color: rgb(255, 221, 0);
 }
 
 .flex-container1 {
