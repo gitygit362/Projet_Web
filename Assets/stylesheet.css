@@ -149,40 +149,29 @@ fieldset {
     width: 60%;
 }
 
-.hide {
-    margin-left: 1rem;
-    color: black;
-    display: none;
-}
-
-.hide1 {
-    color: black;
-    text-align: left;
-    /*display: none;*/
-}
 
 h3 {
     margin-top: 2rem;
 }   
 
-input[type="range"] {
-    all:initial;
-    accent-color: rgb(255, 221, 0);
-    margin-right: 1rem;
-    border: 0.01rem solid gray;  
-    border-radius: 3rem; 
-    
+
+/*filtre promotion*/
+
+.hidePromo {
+    margin-left: 1rem;
+    color: black;
+    display: none;
+}
+
+input[type="checkbox"]{
+    display: inline;
+    border: 0.05rem solid black;
+    border-radius: 0.3rem;
+    margin-bottom: 0rem;
 }
 
 
-input[type="number"] {
-    all: initial;
-    border: none;
-    font-size: 0.9rem;
-    border: 0.05rem solid rgb(220, 220, 220); 
-    border-radius: 0.3rem; 
-    margin-bottom: 2rem;
-}
+/*filtre lieu*/
 
 .hideLieu {
     color: black;
@@ -196,14 +185,70 @@ input[type="number"] {
     display: none;
 }
 
-input[type="checkbox"]{
-    display: inline;
-    border: 0.05rem solid black;
-    border-radius: 0.3rem;
-    margin-bottom: 0rem;
-}
 
+/*filtre entreprise*/
+
+.hideEntreprise {
+    color: black;
+    text-align: left;
+    display: none;
+}
 
 #inputEntreprise {
     display: none;
 }
+
+
+/*filtre duree*/
+
+.hideDuree {
+    color: black;
+    text-align: left;
+    display: none;
+}
+
+.inputDuree {
+    all:initial;
+    accent-color: rgb(255, 221, 0);
+    margin-right: 1rem;
+    border: 0.01rem solid black;  
+    border-radius: 3rem; 
+    display: none;
+}
+
+.outputDuree {
+    all: initial;
+    border: none;
+    font-size: 0.9rem;
+    border: 0.05rem solid rgb(220, 220, 220); 
+    border-radius: 0.3rem; 
+    margin-bottom: 2rem;
+    display: none;
+}
+
+
+/*filtre salaire*/
+
+.hideSalaire {
+    color: black;
+    text-align: left;
+}
+
+.inputSalaire {
+    all:initial;
+    accent-color: rgb(255, 221, 0);
+    margin-right: 1rem;
+    border: 0.01rem solid black;  
+    border-radius: 3rem; 
+}
+
+.outputSalaire {
+    all: initial;
+    border: none;
+    font-size: 0.9rem;
+    border: 0.05rem solid rgb(220, 220, 220); 
+    border-radius: 0.3rem; 
+    margin-bottom: 2rem;
+    display:inline;
+}
+

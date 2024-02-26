@@ -21,11 +21,11 @@
                 
                     <div class="filtre" id="promotion">
                         <h3 onclick="PromotionFilter()">Promotion ▼</h3>
-                        <label class="hide"><input type="checkbox" name="promotionFilter" value="A1"> BAC+1</label>
-                        <label class="hide"><input type="checkbox" name="promotionFilter" value="A2"> BAC+2</label>
-                        <label class="hide"><input type="checkbox" name="promotionFilter" value="A3"> BAC+3</label>
-                        <label class="hide"><input type="checkbox" name="promotionFilter" value="A4"> BAC+4</label>
-                        <label class="hide"><input type="checkbox" name="promotionFilter" value="A5"> BAC+5</label>
+                        <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A1"> BAC+1</label>
+                        <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A2"> BAC+2</label>
+                        <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A3"> BAC+3</label>
+                        <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A4"> BAC+4</label>
+                        <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A5"> BAC+5</label>
                     </div>
                     <h3 onclick="LieuFilter()">Lieu ▼</h3>
                     <div id="lieu">
@@ -38,28 +38,28 @@
                     </div>
                     <div id="entreprise">
                         <h3 onclick="EntrepriseFilter()">Entreprise ▼</h3>
-                        <label id="hideEntreprise" class="hide1">Nom de l'entreprise :</label>
+                        <label id="hideEntreprise" class="hideEntreprise">Nom de l'entreprise :</label>
                         <input id="inputEntreprise" type="text" name="entreprise">
                     </div>
-                    <div id="duree"><h3>Durée ▼</h3>
+                    <div id="duree"><h3 onclick="DureeFilter()">Durée ▼</h3>
                         <div>
-                            <label class="hide1">Durée minimum :</label>
-                            <input type="range" value="4" min="0" max="12" id="rangemin" oninput="dureemin.value=value"/>
-                            <input type="number" id="dureemin" min="0" max="12" value="4" oninput="rangemin.value=value">
-                            <label class="hide1">Durée maximum :</label>
-                            <input type="range" value="8" min="0" max="12" id="rangemax" oninput="dureemax.value=value"/>
-                            <input type="number" id="dureemax" min="0" max="12" value="8" oninput="rangemax.value=value">
+                            <label class="hideDuree">Durée minimum :</label>
+                            <input class="inputDuree" type="range" value="4" min="0" max="12" id="rangemin" oninput="dureemin.value=value"/>
+                            <input class="outputDuree" type="number" id="dureemin" min="0" max="12" value="4" oninput="rangemin.value=value">
+                            <label class="hideDuree">Durée maximum :</label>
+                            <input class="inputDuree" type="range" value="8" min="0" max="12" id="rangemax" oninput="dureemax.value=value"/>
+                            <input class="outputDuree" type="number" id="dureemax" min="0" max="12" value="8" oninput="rangemax.value=value">
                         </div>
                     </div>
                     <div id="remuneration">
-                        <h3>Rémunération ▼</h3>
+                        <h3 onclick="SalaireFilter()">Rémunération ▼</h3>
                         <div>
-                            <label class="hide1">Salaire minimum (mensuel) :</label>
-                            <input type="range" value="4" min="0" max="10000" id="rangeSalairemin" oninput="salairemin.value=value"/>
-                            <input type="number" id="salairemin" min="0" max="10000" value="1200" oninput="rangeSalairemin.value=value">
-                            <label class="hide1">Salaire maximum (mensuel) :</label>
-                            <input type="range" value="8" min="" max="10000" id="rangeSalairemax" oninput="salairemax.value=value"/>
-                            <input type="number" id="salairemax" min="0" max="10000" value="" oninput="rangeSalairemax.value=value">
+                            <label class="hideSalaire">Salaire minimum (mensuel) :</label>
+                            <input class="inputSalaire" type="range" value="4" min="0" max="10000" id="rangeSalairemin" oninput="salairemin.value=value"/>
+                            <input class="outputSalaire" type="number" id="salairemin" min="0" max="10000" value="1200" oninput="rangeSalairemin.value=value">
+                            <label class="hideSalaire">Salaire maximum (mensuel) :</label>
+                            <input class="inputSalaire" type="range" value="8" min="" max="10000" id="rangeSalairemax" oninput="salairemax.value=value"/>
+                            <input class="outputSalaire" type="number" id="salairemax" min="0" max="10000" value="" oninput="rangeSalairemax.value=value">
                         </div>
                     </div>
                     <div id="places"><h3>Places ▼</h3></div>
