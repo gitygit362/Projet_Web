@@ -151,3 +151,45 @@ function redirectToAccueil() {
             }
         }
     }
+
+
+    function PlacesFilter(){
+        let option1 = document.getElementsByClassName('hidePlaces');
+        let option2 = document.getElementsByClassName('inputPlaces');
+        let variables = [option1, option2];
+        for(let j = 0; j < variables.length; j++){
+            let elements = variables[j];
+            for(let i = 0; i < elements.length; i++){
+                let element = elements[i];
+                if(element.style.display == 'none'){
+                    element.style.display ='block';
+                }
+                else {
+                    element.style.display = 'none';
+                }
+            }
+        }
+    }
+
+
+    function TrierFilter(){
+        let trier = document.getElementsByClassName('trier');
+        for(let i = 0; i < trier.length; i++) {
+            let element = trier[i];
+            if (element.style.display == 'none') {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+    }
+
+
+
+function verifNumber(inputElement){
+    let value = inputElement.value;
+    if(value == 0){
+        inputElement.value = '';
+    }
+}
+

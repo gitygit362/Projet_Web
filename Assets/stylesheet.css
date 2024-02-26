@@ -111,6 +111,33 @@ fieldset {
 
 /* offre de stage */
 
+.header1 {
+    display: flex;
+    background-image:url("images/entetepages3.png");
+    padding-bottom: 3rem;
+    background-position: left top;
+    background-size: cover;
+}
+
+nav:first-of-type {
+    margin-top: 4rem;
+    margin-left: 15%; 
+}
+
+.navbar {
+    text-align: left;
+    font-weight: bolder;
+    font-size: 3rem;
+    width: 100%;
+    
+}
+
+a {
+    font-size: 1.5rem;
+    text-align: right;
+    margin: 2%;
+}
+
 .flex-container1 {
     display: flex;
     justify-content: space-between;
@@ -118,13 +145,13 @@ fieldset {
  }
 
 .flex-container1 > .rechercher {
-    width: 60%;
+    width: 80%;
     border-radius: 5rem;
 }
 
 .newOffre{
     border-radius: 5rem;
-    
+    margin-right: 2rem;
 }
 
 #filtres {
@@ -143,10 +170,12 @@ fieldset {
 .flex-container2 {
     display: flex;
     justify-content: space-between;   
-    width: 90%; 
+    box-sizing: 100%;
+    margin-bottom: 10rem;
  }  
+
 #colonne2 {
-    width: 60%;
+    box-sizing: 60%;
 }
 
 
@@ -176,7 +205,6 @@ input[type="checkbox"]{
 .hideLieu {
     color: black;
     text-align: left;
-    margin-left: 2rem;
     display: none;
 }
 
@@ -232,6 +260,7 @@ input[type="checkbox"]{
 .hideSalaire {
     color: black;
     text-align: left;
+    display: none;
 }
 
 .inputSalaire {
@@ -240,6 +269,7 @@ input[type="checkbox"]{
     margin-right: 1rem;
     border: 0.01rem solid black;  
     border-radius: 3rem; 
+    display: none;
 }
 
 .outputSalaire {
@@ -249,6 +279,32 @@ input[type="checkbox"]{
     border: 0.05rem solid rgb(220, 220, 220); 
     border-radius: 0.3rem; 
     margin-bottom: 2rem;
-    display:inline;
+    display: none;
 }
+
+
+/*filtre places*/
+
+.hidePlaces {
+    color: black;
+    text-align: left; 
+    display: none;
+}
+
+.inputPlaces {
+    padding: 0.3rem 0.1rem;
+    display: none;
+}
+
+
+/*filtre trier*/
+
+input[type="radio"]{
+    display: inline;
+}
+
+.trier {
+    display: none;
+}
+
 
