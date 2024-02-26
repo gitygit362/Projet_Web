@@ -50,11 +50,9 @@ function PromotionFilter(){
             element.style.display = 'block';
         } else {
             element.style.display = 'none';
-            
         }
     }
 }
-
 
 function LieuFilter(){
     let options1 = document.getElementsByClassName('hideLieu');
@@ -74,6 +72,19 @@ function LieuFilter(){
     }
 }
 
+
+function EntrepriseFilter(){
+    let option1 = document.getElementById('hideEntreprise');
+    let option2 = document.getElementById('inputEntreprise');
+    if(option1.style.display == 'none'){
+        option1.style.display ='block';
+        option2.style.display ='block';
+    }
+    else {
+        option1.style.display = 'none';
+        option2.style.display = 'none';
+    }
+}
 
 
 

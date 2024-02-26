@@ -152,45 +152,58 @@ fieldset {
 .hide {
     margin-left: 1rem;
     color: black;
+    display: none;
 }
 
 .hide1 {
     color: black;
     text-align: left;
+    /*display: none;*/
 }
 
 h3 {
     margin-top: 2rem;
-}
+}   
 
 input[type="range"] {
+    all:initial;
     accent-color: rgb(255, 221, 0);
-    margin-bottom: 2rem;
     margin-right: 1rem;
+    border: 0.01rem solid gray;  
+    border-radius: 3rem; 
+    
 }
 
 
 input[type="number"] {
+    all: initial;
     border: none;
     font-size: 0.9rem;
     border: 0.05rem solid rgb(220, 220, 220); 
     border-radius: 0.3rem; 
+    margin-bottom: 2rem;
 }
 
 .hideLieu {
     color: black;
     text-align: left;
     margin-left: 2rem;
+    display: none;
 }
 
 .inputLieu {
     padding: 0.3rem 0.1rem;
+    display: none;
 }
 
-input[type="checkbox"] {
-    display:inline;
+input[type="checkbox"]{
+    display: inline;
     border: 0.05rem solid black;
     border-radius: 0.3rem;
     margin-bottom: 0rem;
 }
 
+
+#inputEntreprise {
+    display: none;
+}
