@@ -22,8 +22,7 @@ header > img {
     max-height: 80px; 
 }  
  
-input[type="text"]{
-    display: block;
+input[type="text"]{ 
     border: 0.05rem solid grey; 
     border-radius: 0.3rem; 
     padding: 0.5rem 2rem;
@@ -127,4 +126,51 @@ fieldset {
     position: absolute;
     top: 8rem; 
     right: 10rem;
+  } 
+
+
+
+  .notation{
+    margin-top: 2rem;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    width: 70rem;
+    height: 15rem;
+    background-color: #FFEF9E;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .nota_txt{
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 5rem;
+    margin-left: 2rem;
+  }
+
+  .star{
+    max-width: 68px;
+    max-height: 68px;
+    margin-top: 3.5rem;
+    margin-left: 2rem;
+  }
+
+
+  .info_txt{
+    border-bottom: 7px solid yellow;
+    font-size: 2rem; 
+    font-weight: bold; 
+    line-height: 1.5; 
+  }
+
+
+
+  .info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
   }
