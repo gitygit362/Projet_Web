@@ -109,7 +109,6 @@ a:first-of-type {
 
 
 
-
 }
 
 
@@ -278,7 +277,7 @@ a:hover {
     border: 0.01rem solid grey;
 }
 
-.test {
+.OptionOffre {
     background-color: rgb(220, 220, 220);
     padding-top: 0.01rem;
     margin-right: 1rem;
@@ -436,5 +435,59 @@ input[type="radio"]{
 
 .trier {
     display: none;
+}
+
+
+
+
+
+/* Présentation offre */
+
+#headerImage {
+    display: flex;
+    background-image: url("images/header_presentation_offre.png");
+    padding-bottom: 5rem;
+    background-position: left top;
+    background-size: cover;
+    margin-top: 3rem;
+}
+
+.Retour {
+    margin-left: 50%;
+    border: none;
+    background: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.Retour:hover {
+    color:rgb(255, 221, 0);
+}
+
+.logoOffre {
+    margin-top: 5rem;
+        margin-left: 15%;
+        max-width: 120px;
+        min-width: 25%;
+}
+
+.flex-container-Présentation-Offre {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10rem;
+}
+
+
+.flex-container-Présentation-Offre > .DescriptionCompletOffre {
+    width: 80%;
+    font-family: Arial;
+    font-size: 1rem;
+    margin-left: 2%;
+}
+
+.TitreOffrePresentation {
+    font-size: 2.5rem;
+    margin: 2rem 0% 5rem 4%; /*top right bottom left */
+
 }
 
