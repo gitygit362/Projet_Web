@@ -18,6 +18,11 @@ function redirectToAccueil() {
     }
 }
 
+function redirectToProfile() {
+    // Exécuter la vérif des données entrées avant la redirection 
+    //pour la bonne page profile
+}
+
 
 /* offres de stages */ 
 
@@ -193,3 +198,10 @@ function verifNumber(inputElement){
     }
 }
 
+
+function voirOffre(numOffre){
+    //var offre = numOffre;
+    //ce sera du backend pour le l'affichage des bonnes données
+    window.location.href = "presentation_offre.html";
+    return false;
+}

@@ -362,6 +362,10 @@ input[type="checkbox"]{
     display: none;
 }
 
+input[type="range"], input[type="number"]{
+    background-color: white;
+}
+
 .inputDuree {
     all:initial;
     accent-color: rgb(255, 221, 0);
@@ -433,5 +437,4 @@ input[type="radio"]{
 .trier {
     display: none;
 }
-
 
