@@ -38,6 +38,12 @@ header > img {
         max-height: 60px; 
         margin-top: 2rem;
     }
+    .flex-container2 {
+        display: flex;
+        justify-content: space-between;   
+        width: 10px;
+        margin-bottom: 10rem;
+     }  
 }
 
 
@@ -174,16 +180,28 @@ a:hover {
 }
 
 .flex-container2 {
-    display: flex;
-    justify-content: space-between;   
+    display: flex;  
     box-sizing: 100%;
     margin-bottom: 10rem;
  }  
 
 #colonne2 {
-    box-sizing: 60%;
+    margin-left: 2%;
+    width: 75%;
+
+}
+.offres {
+    width: 100%;
 }
 
+#colonne1 {
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color:rgb(244, 240, 240);
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 2%;
+}
 
 h3 {
     margin-top: 2rem;
