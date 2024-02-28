@@ -20,6 +20,23 @@ header > img {
     min-width: 120px;
     max-height: 80px; 
 }
+    
+a:first-of-type {
+        margin-left: 5%;
+    }
+
+@media (min-width:1100px) {
+    .navbar {
+        text-align: left;
+        font-weight: bolder;
+        font-size: 3rem;
+        width: 100%;
+        display:flex;
+        justify-content: flex-end;
+    }
+
+}
+
 
 
 @media (max-width: 800px) {
@@ -40,7 +57,7 @@ header > img {
     }
 
 
-
+    /* Partie offre de stage responsive */
 
      .flex-container1 {
         display: flex;
@@ -87,7 +104,7 @@ header > img {
         padding-top: 2%;
     }
 
-
+    /*-------------------------------*/
 
 
 
@@ -158,7 +175,7 @@ fieldset {
     font-size:1rem;
 }
 
-.button:hover{
+button:hover{
     font-weight: bold;
 }
 
@@ -176,7 +193,6 @@ fieldset {
 
 nav:first-of-type {
     margin-top: 4rem;
-    margin-left: 10%; 
 }
 
 .navbar {
@@ -184,7 +200,6 @@ nav:first-of-type {
     font-weight: bolder;
     font-size: 3rem;
     width: 100%;
-    
 }
 
 a:first-of-type {
@@ -201,6 +216,16 @@ a {
 a:hover {
     text-decoration: bold;
     color: rgb(255, 221, 0);
+}
+
+.Profile{
+    margin: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 2rem;
+    background-color:rgb(255, 221, 0);
+    font-family: Arial;
+    font-size:1rem;
 }
 
 .flex-container1 {
