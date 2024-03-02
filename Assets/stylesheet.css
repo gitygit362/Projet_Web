@@ -108,7 +108,6 @@ a:first-of-type {
 
 
 
-
 }
 
 
@@ -260,7 +259,6 @@ a:hover {
 #colonne2 {
     margin-left: 2%;
     width: 75%;
-
 }
 
 #colonne1 {
@@ -471,6 +469,24 @@ input[type="radio"]{
         min-width: 25%;
 }
 
+
+.DescriptionCompletOffre {
+    font-family: Arial;
+    font-size: 1rem;
+    margin: 4rem 2% 4rem 2%;
+    width: (100%-10rem);
+}
+
+.CompetencesOffre {
+    padding-top: 1rem;
+    width: 10rem;
+    background-color: rgb(220, 220, 220);
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+@media only screen and (min-width: 740px) {
+
 .flex-container-Présentation-Offre {
     display: flex;
     justify-content: space-between;
@@ -491,3 +507,27 @@ input[type="radio"]{
 
 }
 
+.CompetencesOffre {
+    width: 10rem;
+    margin-right: 0.2%;
+    background-color: rgb(220, 220, 220);
+    text-align: center;
+}
+}
+
+.ValidationButton{
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 2rem;
+    background-color:rgb(255, 221, 0);
+    font-family: Arial;
+    font-size:1rem;
+}
+
+.DivValidationButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10rem; 
+}
