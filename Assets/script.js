@@ -211,13 +211,18 @@ function voirOffre(numOffre){
     return false;
 }
 
+function redirectToAccueilGE(){
+    window.location.href = "GE_accueil.html";
+}
 
+function redirectToCrerEnt(){
+    window.location.href = "GE_creation.html";
+}
 
+function redirectToSuppEnt(){
+    window.location.href = "GE_suppression.html";
+}
 
-
-
-
-
-
-
-
+function redirectToEditEnt(){
+    window.location.href = "GE_modification.html";
+}
