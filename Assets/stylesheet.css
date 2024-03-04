@@ -629,17 +629,22 @@ input[type="radio"]{
     flex-direction: column;
     align-items:flex-start;
     margin-left: 2%;
+    margin-top: 1rem;
 }
 
 .Candidaturelabel {
-    margin-top: 2rem;
     font-size: 1.2rem;
     color: black;
+}   
+
+.Candidatureinput { 
+    margin-bottom: 2rem;
+    margin-left: 0%;
+    font-family: Arial;
 }
 
-.Candidatureinput {
-    margin-left: 0%;
-}
+
+
 
 
 

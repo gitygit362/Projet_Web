@@ -11,7 +11,7 @@
     <header class="header1">
         <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
 
-        <nav class="navbar">Ma candidature
+        <nav class="navbar">Postuler
             <a href="accueil.html">Accueil</a>
             <a href="offres_stages.html" id="pagepre">Offres de stages</a>
             <a href="presentation_entreprise.html">Entreprises</a>
@@ -27,16 +27,18 @@
         <button class="Retour" onclick="voirOffre()">retour à l'offre</button>
         <form class="Candidatureform">
             <label class="Candidaturelabel">Commentaire</label>
-            <textarea class="Candidatureinput" type="text"></textarea>
+            <textarea class="Candidatureinput" type="text" placeholder="Ecrivez votre message" rows="5" cols="49"></textarea>
             <label class="Candidaturelabel">Votre CV</label>
             <input  class="Candidatureinput" type="file" accept="image/jpeg, image/png, application/pdf, application/msword">
             <label class="Candidaturelabel">Votre lettre de motivation</label>
             <input class="Candidatureinput" type="file" accept="image/jpeg, image/png, application/pdf, application/msword">
+            <button class="ValidationButton" type="button" onclick="ValidationCandidature()">Postuler</button>
         </form>
     </main>
     <style>
         .Retour {
             margin-left: 80%;
+            margin-top:2rem;
         }
     </style>
     

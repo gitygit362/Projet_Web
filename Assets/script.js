@@ -211,6 +211,10 @@ function voirOffre(numOffre){
     return false;
 }
 
+ValidationCandidature(){
+    
+}
+
 
 
 
