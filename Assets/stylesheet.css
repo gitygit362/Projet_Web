@@ -11,10 +11,11 @@ header {
     background-size: cover;
 }
 
+/*
 h1{
     padding-left: 35%;
 }
-
+*/
 
 header > img {
     margin-left: 1rem;
@@ -99,6 +100,49 @@ button:hover{
     display: inline;
 }
 
+/* Page d'accueil */
+
+.header_accueil {
+    display: flex;
+    background-image:url("images/entete_navbar.png");
+    background-position: left top;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.background_img{
+    position: relative;
+    width: 100vw;
+    display: block;
+}
+
+.background_img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    z-index: -1;
+}
+
+.intitule{
+    border-style: solid;
+    border-width: medium;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.footer{
+    margin-top: 50px;
+    padding: 5px;
+    background-color:#D9D9D9;
+    font-style: italic;
+    font-size: 100%;
+    font-weight: bold;
+
+}
 
 
 
@@ -118,7 +162,7 @@ nav:first-of-type {
 }
 
 .navbar {
-    text-align: left;
+    text-align: right;
     font-weight: bolder;
     font-size: 3rem;
     width: 100%;
