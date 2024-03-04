@@ -1,0 +1,37 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Assets/stylesheet.css">
+    <title>Suppression d'un Etudiant</title>
+    <script src="../Assets/script.js"></script>
+</head>
+
+<body>
+    <header class="logo">
+        <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
+        <h1 class="GE">Suppression etudiant</h1>
+    </header>
+    <div class="back_to_hub">
+    <div class="text_bth" onclick="redirectToAccueilGETU()">Espace Etudiant</div>
+    </div>
+    <main>
+        <form name="GE_suppression"  action="" method="post">
+            <fieldset>
+
+                <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
+                <div class="info">
+                <div class="info_txt">Information du etudiant :</div>
+                </div>
+                <label for="nom">Nom :</label>
+                <input type="text" id="user" name="user" required>
+                <label for="prenom">Prénom :</label>
+                <input type="text"  required>
+                <label for="centre">Centre :</label>
+                <input type="text"  required>
+                <label for="promo">Promotion :</label>
+                <input type="text" required>
+                <button class="button" type="button" onclick="redirectToAccueilGETU()">Créer</button>
+            </fieldset>
+        </form>
+    </main>
+</body>

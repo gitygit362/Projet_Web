@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Assets/stylesheet.css">
+    <title>Gestion des Etudiants</title>
+    <script src="../Assets/script.js"></script>
+</head>
+
+<body>
+    <header class="logo">
+        <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
+        <h1 class="GE">Espace etudiants</h1>
+    </header>
+    <div class="back_to_hub">
+    <div class="text_bth" onclick="redirectToAccueil()">Retour à l'accueil</div>
+    </div>
+    <main>
+        <form name="GETU_accueil"  action="" method="post"> 
+            <fieldset>
+                <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
+                <br>
+                <button class="button" type="button" onclick="redirectToCrer_GETU()">Crée un etudiant</button>
+                <button class="button" type="button" onclick="redirectToEdit_GETU()">Modifier un etudiant</button>
+                <button class="button" type="button" onclick="redirectToSupp_GETU()">Supprimer un etudiant</button>
+                <button class="button" type="button" onclick="redirectToRecherche_GETU()">Rechercher un etudiant</button>
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html>  

@@ -210,19 +210,61 @@ function voirOffre(numOffre){
     window.location.href = "presentation_offre.html";
     return false;
 }
-
+//gestion entreprise
 function redirectToAccueilGE(){
     window.location.href = "GE_accueil.html";
 }
 
-function redirectToCrerEnt(){
+function redirectToCrerEnt_GE(){
     window.location.href = "GE_creation.html";
 }
 
-function redirectToSuppEnt(){
+function redirectToSuppEnt_GE(){
     window.location.href = "GE_suppression.html";
 }
 
-function redirectToEditEnt(){
+function redirectToEditEnt_GE(){
     window.location.href = "GE_modification.html";
+}
+
+//gestion pilote redirection
+function redirectToAccueilGP(){
+    window.location.href = "GP_accueil.html";
+}
+
+function redirectToCrer_GP(){
+    window.location.href = "GP_creation.html";
+}
+
+function redirectToSupp_GP(){
+    window.location.href = "GP_suppression.html";
+}
+
+function redirectToEdit_GP(){
+    window.location.href = "GP_modification.html";
+}
+
+function redirectToRecherche_GP(){
+    window.location.href = "GP_recherche.html";
+}
+
+// gestion etudiant redirection
+function redirectToAccueilGETU(){
+    window.location.href = "GETU_accueil.html";
+}
+
+function redirectToCrer_GETU(){
+    window.location.href = "GETU_creation.html";
+}
+
+function redirectToSupp_GETU(){
+    window.location.href = "GETU_suppression.html";
+}
+
+function redirectToEdit_GETU(){
+    window.location.href = "GETU_modification.html";
+}
+
+function redirectToRecherche_GETU(){
+    window.location.href = "GETU_recherche.html";
 }

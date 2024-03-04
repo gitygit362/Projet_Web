@@ -1,0 +1,37 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Assets/stylesheet.css">
+    <title>Création d'un Pilote</title>
+    <script src="../Assets/script.js"></script>
+</head>
+
+<body>
+    <header class="logo">
+        <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
+        <h1 class="GE">Création Pilote</h1>
+    </header>
+    <div class="back_to_hub">
+    <div class="text_bth" onclick="redirectToAccueilGP()">Espace pilote</div>
+    </div>
+    <main>
+        <form name="GE_creation"  action="" method="post">
+            <fieldset>
+
+                <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
+                <div class="info">
+                <div class="info_txt">Information du pilote :</div>
+                </div>
+                <label for="nom">Nom :</label>
+                <input type="text" id="user" name="user" required>
+                <label for="prenom">Prénom :</label>
+                <input type="text"  required>
+                <label for="centre">Centre :</label>
+                <input type="text"  required>
+                <label for="promo">Promotion :</label>
+                <input type="text" required>
+                <button class="button" type="button" onclick="redirectToAccueilGP()">Créer</button>
+            </fieldset>
+        </form>
+    </main>
+</body>
