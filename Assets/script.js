@@ -244,6 +244,10 @@ function redirectToEdit_GP(){
     window.location.href = "GP_modification.html";
 }
 
+function redirectToRecherche_GP(){
+    window.location.href = "GP_recherche.html";
+}
+
 // gestion etudiant redirection
 function redirectToAccueilGETU(){
     window.location.href = "GETU_accueil.html";
@@ -259,4 +263,8 @@ function redirectToSupp_GETU(){
 
 function redirectToEdit_GETU(){
     window.location.href = "GETU_modification.html";
+}
+
+function redirectToRecherche_GETU(){
+    window.location.href = "GETU_recherche.html";
 }
