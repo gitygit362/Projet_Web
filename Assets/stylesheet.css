@@ -667,7 +667,7 @@ input[type="radio"]{
 
 
 
-@media (max-width: 1100px) {
+
 /* Candidature */
 
 .Candidatureform {
@@ -686,6 +686,8 @@ input[type="radio"]{
 .Candidatureinput {
     margin-left: 0%;
 }
+
+@media (max-width: 1100px) {
 .navbar {
     text-align: left;
     font-weight: bolder;
@@ -700,7 +702,7 @@ input[type="radio"]{
     width: 34rem;
     flex-direction: column;
   }  
-
+}
 
 
 /* media queries */
@@ -857,4 +859,3 @@ input[type="radio"]{
         font-size: 1.8rem; 
       }
 }
-
