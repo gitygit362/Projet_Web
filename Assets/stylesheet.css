@@ -216,7 +216,7 @@ a:hover {
     color: rgb(255, 221, 0);
 }
 
-.Profile{
+.Profil{
     margin: 1.5rem;
     padding: 0.5rem 1rem;
     border: none;
@@ -477,7 +477,8 @@ input[type="radio"]{
     width: (100%-10rem);
 }
 
-.CompetencesOffre {
+.StatsOffre {
+    color: rgb(3, 121, 255);
     padding-top: 1rem;
     width: 10rem;
     background-color: rgb(220, 220, 220);
@@ -507,7 +508,8 @@ input[type="radio"]{
 
 }
 
-.CompetencesOffre {
+.StatsOffre {
+    color: rgb(3, 121, 255);
     width: 10rem;
     margin-right: 0.2%;
     background-color: rgb(220, 220, 220);

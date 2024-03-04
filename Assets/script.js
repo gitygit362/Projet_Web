@@ -18,10 +18,23 @@ function redirectToAccueil() {
     }
 }
 
-function redirectToProfile() {
+function redirectToProfil() {
     // Exécuter la vérif des données entrées avant la redirection 
     //pour la bonne page profile
 }
+
+function redirectToPostulation() {
+    var popupFeatures = 'width=400,height=300,top=100,left=100,resizable=yes,scrollbars=yes';
+
+    // Ouvrir la fenêtre pop-up
+    var popupWindow = window.open('CV.html', 'Popup', popupFeatures);
+
+    // Vérifier si la fenêtre pop-up a été bloquée
+    if (popupWindow == null || typeof(popupWindow)=='undefined') {
+        alert('Veuillez autoriser les pop-ups pour afficher la fenêtre.');
+    }
+}
+
 
 
 /* offres de stages */ 
