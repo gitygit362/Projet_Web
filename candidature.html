@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/stylesheet.css">
+    <script src="Assets/script.js"></script>
+    <title>Postuler</title>
+</head>
+<body>
+    <header class="header1">
+        <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
+
+        <nav class="navbar">Ma candidature
+            <a href="accueil.html">Accueil</a>
+            <a href="offres_stages.html" id="pagepre">Offres de stages</a>
+            <a href="presentation_entreprise.html">Entreprises</a>
+            <button class="Profil" type="button" onclick="redirectToProfil()">Mon profil</button>
+        </nav>
+        <style>
+            #pagepre {
+                background: linear-gradient(to bottom, white, white, rgb(255, 221, 0));
+            }
+        </style>
+    </header>
+    <main>
+        <button class="Retour" onclick="voirOffre()">retour à l'offre</button>
+        <form class="Candidatureform">
+            <label class="Candidaturelabel">Commentaire</label>
+            <textarea class="Candidatureinput" type="text"></textarea>
+            <label class="Candidaturelabel">Votre CV</label>
+            <input  class="Candidatureinput" type="file" accept="image/jpeg, image/png, application/pdf, application/msword">
+            <label class="Candidaturelabel">Votre lettre de motivation</label>
+            <input class="Candidatureinput" type="file" accept="image/jpeg, image/png, application/pdf, application/msword">
+        </form>
+    </main>
+    <style>
+        .Retour {
+            margin-left: 80%;
+        }
+    </style>
+    
