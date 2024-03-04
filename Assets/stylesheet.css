@@ -36,121 +36,19 @@ a:first-of-type {
         margin-left: 5%;
     }
 
-@media (min-width:1100px) {
-    .navbar {
-        text-align: left;
-        font-weight: bolder;
-        font-size: 3rem;
-        width: 100%;
-        display:flex;
-        justify-content: flex-end;
-    }
-
-}
-
-
-
-@media (max-width: 800px) {
-    h1{
-        padding-left: 13rem;
-    }
-    header {
-        display: flex;
-        background-image: url("images/enteteRES.png");
-        background-size: auto 100%;
-        background-position: left top;
-        background-size: cover;
-    }
-    header >img{
-        min-width: 100px;
-        max-height: 60px; 
-        margin-top: 2rem;
-    }
-
-
-    /* Partie offre de stage responsive */
-
-     .flex-container1 {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-     }
-    
-    .flex-container1 > .rechercher {
-        width: 100%;
-        border-radius: 5rem;
-        margin-right: 2%;
-    }
-    
-    .newOffre{
-        border-radius: 5rem;
-        margin-right: 2%;
-    }
-    
-    #filtres {
-        margin-right: 5%;
-        align-self: flex-start;
-        margin-bottom: 3rem;
-        margin-top: 0;
-    }
-    
-    .flex-container2 {
-        display: block;  
-        box-sizing: 100%;
-        margin-bottom: 10rem;
-     }  
-    
-    #colonne2 {
-        margin-left: 2%;
-        width: 75%;
-    
-    }
-    
-    #colonne1 {
-        margin-left: 2%;
-        margin-right: 2%;
-        background-color:rgb(244, 240, 240);
-        padding-right: 5%;
-        padding-left: 5%;
-        padding-top: 2%;
-    }
-
-    /*-------------------------------*/
-
-
-
-}
-
-
-@media (max-width: 600px) {
-    h1{
-        padding-left: 5rem;
-    }
-    header {
-        display: flex;
-        background-image: url("images/enteteRESv2.png");
-        background-size: auto 100%;
-        background-position: left top;
-        background-size: cover;
-    }
-    header >img{
-        min-width: 100px;
-        max-height: 60px; 
-        margin-top: 3rem;
-    }
-}
 
 form{
     margin-top: 5%;
-    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center; 
+    display: flex;
 }
 
 fieldset img {
     max-width: 100%;
     margin-bottom: 3rem;
+
 }
 
 label {
@@ -187,6 +85,19 @@ fieldset {
 button:hover{
     font-weight: bold;
 }
+
+.main_stylo{
+    max-height: 100px;
+    max-width: 100px;
+    margin-top: 2rem;
+    margin: auto;
+}
+
+.block_star{
+    display: inline;
+}
+
+
 
 
 
@@ -339,20 +250,19 @@ input[type="checkbox"]{
 
 .hideLieu {
     color: black;
-
-    position: absolute;
-    top: 8rem; 
-    right: 10rem;
+    text-align: left;
+    display: none;
   } 
 
 
 
   .notation{
+    padding-top: 1rem;
     margin-top: 2rem;
-    padding-left: 2rem;
-    padding-top: 2rem;
-    width: 70rem;
-    height: 15rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    width: 65rem;
+    height: 12rem;
     background-color: #FFEF9E;
     border-radius: 10px;
     display: flex;
@@ -377,7 +287,7 @@ input[type="checkbox"]{
 
 
   .info_txt{
-    border-bottom: 7px solid yellow;
+    border-bottom: 7px solid rgb(255, 221, 0);
     font-size: 2rem; 
     font-weight: bold; 
     line-height: 1.5; 
@@ -390,11 +300,29 @@ input[type="checkbox"]{
     align-items: center;
     flex-direction: column;
     margin-bottom: 1rem;
+    text-align: left;
+}
+
+.text_bth{
+    border-bottom: 7px solid rgb(255, 221, 0);
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    line-height: 1.5; 
   }
 
+
+
+  .back_to_hub{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
     text-align: left;
-    display: none;
+    justify-content: flex-end;
 }
+
+
+
+
 
 .inputLieu {
     padding: 0.3rem 0.1rem;
@@ -415,7 +343,7 @@ input[type="checkbox"]{
 }
 
 
-/*filtre duree*/
+/*filtre duree*/ 
 
 .hideDuree {
     color: black;
@@ -598,3 +526,133 @@ input[type="radio"]{
     margin-bottom: 10rem; 
 }
 
+
+
+@media (max-width: 1100px) {
+    .navbar {
+        text-align: left;
+        font-weight: bolder;
+        font-size: 3rem;
+        width: 100%;
+        display:flex;
+        justify-content: flex-end;
+    }
+    .notation{
+        height: 25rem;
+        width: 34rem;
+        flex-direction: column;
+    }
+}
+
+
+
+@media (max-width: 800px) {
+    h1{
+        padding-left: 13rem;
+    }
+    header {
+        display: flex;
+        background-image: url("images/enteteRES.png");
+        background-size: auto 100%;
+        background-position: left top;
+        background-size: cover;
+    }
+    header >img{
+        min-width: 100px;
+        max-height: 60px; 
+        margin-top: 2rem;
+    }
+
+
+    /* Partie offre de stage responsive */
+
+     .flex-container1 {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+     }
+    
+    .flex-container1 > .rechercher {
+        width: 100%;
+        border-radius: 5rem;
+        margin-right: 2%;
+    }
+    
+    .newOffre{
+        border-radius: 5rem;
+        margin-right: 2%;
+    }
+    
+    #filtres {
+        margin-right: 5%;
+        align-self: flex-start;
+        margin-bottom: 3rem;
+        margin-top: 0;
+    }
+    
+    .flex-container2 {
+        display: block;  
+        box-sizing: 100%;
+        margin-bottom: 10rem;
+     }  
+    
+    #colonne2 {
+        margin-left: 2%;
+        width: 75%;
+    
+    }
+    
+    #colonne1 {
+        margin-left: 2%;
+        margin-right: 2%;
+        background-color:rgb(244, 240, 240);
+        padding-right: 5%;
+        padding-left: 5%;
+        padding-top: 2%;
+    }
+
+    /*-------------------------------*/
+
+
+
+}
+
+
+@media (max-width: 600px) {
+    h1{
+        padding-left: 5rem;
+    }
+    .GE{
+        font-size: 1.5rem;
+    }
+    header {
+        display: flex;
+        background-image: url("images/enteteRESv2.png");
+        background-size: auto 100%;
+        background-position: left top;
+        background-size: cover;
+    }
+    header >img{
+        min-width: 100px;
+        max-height: 60px; 
+        margin-top: 3rem;
+    }
+    .star {
+        max-width: 45px;
+        max-height: 45px;
+        margin-top: 2rem;
+        margin-left: 1rem;
+    }
+    .nota_txt{
+        margin-left: 0rem;
+      }
+    .notation{
+        height: 25rem;
+        width: 20rem;
+        margin: auto;
+        margin-top: 3rem;
+    }
+    .info_txt{
+        font-size: 1.8rem; 
+      }
+}
