@@ -584,6 +584,24 @@ input[type="radio"]{
 
 
 
+/* Candidature */
+
+.Candidatureform {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    margin-left: 2%;
+}
+
+.Candidaturelabel {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.Candidatureinput {
+    margin-left: 0%;
+}
 
 
 
