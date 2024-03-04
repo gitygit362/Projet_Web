@@ -210,7 +210,7 @@ function voirOffre(numOffre){
     window.location.href = "presentation_offre.html";
     return false;
 }
-
+//gestion entreprise
 function redirectToAccueilGE(){
     window.location.href = "GE_accueil.html";
 }
@@ -227,7 +227,7 @@ function redirectToEditEnt_GE(){
     window.location.href = "GE_modification.html";
 }
 
-
+//gestion pilote redirection
 function redirectToAccueilGP(){
     window.location.href = "GP_accueil.html";
 }
@@ -242,4 +242,21 @@ function redirectToSupp_GP(){
 
 function redirectToEdit_GP(){
     window.location.href = "GP_modification.html";
+}
+
+// gestion etudiant redirection
+function redirectToAccueilGETU(){
+    window.location.href = "GETU_accueil.html";
+}
+
+function redirectToCrer_GETU(){
+    window.location.href = "GETU_creation.html";
+}
+
+function redirectToSupp_GETU(){
+    window.location.href = "GETU_suppression.html";
+}
+
+function redirectToEdit_GETU(){
+    window.location.href = "GETU_modification.html";
 }
