@@ -215,14 +215,31 @@ function redirectToAccueilGE(){
     window.location.href = "GE_accueil.html";
 }
 
-function redirectToCrerEnt(){
+function redirectToCrerEnt_GE(){
     window.location.href = "GE_creation.html";
 }
 
-function redirectToSuppEnt(){
+function redirectToSuppEnt_GE(){
     window.location.href = "GE_suppression.html";
 }
 
-function redirectToEditEnt(){
+function redirectToEditEnt_GE(){
     window.location.href = "GE_modification.html";
+}
+
+
+function redirectToAccueilGP(){
+    window.location.href = "GP_accueil.html";
+}
+
+function redirectToCrer_GP(){
+    window.location.href = "GP_creation.html";
+}
+
+function redirectToSupp_GP(){
+    window.location.href = "GP_suppression.html";
+}
+
+function redirectToEdit_GP(){
+    window.location.href = "GP_modification.html";
 }
