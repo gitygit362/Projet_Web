@@ -1,11 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Assets/stylesheet.css">
+        <script src="Assets/script.js"></script>
+    </head>
+
+    <body>
+        <header class="header_accueil">
+            <nav class="navbar">
+                Accueil&nbsp;       
+                <a href="offres_stages.html">Offres de stage</a>&nbsp;
+                <a href="recherche_entreprises.html">Entreprises</a>&nbsp;
+                <a href="page_connexion.html">Se déconnecter</a>&nbsp;
+                <a href="profil_etudiant.html"><span class="Profil">Mon profil</span></a>&nbsp;
+            </nav>
+
+        </header>
+
+        <main>
+
+            <article class="background_img">
+                <img src="./Assets/images/image_accueil.png">
+                <h1 style="color: white; font-size: 300%; font-style: italic; width: 40%; padding: 1.5%;">Le dernier né des sites d'offres de stage...</h1>
+                <a href="offres_stages.html">
+                    <span class="button" style="font-size: 130%; font-weight: bold; margin-left: 50%;">
+                        RECHERCHER MAINTENANT
+                    </span>
+                </a>
+            </article>
+
+            <article class="article" style="margin-top: 15%;">
+                <h1 style="font-size: 200%; text-decoration: underline; margin-left: 10px;">Dernières offres</h1>
+                <span style="display: flex; justify-content: space-evenly;">
+                    <section class="intitule">
+                        <h2>Intitulé stage 1</h2>
+                        <button class="button">Voir l'offre</button>
+                    </section>
+                    <section class="intitule">
+                        <h2>Intitulé stage 2</h2>
+                        <button class="button">Voir l'offre</button>
+                    </section>
+                    <section class="intitule">
+                        <h2>Intitulé stage 3</h2>
+                        <button class="button">Voir l'offre</button>
+                    </section>
+                </span>    
+            </article>
+
+        </main>
+
+        <footer class="footer">
+            <p>EasyStage Inc.</p>
+        </footer>
     
-</body>
+    </body>
 </html>
