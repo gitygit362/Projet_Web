@@ -211,8 +211,23 @@ function voirOffre(numOffre){
     return false;
 }
 
-ValidationCandidature(){
-    
+function ValidationCandidature(){
+    var fichier1 = document.getElementById("file1").value;
+    var fichier2 = document.getElementById("file2").value;
+    var txt = document.getElementById("commentaire").value;
+    if (txt == ""){
+        alert("Veuillez entrer un text");
+        return false;
+    }
+    else if(fichier1 == "" || fichier2 == ""){
+        alert("Veuillez insérer vos fichiers");
+        return false;
+    }
+    else {
+        alert("Votre candidature à été envoyée");
+        window.location.href = "presentation_offre.html"; // marche pas
+        return false;
+    }
 }
 
 
