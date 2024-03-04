@@ -1,0 +1,48 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Assets/stylesheet.css">
+    <title>Création d'une entreprise</title>
+    <script src="../Assets/script.js"></script>
+</head>
+
+<body>
+    <header class="logo">
+        <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
+        <h1 class="GE">Création entreprise</h1>
+    </header>
+    <div class="back_to_hub">
+    <div class="text_bth" onclick="redirectToAccueilGE()">Espace Entreprise</div>
+    </div>
+    <main>
+        <form name="GE_creation"  action="" method="post">
+            <fieldset>
+
+                <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
+                <div class="info">
+                <div class="info_txt">Information de l'entreprise :</div>
+                </div>
+                <label for="name">Nom de l'entreprise :</label>
+                <input type="text" id="user" name="user" required>
+                <label for="secteur">Secteur d'entreprise :</label>
+                <input type="text" id="password" name="password" required>
+                <label for="local">localité(s) :</label>
+                <input type="text" id="password" name="password" required>
+                <label for="local+">Ajouter une localité :</label>
+                <input type="text" id="password" name="password">
+                <div class="notation">
+                <img src="../Assets/images/main_stylo.png" alt="logo EASYSTAGE" class="main_stylo">
+                <div class="nota_txt">Notation de l'entreprise</div>
+                <div class="block_star">
+                <img src="../Assets/images/etoiles_jaune.png" alt="logo EASYSTAGE" class="star">
+                <img src="../Assets/images/etoiles_jaune.png" alt="logo EASYSTAGE" class="star">
+                <img src="../Assets/images/etoiles_jaune.png" alt="logo EASYSTAGE" class="star">
+                <img src="../Assets/images/etoiles_jaune.png" alt="logo EASYSTAGE" class="star">
+                <img src="../Assets/images/etoiles_jaune.png" alt="logo EASYSTAGE" class="star">
+                </div>
+                </div>
+                <button class="button" type="button" onclick="redirectToAccueilGE()">Créer</button>
+            </fieldset>
+        </form>
+    </main>
+</body>
