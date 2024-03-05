@@ -639,6 +639,7 @@ input[type="radio"]{
 
 
 
+
 /* Candidature */
 
 .Candidatureform {
@@ -866,5 +867,29 @@ input[type="radio"]{
     .info_txt{
         font-size: 1.8rem; 
       }
+}
+
+@media (min-width: 1272px) {
+    .navbar {
+        text-align: left;
+        font-weight: bolder;
+        font-size: 3rem;
+        width: 100%;
+        display:flex;
+        justify-content:flex-end;
+    }
+}
+
+
+
+
+
+#Entreprise > h2 {
+    margin-left: 10%;
+    font-size: 2rem;
+}
+
+#Entreprise {
+    background-image: url("images/fond_entreprise.png");
 }
 
