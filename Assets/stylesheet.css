@@ -728,25 +728,85 @@ input[type="radio"]{
     justify-content: space-between;
 }
 
-.resultatEntreprises {
+.hideNote {
+    margin-left: 1rem;
+    color: black;
+    display: none;
+}
+
+.inputActivite {
+    padding: 0.3rem 0.1rem; 
+    display: none;
+}
+
+.filtresEntreprises {
+    margin-left: 5%;
+    width: 50%;
+}
+
+#resultatsEntreprises {
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color:rgb(244, 240, 240);
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 2%;
+}
+
+#flex-Entreprise-resultat {
     margin: 10rem 0 0 2%;
-    font-size: 1.5rem;
+    display: flex;  
+    box-sizing: 100%;
+    margin-bottom: 4rem;
+}
+
+.resultatsEntreprises > h2 {
+    font-size: 2.5rem;
     text-decoration: underline;
 }
 
+.filtresEntreprises > h2 {
+    padding-top: 2.5rem;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 2%;
+    padding-bottom: 3.5rem;
+}
 
+.filtresEntreprises > h3 {
+    text-align: center;
+}
 
+.TitreEntreprise {
+    text-align: left;
+    margin-left: 3%;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
 
+.DescriptionEntreprise {
+    text-align: left;
+    margin-left: 1%;
+    margin-top: 0rem;
+}
 
+.OptionEntreprise {
+    padding-top: 0.01rem;
+    margin-right: 1rem;
+    border: 2px solid rgb(220, 220, 220);
+    margin-bottom: 1rem;
+    border-radius: 1.2rem;
+}
 
-
-
-
-
-
-
-
-
+.topEntreprises {
+    font-size: 2.5rem;
+    margin-left: 2%;
+    width: 550px;
+    height: 46.4px;
+    background: linear-gradient(to bottom, white, white, rgb(255, 221, 0));
+    margin-bottom: 2rem;
+}
 
 
 
