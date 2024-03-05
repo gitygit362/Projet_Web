@@ -809,7 +809,33 @@ input[type="radio"]{
 }
 
 
+.flex-top-Enterprises-1 , .flex-top-Enterprises-2 {
+    margin-top: 4rem;
+    margin-left: 10%;
+    display: flex;
+    justify-content:space-between;
+    width: 80%;
+    margin-right: 10%;
+    margin-bottom: -2rem;
+}
 
+.flex-top-Enterprises-1 > div , .flex-top-Enterprises-2 > div {
+    padding: 1rem 2% 0.2rem 2%;
+    width: 20%;
+    border: 2px solid rgb(220, 220, 220);
+    border-radius: 1.2rem;
+}
+
+
+
+
+
+
+@media (max-width: 900px) {
+    .flex-top-Enterprises-1 > div > article > h5, .flex-top-Enterprises-2 > div > article > h5 {
+        font-size: 1.3rem;
+    }
+}
 
 
 
@@ -951,7 +977,20 @@ input[type="radio"]{
         font-size: 1rem;
         text-decoration: underline;
     }
+    .flex-top-Enterprises-1 > div > article > h5, .flex-top-Enterprises-2 > div > article > h5 {
+        font-size: 1.2rem;
+    }
 
+    .flex-top-Enterprises-1, .flex-top-Enterprises-2 {
+        flex-direction: column; /* Mettre en colonne pour les petits écrans */
+        align-items: center; /* Aligner les éléments au centre */
+        width: 100%;
+    }
+
+    .flex-top-Enterprises-1 > div, .flex-top-Enterprises-2 > div {
+        width: 80%;
+        margin-bottom: 2rem;
+    }
 }
 
 
