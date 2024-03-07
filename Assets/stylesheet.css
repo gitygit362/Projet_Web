@@ -639,6 +639,7 @@ input[type="radio"]{
 
 
 
+
 /* Candidature */
 
 .Candidatureform {
@@ -672,6 +673,172 @@ input[type="radio"]{
 
 
 
+#Entreprise {
+    margin-top: 2rem;
+    background-image: url("images/fond_entreprise.png");
+    padding-bottom: 25rem;
+    background-size: auto 100%;
+    background-position: center top;  
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.flex-rechercher-Entreprise{
+    display: flex;
+    margin-top: -8rem;
+    justify-content: space-between;
+}
+
+.rechercheEntreprise {
+    display: flex;
+    margin-left: 15%;
+    width: 50%;
+    border-radius: 0.4rem;
+}
+
+.rechercheBouton {
+    display: flex;
+    margin-right: 15%;
+    padding: 0.4rem 0 0 0.4rem;
+    padding-bottom: 0;
+    border: 1px solid black;
+    border-radius: 0.4rem;
+    background-color:rgb(255, 221, 0);
+    font-family: Arial;
+    font-size: 1rem;
+    height: 2rem;
+    width: 6.2rem;
+    margin-left: 2%;
+}
+
+/*top right bottom left */
+
+#espaceEntreprise {
+    display: flex;
+    text-decoration:underline;
+    font-size: 1.2rem;
+    font-weight: bold;
+    justify-content:flex-end;
+
+}
+
+.flex-infos-Entreprise {
+    display: flex;
+    margin-top: -8rem;
+    justify-content: space-between;
+}
+
+.hideNote {
+    margin-left: 1rem;
+    color: black;
+    display: none;
+}
+
+.inputActivite {
+    padding: 0.3rem 0.1rem; 
+    display: none;
+}
+
+.filtresEntreprises {
+    margin-left: 5%;
+    width: 50%;
+}
+
+#resultatsEntreprises {
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color:rgb(244, 240, 240);
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 2%;
+}
+
+#flex-Entreprise-resultat {
+    margin: 10rem 0 0 2%;
+    display: flex;  
+    box-sizing: 100%;
+    margin-bottom: 4rem;
+}
+
+.resultatsEntreprises > h2 {
+    font-size: 2.5rem;
+    text-decoration: underline;
+}
+
+.filtresEntreprises > h2 {
+    padding-top: 2.5rem;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 2%;
+    padding-bottom: 3.5rem;
+}
+
+.filtresEntreprises > h3 {
+    text-align: center;
+}
+
+.TitreEntreprise {
+    text-align: left;
+    margin-left: 3%;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.DescriptionEntreprise {
+    text-align: left;
+    margin-left: 1%;
+    margin-top: 0rem;
+}
+
+.OptionEntreprise {
+    padding-top: 0.01rem;
+    margin-right: 1rem;
+    border: 2px solid rgb(220, 220, 220);
+    margin-bottom: 1rem;
+    border-radius: 1.2rem;
+}
+
+.topEntreprises {
+    font-size: 2.5rem;
+    margin-left: 2%;
+    width: 550px;
+    height: 46.4px;
+    background: linear-gradient(to bottom, white, white, rgb(255, 221, 0));
+    margin-bottom: 2rem;
+}
+
+
+.flex-top-Enterprises-1 , .flex-top-Enterprises-2 {
+    margin-top: 4rem;
+    margin-left: 10%;
+    display: flex;
+    justify-content:space-between;
+    width: 80%;
+    margin-right: 10%;
+    margin-bottom: -2rem;
+}
+
+.flex-top-Enterprises-1 > div , .flex-top-Enterprises-2 > div {
+    padding: 1rem 2% 0.2rem 2%;
+    width: 20%;
+    border: 2px solid rgb(220, 220, 220);
+    border-radius: 1.2rem;
+}
+
+
+
+
+
+
+@media (max-width: 900px) {
+    .flex-top-Enterprises-1 > div > article > h5, .flex-top-Enterprises-2 > div > article > h5 {
+        font-size: 1.3rem;
+    }
+}
+
+
+
 
 
 
@@ -686,6 +853,12 @@ input[type="radio"]{
     width: 34rem;
     flex-direction: column;
   }  
+
+  .resultatEntreprises {
+    margin: 10rem 0 0 2%;
+    font-size: 1.3rem;
+    text-decoration: underline;
+    }
 }
 
 
@@ -796,6 +969,28 @@ input[type="radio"]{
     }
     /*-------------------------------*/
 
+    .rechercheBouton {
+        padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+    }
+    .resultatEntreprises {
+        margin: 10rem 0 0 2%;
+        font-size: 1rem;
+        text-decoration: underline;
+    }
+    .flex-top-Enterprises-1 > div > article > h5, .flex-top-Enterprises-2 > div > article > h5 {
+        font-size: 1.2rem;
+    }
+
+    .flex-top-Enterprises-1, .flex-top-Enterprises-2 {
+        flex-direction: column; /* Mettre en colonne pour les petits écrans */
+        align-items: center; /* Aligner les éléments au centre */
+        width: 100%;
+    }
+
+    .flex-top-Enterprises-1 > div, .flex-top-Enterprises-2 > div {
+        width: 80%;
+        margin-bottom: 2rem;
+    }
 }
 
 
@@ -866,5 +1061,31 @@ input[type="radio"]{
     .info_txt{
         font-size: 1.8rem; 
       }
+
+
+      .rechercheBouton {
+        padding: 0.4rem 0.4rem 0.2rem 0.4rem;
+        font-size: 0.8rem;
+    }
 }
+
+
+
+
+@media (min-width: 1272px) {
+    .navbar {
+        text-align: left;
+        font-weight: bolder;
+        font-size: 3rem;
+        width: 100%;
+        display:flex;
+        justify-content:flex-end;
+    }
+}
+
+
+
+
+
+
 
