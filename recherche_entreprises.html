@@ -10,7 +10,7 @@
 <body>
     <header class="header1">
         <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
-        <nav class="navbar">
+        <nav class="navbar">Entreprises
             <a href="accueil.html">Accueil</a>
             <a href="presentation_entreprise.html">Entreprises</a>
             <a class="refPilote" href="gestion_etudiant/GE_accueil.html">Etudiants</a>
@@ -19,10 +19,132 @@
         </nav>
     </header>
         <main>
-            
+            <a id="espaceEntreprise">Espace entreprise</a>
             <div id="Entreprise">
-                <h2>Entreprises</h2>
             </div>
+            <div class="flex-rechercher-Entreprise">
+                <input class="rechercheEntreprise" type="text" name="rechercher" placeholder="Rechercher">
+                <button class="rechercheBouton">Rechercher</button>
+            </div>
+
+
+            <div id="flex-Entreprise-resultat">
+                <div class="resultatsEntreprises">
+                    <h2>Résultats de la recherche</h2>
+
+                    <ul class="options">
+                        <li class="OptionEntreprise" onclick="voirEntreprise(this)"><article><h5 class="TitreEntreprise">Offre 1</h5><p class="DescriptionEntreprise">ceci est un test</p></article></li>
+                        <!-- Ajoutez d'autres offres ici -->
+                        <li class="OptionEntreprise" onclick="voirEntreprise(this)"><article><h5 class="TitreEntreprise">Entreprise 2</h5><p class="DescriptionEntreprise">ceci est un test zfedzf fze ezf fzefz efezefezf zfeze fz ef zf z fz fzefzefz fze fz fz ef zefz fzzeffzes fzesdfzesq faezqsfezf sfezsqdfez fezfzfzfqfze fezqfzefzqfez fzeqfqzefzfz fzqfesqfezef zfqfzfezfcqf </p></article></li>
+                        <li class="OptionEntreprise" onclick="voirEntreprise(this)"><article><h5 class="TitreEntreprise">Entreprise 3</h5><p class="DescriptionEntreprise">ceci est un test</p></article></li>
+                        <li class="OptionEntreprise" onclick="voirEntreprise(this)"><article><h5 class="TitreEntreprise">Entreprise 4</h5><p class="DescriptionEntreprise">ceci est un test</p></article></li>
+                    </ul>
+                    <div class="center">
+                        <div class="pagination">
+                            <a href="#">&laquo;</a>
+                            <a href="#" class="active">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">6</a>
+                            <a href="#">&raquo;</a>
+                            </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="filtresEntreprises">
+                    <h2>Filtres de la recherche : </h2>
+                
+                <!-- filtres -->
+
+                    <div>
+                        <h3 onclick="EntrepriseFilter()">Nom ▼</h3>
+                        <label id="hideEntreprise" class="hideEntreprise">Nom de l'entreprise :</label>
+                        <input id="inputEntreprise" type="text" name="entreprise">
+                    </div>
+
+                    <div>
+                        <h3 onclick="Activite()">Secteur d'activité ▼</h3>
+                        <input class="inputActivite" type="text" name="pays">
+                    </div>
+
+                    <div>
+                        <h3 onclick="LieuFilter()">Lieu ▼</h3>
+                        <label class="hideLieu">Pays :</label>
+                        <input class="inputLieu" type="text" name="pays">
+                        <label class="hideLieu">Ville :</label>
+                        <input class="inputLieu" type="text" name="ville">
+                        <label class="hideLieu">Adresse :</label>
+                        <input class="inputLieu" type="text" name="adresse">
+                    </div>
+                
+                    <div>
+                        <h3 onclick="EvaluationFiltre()">Note ▼</h3>
+                        <label class="hideNote"><input type="checkbox" name="evaluationFilter" value="de 0 à 1 étoile"> de 0 à 1 étoile</label>
+                        <label class="hideNote"><input type="checkbox" name="pevaluationFilter" value="de 1 à 2 étoiles"> de 1 à 2 étoiles</label>
+                        <label class="hideNote"><input type="checkbox" name="evaluationFilter" value="de 3 à 4 étoiles"> de 3 à 4 étoiles</label>
+                        <label class="hideNote"><input type="checkbox" name="evalutionFilter" value="de 4 à 5 étoiles"> de 4 à 5 étoiles</label>
+                        <label class="hideNote"><input type="checkbox" name="evaluationFilter" value="tout"> tout</label>
+                    </div>
+                    
+                    <div>
+                        <h3 onclick="PlacesFilter()">Places ▼</h3>
+                        <label class="hidePlaces">Places minimum :</label>
+                        <input class="inputPlaces" type="number" min="0" value="" name="placesmin" onchange="verifNumber(this)">
+                        <label class="hidePlaces">Places maximum :</label>
+                        <input class="inputPlaces" type="number" min="0" value="" name="placesmax" onchange="verifNumber(this)">
+                    </div>
+
+                    <div>
+                        <h3 onclick="TrierFilter()">Trier par ▼</h3>
+                        <div class="trier">
+                            <input type="radio" name="trieroffre" value="PlusRécentes"> Note croissante
+                        </div>
+                        <div class="trier">
+                            <input type="radio" name="trieroffre" value="PlusAnciennes"> Note décroissante
+                        </div>
+                        <div class="trier">
+                            <input type="radio" name="trieroffre" value="SalairesCroissants"> Likes croissants
+                        </div>
+                        <div class="trier">
+                            <input type="radio" name="trieroffre" value="SalairesDécroissants"> Likes décroissants
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <h2 class="topEntreprises">Entreprises les plus recherchées</h2>
+     
+            <div class="flex-top-Enterprises-1">
+                <div>
+                    <article class="OptionTopEntreprises" onclick="voirEntreprise(this)"><h5 class="TitreEntreprise">Offre 1</h5><p class="DescriptionEntreprise">ceci est un test</p></article>
+                </div>
+                <!-- Ajoutez d'autres offres ici -->
+                <div>
+                    <article class="OptionTopEntreprises" onclick="voirEntreprise(this)"><h5 class="TitreEntreprise">Entreprise 12</h5><p class="DescriptionEntreprise">ceci est un test</p></article>
+                </div>
+                <div>
+                    <article class="OptionTopEntreprises" onclick="voirEntreprise(this)"><h5 class="TitreEntreprise">Entreprise 47</h5><p class="DescriptionEntreprise">ceci est un test</p></article>
+                </div>
+            </div>
+
+            <div class="flex-top-Enterprises-2">
+                <div>
+                    <article class="OptionTopEntreprises" onclick="voirEntreprise(this)"><h5 class="TitreEntreprise">Entreprise 3</h5><p class="DescriptionEntreprise">ceci est un test</p></article>
+                </div>
+                <div>
+                    <article class="OptionTopEntreprises" onclick="voirEntreprise(this)"><h5 class="TitreEntreprise">Entreprise 24</h5><p class="DescriptionEntreprise">ceci est un test</p></article>
+                </div>
+                <div>
+                    <article class="OptionTopEntreprises" onclick="voirEntreprise(this)"><h5 class="TitreEntreprise">Entreprise 35</h5><p class="DescriptionEntreprise">ceci est un test</p></article>
+                </div>
+            </div>
+ 
+
 
         </main>
     </body>
