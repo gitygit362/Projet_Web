@@ -12,14 +12,14 @@
         <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
         <nav class="navbar">Entreprises
             <a href="accueil.html">Accueil</a>
-            <a href="presentation_entreprise.html">Entreprises</a>
+            <a href="offres_stages.html">Offres de stage</a>
             <a class="refPilote" href="gestion_etudiant/GE_accueil.html">Etudiants</a>
             <a class="refAdmin" href="gestion_pilote/GE_accueil.html">Pilotes</a>
             <button class="Profil" type="button" onclick="redirectToProfil()">Mon profil</button>
         </nav>
     </header>
         <main>
-            <a id="espaceEntreprise">Espace entreprise</a>
+            <a id="espaceEntreprise" href="gestion_entreprise/GE_accueil.html">Espace entreprise</a>
             <div id="Entreprise">
             </div>
             <div class="flex-rechercher-Entreprise">
@@ -33,9 +33,9 @@
                     <h2>Résultats de la recherche</h2>
 
                     <ul class="options">
-                        <li class="OptionEntreprise" onclick="voirEntreprise(this)"><article><h5 class="TitreEntreprise">Offre 1</h5><p class="DescriptionEntreprise">ceci est un test</p></article></li>
+                        <li class="OptionEntreprise" onclick="voirEntreprise(this)"><article><h5 class="TitreEntreprise">Entreprise 1</h5><p class="DescriptionEntreprise">ceci est un test</p></article></li>
                         <!-- Ajoutez d'autres offres ici -->
-                        <li class="OptionEntreprise" onclick="voirEntreprise(this)"><article><h5 class="TitreEntreprise">Entreprise 2</h5><p class="DescriptionEntreprise">ceci est un test zfedzf fze ezf fzefz efezefezf zfeze fz ef zf z fz fzefzefz fze fz fz ef zefz fzzeffzes fzesdfzesq faezqsfezf sfezsqdfez fezfzfzfqfze fezqfzefzqfez fzeqfqzefzfz fzqfesqfezef zfqfzfezfcqf </p></article></li>
+                        <li class="OptionEntreprise" onclick="voirEntreprise(this)"><article><h5 class="TitreEntreprise">Entreprise 2</h5><p class="DescriptionEntreprise">ceci est un test zfedzf fze ezf fzefz fze fz fz ef zefz fzqfesqfezef zfqfzfezfcqf </p></article></li>
                         <li class="OptionEntreprise" onclick="voirEntreprise(this)"><article><h5 class="TitreEntreprise">Entreprise 3</h5><p class="DescriptionEntreprise">ceci est un test</p></article></li>
                         <li class="OptionEntreprise" onclick="voirEntreprise(this)"><article><h5 class="TitreEntreprise">Entreprise 4</h5><p class="DescriptionEntreprise">ceci est un test</p></article></li>
                     </ul>
@@ -56,7 +56,7 @@
 
 
 
-                <div class="filtresEntreprises">
+                <form class="filtresEntreprises">
                     <h2>Filtres de la recherche : </h2>
                 
                 <!-- filtres -->
@@ -114,7 +114,8 @@
                             <input type="radio" name="trieroffre" value="SalairesDécroissants"> Likes décroissants
                         </div>
                     </div>
-                </div>
+                    <button class="filterButton" type="submit">Valider</button>
+                </form>
             </div>
 
         <h2 class="topEntreprises">Entreprises les plus recherchées</h2>
