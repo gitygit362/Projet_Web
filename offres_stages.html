@@ -25,89 +25,91 @@
                     <h2 id="filtres" onclick="OpenFilters()">Filtres ▼ </h2>
                 
                 <!-- filtres -->
-                
-                    <div class="divFiltre">
-                        <h3 onclick="PromotionFilter()">Promotion ▼</h3>
-                        <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A1"> BAC+1</label>
-                        <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A2"> BAC+2</label>
-                        <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A3"> BAC+3</label>
-                        <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A4"> BAC+4</label>
-                        <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A5"> BAC+5</label>
-                    </div>
+                    <form>
+                        <div class="divFiltre">
+                            <h3 onclick="PromotionFilter()">Promotion ▼</h3>
+                            <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A1"> BAC+1</label>
+                            <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A2"> BAC+2</label>
+                            <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A3"> BAC+3</label>
+                            <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A4"> BAC+4</label>
+                            <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A5"> BAC+5</label>
+                        </div>
 
-                    <div class="divFiltre">
-                        <h3 onclick="LieuFilter()">Lieu ▼</h3>
-                        <label class="hideLieu">Pays :</label>
-                        <input class="inputLieu" type="text" name="pays">
-                        <label class="hideLieu">Ville :</label>
-                        <input class="inputLieu" type="text" name="ville">
-                        <label class="hideLieu">Adresse :</label>
-                        <input class="inputLieu" type="text" name="adresse">
-                    </div>
+                        <div class="divFiltre">
+                            <h3 onclick="LieuFilter()">Lieu ▼</h3>
+                            <label class="hideLieu">Pays :</label>
+                            <input class="inputLieu" type="text" name="pays">
+                            <label class="hideLieu">Ville :</label>
+                            <input class="inputLieu" type="text" name="ville">
+                            <label class="hideLieu">Adresse :</label>
+                            <input class="inputLieu" type="text" name="adresse">
+                        </div>
 
-                    <div class="divFiltre">
-                        <h3 onclick="EntrepriseFilter()">Entreprise ▼</h3>
-                        <label id="hideEntreprise" class="hideEntreprise">Nom de l'entreprise :</label>
-                        <input id="inputEntreprise" type="text" name="entreprise">
-                    </div>
+                        <div class="divFiltre">
+                            <h3 onclick="EntrepriseFilter()">Entreprise ▼</h3>
+                            <label id="hideEntreprise" class="hideEntreprise">Nom de l'entreprise :</label>
+                            <input id="inputEntreprise" type="text" name="entreprise">
+                        </div>
 
-                    <div class="divFiltre">
-                        <h3 onclick="DureeFilter()">Durée ▼</h3>
-                        <label class="hideDuree">Durée minimum :</label>
-                        <input class="inputDuree" type="range" value="4" min="0" max="12" id="rangemin" oninput="dureemin.value=value"/>
-                        <input class="outputDuree" type="number" id="dureemin" min="0" max="12" value="4" oninput="rangemin.value=value" onchange="verifNumber(this)">
-                        <label class="hideDuree">Durée maximum :</label>
-                        <input class="inputDuree" type="range" value="8" min="0" max="12" id="rangemax" oninput="dureemax.value=value"/>
-                        <input class="outputDuree" type="number" id="dureemax" min="0" max="12" value="8" oninput="rangemax.value=value" onchange="verifNumber(this)">
-                    </div>
-                
-                    <div class="divFiltre">
-                        <h3 onclick="SalaireFilter()">Rémunération▼</h3>
-                        <label class="hideSalaire">Salaire minimum (mensuel) :</label>
-                        <input class="inputSalaire" type="range" value="4" min="0" max="10000" id="rangeSalairemin" oninput="salairemin.value=value" onchange="verifNumber(document.getElementById('salairemin'))"/>
-                        <input class="outputSalaire" type="number" id="salairemin" min="0" max="10000" value="1200" oninput="rangeSalairemin.value=value" onchange="verifNumber(this)">
-                        <label class="hideSalaire">Salaire maximum (mensuel) :</label>
-                        <input class="inputSalaire" type="range" value="8" min="" max="10000" id="rangeSalairemax" oninput="salairemax.value=value" onchange="verifNumber(document.getElementById('salairemax'))"/>
-                        <input class="outputSalaire" type="number" id="salairemax" min="0" max="10000" value="" oninput="rangeSalairemax.value=value" onchange="verifNumber(this)">
-                    </div>
-                  
-                    <div class="divFiltre">
-                        <h3 onclick="PlacesFilter()">Places ▼</h3>
-                        <label class="hidePlaces">Places minimum :</label>
-                        <input class="inputPlaces" type="number" min="0" value="" name="placesmin" onchange="verifNumber(this)">
-                        <label class="hidePlaces">Places maximum :</label>
-                        <input class="inputPlaces" type="number" min="0" value="" name="placesmax" onchange="verifNumber(this)">
-                    </div>
-
-                    <div class="divFiltre">
-                        <h3 onclick="TrierFilter()">Trier par ▼</h3>
-                        <div class="trier">
-                            <input type="radio" name="trieroffre" value="PlusRécentes"> Plus récentes
+                        <div class="divFiltre">
+                            <h3 onclick="DureeFilter()">Durée ▼</h3>
+                            <label class="hideDuree">Durée minimum :</label>
+                            <input class="inputDuree" type="range" value="4" min="0" max="12" id="rangemin" oninput="dureemin.value=value"/>
+                            <input class="outputDuree" type="number" id="dureemin" min="0" max="12" value="4" oninput="rangemin.value=value" onchange="verifNumber(this)">
+                            <label class="hideDuree">Durée maximum :</label>
+                            <input class="inputDuree" type="range" value="8" min="0" max="12" id="rangemax" oninput="dureemax.value=value"/>
+                            <input class="outputDuree" type="number" id="dureemax" min="0" max="12" value="8" oninput="rangemax.value=value" onchange="verifNumber(this)">
                         </div>
-                        <div class="trier">
-						    <input type="radio" name="trieroffre" value="PlusAnciennes"> Plus anciennes
-                        </div>
-						<div class="trier">
-						    <input type="radio" name="trieroffre" value="SalairesCroissants"> Salaires croissants
-                        </div>
-                        <div class="trier">
-						    <input type="radio" name="trieroffre" value="SalairesDécroissants"> Salaires décroissants
-                        </div>
-                        <div class="trier">
-						    <input type="radio" name="trieroffre" value="DuréesCroissantes"> Durées croissantes
-                        </div>
-                        <div class="trier">
-						    <input type="radio" name="trieroffre" value="DuréesDécroissantes"> Durées décroissantes
-                        </div>
-                        <div class="trier">
-						    <input type="radio" name="trieroffre" value="PlusRecherchées"> Plus recherchées
-                        </div>
-                        <div class="trier">
-						    <input type="radio" name="trieroffre" value="MoinsRecherchées"> Moins recherchées
-                        </div>
-                    </div>
                     
+                        <div class="divFiltre">
+                            <h3 onclick="SalaireFilter()">Rémunération▼</h3>
+                            <label class="hideSalaire">Salaire minimum (mensuel) :</label>
+                            <input class="inputSalaire" type="range" value="4" min="0" max="10000" id="rangeSalairemin" oninput="salairemin.value=value" onchange="verifNumber(document.getElementById('salairemin'))"/>
+                            <input class="outputSalaire" type="number" id="salairemin" min="0" max="10000" value="1200" oninput="rangeSalairemin.value=value" onchange="verifNumber(this)">
+                            <label class="hideSalaire">Salaire maximum (mensuel) :</label>
+                            <input class="inputSalaire" type="range" value="8" min="" max="10000" id="rangeSalairemax" oninput="salairemax.value=value" onchange="verifNumber(document.getElementById('salairemax'))"/>
+                            <input class="outputSalaire" type="number" id="salairemax" min="0" max="10000" value="" oninput="rangeSalairemax.value=value" onchange="verifNumber(this)">
+                        </div>
+                    
+                        <div class="divFiltre">
+                            <h3 onclick="PlacesFilter()">Places ▼</h3>
+                            <label class="hidePlaces">Places minimum :</label>
+                            <input class="inputPlaces" type="number" min="0" value="" name="placesmin" onchange="verifNumber(this)">
+                            <label class="hidePlaces">Places maximum :</label>
+                            <input class="inputPlaces" type="number" min="0" value="" name="placesmax" onchange="verifNumber(this)">
+                        </div>
+
+                        <div class="divFiltre">
+                            <h3 onclick="TrierFilter()">Trier par ▼</h3>
+                            <div class="trier">
+                                <input type="radio" name="trieroffre" value="PlusRécentes"> Plus récentes
+                            </div>
+                            <div class="trier">
+                                <input type="radio" name="trieroffre" value="PlusAnciennes"> Plus anciennes
+                            </div>
+                            <div class="trier">
+                                <input type="radio" name="trieroffre" value="SalairesCroissants"> Salaires croissants
+                            </div>
+                            <div class="trier">
+                                <input type="radio" name="trieroffre" value="SalairesDécroissants"> Salaires décroissants
+                            </div>
+                            <div class="trier">
+                                <input type="radio" name="trieroffre" value="DuréesCroissantes"> Durées croissantes
+                            </div>
+                            <div class="trier">
+                                <input type="radio" name="trieroffre" value="DuréesDécroissantes"> Durées décroissantes
+                            </div>
+                            <div class="trier">
+                                <input type="radio" name="trieroffre" value="PlusRecherchées"> Plus recherchées
+                            </div>
+                            <div class="trier">
+                                <input type="radio" name="trieroffre" value="MoinsRecherchées"> Moins recherchées
+                            </div>
+                            <button class="filterButton" type="submit">Valider</button>
+                        </div>
+                    </form>
                 </div>
+                
 
 
                 <div id="colonne2">

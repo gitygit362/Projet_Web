@@ -689,6 +689,7 @@ input[type="radio"]{
 
 .flex-rechercher-Entreprise{
     display: flex;
+    flex-direction:row;
     margin-top: -8rem;
     justify-content: space-between;
 }
@@ -713,6 +714,7 @@ input[type="radio"]{
     height: 2rem;
     width: 6.2rem;
     margin-left: 2%;
+    margin-top: -1rem;
 }
 
 /*top right bottom left */
