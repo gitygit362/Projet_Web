@@ -31,6 +31,24 @@ function redirectToPostulation() {
 
 /* offres de stages */ 
 
+
+function OpenFilters(){
+    let doc = document.getElementById("colonne1");
+    let options = doc.getElementsByClassName("divFiltre");
+    for(let i = 0; i < options.length; i++) {
+        let element = options[i];
+        if (element.style.display == 'none') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+}
+
+
+
+
+
     // Filtres 
     function filters(){
         let dureemin = document.getElementById("dureemin").value

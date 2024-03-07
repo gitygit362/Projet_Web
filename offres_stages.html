@@ -22,11 +22,11 @@
         <form>
             <div class="flex-container2">
                 <div id="colonne1">
-                    <h2 id="filtres">Filtres : </h2>
+                    <h2 id="filtres" onclick="OpenFilters()">Filtres ▼ </h2>
                 
                 <!-- filtres -->
                 
-                    <div>
+                    <div class="divFiltre">
                         <h3 onclick="PromotionFilter()">Promotion ▼</h3>
                         <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A1"> BAC+1</label>
                         <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A2"> BAC+2</label>
@@ -35,7 +35,7 @@
                         <label class="hidePromo"><input type="checkbox" name="promotionFilter" value="A5"> BAC+5</label>
                     </div>
 
-                    <div>
+                    <div class="divFiltre">
                         <h3 onclick="LieuFilter()">Lieu ▼</h3>
                         <label class="hideLieu">Pays :</label>
                         <input class="inputLieu" type="text" name="pays">
@@ -45,13 +45,13 @@
                         <input class="inputLieu" type="text" name="adresse">
                     </div>
 
-                    <div>
+                    <div class="divFiltre">
                         <h3 onclick="EntrepriseFilter()">Entreprise ▼</h3>
                         <label id="hideEntreprise" class="hideEntreprise">Nom de l'entreprise :</label>
                         <input id="inputEntreprise" type="text" name="entreprise">
                     </div>
 
-                    <div>
+                    <div class="divFiltre">
                         <h3 onclick="DureeFilter()">Durée ▼</h3>
                         <label class="hideDuree">Durée minimum :</label>
                         <input class="inputDuree" type="range" value="4" min="0" max="12" id="rangemin" oninput="dureemin.value=value"/>
@@ -61,7 +61,7 @@
                         <input class="outputDuree" type="number" id="dureemax" min="0" max="12" value="8" oninput="rangemax.value=value" onchange="verifNumber(this)">
                     </div>
                 
-                    <div>
+                    <div class="divFiltre">
                         <h3 onclick="SalaireFilter()">Rémunération▼</h3>
                         <label class="hideSalaire">Salaire minimum (mensuel) :</label>
                         <input class="inputSalaire" type="range" value="4" min="0" max="10000" id="rangeSalairemin" oninput="salairemin.value=value" onchange="verifNumber(document.getElementById('salairemin'))"/>
@@ -71,7 +71,7 @@
                         <input class="outputSalaire" type="number" id="salairemax" min="0" max="10000" value="" oninput="rangeSalairemax.value=value" onchange="verifNumber(this)">
                     </div>
                   
-                    <div>
+                    <div class="divFiltre">
                         <h3 onclick="PlacesFilter()">Places ▼</h3>
                         <label class="hidePlaces">Places minimum :</label>
                         <input class="inputPlaces" type="number" min="0" value="" name="placesmin" onchange="verifNumber(this)">
@@ -79,7 +79,7 @@
                         <input class="inputPlaces" type="number" min="0" value="" name="placesmax" onchange="verifNumber(this)">
                     </div>
 
-                    <div>
+                    <div class="divFiltre">
                         <h3 onclick="TrierFilter()">Trier par ▼</h3>
                         <div class="trier">
                             <input type="radio" name="trieroffre" value="PlusRécentes"> Plus récentes
