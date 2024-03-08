@@ -199,6 +199,25 @@ PAGE D'ACCUEIL */
     margin: 2rem 0 2rem 0;
 }
 
+#accroche_accueil{
+    color: white;
+    font-size: 300%;
+    font-style: italic; 
+    width: 40%;
+    padding: 1.5%;
+}
+
+@media all and (max-width: 800px) {
+    #accroche_accueil {
+      /* When on medium sized screens, we center it by evenly distributing empty space around items */
+      width: 100%;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      font-size: 200%;
+      text-align: center;
+    }
+}
+
 .intitule{
     border-style: solid;
     border-width: medium;
@@ -214,6 +233,25 @@ PAGE D'ACCUEIL */
     align-items: center;
     align-content: center;
 }
+
+@media all and (max-width: 800px) {
+    .intitule {
+      /* When on medium sized screens, we center it by evenly distributing empty space around items */
+      width: 80%;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .intitule {
+      /* When on medium sized screens, we center it by evenly distributing empty space around items */
+      width: 80%;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+}
+
 
 .footer{
     margin-top: 50px;
