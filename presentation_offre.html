@@ -29,7 +29,10 @@
         <img class="logoOffre" src="Assets/images/logo.png" alt="logo EASYSTAGE">
         <button class="Retour" type="button" onclick="redirectToPrecPage()">retour</button>
     </div>
+    <div>
         <h2 class="TitreOffrePresentation"> Titre de l'offre</h2>
+        <label id="masquer">masquer<input  id="masquerInput" type="checkbox" name="masquer" value="masquer"></label>
+    </div>
     <div class="flex-container-Présentation-Offre">
         <pre class="DescriptionCompletOffre"> Description de l'offre
 
@@ -66,5 +69,10 @@ fin.
     <div class="DivValidationButton">
     <button class="ValidationButton" type="button" onclick="redirectToPostulation()">Postuler</button>
     </div>
+    <div class="PilotesFonctionsOffre">
+        <button class="ModifierButton" type="button" onclick="modifyOffre()">Modifier</button>
+        <button class="SupprimerButton" type="button" onclick="deleteOffre()">Supprimer</button>
+    </div>
+
 </main>
 </body>

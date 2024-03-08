@@ -621,6 +621,7 @@ input[type="radio"]{
     margin-bottom: 6rem;
 }
 
+
 .ValidationButton{
     padding: 0.5rem 1rem;
     border: none;
@@ -635,10 +636,47 @@ input[type="radio"]{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 10rem; 
+}
+
+#masquer {
+    text-align: right;
+    margin-right: 5%;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+#masquerInput {
+    margin-top: 0rem;
+    margin-left: 1%;
+    width: 1.2rem;
+    height: 1.2rem;
 }
 
 
+.ModifierButton {
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: rgb(255, 221, 0);
+    font-family: Arial;
+    font-size: 1rem;
+}
+
+.SupprimerButton {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: rgb(255, 221, 0);
+    font-family: Arial;
+    font-size: 1rem;
+}
+
+.PilotesFonctionsOffre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
 
 
@@ -892,7 +930,6 @@ input[type="radio"]{
     .flex-container-Présentation-Offre {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 2rem;
     }
 
 
@@ -910,7 +947,7 @@ input[type="radio"]{
 
     .TitreOffrePresentation {
         font-size: 2.5rem;
-        margin: 2rem 0% 5rem 4%; /*top right bottom left */
+        margin: 2rem 0% 0 4%; /*top right bottom left */
     }
     
     .StatsOffre {
@@ -921,6 +958,9 @@ input[type="radio"]{
         text-align: center;
         margin-bottom: 6rem;
     }
+
+
+
 }
 
 
@@ -1034,7 +1074,22 @@ input[type="radio"]{
     .filtresEntreprises > h2 {
         font-size: 1.3rem;
     }
+    #masquer {
+        text-align: right;
+        margin-right: 5%;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        color: black;
+    }
+    #masquerInput {
+        margin-top: 0rem;
+        margin-left: 1%;
+        width: 1rem;
+        height: 1rem;
+    }
 }
+
+
 
 @media (max-width: 600px) {
     h1{
@@ -1132,6 +1187,7 @@ input[type="radio"]{
     .optionsEntreprise{
         width: 80%;
     }
+
 }
 
 

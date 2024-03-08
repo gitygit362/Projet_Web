@@ -259,8 +259,26 @@ function ActiviteFilter(){
 }
 
 
+/* Presentation Offre en fonction de l'utilisateur
 
+function(user) {
+    if (user vient de la table étudiant) {
+        document.getElementById("masquer").syle.display = "none";
+        document.PilotesFonctionsOffre.syle.display = "none";
+    }
+    else {
+        document.DivValidationButton.syle.display = "none";
+    }
+}
+ */
 
+function deleteOffre() {
+
+}
+
+function modifyOffre() {
+
+}
 
 
 
