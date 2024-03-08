@@ -259,14 +259,21 @@ function ActiviteFilter(){
 }
 
 
-/* Presentation Offre en fonction de l'utilisateur
+/* Presentation Offre en fonction de l'utilisateur */
 
+function LikeDislike() {
+    var option = document.getElementById("like");
+    option.classList.toggle("liked");
+}
+
+/*
 function(user) {
     if (user vient de la table étudiant) {
         document.getElementById("masquer").syle.display = "none";
         document.PilotesFonctionsOffre.syle.display = "none";
     }
     else {
+        document.getElementById("like").syle.display = "none";
         document.DivValidationButton.syle.display = "none";
     }
 }
