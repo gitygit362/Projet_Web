@@ -16,8 +16,12 @@ header {
     background-size: auto 100%;
     background-position: left top;
     background-size: cover;
+    width:100%;
 }
 
+header h1 {
+    padding-left: 35%;
+}
 
 header > img {
     margin-left: 1rem;
