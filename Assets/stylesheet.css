@@ -621,6 +621,7 @@ input[type="radio"]{
     margin-bottom: 6rem;
 }
 
+
 .ValidationButton{
     padding: 0.5rem 1rem;
     border: none;
@@ -635,10 +636,59 @@ input[type="radio"]{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 10rem; 
+}
+
+#masquer {
+    text-align: right;
+    margin-right: 5%;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+#masquerInput {
+    margin-top: 0rem;
+    margin-left: 1%;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.like-dislike {
+    background-image:url("images/unlike.png");
+    background-size: 100%;
+    width: 1.5rem;
+    height: 1.3rem;
+    margin-left: 90%;
+    margin-bottom: 2rem;
+}
+.like-dislike.liked {
+    background-image: url('images/like.png');
 }
 
 
+.ModifierButton {
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: rgb(255, 221, 0);
+    font-family: Arial;
+    font-size: 1rem;
+}
+
+.SupprimerButton {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: rgb(255, 221, 0);
+    font-family: Arial;
+    font-size: 1rem;
+}
+
+.PilotesFonctionsOffre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
 
 
@@ -689,6 +739,7 @@ input[type="radio"]{
 
 .flex-rechercher-Entreprise{
     display: flex;
+    flex-direction:row;
     margin-top: -8rem;
     justify-content: space-between;
 }
@@ -713,6 +764,7 @@ input[type="radio"]{
     height: 2rem;
     width: 6.2rem;
     margin-left: 2%;
+    margin-top: -1rem;
 }
 
 /*top right bottom left */
@@ -738,14 +790,29 @@ input[type="radio"]{
     display: none;
 }
 
-.inputActivite {
+#inputActivite {
     padding: 0.3rem 0.1rem; 
     display: none;
 }
 
 .filtresEntreprises {
-    margin-left: 5%;
+    margin-top: 1.5rem;
+    margin-left: 0%;
     width: 50%;
+}
+
+.filterButton {
+    margin-top: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 2rem;
+    background-color:rgb(255, 221, 0);
+    font-family: Arial;
+    font-size:1rem;
+}
+
+.filterButton:hover {
+    font-weight: bold;
 }
 
 #resultatsEntreprises {
@@ -762,6 +829,7 @@ input[type="radio"]{
     display: flex;  
     box-sizing: 100%;
     margin-bottom: 4rem;
+    margin-left: 10%
 }
 
 .resultatsEntreprises > h2 {
@@ -770,11 +838,11 @@ input[type="radio"]{
 }
 
 .filtresEntreprises > h2 {
-    padding-top: 2.5rem;
+    padding-top: 0rem;
     font-weight: bold;
     text-align: left;
     margin-left: 2%;
-    padding-bottom: 3.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .filtresEntreprises > h3 {
@@ -874,7 +942,6 @@ input[type="radio"]{
     .flex-container-Présentation-Offre {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 2rem;
     }
 
 
@@ -892,7 +959,7 @@ input[type="radio"]{
 
     .TitreOffrePresentation {
         font-size: 2.5rem;
-        margin: 2rem 0% 5rem 4%; /*top right bottom left */
+        margin: 2rem 0% 0 4%; /*top right bottom left */
     }
     
     .StatsOffre {
@@ -903,6 +970,9 @@ input[type="radio"]{
         text-align: center;
         margin-bottom: 6rem;
     }
+
+
+
 }
 
 
@@ -991,14 +1061,46 @@ input[type="radio"]{
     .flex-top-Enterprises-1, .flex-top-Enterprises-2 {
         flex-direction: column; /* Mettre en colonne pour les petits écrans */
         align-items: center; /* Aligner les éléments au centre */
-        width: 100%;
+        width: 80%;
     }
 
     .flex-top-Enterprises-1 > div, .flex-top-Enterprises-2 > div {
         width: 80%;
         margin-bottom: 2rem;
     }
+
+    .pagination a {
+        font-size: 1rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .topEntreprises{
+        font-size: 1.9rem;
+        width: 430px;
+    }
+
+    .resultatsEntreprises > h2 {
+        font-size: 1.9rem;
+    }
+
+    .filtresEntreprises > h2 {
+        font-size: 1.3rem;
+    }
+    #masquer {
+        text-align: right;
+        margin-right: 5%;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        color: black;
+    }
+    #masquerInput {
+        margin-top: 0rem;
+        margin-left: 1%;
+        width: 1rem;
+        height: 1rem;
+    }
 }
+
 
 
 @media (max-width: 600px) {
@@ -1042,9 +1144,11 @@ input[type="radio"]{
     .CompetencesOffre {
         font-size: 0.5rem;
     }
+
     h3 {    
         font-size: 1rem;
     }  
+
     .hidePromo, .hideLieu, .hideSalaire, .hideEntreprise, .hidePlaces, .hideDuree, .trier {
         text-align: center;
         font-size: 0.9rem;
@@ -1056,26 +1160,47 @@ input[type="radio"]{
         margin-top: 2rem;
         margin-left: 1rem;
     }
+
     .nota_txt{
         margin-left: 0rem;
-      }
+    }
+
     .notation{
         height: 25rem;
         width: 20rem;
         margin: auto;
         margin-top: 3rem;
     }
+
     .info_txt{
         font-size: 1.8rem; 
-      }
+    }
 
 
-      .rechercheBouton {
+    .rechercheBouton {
         padding: 0.4rem 0.4rem 0.2rem 0.4rem;
         font-size: 0.8rem;
     }
-}
 
+
+    #flex-Entreprise-resultat {
+        margin: 10rem 0 0 2%;
+        display: block;
+        box-sizing: 100%;
+        margin-bottom: 4rem;
+    }
+
+    .topEntreprises{
+        font-size: 1.3rem;
+        width: 300px;
+        height: 30px;
+    }
+
+    .optionsEntreprise{
+        width: 80%;
+    }
+
+}
 
 
 
@@ -1089,9 +1214,6 @@ input[type="radio"]{
         justify-content:flex-end;
     }
 }
-
-
-
 
 
 

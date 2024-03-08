@@ -102,19 +102,6 @@ function OpenFilters(){
     }
 
 
-    function EntrepriseFilter(){
-        let option1 = document.getElementById('hideEntreprise');
-        let option2 = document.getElementById('inputEntreprise');
-        if(option1.style.display == 'none'){
-            option1.style.display ='block';
-            option2.style.display ='block';
-        }
-        else {
-            option1.style.display = 'none';
-            option2.style.display = 'none';
-        }
-    }
-
     function DureeFilter(){
         let option1 = document.getElementsByClassName('hideDuree');
         let option2 = document.getElementsByClassName('inputDuree');
@@ -228,6 +215,85 @@ function voirOffre(numOffre){
     window.location.href = "presentation_offre.html";
     return false;
 }
+
+
+
+
+function EntrepriseFilter(){
+    let option1 = document.getElementById('hideEntreprise');
+    let option2 = document.getElementById('inputEntreprise');
+    if(option1.style.display == 'none'){
+        option1.style.display ='block';
+        option2.style.display ='block';
+    }
+    else {
+        option1.style.display = 'none';
+        option2.style.display = 'none';
+    }
+}
+
+
+
+//Entreprises
+
+function NotesFilter(){
+    let options = document.getElementsByClassName("hideNote");
+    for(let i = 0; i < options.length; i++) {
+        let element = options[i];
+        if (element.style.display == 'none') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+}
+
+function ActiviteFilter(){
+    let option = document.getElementById('inputActivite');
+    if(option.style.display == 'none'){    
+        option.style.display ='block';
+    }
+    else {
+        option.style.display = 'none';
+    }
+}
+
+
+/* Presentation Offre en fonction de l'utilisateur */
+
+function LikeDislike() {
+    var option = document.getElementById("like");
+    option.classList.toggle("liked");
+}
+
+/*
+function(user) {
+    if (user vient de la table étudiant) {
+        document.getElementById("masquer").syle.display = "none";
+        document.PilotesFonctionsOffre.syle.display = "none";
+    }
+    else {
+        document.getElementById("like").syle.display = "none";
+        document.DivValidationButton.syle.display = "none";
+    }
+}
+ */
+
+function deleteOffre() {
+
+}
+
+function modifyOffre() {
+
+}
+
+
+
+
+
+
+
+
 //gestion entreprise
 function redirectToAccueilGE(){
     window.location.href = "GE_accueil.html";
