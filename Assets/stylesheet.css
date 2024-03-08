@@ -159,7 +159,6 @@ a:hover {
 }
 
 #filtres {
-    margin-right: 5%;
     align-self: flex-start;
     margin-bottom: 3rem;
     margin-top: 0;
@@ -184,6 +183,11 @@ a:hover {
     padding-left: 5%;
     padding-top: 2%;
 }
+
+.divFiltre {
+    display: none;
+}
+
 
 .offres {
     width: 100%;
@@ -859,6 +863,9 @@ input[type="radio"]{
     font-size: 1.3rem;
     text-decoration: underline;
     }
+    #filtres {
+        font-size: 1.1rem;
+    }
 }
 
 
@@ -867,7 +874,7 @@ input[type="radio"]{
     .flex-container-Présentation-Offre {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 10rem;
+        margin-bottom: 2rem;
     }
 
 
