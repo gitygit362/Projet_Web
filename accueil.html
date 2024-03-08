@@ -9,7 +9,8 @@
     </head>
 
     <body>
-        <header class="header_accueil">
+        <header class="header1">
+            <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
             <nav class="navbar">
                 Accueil&nbsp;       
                 <a href="offres_stages.html">Offres de stage</a>&nbsp;
@@ -22,32 +23,33 @@
 
         <main>
 
-            <article class="background_img">
-                <img src="./Assets/images/image_accueil.png">
-                <h1 style="color: white; font-size: 300%; font-style: italic; width: 40%; padding: 1.5%;">Le dernier né des sites d'offres de stage...</h1>
-                <a href="offres_stages.html">
-                    <span class="button" style="font-size: 130%; font-weight: bold; margin-left: 50%;">
-                        RECHERCHER MAINTENANT
-                    </span>
-                </a>
+            <article id="background_img_accueil">
+                <div class="overlay">
+                    <div>
+                        <h1 style="color: white; font-size: 300%; font-style: italic; width: 40%; padding: 1.5%;">Le dernier né des sites d'offres de stage...</h1>
+                    </div>
+                    <div id="rechercher">
+                        <button href="offres_stages.html" class="button">
+                            RECHERCHER MAINTENANT
+                        </button>
+                    </div>
+                </div>    
             </article>
 
-            <article class="article" style="margin-top: 15%;">
-                <h1 style="font-size: 200%; text-decoration: underline; margin-left: 10px;">Dernières offres</h1>
-                <span style="display: flex; justify-content: space-evenly;">
-                    <section class="intitule">
-                        <h2>Intitulé stage 1</h2>
-                        <button class="button">Voir l'offre</button>
-                    </section>
-                    <section class="intitule">
-                        <h2>Intitulé stage 2</h2>
-                        <button class="button">Voir l'offre</button>
-                    </section>
-                    <section class="intitule">
-                        <h2>Intitulé stage 3</h2>
-                        <button class="button">Voir l'offre</button>
-                    </section>
-                </span>    
+            <h1 style="width: 50%; font-size: 200%; text-decoration: underline; margin-left: 10px;">Dernières offres</h1>
+            <article class="container">
+                <section class="intitule">
+                    <h2>Intitulé stage 1</h2>
+                    <button class="button">Voir l'offre</button>
+                </section>
+                <section class="intitule">
+                    <h2>Intitulé stage 2</h2>
+                    <button class="button">Voir l'offre</button>
+                </section>
+                <section class="intitule">
+                    <h2>Intitulé stage 3</h2>
+                    <button class="button">Voir l'offre</button>
+                </section>  
             </article>
 
         </main>
