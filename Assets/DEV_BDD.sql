@@ -45,6 +45,7 @@ CREATE TABLE Entreprise(
    ID_entreprise INT,
    secteur_activité VARCHAR(50),
    nom VARCHAR(50),
+   logo LONGBLOB
    PRIMARY KEY(ID_entreprise)
 );
 
@@ -256,56 +257,57 @@ insert into Promo (ID_promo, promo) values (4, 'A4');
 insert into Promo (ID_promo, promo) values (5, 'A5');
 
 
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (1, 'Technologie/Informatique', 'NovaTech Solutions');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (2, 'Finance/Investissement', 'Quantum Ventures');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (3, 'Technologie/Électronique', 'BlueWave Innovations');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (4, 'Fabrication/Industrie', 'SilverLinx Industries');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (5, 'Ingénierie/Mécanique', 'Zenith Dynamics');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (6, 'Consulting/Conseil', 'OptiMystic Enterprises');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (7, 'Énergie/Renouvelable', 'Apex Fusion Group');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (8, 'Médias/Communication', 'Velocity Visions Inc.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (9, 'Services professionnels', 'Stellar Synergy Co.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (10, 'Immobilier/Construction', 'Horizon Heights Corporation');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (11, 'Technologie/Internet', 'Nexus Nexus Inc.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (12, 'Fabrication/Métallurgie', 'Fusion Forge Industries');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (13, 'Technologie/Audio', 'EchoEcho Enterprises');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (14, 'Santé/Pharmaceutique', 'OmniGenix Solutions');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (15, 'Technologie/Robotique', 'Phoenix Spark Technologies');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (16, 'Chimie/Matériaux', 'Alchemy Alcove Ltd.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (17, 'Maritime/Transport', 'TitanTide Ventures');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (18, 'Éducation/Formation', 'Pinnacle Prodigy Inc.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (19, 'Environnement/Développement durable', 'Solstice Solutions Group');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (20, 'Luxe/Mode', 'Lumina Luxe Enterprises');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (21, 'Logistique/Transport', 'Streamline Syndicate');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (22, 'Environnement/Énergie propre', 'Infinity Impact Inc.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (23, 'Technologie/Cloud computing', 'Nimbus Nexus Corporation');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (24, 'Astronomie/Technologie spatiale', 'Astral Axis Solutions');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (25, 'Technologie/Communication vocale', 'VirtuVox Ventures');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (26, 'Technologie/Internet des objets (IoT)', 'EchoSphere Enterprises');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (27, 'Recherche/Développement', 'Arcane Innovations Inc.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (28, 'Marketing/Publicité', 'Element Edge Group');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (29, 'Divertissement/Jeux vidéo', 'Radiant Realms Corporation');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (30, 'Sécurité/Technologie de l''information', 'Enigma Enterprises');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (31, 'Design/Architecture', 'Cascade Concepts Co.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (32, 'Beauté/Produits de soins', 'Elysian Elements Inc.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (33, 'Aérospatiale/Aviation', 'Aurora Apex Ventures');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (34, 'Technologie/Logiciel', 'Nexus Nucleus Solutions');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (35, 'Consulting/Conseil en stratégie', 'Envision Enterprises');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (36, 'Énergie/Éolien', 'Zephyr Zenith Inc.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (37, 'Santé/Bien-être', 'Serenity Systems Group');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (38, 'Technologie/Énergie alternative', 'Synergy Sphere Solutions');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (39, 'Voyage/Tourisme spatial', 'Odyssey OmniCorp');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (40, 'Finance/Trading', 'Momentum Matrix Ltd.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (41, 'Technologie/Bien-être numérique', 'TranquilTech Enterprises');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (42, 'Métallurgie/Fonderie', 'Phoenix Forge Inc.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (43, 'Équipement/Électronique grand public', 'Apex Ascent Corporation');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (44, 'Technologie/Blockchain', 'Paragon Pinnacle Group');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (45, 'Éducation/Formation en ligne', 'Genesis Grid Solutions');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (46, 'Énergie/Fusion nucléaire', 'Quantum Quest Enterprises');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (47, 'Technologie/Internet spatial', 'Fusion Flux Inc.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (48, 'Secteur non spécifié', 'Nebula Nexus Co.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (49, 'Technologie/Informatique', 'Apexia Alliance Ltd.');
-insert into Entreprise (ID_entreprise, secteur_activité, nom) values (50, 'Finance/Investissement', 'Zenith Zone Ventures');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (1, 'Technologie/Informatique', 'NovaTech Solutions', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo1');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (2, 'Finance/Investissement', 'Quantum Ventures', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo2');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (3, 'Technologie/Électronique', 'BlueWave Innovations', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo3');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (4, 'Fabrication/Industrie', 'SilverLinx Industries', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo4');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (5, 'Ingénierie/Mécanique', 'Zenith Dynamics', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo5');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (6, 'Consulting/Conseil', 'OptiMystic Enterprises', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo6');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (7, 'Énergie/Renouvelable', 'Apex Fusion Group', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo7');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (8, 'Médias/Communication', 'Velocity Visions Inc.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo8');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (9, 'Services professionnels', 'Stellar Synergy Co.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo9');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (10, 'Immobilier/Construction', 'Horizon Heights Corporation', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo10');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (11, 'Technologie/Internet', 'Nexus Nexus Inc.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo11');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (12, 'Fabrication/Métallurgie', 'Fusion Forge Industries', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo12');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (13, 'Technologie/Audio', 'EchoEcho Enterprises', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo13');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (14, 'Santé/Pharmaceutique', 'OmniGenix Solutions', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo14');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (15, 'Technologie/Robotique', 'Phoenix Spark Technologies', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo15');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (16, 'Chimie/Matériaux', 'Alchemy Alcove Ltd.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo16');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (17, 'Maritime/Transport', 'TitanTide Ventures', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo17');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (18, 'Éducation/Formation', 'Pinnacle Prodigy Inc.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo18');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (19, 'Environnement/Développement durable', 'Solstice Solutions Group', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo19');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (20, 'Luxe/Mode', 'Lumina Luxe Enterprises', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo20');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (21, 'Logistique/Transport', 'Streamline Syndicate', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo21');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (22, 'Environnement/Énergie propre', 'Infinity Impact Inc.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo22');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (23, 'Technologie/Cloud computing', 'Nimbus Nexus Corporation', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo23');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (24, 'Astronomie/Technologie spatiale', 'Astral Axis Solutions', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo24');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (25, 'Technologie/Communication vocale', 'VirtuVox Ventures', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo25');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (26, 'Technologie/Internet des objets (IoT)', 'EchoSphere Enterprises', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo26');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (27, 'Recherche/Développement', 'Arcane Innovations Inc.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo27');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (28, 'Marketing/Publicité', 'Element Edge Group', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo28');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (29, 'Divertissement/Jeux vidéo', 'Radiant Realms Corporation', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo29');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (30, 'Sécurité/Technologie de l''information', 'Enigma Enterprises', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo30');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (31, 'Design/Architecture', 'Cascade Concepts Co.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo31');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (32, 'Beauté/Produits de soins', 'Elysian Elements Inc.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo32');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (33, 'Aérospatiale/Aviation', 'Aurora Apex Ventures', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo33');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (34, 'Technologie/Logiciel', 'Nexus Nucleus Solutions', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo34');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (35, 'Consulting/Conseil en stratégie', 'Envision Enterprises', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo35');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (36, 'Énergie/Éolien', 'Zephyr Zenith Inc.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo36');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (37, 'Santé/Bien-être', 'Serenity Systems Group', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo37');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (38, 'Technologie/Énergie alternative', 'Synergy Sphere Solutions', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo38');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (39, 'Voyage/Tourisme spatial', 'Odyssey OmniCorp', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo39');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (40, 'Finance/Trading', 'Momentum Matrix Ltd.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo40');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (41, 'Technologie/Bien-être numérique', 'TranquilTech Enterprises', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo41');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (42, 'Métallurgie/Fonderie', 'Phoenix Forge Inc.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo42');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (43, 'Équipement/Électronique grand public', 'Apex Ascent Corporation', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo43');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (44, 'Technologie/Blockchain', 'Paragon Pinnacle Group', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo44');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (45, 'Éducation/Formation en ligne', 'Genesis Grid Solutions', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo45');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (46, 'Énergie/Fusion nucléaire', 'Quantum Quest Enterprises', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo46');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (47, 'Technologie/Internet spatial', 'Fusion Flux Inc.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo47');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (48, 'Secteur non spécifié', 'Nebula Nexus Co.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo48');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (49, 'Technologie/Informatique', 'Apexia Alliance Ltd.', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo49');
+INSERT INTO Entreprise (ID_entreprise, secteur_activité, nom, logo) VALUES (50, 'Finance/Investissement', 'Zenith Zone Ventures', 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\Assets\logo\logo50');
+
 
 
 -- Insertion des pays
