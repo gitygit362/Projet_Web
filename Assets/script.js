@@ -27,6 +27,13 @@ function redirectToPostulation() {
     window.location.href = "candidature.html";
 }
 
+function redirectToPrecPage() {
+    window.location.href = "offres_stages.html";
+}
+
+function redirectToCreerOffre() {
+    window.location.href = "creer_offre.html";
+}
 
 
 /* offres de stages */ 
@@ -370,4 +377,38 @@ function redirectToEdit_GETU(){
 
 function redirectToRecherche_GETU(){
     window.location.href = "GETU_recherche.html";
+}
+
+
+
+function CreerOffre(){
+    //var logo = document.getElementById("logoCreerOffre").value;
+    var titre = document.getElementById("titreCreerOffre").value;
+    var description = document.getElementById("descriptionCreerOffre").value;
+    //var competences = document.getElementById("competencesCreerOffre").value;
+    /*if(logo == ""){
+        alert("Veuillez insérer le logo de l'entreprise");
+        return false;
+    }
+    else*/ if (titre == ""){
+        alert("Veuillez entrer un titre pour votre offre");
+        return false;
+    }
+    else if (description == ""){
+        alert("Veuillez entrer la description de l'offre");
+        return false;
+    }
+    else {
+        // creer l'offre 
+    }
+}
+
+var nbcompetences = 1;
+
+function AddCompetence() {
+    var newInput = document.createElement("input");
+    newInput.className = "Candidatureinput";
+    newInput.type = "text";
+
+    document.getElementById("AddCompetences").appendChild(newInput);
 }

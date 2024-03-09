@@ -716,7 +716,19 @@ input[type="radio"]{
 }
 
 
+#mentions-legales {
+    align-self: center;
+    font-size : 1rem;
+    font-style: italic;
+}
 
+#footerMentions {
+    margin-top: 10rem;
+}
+
+.addCompetence {
+    margin-bottom: 2rem;
+}
 
 
 
@@ -1213,14 +1225,4 @@ input[type="radio"]{
         display:flex;
         justify-content:flex-end;
     }
-}
-
-#mentions-legales {
-    align-self: center;
-    font-size : 1rem;
-    font-style: italic;
-}
-
-#footerMentions {
-    margin-top: 10rem;
 }
