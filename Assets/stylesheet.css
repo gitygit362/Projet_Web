@@ -1214,3 +1214,13 @@ input[type="radio"]{
         justify-content:flex-end;
     }
 }
+
+#mentions-legales {
+    align-self: center;
+    font-size : 1rem;
+    font-style: italic;
+}
+
+#footerMentions {
+    margin-top: 10rem;
+}
