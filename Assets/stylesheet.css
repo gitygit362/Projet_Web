@@ -661,17 +661,332 @@ input[type="radio"]{
 }
 
 
+/* Profil utilisateur, admin,etudiant et pilote */
+
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Styles pour l'en-tête */
+.header {
+    position: relative;
+    height: 25px; 
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5rem; 
+}
+
+.line {
+    position: absolute;
+    background-color: black;
+    height: 1.25rem;
+    top: 0;
+    left: 5.625rem;
+    width: calc(100vw - 3.125rem);
+    transform-origin: left;
+    transform: skew(30deg);
+}
+
+/* Styles pour le menu de navigation */
+.menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    border-bottom: 0.1875rem solid yellow;
+}
+
+.menu-link {
+    display: block;
+    padding: 0.625rem 0.9375rem;
+    text-decoration: none;
+    color: #333;
+    position: relative;
+}
+
+.menu-link:hover {
+    background-color: #ddd;
+}
+
+.menu-link:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -0.1875rem;
+    left: 0;
+    right: 0;
+    height: 0.1875rem;
+    background-color: yellow;
+}
+
+/* Styles pour le profil utilisateur dans l'en-tête */
+.user-profile {
+    font-size: 1.125rem;
+    font-weight: bold;
+    padding: 0 10.625rem;
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+/* Styles pour la nouvelle section de profil utilisateur */
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.profil, .informations {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profil img {
+    width: 12.5rem;
+    height: 12.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.profil p, .informations span {
+    margin-top: 1.25rem;
+    text-align: center;
+}
+
+.informations {
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 1.25rem;
+    margin-left: 1.25rem;
+    width: calc(50% - 1.25rem);
+}
+
+.informations span {
+    display: block;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+}
+
+.full-width-image {
+    width: 100vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.page-title, .page-title2, .page-title3 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 1.25rem;
+    color: #333;
+}
+
+.centres-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1.25rem;
+}
+
+.centre-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 1.25rem;
+    padding: 0.625rem 1.25rem;
+    margin: 0.625rem;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    flex: 0 0 calc(25% - 20px);
+    text-align: center;
+}
+
+.centre-button:hover {
+    background-color: #e9e9e9;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.details-table summary {
+    font-weight: bold;
+    padding: 0.625rem;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 0.3125rem;
+}
+
+.details-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.625rem;
+}
+
+.details-table th, .details-table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.details-table th {
+    background-color: #f2f2f2;
+}
+
+details > table {
+    display: none;
+}
+
+details[open] > table {
+    display: table;
+}
+
+.job-offer-container {
+    display: flex;
+    align-items: center;
+    background: #f0f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1.25rem;
+}
+
+.job-offer-header {
+    flex-grow: 1;
+}
+
+.informations textarea {
+    width: 40%; 
+    padding: 0rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+}
+
+.brand-logo {
+    height: 50px; 
+    margin-right: 10px;
+}
+
+.job-offer-header h3 {
+    font-size: 24px;
+    margin: 0;
+    
+}
+
+.job-offer-header p {
+    margin: 0;
+    color: #666;
+}
+
+.job-offer-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 20px;
+}
+
+.detail {
+    background: #d9d9d9;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-button img {
+    height: 30px; 
+}
 
 
 
 
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+    }
+
+    .profil, .informations {
+        flex-basis: unset;
+        width: 100%;
+    }
+
+    .informations {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .centre-button {
+        flex: 0 0 calc(50% - 20px); 
+    }
+
+    .job-offer-details {
+        flex-direction: column;
+    }
+
+    .informations textarea {
+        width: 80%; 
+    }
+}
 
 
+@media (max-width: 768px) {
+    .centre-button {
+        flex: 0 0 calc(100% - 20px); 
+    }
+
+    .page-title, .page-title2, .page-title3 {
+        font-size: 1.5rem;
+        margin: 0 10px; 
+    }
+}
 
 
+@media (max-width: 480px) {
+    .profil img {
+        width: 10rem;
+        height: 10rem; 
+    }
 
+    .informations span, .profil p {
+        margin-top: 1rem; 
+    }
 
+    .job-offer-header h3 {
+        font-size: 20px; 
+    }
 
+    .informations textarea {
+        width: 90%; 
+    }
+}
 
 
 
@@ -687,7 +1002,33 @@ input[type="radio"]{
     flex-direction: column;
   }  
 }
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 85%;
+    }
 
+    .informations textarea {
+        width: 80%; /* Ajustement pour les écrans intermédiaires */
+    }
+
+    .centre-button, .details-table summary {
+        width: calc(50% - 40px); /* Ajuster pour un meilleur affichage en tablette */
+    }
+}
+
+@media (min-width: 1201px) {
+    .container {
+        width: 75%;
+    }
+
+    .informations textarea {
+        width: 70%; /* Plus d'espace disponible sur les grands écrans */
+    }
+
+    .centre-button, .details-table summary {
+        width: calc(25% - 40px); /* Utilisation optimale de l'espace disponible */
+    }
+}
 
 @media only screen and (min-width: 770px) {
 
