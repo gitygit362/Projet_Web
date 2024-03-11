@@ -2,20 +2,35 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Assets/stylesheet.css">
     <script src="Assets/script.js"></script>
-    <title>Offre de stage</title>
+    <title>Présentation de l'entreprise</title>
 </head>
 <body>
-    <header>
-        <!-- mettre la meme navbar -->
+    <header class="header1">
+        <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
+        <nav class="navbar">
+            <a href="accueil.html">Retour</a>
+        </nav>
     </header>
     <main>
-        
-    </main>
-    <footer>
-        <a id="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
-    </footer>
+        <h2 class="TitreOffrePresentation">Présentation de l'entreprise</h2>
+        <label for="name">Logo</label>
+        <!-- image du logo en fonction du id  -->
+        <label for="name">Titre de l'offre</label>
+        <input type="text" name="user" required>
+        <label for="secteur">Secteur d'entreprise :</label>
+        <input type="text" name="password" required>
+        <label for="local">localité(s) :</label>
+        <input type="text" name="password" required>
+        <label for="local+">Ajouter une localité :</label>
+        <input type="text" name="password">
+        <div class="PilotesFonctionsOffre">
+        <button class="ModifierButton" type="button">Valider</button>
+        </div>
+</main>
+<footer>
+    <a id="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+</footer>
 </body>
-
-</html>
