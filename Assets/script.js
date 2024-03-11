@@ -458,12 +458,20 @@ function AddLocaliteEnt(){
 
 
 
+
+
+
 /* Prochaines fonctions en lien avec le backend */
 
 function voirOffre(numOffre){
     //var offre = numOffre;
     //ce sera du backend pour le l'affichage des bonnes données
     window.location.href = "presentation_offre.html";
+    return false;
+}
+
+function voirEntreprise(){
+    window.location.href = "presentation_entreprise.html";
     return false;
 }
 

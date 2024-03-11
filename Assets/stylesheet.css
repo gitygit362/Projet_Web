@@ -315,6 +315,7 @@ a {
     margin: 2%;
     text-decoration: none;
     color: black;
+    height:27.2px;
 }
 a:hover {
     text-decoration: bold;
@@ -329,6 +330,7 @@ a:hover {
     background-color:rgb(255, 221, 0);
     font-family: Arial;
     font-size:1rem;
+    margin-top: 1rem;
 }
 
 .flex-container1 {
