@@ -13,10 +13,11 @@
             <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
             <nav class="navbar">
                 Accueil&nbsp;       
-                <a href="offres_stages.html">Offres de stage</a>&nbsp;
-                <a href="recherche_entreprises.html">Entreprises</a>&nbsp;
-                <a href="page_connexion.html">Se déconnecter</a>&nbsp;
-                <a href="profil_etudiant.html"><span class="Profil">Mon profil</span></a>&nbsp;
+                <a href="offres_stages.html">Offres de stage</a>
+                <a href="recherche_entreprises.html">Entreprises</a>
+                <a class="refPilote" href="gestion_etudiant/GETU_accueil.html">Etudiants</a>
+                <a class="refAdmin" href="gestion_pilote/GP_accueil.html">Pilotes</a>
+                <button class="Profil" type="button" onclick="redirectToProfil()">Mon profil</button>
             </nav>
 
         </header>
@@ -29,7 +30,7 @@
                         <h1 id="accroche_accueil">Le dernier né des sites d'offres de stage...</h1>
                     </div>
                     <div id="rechercher">
-                        <button href="offres_stages.html" class="button">
+                        <button type="button" class="button" onclick="redirectToOffres()">
                             RECHERCHER MAINTENANT
                         </button>
                     </div>
@@ -40,22 +41,22 @@
             <article class="container">
                 <section class="intitule">
                     <h2>Intitulé stage 1</h2>
-                    <button class="button">Voir l'offre</button>
+                    <button type="button" class="button" onclick="redirectToPresentationOffre()">Voir l'offre</button>
                 </section>
                 <section class="intitule">
                     <h2>Intitulé stage 2</h2>
-                    <button class="button">Voir l'offre</button>
+                    <button type="button" class="button" onclick="redirectToPresentationOffre()">Voir l'offre</button>
                 </section>
                 <section class="intitule">
                     <h2>Intitulé stage 3</h2>
-                    <button class="button">Voir l'offre</button>
+                    <button type="button" class="button" onclick="redirectToPresentationOffre()">Voir l'offre</button>
                 </section>  
             </article>
 
         </main>
 
-        <footer class="footer">
-            <p>EasyStage Inc.</p>
+        <footer>
+            <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
         </footer>
     
     </body>

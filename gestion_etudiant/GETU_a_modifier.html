@@ -2,25 +2,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Assets/stylesheet.css">
-    <title>Suppression d'un Etudiant</title>
+    <title>Modification d'un Etudiant</title>
     <script src="../Assets/script.js"></script>
 </head>
 
 <body>
     <header class="logo">
         <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
-        <h1 class="GE">Suppression etudiant</h1>
+        <h1 class="GE">Modification etudiant</h1>
     </header>
     <div class="back_to_hub">
     <div class="text_bth" onclick="redirectToAccueilGETU()">Espace Etudiant</div>
     </div>
     <main>
-        <form name="GE_suppression"  action="" method="post">
+        <form name="GE_creation"  action="" method="post">
             <fieldset>
 
                 <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
                 <div class="info">
-                <div class="info_txt">Informations de l'étudiant :</div>
+                <div class="info_txt">Etudiant à modifier :</div>
                 </div>
                 <label for="nom_etudiant">Nom :</label>
                 <input type="text" id="nom_etudiant" name="nom_etudiant" required>
@@ -30,7 +30,7 @@
                 <input type="text" id="centre_etudiant" name="centre_etudiant" required>
                 <label for="promo_etudiant">Promotion :</label>
                 <input type="text" id="promo_etudiant" name="promo_etudiant" required>
-                <button class="button" type="submit" onclick="redirectToAccueilGETU()">Supprimer</button>
+                <button class="button" type="button" onclick="redirectToGETU_modification()">Modifier</button>
             </fieldset>
         </form>
     </main>

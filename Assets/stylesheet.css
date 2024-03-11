@@ -4,10 +4,10 @@ CLASSES GENERALES
 
 ******************************************************************************************************/
 
-* {
+/*:not(.OptionOffre, .flex-container2, .filtresEntreprises, h3, .OptionEntreprise ) {
     font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif;
     margin: 0 0 0 0;
-}
+}*/
 
 header {
     display: flex;
@@ -31,19 +31,6 @@ header > img {
 
 }  
  
-input[type="text"]{ 
-    border: 0.05rem solid grey; 
-    border-radius: 0.3rem; 
-    padding: 0.5rem 2rem;
-    margin-bottom: 1rem;
-    margin:auto;
-    align-items: center;
-
-}
-    
-a:first-of-type {
-        margin-left: 5%;
-    }
 
 
 form{
@@ -138,6 +125,8 @@ nav:first-of-type {
       padding: 0;
     } 
 }
+
+
 
 
 /*
@@ -264,7 +253,6 @@ PAGE D'ACCUEIL */
     font-style: italic;
     font-size: 100%;
     font-weight: bold;
-
 }
 
 .container{
@@ -298,10 +286,14 @@ PAGE D'ACCUEIL */
 
 
 
+
+
 /*
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 OFFRE DE STAGES */
+
+
 
 
 .header1 {
@@ -364,8 +356,6 @@ a:hover {
 
 .flex-container2 {
     display: flex;  
-    box-sizing: 100%;
-    margin-bottom: 10rem;
  }  
 
 #colonne2 {
@@ -700,7 +690,9 @@ input[type="radio"]{
     line-height: 1.5; 
   }
 
-
+.text_bth:hover {
+    color: rgb(255, 221, 0);
+}
 
   .back_to_hub{
     display: flex;
@@ -914,10 +906,11 @@ input[type="radio"]{
 }
 
 
-#mentions-legales {
+.mentions-legales {
     align-self: center;
     font-size : 1rem;
     font-style: italic;
+    margin-top: 1rem;
 }
 
 #footerMentions {
@@ -925,12 +918,12 @@ input[type="radio"]{
 }
 
 footer{
-
     text-align: center;
-    border: none;
+    border-top: solid 1px black;
     height: 1px;
-    background-color: black;
     margin-top: 3rem;
+    margin-bottom: 0.5rem;
+    padding-top: 0.5rem;
 }
 
 .addCompetence {
@@ -983,7 +976,6 @@ footer{
     height: 2rem;
     width: 6.2rem;
     margin-left: 2%;
-    margin-top: -1rem;
 }
 
 /*top right bottom left */
