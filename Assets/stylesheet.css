@@ -317,7 +317,7 @@ a {
     color: black;
     height:27.2px;
 }
-a:hover {
+a:hover:not(.Deconnexion) {
     text-decoration: bold;
     color: rgb(255, 221, 0);
 }
@@ -331,6 +331,7 @@ a:hover {
     font-family: Arial;
     font-size:1rem;
     margin-top: 1rem;
+    margin-bottom: 0rem;
 }
 
 .flex-container1 {
@@ -937,8 +938,40 @@ footer{
 
 
 
+#headerPresEnt {
+    display: flex;
+    width: 100%;
+    padding-bottom: 5rem;
+    justify-content:flex-start;
+}
 
 
+.TitrePresEnt {
+    font-size: 2.5rem;
+    margin: 4rem 0% 0 4%; /*top right bottom left */
+}
+
+.logoEnt {
+        margin-left: 15%;
+        max-width: 120px;
+        min-width: 25%;
+        height:auto;
+}
+
+.DivRetourPresEnt {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.RetourPresEnt {
+    border: none;
+    background: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    display: flex;
+}
 
 
 #Entreprise {
@@ -1127,6 +1160,7 @@ footer{
     .flex-top-Enterprises-1 > div > article > h5, .flex-top-Enterprises-2 > div > article > h5 {
         font-size: 1.3rem;
     }
+
 }
 
 
@@ -1434,3 +1468,23 @@ footer{
         justify-content:flex-end;
     }
 }
+
+.Deconnexion {
+    display: flex;
+    font-size: 1.1rem; 
+    justify-content: center;
+    visibility: hidden;
+    font-weight:initial;
+    padding: 0rem;
+}
+
+.DivDeconnexion:hover .Deconnexion {
+    visibility: visible;
+}
+
+.Deconnexion:hover {
+    font-weight: bolder;
+}
+
+
+

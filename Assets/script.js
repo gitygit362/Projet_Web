@@ -122,7 +122,17 @@ function redirectToPresentationOffre(){
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------//
 
+//affichage de deconnexion dans la navbar 
 
+function showLogout() {
+    var deconnexionLink = document.querySelector('.Deconnexion');
+    deconnexionLink.style.visibility = 'visible';
+}
+
+function hideLogout() {
+    var deconnexionLink = document.querySelector('.Deconnexion');
+    deconnexionLink.style.visibility = 'hidden';
+}
 
 
 
@@ -479,6 +489,11 @@ function redirectToProfil() {
     // Exécuter la vérif des données entrées avant la redirection 
     //pour la bonne page profile
     alert("profil");
+}
+
+function redirectToOffreFromEnt(){
+    window.location.href = "offres_stages.html";
+    // avec le filtre de recherche du nom de l'entreprise pour seulement afficher les offres de celle ci 
 }
 
 /*
