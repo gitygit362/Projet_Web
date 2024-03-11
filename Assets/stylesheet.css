@@ -726,6 +726,15 @@ input[type="radio"]{
     margin-top: 10rem;
 }
 
+footer{
+
+    text-align: center;
+    border: none;
+    height: 1px;
+    background-color: black;
+    margin-top: 3rem;
+}
+
 .addCompetence {
     margin-bottom: 2rem;
 }
@@ -910,7 +919,14 @@ input[type="radio"]{
     border-radius: 1.2rem;
 }
 
+.PresEnt{
+   display: inline;
 
+}
+
+#PresEnt{
+    color:black
+}
 
 
 

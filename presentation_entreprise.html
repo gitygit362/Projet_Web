@@ -16,18 +16,21 @@
     </header>
     <main>
         <h2 class="TitreOffrePresentation">Présentation de l'entreprise</h2>
-        <label for="name">Logo</label>
-        <!-- image du logo en fonction du id  -->
-        <label for="name">Titre de l'offre</label>
-        <input type="text" name="user" required>
-        <label for="secteur">Secteur d'entreprise :</label>
-        <input type="text" name="password" required>
-        <label for="local">localité(s) :</label>
-        <input type="text" name="password" required>
-        <label for="local+">Ajouter une localité :</label>
-        <input type="text" name="password">
+        <div class="PresEnt">
+            <label for="name" id="PresEnt">Logo :</label>
+            <!-- image du logo en fonction du id  -->
+            <label for="name" id="PresEnt">Titre de l'offre</label>
+            <input type="text" id="PresEnt" required>
+            <label for="secteur" id="PresEnt">Description courte</label>
+            <input type="text" required>
+            <label for="local" id="PresEnt">Description détaillée</label>
+            <input type="text" required>
+        </div>
+        <div>
+            
+        </div>
         <div class="PilotesFonctionsOffre">
-        <button class="ModifierButton" type="button">Valider</button>
+            <button class="ModifierButton" type="button">Valider</button>
         </div>
 </main>
 <footer>

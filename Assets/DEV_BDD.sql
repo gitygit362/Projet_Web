@@ -45,7 +45,7 @@ CREATE TABLE Entreprise(
    ID_entreprise INT,
    secteur_activité VARCHAR(50),
    nom VARCHAR(50),
-   logo VARCHAR(MAX)
+   logo VARCHAR(MAX),
    PRIMARY KEY(ID_entreprise)
 );
 
