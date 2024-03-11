@@ -45,7 +45,7 @@ CREATE TABLE Entreprise(
    ID_entreprise INT,
    secteur_activité VARCHAR(50),
    nom VARCHAR(50),
-   logo LONGBLOB
+   logo VARBINARY(MAX)
    PRIMARY KEY(ID_entreprise)
 );
 
