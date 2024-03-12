@@ -666,6 +666,8 @@ input[type="radio"]{
 
 
 body, html {
+    width: 100%;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -697,40 +699,15 @@ body, html {
 }
 
 /* Styles pour le menu de navigation */
-.menu-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
 
 .menu {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    border-bottom: 0.1875rem solid yellow;
+    text-align: right;
+    font-weight: bolder;
+    font-size: 3rem;
+    width: 100%;
+    
 }
 
-.menu-link {
-    display: block;
-    padding: 0.625rem 0.9375rem;
-    text-decoration: none;
-    color: #333;
-    position: relative;
-}
-
-.menu-link:hover {
-    background-color: #ddd;
-}
-
-.menu-link:hover::after {
-    content: '';
-    position: absolute;
-    bottom: -0.1875rem;
-    left: 0;
-    right: 0;
-    height: 0.1875rem;
-    background-color: yellow;
-}
 
 /* Styles pour le profil utilisateur dans l'en-tête */
 .user-profile {
@@ -873,16 +850,6 @@ details[open] > table {
     flex-grow: 1;
 }
 
-.informations textarea {
-    width: 40%; 
-    padding: 0rem;
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
-}
-
 .brand-logo {
     height: 50px; 
     margin-right: 10px;
@@ -926,69 +893,6 @@ details[open] > table {
 
 
 
-@media (max-width: 1024px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-        width: 95%;
-    }
-
-    .profil, .informations {
-        flex-basis: unset;
-        width: 100%;
-    }
-
-    .informations {
-        margin-left: 0;
-        margin-top: 20px;
-    }
-
-    .centre-button {
-        flex: 0 0 calc(50% - 20px); 
-    }
-
-    .job-offer-details {
-        flex-direction: column;
-    }
-
-    .informations textarea {
-        width: 80%; 
-    }
-}
-
-
-@media (max-width: 768px) {
-    .centre-button {
-        flex: 0 0 calc(100% - 20px); 
-    }
-
-    .page-title, .page-title2, .page-title3 {
-        font-size: 1.5rem;
-        margin: 0 10px; 
-    }
-}
-
-
-@media (max-width: 480px) {
-    .profil img {
-        width: 10rem;
-        height: 10rem; 
-    }
-
-    .informations span, .profil p {
-        margin-top: 1rem; 
-    }
-
-    .job-offer-header h3 {
-        font-size: 20px; 
-    }
-
-    .informations textarea {
-        width: 90%; 
-    }
-}
-
-
 
 /* media queries */
 
@@ -1014,6 +918,21 @@ details[open] > table {
     .centre-button, .details-table summary {
         width: calc(50% - 40px); /* Ajuster pour un meilleur affichage en tablette */
     }
+    /* Ajustements similaires à ceux des smartphones, avec plus d'espace */
+    .menu {
+        font-size: 2.5rem;
+    }
+    .user-profile {
+        padding: 0 5rem;
+    }
+    .container, .informations {
+        flex-direction: column; /* Pour une meilleure gestion de l'espace */
+    }
+    .profil, .informations {
+        flex-basis: 100%;
+    }
+    
+    
 }
 
 @media (min-width: 1201px) {
@@ -1028,6 +947,17 @@ details[open] > table {
     .centre-button, .details-table summary {
         width: calc(25% - 40px); /* Utilisation optimale de l'espace disponible */
     }
+    .menu {
+        font-size: 3rem;
+    }
+    .user-profile {
+        padding: 0 10.625rem; 
+        font-size: 1.125rem; 
+    }
+    .informations {
+        width: 80%;
+    }
+    
 }
 
 @media only screen and (min-width: 770px) {
@@ -1207,5 +1137,41 @@ details[open] > table {
     .info_txt{
         font-size: 1.8rem; 
       }
+      .header, .logo, .line {
+        height: auto; /* Ajustement de la hauteur pour les petites écrans */
+    }
+    .logo {
+        height: 3rem; /* Réduction de la taille du logo */
+    }
+    .line {
+        width: 100%; /* Ajustement de la largeur de la ligne */
+        transform: skew(0deg); /* Suppression de l'inclinaison pour les petits écrans */
+    }
+    .menu {
+        font-size: 2rem; /* Diminution de la taille de police pour les menus */
+    }
+    .user-profile {
+        padding: 0 2rem; /* Réduction du padding */
+        font-size: 0.875rem; /* Diminution de la taille de police */
+    }
+    .container, .informations {
+        flex-direction: column; /* Empilage vertical */
+        width: 90%; /* Ajustement de la largeur */
+        margin: 10px auto; /* Centrage avec une marge */
+    }
+    .profil, .informations {
+        flex-basis: 100%; 
+    }
+    .profil img {
+        width: 10rem; 
+        height: 10rem;
+    }
+    
+    .centre-button {
+        flex: 1 0 100%; 
+    }
+    .job-offer-details, .details-table th, .details-table td {
+        font-size: 12px; 
+    }
 }
 
