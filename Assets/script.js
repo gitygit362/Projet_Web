@@ -462,12 +462,6 @@ function AddLocaliteEnt(){
     nbLocalites += 1;
     newInput.id = "localite" + nbLocalites + "_entreprise"; */
     var newInput = "";
-    var existingInputs = [];
-    
-    var existingInputsElements = document.querySelectorAll('.LocaliteSupp input[type="text"], .LocaliteSupp input[type="number"]');
-    existingInputsElements.forEach(function(input) {
-        existingInputs.push(input.value);
-    });
 
     nbLocalites += 1;
     newInput = "<div> <label for='Adresse" + nbLocalites + "_entreprise'>Adresse :</label><input type='text' id='Adresse" + nbLocalites + "_entreprise' name='Adresse" + nbLocalites + "_entreprise' required> </div>";
