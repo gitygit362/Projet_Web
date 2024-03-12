@@ -461,16 +461,21 @@ function AddLocaliteEnt(){
     newInput.type = "text";
     nbLocalites += 1;
     newInput.id = "localite" + nbLocalites + "_entreprise"; */
-/*
     var newInput = "";
+    var existingInputs = [];
+    
+    var existingInputsElements = document.querySelectorAll('.LocaliteSupp input[type="text"], .LocaliteSupp input[type="number"]');
+    existingInputsElements.forEach(function(input) {
+        existingInputs.push(input.value);
+    });
+
     nbLocalites += 1;
     newInput = "<div> <label for='Adresse" + nbLocalites + "_entreprise'>Adresse :</label><input type='text' id='Adresse" + nbLocalites + "_entreprise' name='Adresse" + nbLocalites + "_entreprise' required> </div>";
-    newInput += "<div> <label for='Ville'" + nbLocalites + "_entreprise'>Ville :</label><input type='text' id='Ville" + nbLocalites + "_entreprise' name='Ville1_entreprise' required></div>";
+    newInput += "<div> <label for='Ville" + nbLocalites + "_entreprise'>Ville :</label><input type='text' id='Ville" + nbLocalites + "_entreprise' name='Ville1_entreprise' required></div>";
     newInput += "<div><label for='CP" + nbLocalites + "_entreprise'>Code Postal :</label><input type='number' id='CP" + nbLocalites + "_entreprise' name='CP1_entreprise' required></div>";
     newInput += "<div><label for='Pays" + nbLocalites + "_entreprise'>Pays :</label><input type='text' id='Pays" + nbLocalites + "_entreprise' name='Pays1_entreprise' required></div>"
 
-    document.getElementsById("LocaliteSupp").innerHTML = newInput;
-    */
+    document.getElementById("LocaliteSupp").innerHTML += newInput;
 
 /*
     var newDiv = document.getElementsByClassName("LocaliteSupp");
