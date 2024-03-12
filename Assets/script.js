@@ -1,6 +1,6 @@
+// redirections 
 
-
-function redirectToAccueil() {
+function redirectToAccueilFromConnexion() {
     // Exécuter la vérif des données entrées avant la redirection 
     // ...
     let user = document.connexion.user.value;
@@ -18,10 +18,14 @@ function redirectToAccueil() {
     }
 }
 
-function redirectToProfil() {
-    // Exécuter la vérif des données entrées avant la redirection 
-    //pour la bonne page profile
+function redirectToAccueil(){
+    window.location.href = "../accueil.html";
 }
+
+function redirectToAccueilGE(){
+    window.location.href = "GE_accueil.html";
+}
+
 
 function redirectToPostulation() {
     window.location.href = "candidature.html";
@@ -34,6 +38,103 @@ function redirectToPrecPage() {
 function redirectToCreerOffre() {
     window.location.href = "creer_offre.html";
 }
+
+
+function redirectToCreerEnt(){
+    window.location.href = "GE_creation.html";
+}
+
+function redirectToSuppEnt(){
+    window.location.href = "GE_suppression.html";
+}
+
+function redirectToEditEnt(){
+    window.location.href = "GE_a_modifier.html";
+}
+
+function redirectToGE_modification(){
+    window.location.href = "GE_modification.html";
+}
+
+//gestion pilote redirection
+function redirectToAccueilGP(){
+    window.location.href = "GP_accueil.html";
+}
+
+function redirectToCrer_GP(){
+    window.location.href = "GP_creation.html";
+}
+
+function redirectToSupp_GP(){
+    window.location.href = "GP_suppression.html";
+}
+
+function redirectToEdit_GP(){
+    window.location.href = "GP_a_modifier.html";
+}
+
+function redirectToRecherche_GP(){
+    window.location.href = "GP_recherche.html";
+}
+
+function redirectToGP_modification(){
+    window.location.href = "GP_modification.html";
+}
+
+// gestion etudiant redirection
+function redirectToAccueilGETU(){
+    window.location.href = "GETU_accueil.html";
+}
+
+function redirectToCrer_GETU(){
+    window.location.href = "GETU_creation.html";
+}
+
+function redirectToSupp_GETU(){
+    window.location.href = "GETU_suppression.html";
+}
+
+function redirectToEdit_GETU(){
+    window.location.href = "GETU_a_modifier.html";
+}
+
+function redirectToGETU_modification(){
+    window.location.href = "GETU_modification.html";
+}
+
+function redirectToRecherche_GETU(){
+    window.location.href = "GETU_recherche.html";
+}
+
+function redirectToOffres(){
+    window.location.href = "offres_stages.html";
+}
+
+
+
+// BACKEND AVEC LA DATABASE A FAIRE
+
+
+function redirectToPresentationOffre(){
+    window.location.href = "presentation_offre.html";
+
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------//
+
+//affichage de deconnexion dans la navbar 
+
+function showLogout() {
+    var deconnexionLink = document.querySelector('.Deconnexion');
+    deconnexionLink.style.visibility = 'visible';
+}
+
+function hideLogout() {
+    var deconnexionLink = document.querySelector('.Deconnexion');
+    deconnexionLink.style.visibility = 'hidden';
+}
+
+
 
 
 /* offres de stages */ 
@@ -216,14 +317,6 @@ function verifNumber(inputElement){
 }
 
 
-function voirOffre(numOffre){
-    //var offre = numOffre;
-    //ce sera du backend pour le l'affichage des bonnes données
-    window.location.href = "presentation_offre.html";
-    return false;
-}
-
-
 
 
 function EntrepriseFilter(){
@@ -302,9 +395,7 @@ function modifyOffre() {
 
 
 //gestion entreprise
-function redirectToAccueilGE(){
-    window.location.href = "GE_accueil.html";
-}
+
 
 function ValidationCandidature(){
     var fichier1 = document.getElementById("file1").value;
@@ -323,60 +414,6 @@ function ValidationCandidature(){
         window.location.href = "presentation_offre.html"; // marche pas
         return false;
     }
-}
-
-function redirectToCrerEnt_GE(){
-    window.location.href = "GE_creation.html";
-}
-
-function redirectToSuppEnt_GE(){
-    window.location.href = "GE_suppression.html";
-}
-
-function redirectToEditEnt_GE(){
-    window.location.href = "GE_modification.html";
-}
-
-//gestion pilote redirection
-function redirectToAccueilGP(){
-    window.location.href = "GP_accueil.html";
-}
-
-function redirectToCrer_GP(){
-    window.location.href = "GP_creation.html";
-}
-
-function redirectToSupp_GP(){
-    window.location.href = "GP_suppression.html";
-}
-
-function redirectToEdit_GP(){
-    window.location.href = "GP_modification.html";
-}
-
-function redirectToRecherche_GP(){
-    window.location.href = "GP_recherche.html";
-}
-
-// gestion etudiant redirection
-function redirectToAccueilGETU(){
-    window.location.href = "GETU_accueil.html";
-}
-
-function redirectToCrer_GETU(){
-    window.location.href = "GETU_creation.html";
-}
-
-function redirectToSupp_GETU(){
-    window.location.href = "GETU_suppression.html";
-}
-
-function redirectToEdit_GETU(){
-    window.location.href = "GETU_modification.html";
-}
-
-function redirectToRecherche_GETU(){
-    window.location.href = "GETU_recherche.html";
 }
 
 
@@ -409,6 +446,60 @@ function AddCompetence() {
     var newInput = document.createElement("input");
     newInput.className = "Candidatureinput";
     newInput.type = "text";
+    nbcompetences += 1;
+    newInput.id = "competence" + nbcompetences; 
 
     document.getElementById("AddCompetences").appendChild(newInput);
 }
+
+
+var nbLocalites = 1;
+
+function AddLocaliteEnt(){
+    var newInput = document.createElement("input");
+    newInput.type = "text";
+    nbLocalites += 1;
+    newInput.id = "localite" + nbLocalites + "_entreprise"; 
+
+    document.getElementById("LocaliteSupp").appendChild(newInput);
+}
+
+
+
+
+
+
+
+
+/* Prochaines fonctions en lien avec le backend */
+
+function voirOffre(numOffre){
+    //var offre = numOffre;
+    //ce sera du backend pour le l'affichage des bonnes données
+    window.location.href = "presentation_offre.html";
+    return false;
+}
+
+function voirEntreprise(){
+    window.location.href = "presentation_entreprise.html";
+    return false;
+}
+
+function redirectToProfil() {
+    // Exécuter la vérif des données entrées avant la redirection 
+    //pour la bonne page profile
+    alert("profil");
+}
+
+function redirectToOffreFromEnt(){
+    window.location.href = "offres_stages.html";
+    // avec le filtre de recherche du nom de l'entreprise pour seulement afficher les offres de celle ci 
+}
+
+/*
+CheckFiltresOffre()
+//permet de check les filtres sélectionnés pour trouver les offres liées 
+
+document.addEventListener(getElementById("chercher_offre")).onchange
+*/
+

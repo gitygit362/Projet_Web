@@ -1,3 +1,14 @@
+/******************************************************************************************************
+
+CLASSES GENERALES
+
+******************************************************************************************************/
+
+/*:not(.OptionOffre, .flex-container2, .filtresEntreprises, h3, .OptionEntreprise ) {
+    font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif;
+    margin: 0 0 0 0;
+}*/
+
 header {
     display: flex;
     background-image:url("images/entete.png");
@@ -5,12 +16,12 @@ header {
     background-size: auto 100%; 
     background-position: left top;
     background-size: cover;
+    width:100%;
 }
 
-h1{
+header h1 {
     padding-left: 35%;
 }
-
 
 header > img {
     margin-left: 1rem;
@@ -19,10 +30,7 @@ header > img {
     max-height: 80px; 
 
 }  
-    
-a:first-of-type {
-        margin-left: 5%;
-    }
+ 
 
 
 form{
@@ -61,8 +69,12 @@ fieldset {
 }
 
 .button{
+    box-sizing: border-box;
     margin: 1rem;
-    padding: 0.5rem 6rem;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0 0.5rem 0;
+    /* padding: 0.5rem 6rem; */
     border: none;
     border-radius: 2rem;
     background-color:rgb(255, 221, 0);
@@ -85,16 +97,204 @@ button:hover{
     display: inline;
 }
 
+nav:first-of-type {
+    margin-top: 4rem;
+}
+
+.navbar{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0; 
+    text-align: right;
+    width: 100%;
+    font-size: 3rem;
+    font-weight: bolder;
+}
+
+@media all and (max-width: 800px) {
+    .navbar {
+      justify-content: space-around;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .navbar {
+      flex-flow: column wrap;
+      padding: 0;
+    } 
+}
+
+
+
+
+/*
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+PAGE D'ACCUEIL */
+
+
+.header_accueil {
+    display: flex;
+    background-image:url("images/entete_navbar.png");
+    background-position: left top;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.background_img{
+    position: relative;
+    width: 100vw;
+    display: flex;
+    margin-top: 3%;
+}
+
+.background_img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
+
+.overlay {
+    width: 100%;
+    position: relative;
+}
+
+#rechercher {
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+    align-content: end;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .button {
+        text-align: center;
+        text-wrap: nowrap;
+
+        width: 300px;
+    }
+}
+
+#background_img_accueil {
+    background-image: url("images/image_accueil.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    width: 100%;
+    height: 350px;
+    margin: 2rem 0 2rem 0;
+}
+
+#accroche_accueil{
+    color: white;
+    font-size: 300%;
+    font-style: italic; 
+    width: 40%;
+    padding: 1.5%;
+}
+
+@media all and (max-width: 800px) {
+    #accroche_accueil {
+      /* When on medium sized screens, we center it by evenly distributing empty space around items */
+      width: 100%;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      font-size: 200%;
+      text-align: center;
+    }
+}
+
+.intitule{
+    border-style: solid;
+    border-width: medium;
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px;
+    flex-shrink: 3;
+    width: 25%;
+
+    /* Center content stage */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+@media all and (max-width: 800px) {
+    .intitule {
+      /* When on medium sized screens, we center it by evenly distributing empty space around items */
+      width: 80%;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .intitule {
+      /* When on medium sized screens, we center it by evenly distributing empty space around items */
+      width: 80%;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+}
+
+
+.footer{
+    margin-top: 50px;
+    padding: 5px;
+    background-color:#D9D9D9;
+    font-style: italic;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.container{
+    display:flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media all and (max-width: 800px) {
+    .container {
+      /* When on medium sized screens, we center it by evenly distributing empty space around items */
+      justify-content: space-around;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .container {
+      /* On small screens, we are no longer using row direction but column */
+      flex-direction: column;
+    }
+}
+
+@media all and (min-width: 900px){
+    .container{
+        justify-content: center;
+    }
+}
 
 
 
 
 
+/*
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+OFFRE DE STAGES */
 
 
 
-
-/* offre de stage */
 
 .header1 {
     display: flex;
@@ -104,16 +304,6 @@ button:hover{
     background-size: cover;
 }
 
-nav:first-of-type {
-    margin-top: 4rem;
-}
-
-.navbar {
-    text-align: left;
-    font-weight: bolder;
-    font-size: 3rem;
-    width: 100%;
-}
 
 a:first-of-type {
     margin-left: 5%;
@@ -125,8 +315,9 @@ a {
     margin: 2%;
     text-decoration: none;
     color: black;
+    height:27.2px;
 }
-a:hover {
+a:hover:not(.Deconnexion) {
     text-decoration: bold;
     color: rgb(255, 221, 0);
 }
@@ -139,6 +330,8 @@ a:hover {
     background-color:rgb(255, 221, 0);
     font-family: Arial;
     font-size:1rem;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
 }
 
 .flex-container1 {
@@ -166,8 +359,6 @@ a:hover {
 
 .flex-container2 {
     display: flex;  
-    box-sizing: 100%;
-    margin-bottom: 10rem;
  }  
 
 #colonne2 {
@@ -502,7 +693,9 @@ input[type="radio"]{
     line-height: 1.5; 
   }
 
-
+.text_bth:hover {
+    color: rgb(255, 221, 0);
+}
 
   .back_to_hub{
     display: flex;
@@ -716,10 +909,11 @@ input[type="radio"]{
 }
 
 
-#mentions-legales {
+.mentions-legales {
     align-self: center;
     font-size : 1rem;
     font-style: italic;
+    margin-top: 1rem;
 }
 
 #footerMentions {
@@ -727,13 +921,12 @@ input[type="radio"]{
 }
 
 footer{
-
     text-align: center;
-    border: none;
+    border-top: solid 1px black;
     height: 1px;
-    background-color: black;
     margin-top: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    padding-top: 0.5rem;
 }
 
 .addCompetence {
@@ -745,8 +938,40 @@ footer{
 
 
 
+#headerPresEnt {
+    display: flex;
+    width: 100%;
+    padding-bottom: 5rem;
+    justify-content:flex-start;
+}
 
 
+.TitrePresEnt {
+    font-size: 2.5rem;
+    margin: 4rem 0% 0 4%; /*top right bottom left */
+}
+
+.logoEnt {
+        margin-left: 15%;
+        max-width: 120px;
+        min-width: 25%;
+        height:auto;
+}
+
+.DivRetourPresEnt {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.RetourPresEnt {
+    border: none;
+    background: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    display: flex;
+}
 
 
 #Entreprise {
@@ -786,7 +1011,6 @@ footer{
     height: 2rem;
     width: 6.2rem;
     margin-left: 2%;
-    margin-top: -1rem;
 }
 
 /*top right bottom left */
@@ -936,6 +1160,7 @@ footer{
     .flex-top-Enterprises-1 > div > article > h5, .flex-top-Enterprises-2 > div > article > h5 {
         font-size: 1.3rem;
     }
+
 }
 
 
@@ -1243,3 +1468,23 @@ footer{
         justify-content:flex-end;
     }
 }
+
+.Deconnexion {
+    display: flex;
+    font-size: 1.1rem; 
+    justify-content: center;
+    visibility: hidden;
+    font-weight:initial;
+    padding: 0rem;
+}
+
+.DivDeconnexion:hover .Deconnexion {
+    visibility: visible;
+}
+
+.Deconnexion:hover {
+    font-weight: bolder;
+}
+
+
+

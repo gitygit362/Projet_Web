@@ -2,14 +2,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Assets/stylesheet.css">
-    <title>Recherche d'un Pilote</title>
+    <title>Modification d'un Pilote</title>
     <script src="../Assets/script.js"></script>
 </head>
 
 <body>
     <header class="logo">
         <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
-        <h1 class="GE">Recherche pilote</h1>
+        <h1 class="GE">Modification pilote</h1>
     </header>
     <div class="back_to_hub">
     <div class="text_bth" onclick="redirectToAccueilGP()">Espace Pilote</div>
@@ -20,17 +20,17 @@
 
                 <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
                 <div class="info">
-                <div class="info_txt">Informations du pilote :</div>
+                <div class="info_txt">Pilote à modifier :</div>
                 </div>
                 <label for="nom_pilote">Nom :</label>
-                <input type="text" id="nom_pilote" name="nom_pilote">
+                <input type="text" id="nom_pilote" name="nom_pilote" required>
                 <label for="prenom_pilote">Prénom :</label>
-                <input type="text" id="prenom_pilote" name="prenom_pilote">
+                <input type="text" id="prenom_pilote" name="prenom_pilote" required>
                 <label for="centre">Centre :</label>
-                <input type="text" id="centre_pilote" name="centre_pilote">
+                <input type="text" id="centre_pilote" name="centre_pilote" required>
                 <label for="promo_pilote">Promotion :</label>
-                <input type="text" id="promo_pilote" name="promo_pilote">
-                <button class="button" type="button" onclick="PROFIL_ETU()">Rechercher</button>
+                <input type="text" id="promo_pilote" name="promo_pilote" required>
+                <button class="button" type="button" onclick="redirectToGP_modification()">Modifier</button>
             </fieldset>
         </form>
     </main>

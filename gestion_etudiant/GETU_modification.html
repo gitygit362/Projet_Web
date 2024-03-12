@@ -9,10 +9,10 @@
 <body>
     <header class="logo">
         <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
-        <h1 class="GE">Modification etudiant</h1>
+        <h1 class="GE">Modification Etudiant</h1>
     </header>
     <div class="back_to_hub">
-    <div class="text_bth" onclick="redirectToAccueilGETU()">Espace Etudiant</div>
+    <div class="text_bth" onclick="redirectToEdit_GETU()">retour</div>
     </div>
     <main>
         <form name="GE_creation"  action="" method="post">
@@ -20,21 +20,21 @@
 
                 <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
                 <div class="info">
-                <div class="info_txt">Information du etudiant :</div>
+                <div class="info_txt">Nouvelles informations de l'étudiant :</div>
                 </div>
-                <label for="nom">Nom :</label>
-                <input type="text" id="user" name="user" required>
+                <label for="nom_etudiant">Nom :</label>
+                <input type="text" id="nom_etudiant" name="nom_etudiant" required>
                 <label for="prenom">Prénom :</label>
-                <input type="text"  required>
-                <label for="centre">Centre :</label>
-                <input type="text"  required>
-                <label for="promo">Promotion :</label>
-                <input type="text" required>
-                <button class="button" type="button" onclick="redirectToAccueilGETU()">Créer</button>
+                <input type="text" id="prenom_etudiant" name="prenom_etudiant" required>
+                <label for="centre_etudiant">Centre :</label>
+                <input type="text" id="centre_etudiant" name="centre_etudiant" required>
+                <label for="promo_etudiant">Promotion :</label>
+                <input type="text" id="promo_etudiant" name="promo_etudiant" required>
+                <button class="button" type="submit" onclick="redirectToAccueilGETU()">Modifier</button>
             </fieldset>
         </form>
     </main>
     <footer>
-        <a id="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+        <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
     </footer>
 </body>
