@@ -93,21 +93,44 @@ function redirectToEditEnt_GE(){
 }
 
 function redirectToGE_modification(){
-    // var name_ent = document.getElementById("nom_entreprise").value;
-    // if(name_ent == ""){
-    //     alert("Veuillez entrer un nom d'entreprise");
-    //     return false;
-    // }
-    // else{
-    //     alert("test");
+     var name_ent = document.getElementById("nom_entreprise").value;
+     if(name_ent == ""){
+         alert("Veuillez entrer un nom d'entreprise");
+         return false;
+    }
+     else{
+         alert("test");
         window.location.href = "GE_modification.html";
-    //     return true;
-    // }
+         return true;
+    }
 }
 
 //gestion pilote redirection
 function redirectToAccueilGP(){
     window.location.href = "GP_accueil.html";
+}
+
+function redirectToAccueilGE_FromCreate(){
+    var name_pil = document.getElementById("nom_pilote").value;
+    var fname_pil = document.getElementById("prenom_pilote").value;
+    var centre_pil = document.getElementById("centre_pilote").value;
+    var local_pil = document.getElementById("promo_pilote").value;
+    if(name_ent == ""){
+        alert("Veuillez entrer un nom d'entreprise");
+        return false;
+    }
+    else if(sect_ent == ""){
+        alert("Veuillez entrer un secteur d'entreprise");
+        return false;
+    }
+    else if(local_ent == ""){
+        alert("Veuillez entrer au moins une localité pour l'entreprise");
+        return false;
+    }
+    else{
+        window.location.href = "GE_accueil.html";
+        return true;
+    }
 }
 
 function redirectToCrer_GP(){
