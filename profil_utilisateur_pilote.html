@@ -8,23 +8,20 @@
     <link rel="stylesheet" href="Assets/stylesheet.css">
 </head>
 <body>
-    <div class="header">
-        <img src="Assets/images/logo.png" alt="Image" class="logo">
-        <div class="line"></div>
-    </div>
-        <nav class="menu">
-            <div class="menu-links"> <!-- Conteneur pour les liens -->
-            <a href="#">Accueil</a>
-            <a href="#" >Offres de stages</a>
-            <a href="#">Entreprises</a>
-            <a href="#">Etudiants</a>
-            <a href="#">Pilotes</a>
-        </div>
+    <header class="header1">
+        <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
+        <nav class="navbar">Profil Utilisateur
+            <a href="accueil.html">Accueil</a>
+            <a href="offres_stages.html">Offres de stages</a>
+            <a href="recherche_entreprises.html">Entreprises</a>
+            <a class="refPilote" href="gestion_etudiant/GETU_accueil.html">Etudiants</a>
+            <a class="refAdmin" href="gestion_pilote/GP_accueil.html">Pilotes</a>
+            <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
+                <a class="DeconnectProfil" href="page_connexion.html">Déconnexion</a>
+            </div>
         </nav>
+    </header>
         
-    <div class="user-profile">
-        Profil Utilisateur
-    </div>
     <div class="container">
         <div class="profil">
             <img src="Assets/images/profile.jpg" alt="Photo de profil">

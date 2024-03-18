@@ -593,7 +593,11 @@ function voirEntreprise(){
 function redirectToProfil() {
     // Exécuter la vérif des données entrées avant la redirection 
     //pour la bonne page profile
-    alert("profil");
+    alert("pilote");
+    window.location.href = "profil_utilisateur_pilote.html";
+    //
+//backend php
+
 }
 
 function redirectToOffreFromEnt(){

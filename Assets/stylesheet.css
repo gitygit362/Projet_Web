@@ -334,6 +334,11 @@ a:hover:not(.Deconnexion) {
     margin-bottom: 0rem;
 }
 
+.DeconnectProfil{
+    margin: 1.5rem;
+    font-size:1.1rem;
+}
+
 .flex-container1 {
     display: flex;
     justify-content: space-between;
@@ -701,6 +706,7 @@ input[type="radio"]{
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+    margin-right:1rem;
     text-align: left;
     justify-content: flex-end;
 }
@@ -957,15 +963,6 @@ body, html {
 }
 
 
-/* Styles pour le profil utilisateur dans l'en-tête */
-.user-profile {
-    font-size: 1.125rem;
-    font-weight: bold;
-    padding: 0 10.625rem;
-    display: inline-flex;
-    align-items: center;
-    margin-left: auto;
-}
 
 /* Styles pour la nouvelle section de profil utilisateur */
 .container {
