@@ -15,7 +15,10 @@
             <a href="recherche_entreprises.html">Entreprises</a>
             <a class="refPilote" href="gestion_etudiant/GETU_accueil.html">Etudiants</a>
             <a class="refAdmin" href="gestion_pilote/GP_accueil.html">Pilotes</a>
-            <button class="Profil" type="button" onclick="redirectToProfil()">Mon profil</button>
+            <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
+                <button class="Profil" type="button" onclick="redirectToProfil()">Mon profil</button>
+                <a class="Deconnexion" href="page_connexion.html">Déconnexion</a>
+            </div>
         </nav>
     </header>
     <main>

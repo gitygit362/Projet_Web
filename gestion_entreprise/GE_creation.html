@@ -26,10 +26,35 @@
                 <input type="text" id="nom_entreprise" name="nom_entreprise" required>
                 <label for="secteur_entreprise">Secteur d'activités :</label>
                 <input type="text" id="secteur_entreprise" name="secteur_entreprise" required>
-                <label for="localite1_entreprise">localité(s) :</label>
-                <input type="text" id="localite1_entreprise" name="localite_entreprise" required>
-                <div id="LocaliteSupp"></div>
-                <button class="addCompetence" type="button" onclick="AddLocaliteEnt()">ajouter une compétence</button>
+                
+                <label>localité(s) :</label>
+
+                <div class="LocaliteSupp">
+                    <div>
+                        <label for="Adresse1_entreprise">Adresse :</label>
+                        <input type="text" id="Adresse1_entreprise" name="Adresse1_entreprise" required>
+                    </div>
+                    <div>
+                        <label for="Ville1_entreprise">Ville :</label>
+                        <input type="text" id="Ville1_entreprise" name="Ville1_entreprise" required>
+                    </div>
+                    
+                    <div>
+                        <label for="CP1_entreprise">Code Postal :</label>
+                        <input type="number" id="CP1_entreprise" name="CP1_entreprise" required>
+                    </div>
+
+                    <div>
+                        <label for="Pays1_entreprise">Pays :</label>
+                        <input type="text" id="Pays1_entreprise" name="Pays1_entreprise" required>
+                    </div>
+
+                </div>
+                    
+
+                <button class="addCompetence" type="button" onclick="AddLocaliteEnt()">ajouter une adresse</button>
+
+
                 
                 <div class="notation">
                 <img src="../Assets/images/main_stylo.png" alt="logo EASYSTAGE" class="main_stylo">

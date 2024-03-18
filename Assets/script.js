@@ -505,12 +505,45 @@ function AddCompetence() {
 var nbLocalites = 1;
 
 function AddLocaliteEnt(){
+    /*
     var newInput = document.createElement("input");
     newInput.type = "text";
     nbLocalites += 1;
-    newInput.id = "localite" + nbLocalites + "_entreprise"; 
+    newInput.id = "localite" + nbLocalites + "_entreprise"; */
+/*
+    var newInput = "";
+    nbLocalites += 1;
+    newInput = "<div> <label for='Adresse" + nbLocalites + "_entreprise'>Adresse :</label><input type='text' id='Adresse" + nbLocalites + "_entreprise' name='Adresse" + nbLocalites + "_entreprise' required> </div>";
+    newInput += "<div> <label for='Ville'" + nbLocalites + "_entreprise'>Ville :</label><input type='text' id='Ville" + nbLocalites + "_entreprise' name='Ville1_entreprise' required></div>";
+    newInput += "<div><label for='CP" + nbLocalites + "_entreprise'>Code Postal :</label><input type='number' id='CP" + nbLocalites + "_entreprise' name='CP1_entreprise' required></div>";
+    newInput += "<div><label for='Pays" + nbLocalites + "_entreprise'>Pays :</label><input type='text' id='Pays" + nbLocalites + "_entreprise' name='Pays1_entreprise' required></div>"
 
-    document.getElementById("LocaliteSupp").appendChild(newInput);
+    document.getElementsById("LocaliteSupp").innerHTML = newInput;
+    */
+
+/*
+    var newDiv = document.getElementsByClassName("LocaliteSupp");
+
+    var newInput = document.createElement("div");
+    nbLocalites += 1;
+    newInput.innerHTML = "<label for='Adresse" + nbLocalites + "_entreprise'>Adresse :</label><input type='text' id='Adresse" + nbLocalites + "_entreprise' name='Adresse" + nbLocalites + "_entreprise' required>";
+
+    newDiv.appendChild(newInput);
+
+    newInput = document.createElement("div");
+    newInput.innerHTML = "<label for='Ville" + nbLocalites + "_entreprise'>Ville :</label><input type='text' id='Ville" + nbLocalites + "_entreprise' name='Ville1_entreprise' required>";
+    newDiv.appendChild(newInput);
+
+    newInput = document.createElement("div");
+    newInput.innerHTML = "<label for='CP" + nbLocalites + "_entreprise'>Code Postal :</label><input type='number' id='CP" + nbLocalites + "_entreprise' name='CP1_entreprise' required>";
+    newDiv.appendChild(newInput);
+
+    newInput = document.createElement("div");
+    newInput.innerHTML = "<label for='Pays" + nbLocalites + "_entreprise'>Pays :</label><input type='text' id='Pays" + nbLocalites + "_entreprise' name='Pays1_entreprise' required>";
+    newDiv.appendChild(newInput);
+
+    document.newDiv.appendChild(newDiv);
+*/
 }
 
 
