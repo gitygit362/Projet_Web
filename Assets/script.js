@@ -21,14 +21,54 @@ function redirectToAccueilFromConnexion() {
 function redirectToAccueil(){
     window.location.href = "../accueil.html";
 }
-
 function redirectToAccueilGE(){
     window.location.href = "GE_accueil.html";
+}
+
+function redirectToAccueilGE_FromCreate(){
+    var name_ent = document.getElementById("nom_entreprise").value;
+    var sect_ent = document.getElementById("secteur_entreprise").value;
+    var local_ent = document.getElementById("localite1_entreprise").value;
+    if(name_ent == ""){
+        alert("Veuillez entrer un nom d'entreprise");
+        return false;
+    }
+    else if(sect_ent == ""){
+        alert("Veuillez entrer un secteur d'entreprise");
+        return false;
+    }
+    else if(local_ent == ""){
+        alert("Veuillez entrer au moins une localité pour l'entreprise");
+        return false;
+    }
+    else{
+        window.location.href = "GE_accueil.html";
+        return true;
+    }
+}
+
+
+function redirectToAccueilGE_FromSuprr(){
+    var name_ent = document.getElementById("nom_entreprise").value;
+    var confirm_name_ent = document.getElementById("confirm_nom_entreprise").value;
+    if(name_ent == ""){
+        alert("Veuillez entrer un nom d'entreprise");
+        return false;
+    }
+    else if(confirm_name_ent == ""){
+        alert("Veuillez confirmer le nom de l'entreprise");
+        return false;
+    }
+    else{
+        window.location.href = "GE_accueil.html";
+        return true;
+    }
 }
 
 
 function redirectToPostulation() {
     window.location.href = "candidature.html";
+    
 }
 
 function redirectToPrecPage() {
@@ -40,25 +80,57 @@ function redirectToCreerOffre() {
 }
 
 
-function redirectToCreerEnt(){
-    window.location.href = "GE_creation.html";
+function redirectToCrerEnt_GE(){
+    window.location.href = "GE_creation.html";    
 }
 
-function redirectToSuppEnt(){
+function redirectToSuppEnt_GE(){
     window.location.href = "GE_suppression.html";
 }
 
-function redirectToEditEnt(){
+function redirectToEditEnt_GE(){
     window.location.href = "GE_a_modifier.html";
 }
 
 function redirectToGE_modification(){
-    window.location.href = "GE_modification.html";
+     var name_ent = document.getElementById("nom_entreprise").value;
+     if(name_ent == ""){
+         alert("Veuillez entrer un nom d'entreprise");
+         return false;
+    }
+     else{
+         alert("test");
+        window.location.href = "GE_modification.html";
+         return true;
+    }
 }
 
 //gestion pilote redirection
 function redirectToAccueilGP(){
     window.location.href = "GP_accueil.html";
+}
+
+function redirectToAccueilGE_FromCreate(){
+    var name_pil = document.getElementById("nom_pilote").value;
+    var fname_pil = document.getElementById("prenom_pilote").value;
+    var centre_pil = document.getElementById("centre_pilote").value;
+    var local_pil = document.getElementById("promo_pilote").value;
+    if(name_ent == ""){
+        alert("Veuillez entrer un nom d'entreprise");
+        return false;
+    }
+    else if(sect_ent == ""){
+        alert("Veuillez entrer un secteur d'entreprise");
+        return false;
+    }
+    else if(local_ent == ""){
+        alert("Veuillez entrer au moins une localité pour l'entreprise");
+        return false;
+    }
+    else{
+        window.location.href = "GE_accueil.html";
+        return true;
+    }
 }
 
 function redirectToCrer_GP(){
@@ -491,7 +563,11 @@ function voirEntreprise(){
 function redirectToProfil() {
     // Exécuter la vérif des données entrées avant la redirection 
     //pour la bonne page profile
-    alert("profil");
+    alert("pilote");
+    window.location.href = "profil_utilisateur_pilote.html";
+    //
+//backend php
+
 }
 
 function redirectToOffreFromEnt(){

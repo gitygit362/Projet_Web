@@ -7,12 +7,12 @@
 </head>
 
 <body>
-    <header class="logo">
+    <header>
         <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
         <h1 class="GE">Modification entreprise</h1>
     </header>
     <div class="back_to_hub">
-    <div class="text_bth" onclick="redirectToEditEnt()">retour</div>
+    <div class="text_bth" onclick="redirectToEditEnt_GE()">retour</div>
     </div>
     <main>
         <form name="GE_creation"  action="" method="post">
@@ -20,7 +20,7 @@
 
                 <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
                 <div class="info">
-                <div class="info_txt">Informations de l'entreprise :</div>
+                <div class="info_txt">Nouvelles informations de l'entreprise :</div>
                 </div>
                 <label for="nom_entreprise">Nom de l'entreprise :</label>
                 <input type="text" id="nom_entreprise" name="nom_entreprise" required>
@@ -30,7 +30,7 @@
                 <input type="text" id="localite1_entreprise" name="localite_entreprise" required>
                 <div id="LocaliteSupp"></div>
                 <button class="addCompetence" type="button" onclick="AddLocaliteEnt()">ajouter une compétence</button>
-                <button class="button" type="button" onclick="redirectToAccueilGE()">Modifier</button>
+                <button class="button" type="button" onclick="redirectToAccueilGE_FromCreate()">Modifier</button>
             </fieldset>
         </form>
     </main>
