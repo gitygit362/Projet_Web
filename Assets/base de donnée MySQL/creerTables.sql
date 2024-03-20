@@ -79,9 +79,11 @@ CREATE TABLE Etudiant(/*45*/
    ID_etudiant INT NOT NULL AUTO_INCREMENT,
    ID_centre INT NOT NULL,
    ID_utilisateur INT NOT NULL,
+   ID_promo INT NOT NULL;
    PRIMARY KEY(ID_etudiant),
    constraint FOREIGN KEY(ID_centre) REFERENCES Centre(ID_centre),
-   constraint FOREIGN KEY(ID_utilisateur) REFERENCES Utilisateurs(ID_utilisateur)
+   constraint FOREIGN KEY(ID_utilisateur) REFERENCES Utilisateurs(ID_utilisateur),
+   constraint FOREIGN KEY(ID_promo) REFERENCES Promo(ID_promo)
 );
 
 CREATE TABLE Pilote( /*25*/
@@ -181,11 +183,11 @@ CREATE TABLE Entreprise_Adresse(
 );
 
 
-CREATE TABLE Promo_Centre(
+CREATE TABLE Promo_Pilote(
    ID_Promo_Centre INT NOT NULL AUTO_INCREMENT, -- auto
    ID_promo INT NOT NULL,-- 1 et max
-   ID_centre INT NOT NULL,-- 1 et max
+   ID_pilote INT NOT NULL,-- 1 et max
    PRIMARY KEY(ID_Promo_Centre),-- plus
    constraint FOREIGN KEY(ID_promo) REFERENCES Promo(ID_promo),
-   constraint FOREIGN KEY(ID_centre) REFERENCES Centre(ID_centre)
+   constraint FOREIGN KEY(ID_pilote) REFERENCES Pilote(ID_pilote)
 );
