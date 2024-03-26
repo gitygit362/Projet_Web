@@ -1,6 +1,6 @@
 
 
-function redirectToAccueil() {
+function redirectToAccueilFromConnexion() {
     // Exécuter la vérif des données entrées avant la redirection 
     // ...
     let user = document.connexion.user.value;
