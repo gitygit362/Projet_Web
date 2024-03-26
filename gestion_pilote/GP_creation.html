@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <header class="logo">
+    <header>
         <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
         <h1 class="GE">Création Pilote</h1>
     </header>
@@ -20,18 +20,21 @@
 
                 <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
                 <div class="info">
-                <div class="info_txt">Information du pilote :</div>
+                <div class="info_txt">Informations du pilote :</div>
                 </div>
-                <label for="nom">Nom :</label>
-                <input type="text" id="user" name="user" required>
-                <label for="prenom">Prénom :</label>
-                <input type="text"  required>
+                <label for="nom_pilote">Nom :</label>
+                <input type="text" id="nom_pilote" name="nom_pilote" required>
+                <label for="prenom_pilote">Prénom :</label>
+                <input type="text" id="prenom_pilote" name="prenom_pilote" required>
                 <label for="centre">Centre :</label>
-                <input type="text"  required>
-                <label for="promo">Promotion :</label>
-                <input type="text" required>
+                <input type="text" id="centre_pilote" name="centre_pilote" required>
+                <label for="promo_pilote">Promotion :</label>
+                <input type="text" id="promo_pilote" name="promo_pilote" required>
                 <button class="button" type="button" onclick="redirectToAccueilGP()">Créer</button>
             </fieldset>
         </form>
     </main>
+    <footer>
+        <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+    </footer>
 </body>

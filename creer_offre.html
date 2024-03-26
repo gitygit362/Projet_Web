@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/stylesheet.css">
+    <script src="Assets/script.js"></script>
+    <title>Créer une offre</title>
+</head>
+<body>
+    <header class="header1">
+        <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
+
+        <nav class="navbar">Créer Offre
+            <a href="accueil.html">Accueil</a>
+            <a href="offres_stages.html" id="pagepre">Offres de stages</a>
+            <a href="presentation_entreprise.html">Entreprises</a>
+            <a class="refPilote" href="gestion_etudiant/GETU_accueil.html">Etudiants</a>
+            <a class="refAdmin" href="gestion_pilote/GP_accueil.html">Pilotes</a>
+            <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
+                <button class="Profil" type="button" onclick="redirectToProfil()">Mon profil</button>
+                <a class="Deconnexion" href="page_connexion.html">Déconnexion</a>
+            </div>
+        </nav>
+        <style>
+            #pagepre {
+                background: linear-gradient(to bottom, white, white, rgb(255, 221, 0));
+            }
+        </style>
+    </header>
+    <main>
+        <button class="Retour" onclick="redirectToPrecPage()">retour</button>
+        <form class="Candidatureform">
+            <label class="Candidaturelabel">Titre</label>
+            <input id="titreCreerOffre" class="Candidatureinput" type="text" placeholder="Titre de l'offre" rows="5" cols="49"></textarea>
+            <label class="Candidaturelabel">Description</label>
+            <textarea id="descriptionCreerOffre" class="Candidatureinput" type="text" placeholder="Description de l'offre" rows="5" cols="49"></textarea>
+            <label class="Candidaturelabel">Logo de l'entreprise</label>
+            <input  id="logoCreerOffre" class="Candidatureinput" type="file" accept="image/jpeg, image/png">
+            <label class="Candidaturelabel">Compétences</label>
+            <input id="competence1" class="Candidatureinput" type="text">
+            <div id="AddCompetences"></div>
+            <button class="addCompetence" type="button" onclick="AddCompetence()">ajouter une compétence</button>
+            <button class="ValidationButton" type="submit" onclick="CreerOffre()">Créer</button>
+        </form>
+    </main>
+    <footer>
+        <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+    </footer>
+    <style>
+        .Retour {
+            margin-left: 80%;
+            margin-top:2rem;
+        }
+        footer {
+            margin-top: 3rem;
+        }
+    </style>
