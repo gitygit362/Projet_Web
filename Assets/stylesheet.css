@@ -1803,6 +1803,26 @@ footer{
 
 
 
-/* .LocaliteSupp {
+/* ----------------------------------- API ------------------------------------------- */
+.CP_API {
+    display: flex;
+    justify-content: center;    
+}
 
-} */
+.CP_API > select {
+    display:none;
+    align-self: center;
+    width: 15rem; /* Largeur de la select à 100% */
+    height: auto; /* Hauteur automatique */
+    border: none; /* Supprimer les contours */
+    outline: none; /* Supprimer l'effet de focus */
+    padding: 0.5rem; /* Ajouter un peu de marge intérieure */
+    font-size: 1rem; /* Taille de police */
+    height: 4rem; /* Taille fixe de l'élément select */
+    overflow-y: auto; /* Afficher une barre de défilement verticale si nécessaire*/
+    margin-bottom: 1rem;
+}
+.selectVilles option {
+    text-align: center;
+    padding: 5px; /* Espacement autour de chaque option */
+}

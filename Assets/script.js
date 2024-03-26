@@ -527,17 +527,23 @@ function AddCompetence() {
 
 var nbLocalites = 1;
 
-function AddLocaliteEnt(){
-    var newInput = "";
-
+function AddLocaliteEnt() {
     nbLocalites += 1;
-    newInput = "<div> <label for='Adresse" + nbLocalites + "_entreprise'>Adresse :</label><input type='text' id='Adresse" + nbLocalites + "_entreprise' name='Adresse" + nbLocalites + "_entreprise' required> </div>";
-    newInput += "<div> <label for='Ville" + nbLocalites + "_entreprise'>Ville :</label><input type='text' id='Ville" + nbLocalites + "_entreprise' name='Ville1_entreprise' required></div>";
-    newInput += "<div><label for='CP" + nbLocalites + "_entreprise'>Code Postal :</label><input type='number' id='CP" + nbLocalites + "_entreprise' name='CP1_entreprise' required></div>";
-    newInput += "<div><label for='Pays" + nbLocalites + "_entreprise'>Pays :</label><input type='text' id='Pays" + nbLocalites + "_entreprise' name='Pays1_entreprise' required></div>"
+    var newDiv = document.createElement("div");
+    var index = nbLocalites;
 
-    document.getElementById("LocaliteSupp").innerHTML += newInput;
+    newDiv.innerHTML = "<div style='margin-top:5rem'> <label for='Adresse" + index + "_entreprise'>Adresse " + index + " :</label><input type='text' id='Adresse" + index + "_entreprise' name='Adresse" + index + "_entreprise' required> </div>";
+    newDiv.innerHTML += "<div><label for='CP" + index + "_entreprise'>Code Postal :</label><input type='number' id='CP" + index + "_entreprise' name='CP" + index + "_entreprise' required></div>";
+    newDiv.innerHTML += "<div> <label for='Ville" + index + "_entreprise'>Ville :</label><input type='text' id='Ville" + index + "_entreprise' name='Ville" + index + "_entreprise' required><div class='CP_API'><select id='selectVilles" + index + "' class='selectVilles'></select></div></div>";
+    newDiv.innerHTML += "<div><label for='Pays" + index + "_entreprise'>Pays :</label><input type='text' id='Pays" + index + "_entreprise' name='Pays" + index + "_entreprise' required></div>";
+
+    document.getElementById("LocaliteSupp").appendChild(newDiv);
+
+    // Ajoute les écouteurs d'événements à la nouvelle localité
+    addEventListenersToLocation(index);
+
 }
+
 
 
 
@@ -582,3 +588,94 @@ CheckFiltresOffre()
 document.addEventListener(getElementById("chercher_offre")).onchange
 */
 
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    // Le code postal 5202 n'est pas répertorié 
+
+            var Element = "CP1_entreprise";
+            document.getElementById(Element).addEventListener("input", function () {
+                var codePostal = this.value;
+                var xhr = new XMLHttpRequest(); 
+                xhr.open("GET", "https://apicarto.ign.fr/api/codes-postaux/communes/" + codePostal, true);
+                xhr.onload = function () { //quand on charge la réponse de la requete 
+                    if (xhr.status == 200) {
+                        var response = JSON.parse(xhr.responseText); //analyse la réponse JSON reçue du serveur en un objet JavaScript. 
+                        if (response.length > 1) { // Vérifie si la réponse contient des données
+                            var ElementSelect = "selectVilles1";
+                            var selectVilles = document.getElementById(ElementSelect);
+                            selectVilles.innerHTML = ""; // Vide le contenu précédent du select
+                            selectVilles.size = Math.min(response.length, 6);
+                            for (var i = 0; i < response.length; i++) {// Boucle pour parcourir toutes les communes dans la réponse
+                                var option = document.createElement("option");
+                                option.value = response[i]["nomCommune"];
+                                option.textContent = response[i]["nomCommune"];
+                                selectVilles.appendChild(option);
+                            }
+                            selectVilles.style.display = 'block';
+                        }
+                        else if (response.length == 1){
+                            var ElementVille = "Ville1_entreprise";
+                            document.getElementById(ElementVille).value = response[0]["nomCommune"];
+                        } 
+                            
+                        else { //si pas de donnée dans la réponse
+                            alert("Aucune ville trouvée pour ce code postal.");
+                        }
+                    }
+                };
+                xhr.send(); //Envoi de la requête au serveur (asynchrone par défaut)
+            });
+
+            // Gestionnaire d'événement pour mettre à jour la valeur de l'input de la ville
+            var selectVilles = document.getElementById("selectVilles1");
+            selectVilles.addEventListener("change", function() {
+                var ElementVille = "Ville1_entreprise";
+                document.getElementById(ElementVille).value = this.value;
+                this.style.display = 'none';   
+            });
+});
+
+
+function addEventListenersToLocation(index) {
+    var Element = "CP" + index + "_entreprise";
+    var ElementSelect = "selectVilles" + index;
+
+    document.getElementById(Element).addEventListener("input", function () {
+        var codePostal = this.value;
+        var xhr = new XMLHttpRequest(); 
+        xhr.open("GET", "https://apicarto.ign.fr/api/codes-postaux/communes/" + codePostal, true);
+        xhr.onload = function () { 
+            if (xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText); 
+                if (response.length > 1) { 
+                    var selectVilles = document.getElementById(ElementSelect);
+                    selectVilles.innerHTML = ""; 
+                    selectVilles.size = Math.min(response.length, 6);
+                    for (var i = 0; i < response.length; i++) {
+                        var option = document.createElement("option");
+                        option.value = response[i]["nomCommune"];
+                        option.textContent = response[i]["nomCommune"];
+                        selectVilles.appendChild(option);
+                    }
+                    selectVilles.style.display = 'block';
+                }
+                else if (response.length == 1){
+                    var ElementVille = "Ville" + index + "_entreprise";
+                    document.getElementById(ElementVille).value = response[0]["nomCommune"];
+                } else {
+                    alert("Aucune ville trouvée pour ce code postal.");
+                }
+            }
+        };
+        xhr.send();
+    });
+
+    var selectVilles = document.getElementById(ElementSelect); // Déplacer cette ligne ici
+
+    selectVilles.addEventListener("change", function() {
+        var ElementVille = "Ville" + index + "_entreprise";
+        document.getElementById(ElementVille).value = this.value;
+        this.style.display = 'none';   
+    });
+}
