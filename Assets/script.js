@@ -589,6 +589,20 @@ CheckFiltresOffre()
 document.addEventListener(getElementById("chercher_offre")).onchange
 */
 
+function EvaluateETU() {
+    var elementParent = document.getElementById("EvaluationDiv");
+    document.getElementById("EvaluationETU").style.display = 'none';
+    elementParent.innerHTML ="<br>";
+    elementParent.innerHTML += "<input type='number' max='5' min='0' placeholder='note'>";
+    elementParent.innerHTML += "<center><button id='Evaluation' class='Profil' type='button' onclick='EvaluationETU()'>Valider</button></center>";
+}
+
+function EvaluationETU(){
+    var element = document.getElementById("EvaluationDiv");
+    element.style.display="none";
+    //rajouter l'envoie de la note au php
+}
+
 
 document.addEventListener("DOMContentLoaded", function() {
 
