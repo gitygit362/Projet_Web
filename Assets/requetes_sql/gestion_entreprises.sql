@@ -1,12 +1,11 @@
 
------------------------------------ Entreprises ----------------------------------------
+-- --------------------------------- Entreprises ----------------------------------------
 
 
 
-
----------- Créer -------------------------------------------------------
+-- SFx 3 – Créer une entreprise
+-- -------- Créer -------------------------------------------------------
 	
-
 -- > procéder de la création d'une entreprise 
 /*
 	-> on insere dans entreprise l'entreprise
@@ -34,7 +33,7 @@ create procedure CreerEntreprise (
     )
 BEGIN 
     DECLARE enterprise_id INT;
-	insert into Entreprise(secteur_activité, nom, logo) value (var_secteur, var_entreprise, var_logo);
+	insert into Entreprise(secteur_activité, nom, logo, statut) value (var_secteur, var_entreprise, var_logo, 'visible');
 	SET resEntreprise = LAST_INSERT_ID();
     insert into Evaluation(note, ID_pilote, ID_etudiant, ID_admin) value (var_evaluation, null, var_pilote, var_admin);
 END;
@@ -50,7 +49,7 @@ call CreerEntreprise('entreprise', 'secteur', 'logo', 4.3, null, 2, @resEntrepri
 
 -- boucle -------------------------------
 
-
+-- check puis ajout si ca existe pas
 
 drop procedure if exists VerifPaysVilleAdresse;
 
@@ -107,12 +106,7 @@ create procedure VerifPaysVilleAdresse (
 call VerifPaysVilleAdresse('République Démocratique du Congo', 'Brazzaville', 'Chu brazzaville Chu rue loutay', @resPays, @resVille, @resAdresse);
 select @resPays, @resVille, @resAdresse;
 
-
-
-
-
-
-
+-- faut l'appeler avec ce qu'on ressort de celles d'avant en fonction de ce que ca ressort (existe ou pas) 
 
 DELIMITER //
 drop procedure if exists CreerEntrepriseAdresse;
@@ -136,8 +130,8 @@ call CreerEntrepriseAdresse(@resEntreprise, @resAdresse); -- variable de sortie 
 
 
 
-
--------------- Afficher -------------------------------------------------------
+-- SFx 2 – Rechercher une entreprise 	-- SFx 7 – Consulter les statistiques des entreprises
+-- ------------ Afficher -------------------------------------------------------
 
 drop procedure if exists AfficherEntreprise;
 
@@ -148,12 +142,16 @@ CREATE PROCEDURE AfficherEntreprise (
     IN var_adr VARCHAR(50),
     IN var_ville VARCHAR(50),
     IN var_pays VARCHAR(50),
-    IN var_note1 BOOL,
-    IN var_note2 BOOL,
-    IN var_note3 BOOL,
-    IN var_note4 BOOL,
-    IN var_note5 BOOL, 
-    IN var_note6 BOOL
+    IN var_note1 BOOL, -- (0 à 1)
+    IN var_note2 BOOL, -- (1 à 2)
+    IN var_note3 BOOL, -- (2 à 3)
+    IN var_note4 BOOL, -- (3 à 4)
+    IN var_note5 BOOL, -- (4 à 5)
+    IN var_note6 BOOL, -- (0 à 5)
+    IN tri_note_asc BOOL, -- (trie par note croissant)
+    IN tri_note_desc BOOL, -- (trie par note décroissant)
+	IN tri_like_asc BOOL, -- (trie par like croissant)
+    IN tri_like_desc BOOL -- (trie par like décroissant)
 )
 BEGIN 
     SELECT entreprise.ID_entreprise,
@@ -161,6 +159,7 @@ BEGIN
            entreprise.secteur_activité, 
            AVG(evaluation.note) as moyenne_notes, 
            entreprise.logo,	
+           COUNT(DISTINCT offre_wl.ID_wish_list) AS nombre_wishlists,	
 		   group_concat(distinct adresse.adresse) as adresses,
            group_concat(distinct ville.ville) as villes, 
            group_concat(distinct pays.nom_pays) as pays
@@ -171,6 +170,9 @@ BEGIN
     LEFT JOIN ville ON adresse.ID_ville = ville.ID_ville
     LEFT JOIN région ON ville.ID_région = région.ID_région
     LEFT JOIN pays ON région.ID_pays = pays.ID_pays
+	LEFT JOIN Offre_de_Stage ON entreprise.ID_entreprise = Offre_de_Stage.ID_entreprise
+    LEFT JOIN offre_wl ON Offre_de_Stage.ID_offre = offre_wl.ID_offre
+    
     WHERE (var_nom = '' OR entreprise.nom LIKE CONCAT('%',var_nom, '%')) 
         AND (var_secteur = '' OR entreprise.secteur_activité LIKE CONCAT('%', var_secteur, '%'))
         AND (var_adr = '' OR adresse.adresse LIKE CONCAT('%', var_adr, '%'))
@@ -188,19 +190,137 @@ BEGIN
             (var_note4 = TRUE AND var_note6 = FALSE AND AVG(evaluation.note) > 3 AND AVG(evaluation.note) <= 4) OR
             (var_note5 = TRUE AND var_note6 = FALSE AND AVG(evaluation.note) > 4 AND AVG(evaluation.note) <= 5) OR
             (var_note6 = TRUE AND AVG(evaluation.note) >= 0 AND AVG(evaluation.note) <= 5)
-        );
-
+        )
+		order by 
+        CASE
+            WHEN tri_note_asc = TRUE THEN moyenne_notes
+            WHEN tri_note_desc = TRUE THEN moyenne_notes * -1
+			WHEN tri_like_asc = TRUE THEN nombre_wishlists
+            WHEN tri_like_desc = TRUE THEN nombre_wishlists * -1
+			else entreprise.id_entreprise
+        END;
 END//
 
 
-
-call AfficherEntreprise('', '', '', '', '', 0, 0 , 0, 0, 0, 1); -- nom, secteur, adresse, ville, pays, note1 (0 à 1), note2 (1 à 2), note3 (2 à 3), note4 (3 à 4), note5 (4 à 5)
-
+call AfficherEntreprise('', '', '', '', '', 0, 0 , 0, 0, 0, 1, 0, 0, 0, 1); -- nom, secteur, adresse, ville, pays, note1 (0 à 1), note2 (1 à 2), note3 (2 à 3), note4 (3 à 4), note5 (4 à 5), trie note coissant, trie note decroissant, trie wishlist croissant, trie wishlist decroissant
 
 
 
 
------------- Supprimer -------------------------------------------------------
+/* SFx 4 - Modifier une entreprise */
+-- -----------Modifier ---------------------------------------------------------
+
+
+-- modifie la partie entreprise ------
+
+drop procedure if exists ModifierEntreprise;
+
+DELIMITER //
+create procedure ModifierEntreprise (
+	IN var_entreprise VARCHAR(50),
+    IN var_secteur VARCHAR(50),
+    IN var_logo VARCHAR(100),
+    OUT resEntreprise INT
+    )
+BEGIN 
+	DECLARE entreprise_id INT;
+	SELECT ID_entreprise INTO entreprise_id FROM Entreprise WHERE nom = var_entreprise;
+    
+IF entreprise_id IS NOT NULL THEN
+	SET resEntreprise = entreprise_id;
+	IF var_entreprise != '' THEN
+		UPDATE Entreprise SET nom = var_entreprise WHERE ID_entreprise = entreprise_id;
+	END IF;
+	IF var_secteur != '' THEN
+		UPDATE Entreprise SET secteur_activité = var_secteur WHERE ID_entreprise = entreprise_id;
+	END IF;
+	
+	IF var_logo != '' THEN
+		UPDATE Entreprise SET logo = var_logo WHERE ID_entreprise = entreprise_id;
+	END IF;
+	ELSE
+	SET resEntreprise = NULL;
+	END IF;
+END;
+
+call ModifierEntreprise('entreprise','', '', @resEntreprise); -- nomEntreprise, sortie : 
+
+-- select @resEntreprise; pour afficher
+
+-- on fait appelle a afficher pour afficher l'entreprise 
+-- on fait appelle a la fonction d'ajout d'adresse en cas d'ajout d'une adresse 
+
+
+
+
+-- modifie la partie adresse -- A voir avec le php pour le bon fonctionnement de la requête
+
+/* a faire */
+
+
+
+
+
+
+
+
+
+/* SFx 5 - Evaluer une entreprise */
+-- ----------------- Evaluer ---------------------------------------------------
+
+drop procedure if exists EvaluerEntreprise;
+
+DELIMITER //
+create procedure EvaluerEntreprise (
+	IN var_id_etudiant INT,
+    IN var_note DECIMAL (2,1),
+    OUT resEvaluation BOOL
+    )
+    BEGIN 
+    DECLARE entreprise_id INT;
+    SELECT id_entreprise into entreprise_id
+FROM offre_de_stage INNER JOIN candidature ON offre_de_stage.id_offre = candidature.id_offre WHERE offre_de_stage.fin = (
+    SELECT MAX(fin) 
+    FROM offre_de_stage 
+    INNER JOIN candidature ON offre_de_stage.id_offre = candidature.id_offre 
+    WHERE candidature.id_etudiant = 1 
+    AND candidature.etat = 'valider' 
+    AND offre_de_stage.fin < CURDATE()
+);
+
+if (select note from evaluation where id_entreprise = entreprise_id and id_etudiant = var_id_etudiant) is null then 
+	insert into evaluation (note, id_etudiant) values (var_note, var_id_etudiant);
+    set resEvaluation = 1;
+else 
+	set resEvaluation = 0;
+end if;
+END;
+
+call ('nomEtudiant', note, @resEvaluation) -- si résultat est null dire "vous avez déjà évaluer votre dernier stage"
+
+
+
+
+/* SFx 6 - Rendre invisible pour les étudiants */
+-- -------------- Masquer ------------------------------------------------------
+
+drop procedure if exists MasquerEntreprise;
+
+DELIMITER //
+create procedure MasquerEntreprise (
+	IN var_id_entreprise INT
+    )
+    BEGIN 
+		UPDATE entreprise SET etat = 'masquer' WHERE id_entreprise = var_id_entreprise;
+    END;
+
+call MasquerEntreprise(id); 
+
+
+
+
+
+-- ---------- Supprimer --------------------------------------------------------
 
 
 DROP PROCEDURE IF EXISTS SupprimerEntreprise;
@@ -269,86 +389,11 @@ call SupprimerEntreprise('entreprise1','entreprise1');
 
 
 
--- -----------Modifier -----------------------------
 
 
--- modifie la partie entreprise ------
-
-drop procedure if exists ModifierEntreprise;
-
-DELIMITER //
-create procedure ModifierEntreprise (
-	IN var_entreprise VARCHAR(50),
-    IN var_secteur VARCHAR(50),
-    IN var_logo VARCHAR(100),
-    OUT resEntreprise INT
-    )
-BEGIN 
-	DECLARE entreprise_id INT;
-	SELECT ID_entreprise INTO entreprise_id FROM Entreprise WHERE nom = var_entreprise;
-    
-IF entreprise_id IS NOT NULL THEN
-	SET resEntreprise = entreprise_id;
-	IF var_entreprise != '' THEN
-		UPDATE Entreprise SET nom = var_entreprise WHERE ID_entreprise = entreprise_id;
-	END IF;
-	IF var_secteur != '' THEN
-		UPDATE Entreprise SET secteur_activité = var_secteur WHERE ID_entreprise = entreprise_id;
-	END IF;
-	
-	IF var_logo != '' THEN
-		UPDATE Entreprise SET logo = var_logo WHERE ID_entreprise = entreprise_id;
-	END IF;
-	ELSE
-	SET resEntreprise = NULL;
-	END IF;
-END;
-
-call ModifierEntreprise('entreprise','', '', @resEntreprise); -- nomEntreprise, sortie : 
-
--- select @resEntreprise; pour afficher
-
--- on fait appelle a afficher pour afficher l'entreprise 
--- on fait appelle a la fonction d'ajout d'adresse en cas d'ajout d'une adresse 
-
-
-
-
--- modifie la partie adresse -- A voir avec le php pour le bon fonctionnement de la requête
-
-/* a faire */
-
-
-
-
-
-
-
-
-
-
-
-/* SFx 4 - Modifier une entreprise */
-
-
-/* SFx 5 - Evaluer une entreprise */
-
-drop procedure if exists ModifierEntreprise;
-
-DELIMITER //
-create procedure EvaluerEntreprise (
-	IN var_id_etudiant INT,
-    BEGIN 
-    select id_entreprise from offre_de_stage where id
-    )
-BEGIN 
-
-
-
-/* SFx 6 - Rendre invisible pour les étudiants */
 
 
 /* SFx 7 - Consulter les statistiques des entreprises */
 
-
+-- c'est quand on affiche l'entreprise les statistiques sont avec 
 
