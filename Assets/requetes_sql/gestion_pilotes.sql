@@ -46,7 +46,7 @@ COMMIT;
 
 
 
-/* SFx 15 - Modifier un compte Pilote 
+/*SFx 15 - Modifier un compte Pilote */
 
 START TRANSACTION;
 
@@ -65,13 +65,15 @@ WHERE ID_utilisateur = @id_utilisateur
 COMMIT;
 
 
-/* SFx 16 - Supprimer un compte Pilote */
+/*SFx 16 - Supprimer un compte Pilote*/
 
 START TRANSACTION;
 
-SET @id_utilisateur = (SELECT ID_utilisateur FROM Utilisateurs WHERE nom = 'nom_input' AND prenom = 'prenom_input');
+SET @id_utilisateur = (SELECT ID_utilisateur FROM Utilisateurs WHERE nom = :nom_input AND prenom = :prenom_input);
 
-DELETE FROM Etudiant
+DELETE FROM promo_pilote where ID_pilote = (SELECT ID_pilote FROM Pilote WHERE ID_utilisateur = @id_utilisateur)
+
+DELETE FROM Pilote
 WHERE ID_utilisateur = @id_utilisateur
 ;
 
