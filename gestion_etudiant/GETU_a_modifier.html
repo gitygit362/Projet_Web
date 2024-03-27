@@ -2,14 +2,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Assets/stylesheet.css">
-    <title>Recherche d'un Etudiant</title>
+    <title>Modification d'un Etudiant</title>
     <script src="../Assets/script.js"></script>
 </head>
 
 <body>
     <header>
         <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
-        <h1 class="GE">Recherche Etudiant</h1>
+        <h1 class="GE">Modification etudiant</h1>
     </header>
     <div class="back_to_hub">
     <div class="text_bth" onclick="redirectToAccueilGETU()">Espace Etudiant</div>
@@ -20,17 +20,17 @@
 
                 <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
                 <div class="info">
-                <div class="info_txt">Critères de recherche :</div>
+                <div class="info_txt">Etudiant à modifier :</div>
                 </div>
                 <label for="nom_etudiant">Nom :</label>
-                <input type="text" id="nom_etudiant" name="nom_etudiant">
+                <input type="text" id="nom_etudiant" name="nom_etudiant" required>
                 <label for="prenom">Prénom :</label>
-                <input type="text" id="prenom_etudiant" name="prenom_etudiant">
+                <input type="text" id="prenom_etudiant" name="prenom_etudiant" required>
                 <label for="centre_etudiant">Centre :</label>
-                <input type="text" id="centre_etudiant" name="centre_etudiant">
+                <input type="text" id="centre_etudiant" name="centre_etudiant" required>
                 <label for="promo_etudiant">Promotion :</label>
-                <input type="text" id="promo_etudiant" name="promo_etudiant">
-                <button class="button" type="submit" onclick="PROFIL_ETU()">Rechercher</button>
+                <input type="text" id="promo_etudiant" name="promo_etudiant" required>
+                <button class="button" type="button" onclick="redirectToGETU_modification()">Modifier</button>
             </fieldset>
         </form>
     </main>

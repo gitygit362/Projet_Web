@@ -22,12 +22,15 @@
                     <input class="connexionInput" type="text" id="user" name="user" required>
                     <label for="password">Mot de passe</label>
                     <input class="connexionInput" type="text" id="password" name="password" required>
-                    <button class="button" type="button" onclick="redirectToAccueil()">Connexion</button>
+                    <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
+                        <button class="Profil" type="button" onclick="redirectToProfil()">Mon profil</button>
+                        <a class="Deconnexion" href="page_connexion.html">Déconnexion</a>
+                    </div>
                 </fieldset>
             </form>
         </main>
         <footer>
-            <a id="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+            <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
         </footer>
     </body>
 </html>
