@@ -4,32 +4,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Assets/stylesheet.css">
-    <title>Gestion des Etudiants</title>
-    <script src="../Assets/script.js"></script>
+    <title>Gestion des entreprises</title>
 </head>
 
 <body>
     <header>
         <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
-        <h1 class="GE">Espace étudiants</h1>
+        <h1 class="GE">Espace entreprise</h1>
     </header>
     <div class="back_to_hub">
     <div class="text_bth" onclick="redirectToAccueil()">Retour à l'accueil</div>
     </div>
     <main>
-        <form name="GETU_accueil"  action="" method="post"> 
+        <form name="GE_accueil"  action="" method="post"> 
             <fieldset>
                 <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
                 <br>
-                <button class="button" type="button" onclick="redirectToCrer_GETU()">Créer un etudiant</button>
-                <button class="button" type="button" onclick="redirectToEdit_GETU()">Modifier un etudiant</button>
-                <button class="button" type="button" onclick="redirectToSupp_GETU()">Supprimer un etudiant</button>
-                <button class="button" type="button" onclick="redirectToRecherche_GETU()">Rechercher un etudiant</button>
+                <button class="button" type="button" onclick="redirectToCrerEnt_GE()">Créer une entrerpise</button>
+                <button class="button" type="button" onclick="redirectToEditEnt_GE()">Modifier une entreprise</button>
+                <button class="button" type="button" onclick="redirectToSuppEnt_GE()">Supprimer une entreprise</button>
             </fieldset>
         </form>
     </main>
     <footer>
         <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
     </footer>
+    <script src="../Controler/script.js"></script>
+    <script src="../Controler/entreprises.js"></script>
 </body>
 </html>  

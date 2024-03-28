@@ -2,17 +2,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Assets/stylesheet.css">
-    <title>Modification d'un Etudiant</title>
-    <script src="../Assets/script.js"></script>
+    <title>Création d'un Etudiant</title>
 </head>
 
 <body>
     <header>
         <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
-        <h1 class="GE">Modification Etudiant</h1>
+        <h1 class="GE">Création étudiant</h1>
     </header>
     <div class="back_to_hub">
-    <div class="text_bth" onclick="redirectToEdit_GETU()">retour</div>
+    <div class="text_bth" onclick="redirectToAccueilGETU()">Espace Etudiant</div>
     </div>
     <main>
         <form name="GE_creation"  action="" method="post">
@@ -20,7 +19,7 @@
 
                 <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
                 <div class="info">
-                <div class="info_txt">Nouvelles informations de l'étudiant :</div>
+                <div class="info_txt">Informations de l'étudiant :</div>
                 </div>
                 <label for="nom_etudiant">Nom :</label>
                 <input type="text" id="nom_etudiant" name="nom_etudiant" required>
@@ -30,11 +29,12 @@
                 <input type="text" id="centre_etudiant" name="centre_etudiant" required>
                 <label for="promo_etudiant">Promotion :</label>
                 <input type="text" id="promo_etudiant" name="promo_etudiant" required>
-                <button class="button" type="submit" onclick="redirectToAccueilGETU()">Modifier</button>
+                <button class="button" type="submit" onclick="redirectToAccueilGETU()">Créer</button>
             </fieldset>
         </form>
     </main>
     <footer>
         <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
     </footer>
+    <script src="../Controler/script.js"></script>
 </body>

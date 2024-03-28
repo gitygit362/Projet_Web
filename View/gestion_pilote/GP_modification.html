@@ -3,7 +3,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Assets/stylesheet.css">
     <title>Modification d'un Pilote</title>
-    <script src="../Assets/script.js"></script>
 </head>
 
 <body>
@@ -12,7 +11,7 @@
         <h1 class="GE">Modification pilote</h1>
     </header>
     <div class="back_to_hub">
-    <div class="text_bth" onclick="redirectToAccueilGP()">Espace Pilote</div>
+    <div class="text_bth" onclick="redirectToEdit_GP()">retour</div>
     </div>
     <main>
         <form name="GE_creation"  action="" method="post">
@@ -20,7 +19,7 @@
 
                 <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
                 <div class="info">
-                <div class="info_txt">Pilote à modifier :</div>
+                <div class="info_txt">Informations du pilote :</div>
                 </div>
                 <label for="nom_pilote">Nom :</label>
                 <input type="text" id="nom_pilote" name="nom_pilote" required>
@@ -30,11 +29,12 @@
                 <input type="text" id="centre_pilote" name="centre_pilote" required>
                 <label for="promo_pilote">Promotion :</label>
                 <input type="text" id="promo_pilote" name="promo_pilote" required>
-                <button class="button" type="button" onclick="redirectToGP_modification()">Modifier</button>
+                <button class="button" type="button" onclick="redirectToAccueilGP()">Modifier</button>
             </fieldset>
         </form>
     </main>
     <footer>
         <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
     </footer>
+    <script src="../Controler/script.js"></script>
 </body>
