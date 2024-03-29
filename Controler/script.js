@@ -1,11 +1,53 @@
 // redirections 
 
-function redirectToAccueilFromConnexion() {
-    alert("entrer dans la fonction");
+function redirectToAccueilFromConnexion(event) {
+
+    event.preventDefault();
+
     var identifiant = document.getElementById("user").value;
     var motdepasse = document.getElementById("password").value;
-    alert("identifiant:" + identifiant + "mdp:" + motdepasse);
+
+   var data = {
+        user: identifiant,
+        passwd: motdepasse
+   }
+   var xhr = new XMLHttpRequest();
+   xhr.open('POST', '../Modèle/connexion.php', true);
+   xhr.setRequestHeader('Content-Type', 'application/json');
+   xhr.onload = function () {
+    if (xhr.status >= 200 && xhr.status < 300) {
+        //on rentre la 
+        var response = xhr.responseText.trim();
+        if (response === 'true') {
+            alert("Authentification réussie");
+            window.location.href = '../View/accueil.html';
+        } else {
+            alert("Identifiant ou mot de passe incorrect");
+        }
+    } else {
+        alert("Erreur lors de la requête");
+    }
+};
+   xhr.onerror = function () {
+    alert("Erreur lors de la requête");
+    };
+
+
+   var userData = JSON.stringify(data);
+   xhr.send(userData);
+   return false;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 //utilisation php de page connexion
 
