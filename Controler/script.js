@@ -1,5 +1,5 @@
 // redirections 
-
+console.log("js connected");
 
 function redirectToAccueilFromConnexion() {
     // Exécuter la vérif des données entrées avant la redirection 
