@@ -32,8 +32,6 @@ if ($res == false) {
     if ($resId !== 0) {
         $userData = array(
             'id' => $resId,
-            'lastname' => $lastname,
-            'firstname' => $firstname,
             'statut' => $resStatut
         );
 

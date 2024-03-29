@@ -20,7 +20,7 @@ function redirectToAccueilFromConnexion(event) {
         var response = xhr.responseText.trim();
         if (response === 'true') {
             alert("Authentification réussie");
-            window.location.href = '../View/accueil.html';
+            window.location.href = '../Modèle/accueil.php';
         } else {
             alert("Identifiant ou mot de passe incorrect");
         }
@@ -242,13 +242,10 @@ function hideLogout() {
 /* Prochaines fonctions en lien avec le backend */
 
 // ------------------------ Acces au profil ----------------------------
-function redirectToProfil() {
-    // Exécuter la vérif des données entrées avant la redirection 
-    //pour la bonne page profile
-    alert("pilote");
-    window.location.href = "profil_utilisateur_pilote.html";
-    //
-//backend php
+function redirectToProfil(statut) {
+    var Statut = statut;
+    window.location.href = "profil_utilisateur_" + Statut + ".html";
+        // dans le profil on va chercher les infos 
 }
 
 /* Prochaines fonctions en lien avec le backend */
