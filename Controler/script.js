@@ -1,7 +1,12 @@
 // redirections 
 
 function redirectToAccueilFromConnexion() {
+    alert("entrer dans la fonction");
+    var identifiant = document.getElementById("user").value;
+    var motdepasse = document.getElementById("password").value;
+    alert("identifiant:" + identifiant + "mdp:" + motdepasse);
 }
+
 //utilisation php de page connexion
 
 function redirectToAccueil(){

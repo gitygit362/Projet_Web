@@ -14,14 +14,14 @@
             
         </header>
         <main>
-            <form class="connexionForm" name="connexion"  action="" method="post"> <!-- action="lien avec la base de donnée" : L'attribut action permet de pointer vers un script serveur qui traitera les données du formulaire côté serveur -->
+            <form class="connexionForm" name="connexion"  action="" method="post" onsubmit="redirectToAccueilFromConnexion()"> <!-- action="lien avec la base de donnée" : L'attribut action permet de pointer vers un script serveur qui traitera les données du formulaire côté serveur -->
                 <fieldset>
                     <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
                     <label for="user">Nom d'utilisateur</label>
                     <input class="connexionInput" type="text" id="user" name="user" required>
                     <label for="password">Mot de passe</label>
-                    <input class="connexionInput" type="text" id="password" name="password" required>
-                    <button class="ValidationButton" type="submit" onclick="redirectToAccueilFromConnexion()">Connexion</button>
+                    <input class="connexionInput" type="password" id="password" name="password" required>
+                    <button class="ValidationButton" type="submit">Connexion</button>
                     </div>
                 </fieldset>
             </form>
