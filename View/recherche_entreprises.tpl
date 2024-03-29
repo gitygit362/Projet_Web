@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Assets/stylesheet.css">
-    <script src="Assets/script.js"></script>
+    <script src="../Controler/script.js"></script>
     <title>Entreprises</title>
 </head>
 <body>
