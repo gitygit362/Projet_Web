@@ -38,7 +38,7 @@ function redirectToAccueilFromConnexion(event) {
    xhr.send(userData);
    return false;
 }
-
+/*
 function redirectToAccueilGPform(event){
     event.preventDefault();
     var nom_pilote = document.getElementById("nom_pilote").value;
@@ -55,10 +55,11 @@ function redirectToAccueilGPform(event){
    }
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST","etudiant.php?action=createpilote",true);
+    xhr.open("POST","etudiant.php?action=createpilote",false);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function () {
-        if (xhr.status == true){
+        if (xhr.status >= 200 && xhr.status < 300){
+            var response = xhr.responseText.trim();
             if (response === 'true') {
                 alert("profil créé avec succès");
                 window.location.href = '../View/gestion_pilote/GP_accueil.html';
@@ -71,6 +72,44 @@ function redirectToAccueilGPform(event){
    }
 }
 
+*/
+
+function redirectToAccueilGPform(event){
+    event.preventDefault();
+    var nom_pilote = document.getElementById("nom_pilote").value;
+    var prenom_pilote = document.getElementById("prenom_pilote").value;
+    var centre_pilote = document.getElementById("centre_pilote").value;
+    var promo_pilote =  document.getElementById("promo_pilote").value;
+    
+    var data = {
+        nom: nom_pilote,
+        prenom: prenom_pilote,
+        centre: centre_pilote,
+        promo: promo_pilote
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/etudiant.php?action=createpilote",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            alert(response);
+            if (response === 'true') {
+                alert("profil créé avec succès");
+                window.location.href = 'GP_accueil.html';
+            } else {
+                alert("Erreur : le profil n'a pas été créé");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
 
 
 
