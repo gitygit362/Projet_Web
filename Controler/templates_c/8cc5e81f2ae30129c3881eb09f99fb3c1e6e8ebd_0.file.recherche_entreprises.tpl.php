@@ -1,21 +1,47 @@
-<!DOCTYPE HTML>
+<?php
+/* Smarty version 4.5.1, created on 2024-03-30 16:09:11
+  from 'C:\www\Projet_Web\View\recherche_entreprises.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.5.1',
+  'unifunc' => 'content_66082b1793c2a4_23090632',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '8cc5e81f2ae30129c3881eb09f99fb3c1e6e8ebd' => 
+    array (
+      0 => 'C:\\www\\Projet_Web\\View\\recherche_entreprises.tpl',
+      1 => 1711811348,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_66082b1793c2a4_23090632 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Assets/stylesheet.css">
+    <link rel="stylesheet" href="../View/Assets/stylesheet.css">
     <title>Entreprises</title>
 </head>
 <body>
     <header class="header1">
-        <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
+        <img src="../View/Assets/images/logo.png" alt="logo EASYSTAGE">
         <nav class="navbar">Entreprises
-            <a href="accueil.html">Accueil</a>
+            <a href="../Modèle/accueil.php">Accueil</a>
             <a href="offres_stages.html">Offres de stage</a>
-            <a class="refPilote" href="gestion_etudiant/GETU_accueil.html">Etudiants</a>
-            <a class="refAdmin" href="gestion_pilote/GP_accueil.html">Pilotes</a>
+            <?php echo $_smarty_tpl->tpl_vars['directionEtudiant']->value;?>
+
+            <?php echo $_smarty_tpl->tpl_vars['directionPilote']->value;?>
+
             <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
-                <button class="Profil" type="button" onclick="redirectToProfil()">Mon profil</button>
+                <?php echo $_smarty_tpl->tpl_vars['directionProfil']->value;?>
+
                 <a class="Deconnexion" href="page_connexion.html">Déconnexion</a>
             </div>
         </nav>
@@ -94,7 +120,7 @@
                         <label class="hideNote"><input type="checkbox" name="evaluationFilter2" value="de 1 à 2 étoiles"> de 1 à 2 étoiles</label>
                         <label class="hideNote"><input type="checkbox" name="evaluationFilter3" value="de 3 à 4 étoiles"> de 3 à 4 étoiles</label>
                         <label class="hideNote"><input type="checkbox" name="evalutionFilter4" value="de 4 à 5 étoiles"> de 4 à 5 étoiles</label>
-                        <label class="hideNote"><input type="checkbox" name="evaluationFilter5" value="tout"> tout</label>
+                        <label class="hideNote"><input type="checkbox" name="evaluationFilter5" value="tout" checked> tout</label>
                     </div>
 
                     <div>
@@ -120,26 +146,44 @@
      
             <div class="flex-top-Enterprises-1">
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise">Entreprise 52</h5><p class="DescriptionEntreprise">note : 4,7 &nbsp;&nbsp;&nbsp; likes : 1,2k</p></article>
+                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise"><?php echo $_smarty_tpl->tpl_vars['TopEnt1Nom']->value;?>
+</h5><p class="DescriptionEntreprise">note : <?php echo $_smarty_tpl->tpl_vars['TopEnt1Note']->value;?>
+ &nbsp;&nbsp;&nbsp; likes : <?php echo $_smarty_tpl->tpl_vars['TopEnt1Like']->value;?>
+</p></article>
                 </div>
                 <!-- Ajoutez d'autres offres ici -->
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise">Entreprise 12</h5><p class="DescriptionEntreprise">note : 4,5 &nbsp;&nbsp;&nbsp; likes : 1,0k</p></article>
+                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise"><?php echo $_smarty_tpl->tpl_vars['TopEnt2Nom']->value;?>
+</h5><p class="DescriptionEntreprise">note : <?php echo $_smarty_tpl->tpl_vars['TopEnt2Note']->value;?>
+ &nbsp;&nbsp;&nbsp; likes : <?php echo $_smarty_tpl->tpl_vars['TopEnt2Like']->value;?>
+</p></article>
                 </div>
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise">Entreprise 47</h5><p class="DescriptionEntreprise">note : 4,8 &nbsp;&nbsp;&nbsp; likes : 998</p></article>
+                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise"><?php echo $_smarty_tpl->tpl_vars['TopEnt3Nom']->value;?>
+</h5><p class="DescriptionEntreprise">note : <?php echo $_smarty_tpl->tpl_vars['TopEnt3Note']->value;?>
+ &nbsp;&nbsp;&nbsp; likes : <?php echo $_smarty_tpl->tpl_vars['TopEnt3Like']->value;?>
+</p></article>
                 </div>
             </div>
 
             <div class="flex-top-Enterprises-2">
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise">Entreprise 3</h5><p class="DescriptionEntreprise">note : 4,9 &nbsp;&nbsp;&nbsp; likes : 752</p></article>
+                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise"><?php echo $_smarty_tpl->tpl_vars['TopEnt4Nom']->value;?>
+</h5><p class="DescriptionEntreprise">note : <?php echo $_smarty_tpl->tpl_vars['TopEnt4Note']->value;?>
+ &nbsp;&nbsp;&nbsp; likes : <?php echo $_smarty_tpl->tpl_vars['TopEnt4Like']->value;?>
+</p></article>
                 </div>
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise">Entreprise 24</h5><p class="DescriptionEntreprise">note : 4,4 &nbsp;&nbsp;&nbsp; likes : 658</p></article>
+                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise"><?php echo $_smarty_tpl->tpl_vars['TopEnt5Nom']->value;?>
+</h5><p class="DescriptionEntreprise">note : <?php echo $_smarty_tpl->tpl_vars['TopEnt5Note']->value;?>
+ &nbsp;&nbsp;&nbsp; likes : <?php echo $_smarty_tpl->tpl_vars['TopEnt5Like']->value;?>
+</p></article>
                 </div>
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise">Entreprise 35</h5><p class="DescriptionEntreprise">note : 4,5 &nbsp;&nbsp;&nbsp; likes : 437</p></article>
+                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise"><?php echo $_smarty_tpl->tpl_vars['TopEnt6Nom']->value;?>
+</h5><p class="DescriptionEntreprise">note : <?php echo $_smarty_tpl->tpl_vars['TopEnt6Note']->value;?>
+ &nbsp;&nbsp;&nbsp; likes : <?php echo $_smarty_tpl->tpl_vars['TopEnt6Like']->value;?>
+</p></article>
                 </div>
             </div>
         </main>
@@ -148,6 +192,11 @@
         </footer>
 
 
-    <script src="../Controler/script.js"></script>
-    <script src="../Controler/entreprises.js"></script>
-    </body>
+    <?php echo '<script'; ?>
+ src="../Controler/script.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="../Controler/entreprises.js"><?php echo '</script'; ?>
+>
+    </body><?php }
+}

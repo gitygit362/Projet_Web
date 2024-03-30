@@ -13,7 +13,7 @@
             <nav class="navbar">
                 Accueil&nbsp;       
                 <a href="../View/offres_stages.html">Offres de stage</a>
-                <a href="../View/recherche_entreprises.html">Entreprises</a>
+                <a href="../Controler/entreprises.php">Entreprises</a>
                 {$directionEtudiant}
                 {$directionPilote}
                 <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
