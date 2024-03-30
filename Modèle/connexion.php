@@ -8,7 +8,7 @@ $connexion = $db->getConnexion();
 $data = json_decode(file_get_contents('php://input'), true);
 
 $username = $data['user'];
-$password = $data['passwd'];//'zW96UhV';
+$password = $data['passwd'];//' ';
 
 $parties = explode('.', $username);
 $lastname =  $parties[0];//'Bow';

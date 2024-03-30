@@ -25,7 +25,7 @@ function redirectToAccueilFromConnexion(event) {
             alert("Identifiant ou mot de passe incorrect");
         }
     } else {
-        alert("Erreur lors de la requête");
+        alert("Erreur lors de la requête1");
     }
 };
    xhr.onerror = function () {
@@ -244,7 +244,7 @@ function hideLogout() {
 // ------------------------ Acces au profil ----------------------------
 function redirectToProfil(statut) {
     var Statut = statut;
-    window.location.href = "profil_utilisateur_" + Statut + ".html";
+    window.location.href = "../View/profil_utilisateur_" + Statut + ".html";
         // dans le profil on va chercher les infos 
 }
 
@@ -254,15 +254,16 @@ function deconnexion(event) {
     
     var xhr = new XMLHttpRequest();
 
-    xhr.open('GET', 'session.php?action=deconnexion', true);
+    xhr.open('GET', '../Controler/session.php?action=supprimerSession', true);
 
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
-            console.log(xhr.responseText);
+            window.location.href = '../View/page_connexion.html';
         } else {
             console.error('Erreur lors de la requête : ' + xhr.status);
         }
     };
+    xhr.send();
 }
 
 
