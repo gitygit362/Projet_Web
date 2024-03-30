@@ -31,7 +31,7 @@ if ($res == false) {
 
     if ($resId !== 0) {
         $cookieOptions = [
-            'expires' => time() + 3600, 
+            'expires' => time() + 360000, 
             'path' => '/', // Chemin ou on a accès au cookie
             //'domain' => '.notre-nom-de-domaine.com',
             'secure' => true,

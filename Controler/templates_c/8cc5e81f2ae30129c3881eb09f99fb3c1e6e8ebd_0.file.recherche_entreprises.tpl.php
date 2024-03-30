@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-03-30 16:09:11
+/* Smarty version 4.5.1, created on 2024-03-30 17:09:41
   from 'C:\www\Projet_Web\View\recherche_entreprises.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_66082b1793c2a4_23090632',
+  'unifunc' => 'content_660839456430b3_11983539',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8cc5e81f2ae30129c3881eb09f99fb3c1e6e8ebd' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\recherche_entreprises.tpl',
-      1 => 1711811348,
+      1 => 1711814944,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66082b1793c2a4_23090632 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660839456430b3_11983539 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
@@ -72,14 +72,22 @@ function content_66082b1793c2a4_23090632 (Smarty_Internal_Template $_smarty_tpl)
                     </ul>
                     <div class="center">
                         <div class="pagination">
-                            <a href="#">&laquo;</a>
-                            <a href="#" class="active">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                            <a href="#">6</a>
-                            <a href="#">&raquo;</a>
+                            <?php echo $_smarty_tpl->tpl_vars['PaginationPre']->value;?>
+
+                            <?php echo $_smarty_tpl->tpl_vars['Page1']->value;?>
+
+                            <?php echo $_smarty_tpl->tpl_vars['Page2']->value;?>
+
+                            <?php echo $_smarty_tpl->tpl_vars['Page3']->value;?>
+
+                            <?php echo $_smarty_tpl->tpl_vars['Page4']->value;?>
+
+                            <?php echo $_smarty_tpl->tpl_vars['Page5']->value;?>
+
+                            <?php echo $_smarty_tpl->tpl_vars['Page6']->value;?>
+
+                            <?php echo $_smarty_tpl->tpl_vars['PaginationSui']->value;?>
+
                             </div>
                     </div>
                 </div>

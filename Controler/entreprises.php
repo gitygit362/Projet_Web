@@ -3,6 +3,62 @@ require_once '../Modèle/header.php';
 require '../Modèle/entreprise.class.php';
 
 $ent = new Entreprise();
+
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+$resEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 0); // apres chargement pas de trie ni de filtre
+
+$nbtotalEnt = count($resEnt);
+
+$nbpage = ceil($nbtotalEnt / 4);
+
+$livre = ceil($current_page / 6);
+
+$derpage = $livre * 6;
+
+$page1 = $derpage -5;
+$page2 = $derpage -4;
+$page3 = $derpage -3;
+$page4 = $derpage -2;
+$page5 = $derpage -1;
+
+$smarty_obj->assign('Page1', "<a href='?page=". $page1 ."'class='active'>". $page1 ."</a>");
+$smarty_obj->assign('Page2', "<a href='?page=". $page2 ."'>". $page2 ."</a>");
+$smarty_obj->assign('Page3', "<a href='?page=". $page3 ."'>". $page3 ."</a>");
+$smarty_obj->assign('Page4', "<a href='?page=". $page4 ."'>". $page4 ."</a>");
+$smarty_obj->assign('Page5', "<a href='?page=". $page5 ."'>". $page5 ."</a>");
+$smarty_obj->assign('Page6', "<a href='?page=". $derpage ."'>". $derpage ."</a>");
+
+$paginationPre = "";
+$paginationSui = "";
+
+if ($livre > 1) {
+    $paginationPre = "<a href='?page=". ((($livre-1)*6)-5) ."'>&laquo;</a>";
+}
+
+if (($derpage + 1) <= $nbpage) {
+    $paginationSui = "<a href='?page=". ($derpage + 1) ."'>&raquo;</a>";
+}
+
+// Assignation des liens de pagination à Smarty
+$smarty_obj->assign('PaginationPre', $paginationPre);
+$smarty_obj->assign('PaginationSui', $paginationSui);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ---------------------------  TOP ENTREPRISES ----------------------------------------
+
 $resTopEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1); // top entreprise (like)
 
 if (count($resTopEnt) >= 6) {

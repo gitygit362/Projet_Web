@@ -1,4 +1,63 @@
 //Entreprises
+/*
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionnez tous les liens de page dans la pagination
+    var pageLinks = document.querySelectorAll('.pagination a');
+
+    // Parcourez chaque lien de page et ajoutez un gestionnaire d'événements de clic
+    pageLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            // Empêchez le comportement par défaut du lien
+            event.preventDefault();
+
+            paginationChildren.forEach(function(child) {
+                // Faites quelque chose avec chaque enfant, par exemple :
+                console.log(child); // Affiche chaque enfant dans la console
+            });
+            // Supprimez la classe 'active' de tous les liens de page
+            pageLinks.forEach(function(link) {
+                link.classList.remove('active');
+            });
+
+            // Ajoutez la classe 'active' au lien de page cliqué
+            this.classList.add('active');
+        });
+    });
+});*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function EntrepriseFilter(){
     let option1 = document.getElementById('hideEntreprise');

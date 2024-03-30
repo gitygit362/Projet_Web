@@ -46,14 +46,14 @@
                     </ul>
                     <div class="center">
                         <div class="pagination">
-                            <a href="#">&laquo;</a>
-                            <a href="#" class="active">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                            <a href="#">6</a>
-                            <a href="#">&raquo;</a>
+                            {$PaginationPre}
+                            {$Page1}
+                            {$Page2}
+                            {$Page3}
+                            {$Page4}
+                            {$Page5}
+                            {$Page6}
+                            {$PaginationSui}
                             </div>
                     </div>
                 </div>
