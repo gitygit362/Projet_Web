@@ -22,6 +22,17 @@ $page3 = $derpage -3;
 $page4 = $derpage -2;
 $page5 = $derpage -1;
 
+$i = 4 * ($current_page - 1);
+
+
+$smarty_obj->assign('Ent1',"<li class='OptionEntreprise' onclick='voirEntreprise()'><article><h5 class='TitreEntreprise'>". $resEnt[$i]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i]->getNote() . " &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i]->getLike() ."</p></article></li>");
+$smarty_obj->assign('Ent2',"<li class='OptionEntreprise' onclick='voirEntreprise()'><article><h5 class='TitreEntreprise'>". $resEnt[$i+1]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+1]->getNote() ." &nbsp;&nbsp;&nbsp; likes :". $resEnt[$i+1]->getLike() ."</p></article></li>");
+$smarty_obj->assign('Ent3',"<li class='OptionEntreprise' onclick='voirEntreprise()'><article><h5 class='TitreEntreprise'>". $resEnt[$i+2]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+2]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+2]->getLike() ."</p></article></li>");
+$smarty_obj->assign('Ent4',"<li class='OptionEntreprise' onclick='voirEntreprise()'><article><h5 class='TitreEntreprise'>". $resEnt[$i+3]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+3]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+3]->getLike() ."</p></article></li>");
+
+
+
+
 $smarty_obj->assign('Page1', "<a href='?page=". $page1 ."'class='active'>". $page1 ."</a>");
 $smarty_obj->assign('Page2', "<a href='?page=". $page2 ."'>". $page2 ."</a>");
 $smarty_obj->assign('Page3', "<a href='?page=". $page3 ."'>". $page3 ."</a>");
@@ -52,17 +63,12 @@ $smarty_obj->assign('PaginationSui', $paginationSui);
 
 
 
-
-
-
-
-
 // ---------------------------  TOP ENTREPRISES ----------------------------------------
 
 $resTopEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1); // top entreprise (like)
 
 if (count($resTopEnt) >= 6) {
-    // Première entreprise
+    // Première entreprise  
     $topEnt1 = $resTopEnt[0];
     $smarty_obj->assign('TopEnt1Nom', $topEnt1->getNom());
     $smarty_obj->assign('TopEnt1Note', $topEnt1->getNote());

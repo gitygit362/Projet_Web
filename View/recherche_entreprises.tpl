@@ -38,11 +38,10 @@
                     <h2>Résultats de la recherche</h2>
 
                     <ul class="optionsEntreprise">
-                        <li class="OptionEntreprise" onclick="voirEntreprise()"><article><h5 class="TitreEntreprise">Entreprise 1</h5><p class="DescriptionEntreprise">note : 3,9 &nbsp;&nbsp;&nbsp; likes : 432</p></article></li>
-                        <!-- Ajoutez d'autres offres ici -->
-                        <li class="OptionEntreprise" onclick="voirEntreprise()"><article><h5 class="TitreEntreprise">Entreprise 2</h5><p class="DescriptionEntreprise">note : 4,1 &nbsp;&nbsp;&nbsp; likes : 573</p></article></li>
-                        <li class="OptionEntreprise" onclick="voirEntreprise()"><article><h5 class="TitreEntreprise">Entreprise 3</h5><p class="DescriptionEntreprise">note : 4,9 &nbsp;&nbsp;&nbsp; likes : 752</p></article></li>
-                        <li class="OptionEntreprise" onclick="voirEntreprise()"><article><h5 class="TitreEntreprise">Entreprise 4</h5><p class="DescriptionEntreprise">note : 2,6 &nbsp;&nbsp;&nbsp; likes : 398</p></article></li>
+                        {$Ent1}
+                        {$Ent2}
+                        {$Ent3}
+                        {$Ent4}
                     </ul>
                     <div class="center">
                         <div class="pagination">

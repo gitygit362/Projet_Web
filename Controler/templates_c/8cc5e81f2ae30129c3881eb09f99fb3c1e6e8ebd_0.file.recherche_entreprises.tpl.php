@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-03-30 17:09:41
+/* Smarty version 4.5.1, created on 2024-03-30 17:59:50
   from 'C:\www\Projet_Web\View\recherche_entreprises.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660839456430b3_11983539',
+  'unifunc' => 'content_66084506bd93e3_05169057',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8cc5e81f2ae30129c3881eb09f99fb3c1e6e8ebd' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\recherche_entreprises.tpl',
-      1 => 1711814944,
+      1 => 1711817989,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660839456430b3_11983539 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66084506bd93e3_05169057 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
@@ -64,11 +64,14 @@ function content_660839456430b3_11983539 (Smarty_Internal_Template $_smarty_tpl)
                     <h2>Résultats de la recherche</h2>
 
                     <ul class="optionsEntreprise">
-                        <li class="OptionEntreprise" onclick="voirEntreprise()"><article><h5 class="TitreEntreprise">Entreprise 1</h5><p class="DescriptionEntreprise">note : 3,9 &nbsp;&nbsp;&nbsp; likes : 432</p></article></li>
-                        <!-- Ajoutez d'autres offres ici -->
-                        <li class="OptionEntreprise" onclick="voirEntreprise()"><article><h5 class="TitreEntreprise">Entreprise 2</h5><p class="DescriptionEntreprise">note : 4,1 &nbsp;&nbsp;&nbsp; likes : 573</p></article></li>
-                        <li class="OptionEntreprise" onclick="voirEntreprise()"><article><h5 class="TitreEntreprise">Entreprise 3</h5><p class="DescriptionEntreprise">note : 4,9 &nbsp;&nbsp;&nbsp; likes : 752</p></article></li>
-                        <li class="OptionEntreprise" onclick="voirEntreprise()"><article><h5 class="TitreEntreprise">Entreprise 4</h5><p class="DescriptionEntreprise">note : 2,6 &nbsp;&nbsp;&nbsp; likes : 398</p></article></li>
+                        <?php echo $_smarty_tpl->tpl_vars['Ent1']->value;?>
+
+                        <?php echo $_smarty_tpl->tpl_vars['Ent2']->value;?>
+
+                        <?php echo $_smarty_tpl->tpl_vars['Ent3']->value;?>
+
+                        <?php echo $_smarty_tpl->tpl_vars['Ent4']->value;?>
+
                     </ul>
                     <div class="center">
                         <div class="pagination">
