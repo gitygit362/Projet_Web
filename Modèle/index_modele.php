@@ -1,18 +1,17 @@
 <?php
 class GestionUser
 {
-    private $nom;
-    private $prenom;
-    private $centre;
-    private $promotion;
-    private $user_type;
+    protected $nom;
+    protected $prenom;
+    protected $centre;
+    protected $promo;
+    protected $user_type;
 
-    public function __construct($n, $p, $c, $pro, $ut){
+    public function __construct($n, $p, $c, $pro){
         $this->nom = $n;
         $this->prenom = $p;
         $this->centre = $c;
-        $this->promotion = $pro;
-        $this->user_type = $ut;
+        $this->promo = $pro;
     }
 
 
@@ -40,24 +39,24 @@ class GestionUser
         $this->centre = $centre;
     }
 
-    public function getpromotion(){
-        return $this->promotion;
+    public function getpromo(){
+        return $this->promo;
     }
 
-    public function setpromotion($promotion){
-        $this->promotion = $promotion;
+    public function setpromo($promo){
+        $this->promo = $promo;
     }
+}
 
-    public function getusertype(){
-        return $this->user_type;
+class GestionEtudiant extends GestionUser
+{
+    public function creer(){
+
+
+        $req = $db->prepare("CALL CreerPilote (:nom, :prenom, :centre, :promo)");
+        $req->bindParam(':nom',$nom);
+        $req->bindParam(':prenom',$prenom);
+        $req->bindParam(':centre',$centre);
+        $req->bindParam(':promo',$promo);
     }
-
-    public function setusertype($user_type){
-        $this->user_type = $user_type;
-    }
-
-    public function ajouter($n,$p,$c,$pro,$ut){
-        //return 
-    }
-
 }
