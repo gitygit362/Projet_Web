@@ -39,6 +39,28 @@ function redirectToAccueilFromConnexion(event) {
    return false;
 }
 
+function redirectToAccueilGPform(event){
+    event.preventDefault();
+    var nom_pilote = document.getElementById("nom_pilote").value;
+    var prenom_pilote = document.getElementById("prenom_pilote").value;
+    var centre_pilote = document.getElementById("centre_pilote").value;
+    var promo_pilote =  document.getElementById("promo_pilote").value;
+
+    var data = {
+        nom: nom_pilote,
+        prenom: prenom_pilote,
+        centre: centre_pilote,
+        promo: promo_pilote
+   }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","index_controler.php",true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        
+   }
+
+}
 
 
 

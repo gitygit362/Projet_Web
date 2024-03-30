@@ -39,3 +39,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
+$data = json_decode(file_get_contents('php://input'), true);
+
+$nom_pilote = $data['nom'];
+$prenom_pilote = $data['prenom'];
+$centre_pilote = $data['centre'];
+$promo_pilote =  $data['pilote'];
+
+$req = $db->prepare("CALL CreerPilote (:nom, :prenom, :centre, :promo)");
+$req->bindParam(':nom',$nom_pilote);
+$req->bindParam(':prenom',$prenom_pilote);
+$req->bindParam(':centre',$centre_pilote);
+$req->bindParam(':promo',$promo_pilote);
+
+$resultat = $req->execute();
+if($resultat == false){
+    header('Content-Type: test/plain');
+    echo 'false';
+} else {
+    //si le statut du cookie = etudiant alors utiliser le truc etudiant
+    //faire heritage dans le modéle pour créer des obj de type etudiant et pilote en fonction du id ???
+}
