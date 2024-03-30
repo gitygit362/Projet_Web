@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 4.5.1, created on 2024-03-30 11:04:48
+  from 'C:\www\Projet_Web\View\accueil.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.5.1',
+  'unifunc' => 'content_6607e3c032dc38_56960085',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '4688d181056146624f705c751d156fae0e5790ed' => 
+    array (
+      0 => 'C:\\www\\Projet_Web\\View\\accueil.tpl',
+      1 => 1711793078,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_6607e3c032dc38_56960085 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="fr">
 
     <head>
@@ -14,10 +37,13 @@
                 Accueil&nbsp;       
                 <a href="offres_stages.html">Offres de stage</a>
                 <a href="recherche_entreprises.html">Entreprises</a>
-                {$directionEtudiant}
-                {$directionPilote}
+                <?php echo $_smarty_tpl->tpl_vars['directionEtudiant']->value;?>
+
+                <?php echo $_smarty_tpl->tpl_vars['directionPilote']->value;?>
+
                 <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
-                    {$directionProfil}
+                    <?php echo $_smarty_tpl->tpl_vars['directionProfil']->value;?>
+
                     <a class="Deconnexion" href="page_connexion.html" onclick="deconnexion(event)">Déconnexion</a>
                 </div>
             </nav>
@@ -60,14 +86,19 @@
         <footer>
             <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
         </footer>
-            <script>
-        {literal}
+            <?php echo '<script'; ?>
+>
+        
         function redirectToProfil(statut) {
             var Statut = statut;
             window.location.href = "../View/profil_utilisateur_" + Statut + ".html";
         }
-        {/literal}
-    </script>
-    <script src="../Controler/script.js"></script>
+        
+    <?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="../Controler/script.js"><?php echo '</script'; ?>
+>
     </body>
-</html>
+</html><?php }
+}
