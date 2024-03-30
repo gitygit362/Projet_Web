@@ -51,12 +51,11 @@ class GestionUser
 class GestionEtudiant extends GestionUser
 {
     public function creer(){
-
-
         $req = $db->prepare("CALL CreerPilote (:nom, :prenom, :centre, :promo)");
-        $req->bindParam(':nom',$nom);
-        $req->bindParam(':prenom',$prenom);
-        $req->bindParam(':centre',$centre);
-        $req->bindParam(':promo',$promo);
+        $req->bindParam(':nom',$this->nom);
+        $req->bindParam(':prenom',$this->prenom);
+        $req->bindParam(':centre',$this->centre);
+        $req->bindParam(':promo',$this->promo);
+        $resultat = $req->execute();
     }
 }

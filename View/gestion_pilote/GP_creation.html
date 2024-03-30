@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="fr">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,30 +14,65 @@
         <h1 class="GE">Création Pilote</h1>
     </header>
     <div class="back_to_hub">
-    <div class="text_bth" onclick="redirectToAccueilGP()">Espace pilote</div>
+        <div class="text_bth" onclick="redirectToAccueilGP()">Espace pilote</div>
     </div>
     <main>
-        <form name="GE_creation"  action="" method="post">
+        <form name="GE_creation" action="" method="post">
             <fieldset>
-
                 <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
                 <div class="info">
-                <div class="info_txt">Informations du pilote :</div>
+                    <div class="info_txt">Informations du pilote :</div>
                 </div>
                 <label for="nom_pilote">Nom :</label>
                 <input type="text" id="nom_pilote" name="nom_pilote" required>
                 <label for="prenom_pilote">Prénom :</label>
                 <input type="text" id="prenom_pilote" name="prenom_pilote" required>
                 <label for="centre">Centre :</label>
-                <input type="text" id="centre_pilote" name="centre_pilote" required>
+                <select id="centre_pilote" name="centre_pilote" required>
+                    <option value="" disabled selected>Choisissez un centre</option>
+                    <option value="CESI Paris">CESI Paris</option>
+                    <option value="CESI Toulouse">CESI Toulouse</option>
+                    <option value="CESI Lyon">CESI Lyon</option>
+                    <option value="CESI Bordeaux">CESI Bordeaux</option>
+                    <option value="CESI Nantes">CESI Nantes</option>
+                    <option value="CESI Lille">CESI Lille</option>
+                    <option value="CESI Rennes">CESI Rennes</option>
+                    <option value="CESI Strasbourg">CESI Strasbourg</option>
+                    <option value="CESI Nice">CESI Nice</option>
+                    <option value="CESI Montpellier">CESI Montpellier</option>
+                    <option value="CESI Aix-en-Provence">CESI Aix-en-Provence</option>
+                    <option value="CESI Angers">CESI Angers</option>
+                    <option value="CESI Rouen">CESI Rouen</option>
+                    <option value="CESI Grenoble">CESI Grenoble</option>
+                    <option value="CESI Toulon">CESI Toulon</option>
+                    <option value="CESI Tours">CESI Tours</option>
+                    <option value="CESI Reims">CESI Reims</option>
+                    <option value="CESI Le Mans">CESI Le Mans</option>
+                    <option value="CESI Poitiers">CESI Poitiers</option>
+                    <option value="CESI Saint-Nazaire">CESI Saint-Nazaire</option>
+                    <option value="CESI Brest">CESI Brest</option>
+                    <option value="CESI Caen">CESI Caen</option>
+                    <option value="CESI Dijon">CESI Dijon</option>
+                    <option value="CESI Orléans">CESI Orléans</option>
+                    <option value="CESI Mulhouse">CESI Mulhouse</option>
+                </select>
                 <label for="promo_pilote">Promotion :</label>
-                <input type="text" id="promo_pilote" name="promo_pilote" required>
+                <select id="promo_pilote" name="promo_pilote" required>
+                    <option value="" disabled selected>Choisissez une promotion</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="A3">A3</option>
+                    <option value="A4">A4</option>
+                    <option value="A5">A5</option>
+                </select>
                 <button class="button" type="button" onclick="redirectToAccueilGPform(event)">Créer</button>
             </fieldset>
         </form>
     </main>
     <footer>
-        <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+        <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés - Mentions légales EasyStage</a>
     </footer>
     <script src="../../Controler/script.js"></script>
 </body>
+
+</html>

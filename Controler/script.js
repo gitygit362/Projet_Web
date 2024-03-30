@@ -45,7 +45,8 @@ function redirectToAccueilGPform(event){
     var prenom_pilote = document.getElementById("prenom_pilote").value;
     var centre_pilote = document.getElementById("centre_pilote").value;
     var promo_pilote =  document.getElementById("promo_pilote").value;
-
+    alert(centre_pilote);
+    
     var data = {
         nom: nom_pilote,
         prenom: prenom_pilote,
@@ -54,12 +55,20 @@ function redirectToAccueilGPform(event){
    }
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST","index_controler.php",true);
+    xhr.open("POST","etudiant.php?action=createpilote",true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function () {
-        
+        if (xhr.status == true){
+            if (response === 'true') {
+                alert("profil créé avec succès");
+                window.location.href = '../View/gestion_pilote/GP_accueil.html';
+            } else{
+                alert("erreur 1");
+            }
+        } else {
+            alert ("erreur saussice");
+        }
    }
-
 }
 
 

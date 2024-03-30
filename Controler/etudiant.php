@@ -24,6 +24,14 @@ try{
 } catch(PDOException $e){
     echo "Erreur :".$e->getMessage();
 }
+//______________________________________________________________________________________________________
+
+if (isset($_GET['action']) && $_GET['action'] === 'createpilote') {
+    echo "reussite";
+    create_pilote();
+} 
+
+
 
 
 $data = json_decode(file_get_contents('php://input'), true);
@@ -31,17 +39,18 @@ $nom_pilote = $data['nom'];
 $prenom_pilote = $data['prenom'];
 $centre_pilote = $data['centre'];
 $promo_pilote =  $data['pilote'];
-$statut = $_COOKIE[$userData['statut']];
 
-if ($statut == "admin")
+function create_pilote(){
     $obj = new GestionEtudiant($nom_pilote,$prenom_pilote,$centre_pilote,$promo_pilote);
+    $obj->creer();
+}
 
 
-$resultat = $req->execute();
 if($resultat == false){
     header('Content-Type: test/plain');
     echo 'false';
 } else {
     //si le statut du cookie = etudiant alors utiliser le truc etudiant
     //faire heritage dans le modéle pour créer des obj de type etudiant et pilote en fonction du id ???
+    echo 'true';
 }
