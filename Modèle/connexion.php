@@ -30,15 +30,22 @@ if ($res == false) {
     $resStatut = $connexion->query("SELECT @resSt")->fetchColumn();
 
     if ($resId !== 0) {
+        $cookieOptions = [
+            'expires' => time() + 3600, 
+            'path' => '/', // Chemin ou on a accès au cookie
+            //'domain' => '.notre-nom-de-domaine.com',
+            'secure' => true,
+            'httponly' => true
+        ];
+    
         $userData = array(
             'id' => $resId,
             'statut' => $resStatut
         );
-
-        // Création du cookie avec les informations utilisateur
+    
         $userDataJSON = json_encode($userData);
-        $userDataJSON = trim($userDataJSON); // Supprimer les espaces supplémentaires
-        setcookie('userData', $userDataJSON, time() + 3600, '/');
+        $userDataJSON = trim($userDataJSON);
+        setcookie('userData', $userDataJSON, $cookieOptions);
         header('Content-Type: text/plain');
         echo 'true';
 

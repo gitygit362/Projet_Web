@@ -248,6 +248,36 @@ function redirectToProfil(statut) {
         // dans le profil on va chercher les infos 
 }
 
+
+function deconnexion(event) {
+    event.preventDefault(); // Empêcher le comportement par défaut du lien
+    
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('GET', 'session.php?action=deconnexion', true);
+
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            console.log(xhr.responseText);
+        } else {
+            console.error('Erreur lors de la requête : ' + xhr.status);
+        }
+    };
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Prochaines fonctions en lien avec le backend */
 
 function redirectToOffreFromEnt(){

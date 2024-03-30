@@ -18,7 +18,7 @@
                 {$directionPilote}
                 <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
                     {$directionProfil}
-                    <a class="Deconnexion" href="page_connexion.html">Déconnexion</a>
+                    <a class="Deconnexion" href="page_connexion.html" onclick="deconnexion(event)">Déconnexion</a>
                 </div>
             </nav>
 

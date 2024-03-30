@@ -1,11 +1,10 @@
 <?php 
-require_once ("../../libs/Smarty.class.php");
-session_start();
+require_once '../../libs/Smarty.class.php';
+require_once '../Controler/session.php';
 $smarty_obj = new Smarty();
-$userData = json_decode($_COOKIE['userData'], true);
+demarrerSession();
+creerSession();
 
-$_SESSION['id'] = $userData['id'];
-$_SESSION['statut'] = $userData['statut'];
 
     if ($_SESSION['statut'] == 'admin'){
         $smarty_obj->assign('directionEtudiant', "<a class='refPilote' href='gestion_etudiant/GETU_accueil.html'>Etudiants</a>");

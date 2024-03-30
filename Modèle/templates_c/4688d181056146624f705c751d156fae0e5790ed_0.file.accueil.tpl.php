@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-03-29 18:47:14
+/* Smarty version 4.5.1, created on 2024-03-29 19:23:16
   from 'C:\www\Projet_Web\View\accueil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_6606fea26c9e41_18028767',
+  'unifunc' => 'content_66070714906c88_40393480',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4688d181056146624f705c751d156fae0e5790ed' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\accueil.tpl',
-      1 => 1711734432,
+      1 => 1711735463,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6606fea26c9e41_18028767 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66070714906c88_40393480 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 
@@ -44,7 +44,7 @@ function content_6606fea26c9e41_18028767 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
                     <?php echo $_smarty_tpl->tpl_vars['directionProfil']->value;?>
 
-                    <a class="Deconnexion" href="page_connexion.html">Déconnexion</a>
+                    <a class="Deconnexion" href="page_connexion.html" onclick="deconnexion(event)">Déconnexion</a>
                 </div>
             </nav>
 
