@@ -38,41 +38,6 @@ function redirectToAccueilFromConnexion(event) {
    xhr.send(userData);
    return false;
 }
-/*
-function redirectToAccueilGPform(event){
-    event.preventDefault();
-    var nom_pilote = document.getElementById("nom_pilote").value;
-    var prenom_pilote = document.getElementById("prenom_pilote").value;
-    var centre_pilote = document.getElementById("centre_pilote").value;
-    var promo_pilote =  document.getElementById("promo_pilote").value;
-    alert(centre_pilote);
-    
-    var data = {
-        nom: nom_pilote,
-        prenom: prenom_pilote,
-        centre: centre_pilote,
-        promo: promo_pilote
-   }
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST","etudiant.php?action=createpilote",false);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onload = function () {
-        if (xhr.status >= 200 && xhr.status < 300){
-            var response = xhr.responseText.trim();
-            if (response === 'true') {
-                alert("profil créé avec succès");
-                window.location.href = '../View/gestion_pilote/GP_accueil.html';
-            } else{
-                alert("erreur 1");
-            }
-        } else {
-            alert ("erreur saussice");
-        }
-   }
-}
-
-*/
 
 function redirectToAccueilGPform(event){
     event.preventDefault();
@@ -89,7 +54,7 @@ function redirectToAccueilGPform(event){
     };
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST","../../Controler/etudiant.php?action=createpilote",false);
+    xhr.open("POST","../../Controler/users.php?action=createpilote",false);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
@@ -102,11 +67,12 @@ function redirectToAccueilGPform(event){
                 alert("Erreur : le profil n'a pas été créé");
             }
         } else {
-            alert ("Erreur : Impossible de contacter le serveur");
+            alert ("Erreur : Impossible de contacter le serveurswdrffgdcsf");
+            alert (xhr.status);
         }
     };
     xhr.onerror = function () {
-        alert("Erreur : Impossible de contacter le serveur");
+        alert("Erreur : Impossible de contacter le serveusdsdr");
     };
     xhr.send(JSON.stringify(data));
 }

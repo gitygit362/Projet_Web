@@ -5,7 +5,6 @@ class GestionUser
     protected $prenom;
     protected $centre;
     protected $promo;
-    protected $user_type;
 
     public function __construct($n, $p, $c, $pro){
         $this->nom = $n;
@@ -48,17 +47,30 @@ class GestionUser
     }
 }
 
-class GestionEtudiant extends GestionUser
+class GestionPilote extends GestionUser
 {
     public function creer(){
-        /*
-        $req = $db->prepare("CALL CreerPilote (:nom, :prenom, :centre, :promo)");
+        
+        $req = $db->prepare("CALL CreerPilote (:nom, :prenom, :centre, :promo, :mdp)");
         $req->bindParam(':nom',$this->nom);
         $req->bindParam(':prenom',$this->prenom);
         $req->bindParam(':centre',$this->centre);
         $req->bindParam(':promo',$this->promo);
-        return $req->execute();*/
-        //attente de requete sql d'ajout de pilote ensuite enlever le true en dessous
+
+        $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $longueurMax = strlen($caracteres);
+        $chaineAleatoire = '';
+        for ($i = 0; $i < 10; $i++)
+        {
+            $chaineAleatoire .= $caracteres[rand(0, $longueurMax)];
+        }    
+        $req->bindParam(':mdp',$chaineAleatoire);
+        return $req->execute();
+
+    }
+
+    public function modifier($nv_nom,$nv_prenom,$nv_centre,$nv_promo){
         return true;
     }
+
 }
