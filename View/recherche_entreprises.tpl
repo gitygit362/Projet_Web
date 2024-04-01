@@ -60,7 +60,7 @@
 
 
 
-                <form class="filtresEntreprises">
+                <form id="filtresForm" class="filtresEntreprises">
                     <h2>Filtres de la recherche : </h2>
                 
                 <!-- filtres -->
@@ -89,26 +89,27 @@
                 
                     <div>
                         <h3 onclick="NotesFilter()">Note ▼</h3>
-                        <label class="hideNote"><input type="checkbox" name="evaluationFilter1" value="de 0 à 1 étoile"> de 0 à 1 étoile</label>
-                        <label class="hideNote"><input type="checkbox" name="evaluationFilter2" value="de 1 à 2 étoiles"> de 1 à 2 étoiles</label>
-                        <label class="hideNote"><input type="checkbox" name="evaluationFilter3" value="de 3 à 4 étoiles"> de 3 à 4 étoiles</label>
-                        <label class="hideNote"><input type="checkbox" name="evalutionFilter4" value="de 4 à 5 étoiles"> de 4 à 5 étoiles</label>
-                        <label class="hideNote"><input type="checkbox" name="evaluationFilter5" value="tout" checked> tout</label>
+                        <label class="hideNote"><input type="checkbox" id="evaluationFilter1" name="evaluationFilter1" value="1"> de 0 à 1 étoile</label>
+                        <label class="hideNote"><input type="checkbox" id="evaluationFilter2" name="evaluationFilter2" value="1"> de 1 à 2 étoiles</label>
+                        <label class="hideNote"><input type="checkbox" id="evaluationFilter3" name="evaluationFilter3" value="1"> de 2 à 3 étoiles</label>
+                        <label class="hideNote"><input type="checkbox" id="evaluationFilter4" name="evaluationFilter4" value="1"> de 3 à 4 étoiles</label>
+                        <label class="hideNote"><input type="checkbox" id="evaluationFilter5" name="evalutionFilter5" value="1"> de 4 à 5 étoiles</label>
+                        <label class="hideNote"><input type="checkbox" id="evaluationFilter6" name="evaluationFilter6" value="1" checked> tout</label>
                     </div>
 
                     <div>
                         <h3 onclick="TrierFilter()">Trier par ▼</h3>
                         <div class="trier">
-                            <input type="radio" name="trieroffre" value="PlusRécentes"> Note croissante
+                            <input type="radio" id="NoteAsc" name="trieroffre" value="1"> Note croissante
                         </div>
                         <div class="trier">
-                            <input type="radio" name="trieroffre" value="PlusAnciennes"> Note décroissante
+                            <input type="radio" id="NoteDesc" name="trieroffre" value="1"> Note décroissante
                         </div>
                         <div class="trier">
-                            <input type="radio" name="trieroffre" value="SalairesCroissants"> Likes croissants
+                            <input type="radio" id="LikeAsc" name="trieroffre" value="1"> Likes croissants
                         </div>
                         <div class="trier">
-                            <input type="radio" name="trieroffre" value="SalairesDécroissants"> Likes décroissants
+                            <input type="radio" id="LikeDesc" name="trieroffre" value="1"> Likes décroissants
                         </div>
                     </div>
                     <button class="filterButton" type="submit">Valider</button>

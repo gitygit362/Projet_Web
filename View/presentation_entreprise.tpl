@@ -28,7 +28,7 @@
     </header>
     <main>
         <div class="DivRetourPresEnt">
-            <button class="RetourPresEnt" type="button" onclick="redirectToPrecPage()">retour</button>
+            <button class="RetourPresEnt" type="button" onclick="redirectToPrecPageEnt()">retour</button>
         </div>
         <div id="headerPresEnt">
             <img class="logoEnt" src="../View/{$LogoEnt}.png" alt="logo EASYSTAGE">

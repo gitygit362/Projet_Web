@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-01 13:10:14
+/* Smarty version 4.5.1, created on 2024-04-01 15:27:12
   from 'C:\www\Projet_Web\View\presentation_entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660a9616a6f7a0_08658766',
+  'unifunc' => 'content_660ab6308cc251_95038992',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '330a196bb5679b95b42947bd1ff84162b211f803' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\presentation_entreprise.tpl',
-      1 => 1711969762,
+      1 => 1711978030,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660a9616a6f7a0_08658766 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660ab6308cc251_95038992 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
@@ -54,7 +54,7 @@ function content_660a9616a6f7a0_08658766 (Smarty_Internal_Template $_smarty_tpl)
     </header>
     <main>
         <div class="DivRetourPresEnt">
-            <button class="RetourPresEnt" type="button" onclick="redirectToPrecPage()">retour</button>
+            <button class="RetourPresEnt" type="button" onclick="redirectToPrecPageEnt()">retour</button>
         </div>
         <div id="headerPresEnt">
             <img class="logoEnt" src="../View/<?php echo $_smarty_tpl->tpl_vars['LogoEnt']->value;?>

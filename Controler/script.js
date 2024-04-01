@@ -104,7 +104,7 @@ function redirectToPostulation() {
     
 }
 
-function redirectToPrecPage() {
+function redirectToPrecPageOffre() {
     window.location.href = "offres_stages.html";
 }
 

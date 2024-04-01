@@ -39,17 +39,15 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('masquerInput').addEventListener('change', function () {
     var isChecked = document.getElementById('masquerInput').checked;
 
-    
     // Si la case à cocher est cochée
     if (isChecked) {
-        // Effectuer une requête AJAX pour appeler la méthode de la classe Procedures
+        // Effectuer une requête AJAX en utilisant GET pour appeler la méthode MasquerEntreprise
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'entreprises.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.open('PUT', 'entreprises.php?action=MasquerEntreprise', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
-                    alert("vous avez masquer cette entreprise. \nElle ne sera plus visible dans la recherche");
+                    alert("Vous avez masqué cette entreprise. Elle ne sera plus visible dans la recherche.");
                 } else {
                     // Erreur lors de la requête AJAX
                     console.error('Erreur lors de la requête AJAX');
@@ -58,16 +56,16 @@ document.getElementById('masquerInput').addEventListener('change', function () {
         };
         xhr.onerror = function () {
             alert("Erreur lors de la requête masquer");
-            };
-        xhr.send('action=MasquerEntreprise');
+        };
+        xhr.send();
     }
     else {
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'entreprises.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.open('PUT', 'entreprises.php?action=VisibleEntreprise', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
+                    alert("Vous allez rendre visible cette entreprise pour les étudiants. \nCes informations seront prisent en compte dans les statistiques de recherche.");
                 } else {
                     // Erreur lors de la requête AJAX
                     console.error('Erreur lors de la requête AJAX');
@@ -75,12 +73,130 @@ document.getElementById('masquerInput').addEventListener('change', function () {
             }
         };
         xhr.onerror = function () {
-            alert("Erreur lors de la requête visible");
-            };
-        xhr.send('action=VisibleEntreprise');
+            alert("Erreur lors de la requête masquer");
+        };
+        xhr.send();
     }
 }
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('filtresForm');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        localisation = document.getElementsByClassName('inputLieu');
+
+        var nom = document.getElementById('inputEntreprise').value.trim() == '' ? 'all' : document.getElementById('inputEntreprise').value;
+        var activite = document.getElementById('inputActivite').value.trim() == '' ? 'all' : document.getElementById('inputActivite').value;
+        var pays = localisation[0].value.trim() == '' ? 'all' : localisation[0].value.trim();
+        var ville = localisation[1].value.trim() == '' ? 'all' : localisation[1].value.trim();
+        var adresse = localisation[2].value.trim() == '' ? 'all' : localisation[2].value;
+        
+        var filter1Param = document.getElementById('evaluationFilter1').checked ? 1 : 0;
+        var filter2Param = document.getElementById('evaluationFilter2').checked ? 1 : 0;
+        var filter3Param = document.getElementById('evaluationFilter3').checked ? 1 : 0;
+        var filter4Param = document.getElementById('evaluationFilter4').checked ? 1 : 0;
+        var filter5Param = document.getElementById('evaluationFilter5').checked ? 1 : 0;
+        var filter6Param = document.getElementById('evaluationFilter6').checked ? 1 : 0;
+        var noteAsc = document.getElementById('NoteAsc').checked ? 1 : 0;
+        var noteDesc = document.getElementById('NoteDesc').checked ? 1 : 0;
+        var likeAsc = document.getElementById('LikeAsc').checked ? 1 : 0;
+        var likeDesc = document.getElementById('LikeDesc').checked ? 1 : 0;
+       
+      /*  var data = {
+            type: 'filtre',
+            nom: nom,
+            activite: activite,
+            pays: pays,
+            ville: ville,
+            adresse: adresse,
+            evaluationFilter1: filter1Param,
+            evaluationFilter2: filter2Param,
+            evaluationFilter3: filter3Param,
+            evaluationFilter4: filter4Param,
+            evaluationFilter5: filter5Param,
+            evaluationFilter6: filter6Param,
+            NoteAsc: noteAsc,
+            NoteDesc: noteDesc,
+            LikeAsc: likeAsc,
+            LikeDesc: likeDesc
+
+        }*/
+
+        params.append('type', 'filtres');
+        params.append('nom', nom);
+        params.append('activite', activite);
+        params.append('pays', pays);
+        params.append('ville', ville);
+        params.append('adresse', adresse);
+        params.append('evaluationFilter1', filter1Param);
+        params.append('evaluationFilter2', filter2Param);
+        params.append('evaluationFilter3', filter3Param);
+        params.append('evaluationFilter4', filter4Param);
+        params.append('evaluationFilter5', filter5Param);
+        params.append('evaluationFilter6', filter6Param);
+        params.append('NoteAsc', noteAsc);
+        params.append('NoteDesc', noteDesc);
+        params.append('LikeAsc', likeAsc);
+        params.append('LikeDesc', likeDesc);
+        
+        var url = 'entreprises.php?' + params.toString();
+       
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);//POST
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    alert("Requête réussie");
+                } else {
+                    alert('Erreur lors de la requête AJAX');
+                }
+            }
+        };
+        xhr.onerror = function () {
+            alert("Erreur lors de la requête masquer");
+        };
+        //var userData = JSON.stringify(data);
+        xhr.send();//userData
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -170,7 +286,10 @@ function TrierFilter(){
 
 
 
-
+function redirectToPrecPageEnt() {
+    var pagePrecedente = document.referrer;
+        window.location.href = pagePrecedente;
+}
 
 
 

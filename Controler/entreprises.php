@@ -8,6 +8,10 @@ $resEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0
 
 $resTopEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1); // top entreprise (like)
 
+
+
+
+
 // -------------------------------------------------- Présentation Entreprise -----------------------------------------------------------
 
 if (isset($_GET['id']) && isset($_GET['s']) && $_GET['s'] === 'Onload') {
@@ -52,31 +56,108 @@ if (isset($_GET['id']) && isset($_GET['s']) && $_GET['s'] === 'Onload') {
 
 
    
-// -------------------------------------------------- Recherche Entreprises -------------------------------------------------------------
+//-------------------------------------------- Avec recherche filtres (page de base) ---------------------------------------------------------
     
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
-$nbtotalEnt = count($resEnt);
+/*  $json_data = json_decode(file_get_contents('php://input'), true);
 
-$nbpage = ceil($nbtotalEnt / 4);
+    if (isset($json_data['type']) && $json_data['type'] === "filtres") {
+        // Traiter les données de filtres
+    
+        $nom = ($json_data['nom'] == 'all') ? "" : $json_data['nom'];
+        $activite = ($json_data['activite'] == 'all') ? "" : $json_data['activite'];
+        $pays = ($json_data['pays'] == 'all') ? "" : $json_data['pays'];
+        $ville = ($json_data['ville'] == 'all') ? "" : $json_data['ville'];
+        $adresse = ($json_data['adresse'] == 'all') ? "" : $json_data['adresse'];
+        $filtre1 = isset($json_data['evaluationFilter1']) ? $json_data['evaluationFilter1'] : 0;
+        $filtre2 = isset($json_data['evaluationFilter2']) ? $json_data['evaluationFilter2'] : 0;
+        $filtre3 = isset($json_data['evaluationFilter3']) ? $json_data['evaluationFilter3'] : 0;
+        $filtre4 = isset($json_data['evaluationFilter4']) ? $json_data['evaluationFilter4'] : 0;
+        $filtre5 = isset($json_data['evaluationFilter5']) ? $json_data['evaluationFilter5'] : 0;
+        $filtre6 = isset($json_data['evaluationFilter6']) ? $json_data['evaluationFilter6'] : 0;
+        $trie1 = isset($json_data['NoteAsc']) ? $json_data['NoteAsc'] : 0;
+        $trie2 = isset($json_data['NoteDesc']) ? $json_data['NoteDesc'] : 0;
+        $trie3 = isset($json_data['LikeAsc']) ? $json_data['LikeAsc'] : 0;
+        $trie4 = isset($json_data['LikeDesc']) ? $json_data['LikeDesc'] : 0;
+        */
 
-$livre = ceil($current_page / 6);
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
+    $data = file_get_contents("php://input");
+    $jsonData = json_decode($data);
 
-$derpage = $livre * 6;
+    if (isset($jsonData->type) && $jsonData->type === "filtres") {
+        // Traiter les données de filtres
 
-$page1 = $derpage -5;
-$page2 = $derpage -4;
-$page3 = $derpage -3;
-$page4 = $derpage -2;
-$page5 = $derpage -1;
+        $nom = ($_GET['nom'] == 'all') ? "" : $_GET['nom'];
 
-$i = 4 * ($current_page - 1);
+        $activite = ($_GET['activite'] == 'all') ? "" : $_GET['activite'];
+        $pays = ($_GET['pays'] == 'all') ? "" : $_GET['pays'];
+        $ville = ($_GET['ville'] == 'all') ? "" : $_GET['ville'];
+        $adresse = ($_GET['adresse'] == 'all') ? "" : $_GET['adresse'];
+        $filtre1 = isset($_GET['evaluationFilter1']) ? $_GET['evaluationFilter1'] : 0;
+        $filtre1 = isset($_GET['evaluationFilter2']) ? $_GET['evaluationFilter2'] : 0;
+        $filtre1 = isset($_GET['evaluationFilter3']) ? $_GET['evaluationFilter3'] : 0;
+        $filtre1 = isset($_GET['evaluationFilter4']) ? $_GET['evaluationFilter4'] : 0;
+        $filtre1 = isset($_GET['evaluationFilter5']) ? $_GET['evaluationFilter5'] : 0;
+        $filtre1 = isset($_GET['evaluationFilter6']) ? $_GET['evaluationFilter6'] : 0;
+        $trie1 = isset($_GET['NoteAsc']) ? $_GET['NoteAsc'] : 0;
+        $trie2 = isset($_GET['NoteDesc']) ? $_GET['NoteDesc'] : 0;
+        $trie3 = isset($_GET['LikeAsc']) ? $_GET['LikeAsc'] : 0;
+        $trie4 = isset($_GET['LikeDesc']) ? $_GET['LikeDesc'] : 0;
+    
+        $resFiltresEnt = $ent->chercherEntreprise($entreprise, $activite, $pays, $ville, $adresse, $filtre1, $filtre2, $filtre3, $filtre4, $filtre5, $filtre6, $trie1, $trie2, $trie3, $trie4);
+
+        $nbtotalEnt = count($resFiltresEnt);
+
+        $nbpage = ceil($nbtotalEnt / 4);
+
+        $livre = ceil($current_page / 6);
+    
+        $derpage = $livre * 6;
+    
+        $page1 = $derpage -5;
+        $page2 = $derpage -4;
+        $page3 = $derpage -3;
+        $page4 = $derpage -2;
+        $page5 = $derpage -1;
+    
+        $i = 4 * ($current_page - 1);
+
+        $smarty_obj->assign('Ent1',"<li class='OptionEntreprise' onclick='voirEntreprise(". $i .", 0)'><article><h5 class='TitreEntreprise'>". $resFiltresEnt[$i]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resFiltresEnt[$i]->getNote() . " &nbsp;&nbsp;&nbsp; likes : ". $resFiltresEnt[$i]->getLike() ."</p></article></li>");
+        $smarty_obj->assign('Ent2',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+1) .", 0)'><article><h5 class='TitreEntreprise'>". $resFiltresEnt[$i+1]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resFiltresEnt[$i+1]->getNote() ." &nbsp;&nbsp;&nbsp; likes :". $resFiltresEnt[$i+1]->getLike() ."</p></article></li>");
+        $smarty_obj->assign('Ent3',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+2) .", 0)'><article><h5 class='TitreEntreprise'>". $resFiltresEnt[$i+2]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resFiltresEnt[$i+2]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resFiltresEnt[$i+2]->getLike() ."</p></article></li>");
+        $smarty_obj->assign('Ent4',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+3) .", 0)'><article><h5 class='TitreEntreprise'>". $resFiltresEnt[$i+3]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resFiltresEnt[$i+3]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resFiltresEnt[$i+3]->getLike() ."</p></article></li>");
+    }
 
 
-$smarty_obj->assign('Ent1',"<li class='OptionEntreprise' onclick='voirEntreprise(". $i .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i]->getNote() . " &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i]->getLike() ."</p></article></li>");
-$smarty_obj->assign('Ent2',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+1) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+1]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+1]->getNote() ." &nbsp;&nbsp;&nbsp; likes :". $resEnt[$i+1]->getLike() ."</p></article></li>");
-$smarty_obj->assign('Ent3',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+2) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+2]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+2]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+2]->getLike() ."</p></article></li>");
-$smarty_obj->assign('Ent4',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+3) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+3]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+3]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+3]->getLike() ."</p></article></li>");
+
+//-------------------------------------------- Apres chargement (page de base) --------------------------------------------------------------
+
+    $nbtotalEnt = count($resEnt);
+
+    $nbpage = ceil($nbtotalEnt / 4);
+
+    $livre = ceil($current_page / 6);
+
+    $derpage = $livre * 6;
+
+    $page1 = $derpage -5;
+    $page2 = $derpage -4;
+    $page3 = $derpage -3;
+    $page4 = $derpage -2;
+    $page5 = $derpage -1;
+
+    $i = 4 * ($current_page - 1);
+
+
+    $smarty_obj->assign('Ent1',"<li class='OptionEntreprise' onclick='voirEntreprise(". $i .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i]->getNote() . " &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i]->getLike() ."</p></article></li>");
+    $smarty_obj->assign('Ent2',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+1) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+1]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+1]->getNote() ." &nbsp;&nbsp;&nbsp; likes :". $resEnt[$i+1]->getLike() ."</p></article></li>");
+    $smarty_obj->assign('Ent3',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+2) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+2]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+2]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+2]->getLike() ."</p></article></li>");
+    $smarty_obj->assign('Ent4',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+3) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+3]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+3]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+3]->getLike() ."</p></article></li>");
+
+}
+
 
 
 
@@ -102,6 +183,7 @@ if (($derpage + 1) <= $nbpage) {
 // Assignation des liens de pagination à Smarty
 $smarty_obj->assign('PaginationPre', $paginationPre);
 $smarty_obj->assign('PaginationSui', $paginationSui);
+
 
 
 
@@ -132,8 +214,6 @@ if (count($resTopEnt) >= 6) {
 $smarty_obj->display('../View/recherche_entreprises.tpl');
 
 }
-
-
 
 
 
