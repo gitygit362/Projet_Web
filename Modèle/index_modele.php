@@ -71,8 +71,15 @@ class GestionPilote extends GestionUser
 
     }
 
-    public function modifier($nv_nom,$nv_prenom,$nv_centre,$nv_promo){
-        return true;
+    public function recherche($db){
+        $req = $db->prepare("CALL RechercherPilote (:nom, :prenom, :centre, :promo)");
+        $req->bindParam(':nom',$this->nom);
+        $req->bindParam(':prenom',$this->prenom);
+        $req->bindParam(':centre',$this->centre);
+        $req->bindParam(':promo',$this->promo);
+        $req->execute();
+        $row = $req->fetch(PDO::FETCH_NUM);
+        return $row;
     }
 
 }

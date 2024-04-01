@@ -33,9 +33,20 @@ function create_pilote(){
         header('Content-Type: test/plain');
         echo 'false';
     } else {
-        //si le statut du cookie = etudiant alors utiliser le truc etudiant
-        //faire heritage dans le modéle pour créer des obj de type etudiant et pilote en fonction du id ???
         echo 'true';
+    }
+}
+
+function preedit_pilote(){
+    global $nom_pilote, $prenom_pilote, $centre_pilote, $promo_pilote,$db;
+    $obj = new GestionPilote($nom_pilote,$prenom_pilote,$centre_pilote,$promo_pilote);
+    $resultat = $obj->recherche($db);
+
+    if($resultat == false){
+        header('Content-Type: test/plain');
+        echo 'false';
+    } else {
+        echo 'true'.'.'.$resultat[0];
     }
 }
 
@@ -43,7 +54,9 @@ if (isset($_GET['action']) && $_GET['action'] === 'createpilote') {
     create_pilote();
 } 
 
-
+if (isset($_GET['action']) && $_GET['action'] === 'preeditpilote') {
+    preedit_pilote();
+} 
 
 
 
