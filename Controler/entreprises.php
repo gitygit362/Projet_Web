@@ -4,9 +4,57 @@ require '../Modèle/entreprise.class.php';
 
 $ent = new Entreprise();
 
-$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-
 $resEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 0); // apres chargement pas de trie ni de filtre
+
+$resTopEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1); // top entreprise (like)
+
+// -------------------------------------------------- Présentation Entreprise -----------------------------------------------------------
+
+if (isset($_GET['id']) && isset($_GET['s']) && $_GET['s'] === 'Onload') {
+    // Afficher la page de présentation de l'entreprise
+    $current_ent = $_GET['id'];
+    $smarty_obj->assign('LogoEnt', $resEnt[$current_ent]->getLogo());
+    $smarty_obj->assign('NomEnt', $resEnt[$current_ent]->getNom());
+    $smarty_obj->assign('SecteurEnt', $resEnt[$current_ent]->getSecteur());
+    $smarty_obj->assign('AdrEnt', $resEnt[$current_ent]->getAdresse());
+    $smarty_obj->assign('VillesEnt', $resEnt[$current_ent]->getVille());
+    $smarty_obj->assign('PaysEnt', $resEnt[$current_ent]->getPays());
+    $smarty_obj->assign('NoteEnt', $resEnt[$current_ent]->getNote());
+    $smarty_obj->assign('WhListEnt', $resEnt[$current_ent]->getLike());
+    if ($_SESSION['statut'] == 'etudiant'){
+        $smarty_obj->assign('masquer', '');
+    } else {
+        $smarty_obj->assign('masquer', "<label id='masquer'>masquer<input  id='masquerInput' type='checkbox' name='masquer' value='masquer'></label>");
+    }
+    $smarty_obj->display("../View/presentation_entreprise.tpl");
+
+} else if (isset($_GET['id']) && isset($_GET['s']) && $_GET['s'] === 'TopEntreprise') {
+    // Afficher la page de présentation de top Entreprise
+    $current_ent = $_GET['id'];
+    $smarty_obj->assign('LogoEnt', $resTopEnt[$current_ent]->getLogo());
+    $smarty_obj->assign('NomEnt', $resTopEnt[$current_ent]->getNom());
+    $smarty_obj->assign('SecteurEnt', $resTopEnt[$current_ent]->getSecteur());
+    $smarty_obj->assign('AdrEnt', $resTopEnt[$current_ent]->getAdresse());
+    $smarty_obj->assign('VillesEnt', $resTopEnt[$current_ent]->getVille());
+    $smarty_obj->assign('PaysEnt', $resTopEnt[$current_ent]->getPays());
+    $smarty_obj->assign('NoteEnt', $resTopEnt[$current_ent]->getNote());
+    $smarty_obj->assign('WhListEnt', $resTopEnt[$current_ent]->getLike());
+    if ($_SESSION['statut'] == 'etudiant'){
+        $smarty_obj->assign('masquer', '');
+    } else {
+        $smarty_obj->assign('masquer', "<label id='masquer'>masquer<input  id='masquerInput' type='checkbox' name='masquer' value='masquer'></label>");
+    }
+    $smarty_obj->display("../View/presentation_entreprise.tpl");
+
+
+} else {
+
+
+
+   
+// -------------------------------------------------- Recherche Entreprises -------------------------------------------------------------
+    
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 $nbtotalEnt = count($resEnt);
 
@@ -25,10 +73,10 @@ $page5 = $derpage -1;
 $i = 4 * ($current_page - 1);
 
 
-$smarty_obj->assign('Ent1',"<li class='OptionEntreprise' onclick='voirEntreprise()'><article><h5 class='TitreEntreprise'>". $resEnt[$i]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i]->getNote() . " &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i]->getLike() ."</p></article></li>");
-$smarty_obj->assign('Ent2',"<li class='OptionEntreprise' onclick='voirEntreprise()'><article><h5 class='TitreEntreprise'>". $resEnt[$i+1]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+1]->getNote() ." &nbsp;&nbsp;&nbsp; likes :". $resEnt[$i+1]->getLike() ."</p></article></li>");
-$smarty_obj->assign('Ent3',"<li class='OptionEntreprise' onclick='voirEntreprise()'><article><h5 class='TitreEntreprise'>". $resEnt[$i+2]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+2]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+2]->getLike() ."</p></article></li>");
-$smarty_obj->assign('Ent4',"<li class='OptionEntreprise' onclick='voirEntreprise()'><article><h5 class='TitreEntreprise'>". $resEnt[$i+3]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+3]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+3]->getLike() ."</p></article></li>");
+$smarty_obj->assign('Ent1',"<li class='OptionEntreprise' onclick='voirEntreprise(". $i .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i]->getNote() . " &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i]->getLike() ."</p></article></li>");
+$smarty_obj->assign('Ent2',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+1) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+1]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+1]->getNote() ." &nbsp;&nbsp;&nbsp; likes :". $resEnt[$i+1]->getLike() ."</p></article></li>");
+$smarty_obj->assign('Ent3',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+2) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+2]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+2]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+2]->getLike() ."</p></article></li>");
+$smarty_obj->assign('Ent4',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+3) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+3]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+3]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+3]->getLike() ."</p></article></li>");
 
 
 
@@ -58,53 +106,65 @@ $smarty_obj->assign('PaginationSui', $paginationSui);
 
 
 
-
-
-
-
-
 // ---------------------------  TOP ENTREPRISES ----------------------------------------
 
-$resTopEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1); // top entreprise (like)
 
 if (count($resTopEnt) >= 6) {
     // Première entreprise  
-    $topEnt1 = $resTopEnt[0];
-    $smarty_obj->assign('TopEnt1Nom', $topEnt1->getNom());
-    $smarty_obj->assign('TopEnt1Note', $topEnt1->getNote());
-    $smarty_obj->assign('TopEnt1Like', $topEnt1->getLike());
+    $smarty_obj->assign('TopEnt1',"<article class='OptionTopEntreprises' onclick='voirEntreprise(0, 1)'><h5 class='TitreEntreprise'>". $resTopEnt[0]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resTopEnt[0]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resTopEnt[0]->getLike() ."</p></article>");
 
     // Deuxième entreprise
-    $topEnt2 = $resTopEnt[1];
-    $smarty_obj->assign('TopEnt2Nom', $topEnt2->getNom());
-    $smarty_obj->assign('TopEnt2Note', $topEnt2->getNote());
-    $smarty_obj->assign('TopEnt2Like', $topEnt2->getLike());
+    $smarty_obj->assign('TopEnt2',"<article class='OptionTopEntreprises' onclick='voirEntreprise(1, 1)'><h5 class='TitreEntreprise'>". $resTopEnt[1]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resTopEnt[1]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resTopEnt[1]->getLike() ."</p></article>");
 
     // Troisième entreprise
-    $topEnt3 = $resTopEnt[2];
-    $smarty_obj->assign('TopEnt3Nom', $topEnt3->getNom());
-    $smarty_obj->assign('TopEnt3Note', $topEnt3->getNote());
-    $smarty_obj->assign('TopEnt3Like', $topEnt3->getLike());
+    $smarty_obj->assign('TopEnt3',"<article class='OptionTopEntreprises' onclick='voirEntreprise(2, 1)'><h5 class='TitreEntreprise'>". $resTopEnt[2]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resTopEnt[2]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resTopEnt[2]->getLike() ."</p></article>");
 
     // Quatrième entreprise
-    $topEnt4 = $resTopEnt[3];
-    $smarty_obj->assign('TopEnt4Nom', $topEnt4->getNom());
-    $smarty_obj->assign('TopEnt4Note', $topEnt4->getNote());
-    $smarty_obj->assign('TopEnt4Like', $topEnt4->getLike());
+    $smarty_obj->assign('TopEnt4',"<article class='OptionTopEntreprises' onclick='voirEntreprise(3, 1)'><h5 class='TitreEntreprise'>". $resTopEnt[3]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resTopEnt[3]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resTopEnt[3]->getLike() ."</p></article>");
 
     // Cinquième entreprise
-    $topEnt5 = $resTopEnt[4];
-    $smarty_obj->assign('TopEnt5Nom', $topEnt5->getNom());
-    $smarty_obj->assign('TopEnt5Note', $topEnt5->getNote());
-    $smarty_obj->assign('TopEnt5Like', $topEnt5->getLike());
+    $smarty_obj->assign('TopEnt5',"<article class='OptionTopEntreprises' onclick='voirEntreprise(4, 1)'><h5 class='TitreEntreprise'>". $resTopEnt[4]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resTopEnt[4]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resTopEnt[4]->getLike() ."</p></article>");
 
-    // Sixième entreprise
-    $topEnt6 = $resTopEnt[5];
-    $smarty_obj->assign('TopEnt6Nom', $topEnt6->getNom());
-    $smarty_obj->assign('TopEnt6Note', $topEnt6->getNote());
-    $smarty_obj->assign('TopEnt6Like', $topEnt6->getLike());
+    // Sixième entreprise 
+    $smarty_obj->assign('TopEnt6',"<article class='OptionTopEntreprises' onclick='voirEntreprise(5, 1)'><h5 class='TitreEntreprise'>". $resTopEnt[5]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resTopEnt[5]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resTopEnt[5]->getLike() ."</p></article>");
 }
 
 $smarty_obj->display('../View/recherche_entreprises.tpl');
 
-// apres check les post et faire un display 
+}
+
+
+
+
+
+
+function MasquerEntreprise(){
+    if (isset($_GET['id']) && $_GET['s'] === 'Onload') {
+        $current_ent = $_GET['id'];
+        global $resEnt;
+        $resEnt[$current_ent]->masquerEntreprise();
+
+    }
+    else if (isset($_GET['id']) && $_GET['s'] === 'TopEntreprise') {
+        $current_ent = $_GET['id'];
+        global $resTopEnt;
+        $resTopEnt[$current_ent]->masquerEntreprise();
+        global $ent;
+        $resTopEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1);
+    }
+}
+
+function VisibleEntreprise(){
+    if (isset($_GET['id']) && $_GET['s'] === 'Onload') {
+        $current_ent = $_GET['id'];
+        global $resEnt;
+        $resEnt[$current_ent]->visibleEntreprise();
+    }
+    else if (isset($_GET['id']) && $_GET['s'] === 'TopEntreprise') {
+        $current_ent = $_GET['id'];
+        global $resTopEnt;
+        $resTopEnt[$current_ent]->visibleEntreprise();
+        global $ent;
+        $resTopEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1);
+    }
+}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-03-30 17:59:50
+/* Smarty version 4.5.1, created on 2024-04-01 12:31:45
   from 'C:\www\Projet_Web\View\recherche_entreprises.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_66084506bd93e3_05169057',
+  'unifunc' => 'content_660a8d1103dd99_59397149',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8cc5e81f2ae30129c3881eb09f99fb3c1e6e8ebd' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\recherche_entreprises.tpl',
-      1 => 1711817989,
+      1 => 1711967472,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66084506bd93e3_05169057 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660a8d1103dd99_59397149 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
@@ -157,44 +157,32 @@ function content_66084506bd93e3_05169057 (Smarty_Internal_Template $_smarty_tpl)
      
             <div class="flex-top-Enterprises-1">
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise"><?php echo $_smarty_tpl->tpl_vars['TopEnt1Nom']->value;?>
-</h5><p class="DescriptionEntreprise">note : <?php echo $_smarty_tpl->tpl_vars['TopEnt1Note']->value;?>
- &nbsp;&nbsp;&nbsp; likes : <?php echo $_smarty_tpl->tpl_vars['TopEnt1Like']->value;?>
-</p></article>
+                    <?php echo $_smarty_tpl->tpl_vars['TopEnt1']->value;?>
+
                 </div>
                 <!-- Ajoutez d'autres offres ici -->
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise"><?php echo $_smarty_tpl->tpl_vars['TopEnt2Nom']->value;?>
-</h5><p class="DescriptionEntreprise">note : <?php echo $_smarty_tpl->tpl_vars['TopEnt2Note']->value;?>
- &nbsp;&nbsp;&nbsp; likes : <?php echo $_smarty_tpl->tpl_vars['TopEnt2Like']->value;?>
-</p></article>
+                    <?php echo $_smarty_tpl->tpl_vars['TopEnt2']->value;?>
+
                 </div>
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise"><?php echo $_smarty_tpl->tpl_vars['TopEnt3Nom']->value;?>
-</h5><p class="DescriptionEntreprise">note : <?php echo $_smarty_tpl->tpl_vars['TopEnt3Note']->value;?>
- &nbsp;&nbsp;&nbsp; likes : <?php echo $_smarty_tpl->tpl_vars['TopEnt3Like']->value;?>
-</p></article>
+                    <?php echo $_smarty_tpl->tpl_vars['TopEnt3']->value;?>
+
                 </div>
             </div>
 
             <div class="flex-top-Enterprises-2">
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise"><?php echo $_smarty_tpl->tpl_vars['TopEnt4Nom']->value;?>
-</h5><p class="DescriptionEntreprise">note : <?php echo $_smarty_tpl->tpl_vars['TopEnt4Note']->value;?>
- &nbsp;&nbsp;&nbsp; likes : <?php echo $_smarty_tpl->tpl_vars['TopEnt4Like']->value;?>
-</p></article>
+                    <?php echo $_smarty_tpl->tpl_vars['TopEnt4']->value;?>
+
                 </div>
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise"><?php echo $_smarty_tpl->tpl_vars['TopEnt5Nom']->value;?>
-</h5><p class="DescriptionEntreprise">note : <?php echo $_smarty_tpl->tpl_vars['TopEnt5Note']->value;?>
- &nbsp;&nbsp;&nbsp; likes : <?php echo $_smarty_tpl->tpl_vars['TopEnt5Like']->value;?>
-</p></article>
+                    <?php echo $_smarty_tpl->tpl_vars['TopEnt5']->value;?>
+
                 </div>
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise"><?php echo $_smarty_tpl->tpl_vars['TopEnt6Nom']->value;?>
-</h5><p class="DescriptionEntreprise">note : <?php echo $_smarty_tpl->tpl_vars['TopEnt6Note']->value;?>
- &nbsp;&nbsp;&nbsp; likes : <?php echo $_smarty_tpl->tpl_vars['TopEnt6Like']->value;?>
-</p></article>
+                    <?php echo $_smarty_tpl->tpl_vars['TopEnt6']->value;?>
+
                 </div>
             </div>
         </main>

@@ -119,26 +119,26 @@
      
             <div class="flex-top-Enterprises-1">
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise">{$TopEnt1Nom}</h5><p class="DescriptionEntreprise">note : {$TopEnt1Note} &nbsp;&nbsp;&nbsp; likes : {$TopEnt1Like}</p></article>
+                    {$TopEnt1}
                 </div>
                 <!-- Ajoutez d'autres offres ici -->
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise">{$TopEnt2Nom}</h5><p class="DescriptionEntreprise">note : {$TopEnt2Note} &nbsp;&nbsp;&nbsp; likes : {$TopEnt2Like}</p></article>
+                    {$TopEnt2}
                 </div>
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise">{$TopEnt3Nom}</h5><p class="DescriptionEntreprise">note : {$TopEnt3Note} &nbsp;&nbsp;&nbsp; likes : {$TopEnt3Like}</p></article>
+                    {$TopEnt3}
                 </div>
             </div>
 
             <div class="flex-top-Enterprises-2">
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise">{$TopEnt4Nom}</h5><p class="DescriptionEntreprise">note : {$TopEnt4Note} &nbsp;&nbsp;&nbsp; likes : {$TopEnt4Like}</p></article>
+                    {$TopEnt4}
                 </div>
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise">{$TopEnt5Nom}</h5><p class="DescriptionEntreprise">note : {$TopEnt5Note} &nbsp;&nbsp;&nbsp; likes : {$TopEnt5Like}</p></article>
+                    {$TopEnt5}
                 </div>
                 <div>
-                    <article class="OptionTopEntreprises" onclick="voirEntreprise()"><h5 class="TitreEntreprise">{$TopEnt6Nom}</h5><p class="DescriptionEntreprise">note : {$TopEnt6Note} &nbsp;&nbsp;&nbsp; likes : {$TopEnt6Like}</p></article>
+                    {$TopEnt6}
                 </div>
             </div>
         </main>

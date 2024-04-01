@@ -21,3 +21,5 @@ else if ($_SESSION['statut'] == 'etudiant'){
     $smarty_obj->assign('directionProfil', "<button class='Profil' type='button' onclick='redirectToProfil(\"etudiant\")'>Mon profil</button>");
 }
 
+
+

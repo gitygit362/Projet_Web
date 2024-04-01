@@ -36,8 +36,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+document.getElementById('masquerInput').addEventListener('change', function () {
+    var isChecked = document.getElementById('masquerInput').checked;
 
-
+    
+    // Si la case à cocher est cochée
+    if (isChecked) {
+        // Effectuer une requête AJAX pour appeler la méthode de la classe Procedures
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'entreprises.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    alert("vous avez masquer cette entreprise. \nElle ne sera plus visible dans la recherche");
+                } else {
+                    // Erreur lors de la requête AJAX
+                    console.error('Erreur lors de la requête AJAX');
+                }
+            }
+        };
+        xhr.onerror = function () {
+            alert("Erreur lors de la requête masquer");
+            };
+        xhr.send('action=MasquerEntreprise');
+    }
+    else {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'entreprises.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                } else {
+                    // Erreur lors de la requête AJAX
+                    console.error('Erreur lors de la requête AJAX');
+                }
+            }
+        };
+        xhr.onerror = function () {
+            alert("Erreur lors de la requête visible");
+            };
+        xhr.send('action=VisibleEntreprise');
+    }
+}
+);
 
 
 
@@ -135,8 +178,14 @@ function TrierFilter(){
 /* Prochaines fonctions en lien avec le backend */
 
 
-function voirEntreprise(){
-    window.location.href = "presentation_entreprise.html";
+function voirEntreprise(index,recherche){
+    var id = index;
+    if (recherche === 1) {
+        window.location.href = "entreprises.php?id="+ id + "&s=TopEntreprise";
+    }
+    else if (recherche == 0){
+        window.location.href = "entreprises.php?id="+ id + "&s=Onload";
+    }
     return false;
 }
 

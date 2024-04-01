@@ -130,4 +130,23 @@ public function setId ($var_id){
         return $results;
     
     }
+
+
+    public function masquerEntreprise(){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL MasquerEntreprise(:id)");
+        $idIn = $this->getId();
+        $stmt->bindParam(':id', $idIn);
+        $stmt->execute();
+    }
+
+    public function visibleEntreprise(){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL VisibleEntreprise(:id)");
+        $idIn = $this->getId();
+        $stmt->bindParam(':id', $idIn);
+        $stmt->execute();
+    }
 };
