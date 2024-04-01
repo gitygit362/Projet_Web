@@ -1,4 +1,6 @@
 <?php
+
+
 class GestionUser
 {
     protected $nom;
@@ -49,7 +51,7 @@ class GestionUser
 
 class GestionPilote extends GestionUser
 {
-    public function creer(){
+    public function creer($db){
         
         $req = $db->prepare("CALL CreerPilote (:nom, :prenom, :centre, :promo, :mdp)");
         $req->bindParam(':nom',$this->nom);
@@ -58,7 +60,7 @@ class GestionPilote extends GestionUser
         $req->bindParam(':promo',$this->promo);
 
         $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $longueurMax = strlen($caracteres);
+        $longueurMax = strlen($caracteres)-1;
         $chaineAleatoire = '';
         for ($i = 0; $i < 10; $i++)
         {

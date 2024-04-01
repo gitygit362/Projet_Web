@@ -26,9 +26,9 @@ $promo_pilote =  $data['promo'];
 
 
 function create_pilote(){
-    global $nom_pilote, $prenom_pilote, $centre_pilote, $promo_pilote;
+    global $nom_pilote, $prenom_pilote, $centre_pilote, $promo_pilote,$db;
     $obj = new GestionPilote($nom_pilote,$prenom_pilote,$centre_pilote,$promo_pilote);
-    $resultat = $obj->creer();
+    $resultat = $obj->creer($db);
     if($resultat == false){
         header('Content-Type: test/plain');
         echo 'false';
