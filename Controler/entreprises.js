@@ -1,4 +1,223 @@
 //Entreprises
+/*
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionnez tous les liens de page dans la pagination
+    var pageLinks = document.querySelectorAll('.pagination a');
+
+    // Parcourez chaque lien de page et ajoutez un gestionnaire d'événements de clic
+    pageLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            // Empêchez le comportement par défaut du lien
+            event.preventDefault();
+
+            paginationChildren.forEach(function(child) {
+                // Faites quelque chose avec chaque enfant, par exemple :
+                console.log(child); // Affiche chaque enfant dans la console
+            });
+            // Supprimez la classe 'active' de tous les liens de page
+            pageLinks.forEach(function(link) {
+                link.classList.remove('active');
+            });
+
+            // Ajoutez la classe 'active' au lien de page cliqué
+            this.classList.add('active');
+        });
+    });
+});*/
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById('masquerInput').addEventListener('change', function () {
+    var isChecked = document.getElementById('masquerInput').checked;
+
+    // Si la case à cocher est cochée
+    if (isChecked) {
+        // Effectuer une requête AJAX en utilisant GET pour appeler la méthode MasquerEntreprise
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'entreprises.php?action=MasquerEntreprise', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    alert("Vous avez masqué cette entreprise. Elle ne sera plus visible dans la recherche.");
+                } else {
+                    // Erreur lors de la requête AJAX
+                    console.error('Erreur lors de la requête AJAX');
+                }
+            }
+        };
+        xhr.onerror = function () {
+            alert("Erreur lors de la requête masquer");
+        };
+        xhr.send();
+    }
+    else {
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'entreprises.php?action=VisibleEntreprise', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    alert("Vous allez rendre visible cette entreprise pour les étudiants. \nCes informations seront prisent en compte dans les statistiques de recherche.");
+                } else {
+                    // Erreur lors de la requête AJAX
+                    console.error('Erreur lors de la requête AJAX');
+                }
+            }
+        };
+        xhr.onerror = function () {
+            alert("Erreur lors de la requête masquer");
+        };
+        xhr.send();
+    }
+}
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('filtresForm');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        localisation = document.getElementsByClassName('inputLieu');
+
+
+        var nom = document.getElementById('inputEntreprise').value.trim() == '' ? 'all' : document.getElementById('inputEntreprise').value;
+        var activite = document.getElementById('inputActivite').value.trim() == '' ? 'all' : document.getElementById('inputActivite').value;
+        var pays = localisation[0].value.trim() == '' ? 'all' : localisation[0].value.trim();
+        var ville = localisation[1].value.trim() == '' ? 'all' : localisation[1].value.trim();
+        var adresse = localisation[2].value.trim() == '' ? 'all' : localisation[2].value;
+        
+        var filter1Param = document.getElementById('evaluationFilter1').checked ? 1 : 0;
+        var filter2Param = document.getElementById('evaluationFilter2').checked ? 1 : 0;
+        var filter3Param = document.getElementById('evaluationFilter3').checked ? 1 : 0;
+        var filter4Param = document.getElementById('evaluationFilter4').checked ? 1 : 0;
+        var filter5Param = document.getElementById('evaluationFilter5').checked ? 1 : 0;
+        var filter6Param = document.getElementById('evaluationFilter6').checked ? 1 : 0;
+        var noteAsc = document.getElementById('NoteAsc').checked ? 1 : 0;
+        var noteDesc = document.getElementById('NoteDesc').checked ? 1 : 0;
+        var likeAsc = document.getElementById('LikeAsc').checked ? 1 : 0;
+        var likeDesc = document.getElementById('LikeDesc').checked ? 1 : 0;
+       
+      /*  var data = {
+            type: 'filtre',
+            nom: nom,
+            activite: activite,
+            pays: pays,
+            ville: ville,
+            adresse: adresse,
+            evaluationFilter1: filter1Param,
+            evaluationFilter2: filter2Param,
+            evaluationFilter3: filter3Param,
+            evaluationFilter4: filter4Param,
+            evaluationFilter5: filter5Param,
+            evaluationFilter6: filter6Param,
+            NoteAsc: noteAsc,
+            NoteDesc: noteDesc,
+            LikeAsc: likeAsc,
+            LikeDesc: likeDesc
+
+        }*/
+
+        params.append('type', 'filtres');
+        params.append('nom', nom);
+        params.append('activite', activite);
+        params.append('pays', pays);
+        params.append('ville', ville);
+        params.append('adresse', adresse);
+        params.append('evaluationFilter1', filter1Param);
+        params.append('evaluationFilter2', filter2Param);
+        params.append('evaluationFilter3', filter3Param);
+        params.append('evaluationFilter4', filter4Param);
+        params.append('evaluationFilter5', filter5Param);
+        params.append('evaluationFilter6', filter6Param);
+        params.append('NoteAsc', noteAsc);
+        params.append('NoteDesc', noteDesc);
+        params.append('LikeAsc', likeAsc);
+        params.append('LikeDesc', likeDesc);
+        
+        var url = 'entreprises.php?' + params.toString();
+       
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);//POST
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    alert("Requête réussie");
+                } else {
+                    alert('Erreur lors de la requête AJAX');
+                }
+            }
+        };
+        xhr.onerror = function () {
+            alert("Erreur lors de la requête masquer");
+        };
+        //var userData = JSON.stringify(data);
+        xhr.send();//userData
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function EntrepriseFilter(){
     let option1 = document.getElementById('hideEntreprise');
@@ -68,7 +287,10 @@ function TrierFilter(){
 
 
 
-
+function redirectToPrecPageEnt() {
+    var pagePrecedente = document.referrer;
+        window.location.href = pagePrecedente;
+}
 
 
 
@@ -76,8 +298,14 @@ function TrierFilter(){
 /* Prochaines fonctions en lien avec le backend */
 
 
-function voirEntreprise(){
-    window.location.href = "presentation_entreprise.html";
+function voirEntreprise(index,recherche){
+    var id = index;
+    if (recherche === 1) {
+        window.location.href = "entreprises.php?id="+ id + "&s=TopEntreprise";
+    }
+    else if (recherche == 0){
+        window.location.href = "entreprises.php?id="+ id + "&s=Onload";
+    }
     return false;
 }
 

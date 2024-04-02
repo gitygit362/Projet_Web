@@ -8,7 +8,7 @@ $connexion = $db->getConnexion();
 $data = json_decode(file_get_contents('php://input'), true);
 
 $username = $data['user'];
-$password = $data['passwd'];//' ';
+$password = $data['passwd'];//'zW96UhV';
 
 $parties = explode('.', $username);
 $lastname =  $parties[0];//'Bow';
@@ -31,7 +31,7 @@ if ($res == false) {
 
     if ($resId !== 0) {
         $cookieOptions = [
-            'expires' => time() + 3600, 
+            'expires' => time() + 360000, 
             'path' => '/', // Chemin ou on a accès au cookie
             //'domain' => '.notre-nom-de-domaine.com',
             'secure' => true,

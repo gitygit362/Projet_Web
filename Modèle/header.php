@@ -1,5 +1,5 @@
 <?php 
-require_once '../../libs/Smarty.class.php';
+require_once '../Controler/libs/Smarty.class.php';
 require_once '../Controler/session.php';
 $smarty_obj = new Smarty();
 demarrerSession();
@@ -20,4 +20,6 @@ else if ($_SESSION['statut'] == 'etudiant'){
     $smarty_obj->assign('directionPilote', '');
     $smarty_obj->assign('directionProfil', "<button class='Profil' type='button' onclick='redirectToProfil(\"etudiant\")'>Mon profil</button>");
 }
+
+
 

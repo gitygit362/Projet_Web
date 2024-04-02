@@ -1,1 +1,152 @@
 <?php
+require_once 'config.php';
+class Entreprise {
+    protected $id = 0;
+    protected $nom = "";
+    protected $secteur = ""; 
+    protected $note = 0.0; 
+    protected $like = 0; 
+    protected $adresse = "";
+    protected $ville = "";
+    protected $region = "";
+    protected $pays = "";
+    protected $nbAdr = 0;
+    protected $logo = "";
+
+
+// ------------------ setteurs ---------------------
+
+public function setId ($var_id){
+    $this->id = $var_id;
+}
+    public function setNom ($var_nom){
+        $this->nom = $var_nom;
+    }
+    public function setSecteur($var_secteur){
+        $this->secteur = $var_secteur;
+    }
+    public function setAdresse($var_adresse){
+        $this->adresse = $var_adresse;
+    }
+    public function setVille($var_ville){
+        $this->ville = $var_ville;
+    }
+    public function setRegion($var_region){
+        $this->region = $var_region;
+    }
+    public function setPays($var_pays){
+        $this->pays = $var_pays;
+    }
+    public function setNbAdr($var_nbAdr){
+        $this->nbAdr = $var_nbAdr;
+    }
+    public function setNote($var_note){
+        $this->note = $var_note;
+    }
+    public function setLike($var_like){
+        $this->like = $var_like;
+    }
+    public function setLogo($var_logo){
+        $this->logo = $var_logo;
+    }
+
+
+    // -------------- getteurs ---------------------
+
+    public function getNom (){
+        return $this->nom;
+    }
+    public function getSecteur(){
+        return $this->secteur;
+    }
+    public function getAdresse(){
+        return $this->adresse;
+    }
+    public function getVille(){
+        return $this->ville;
+    }
+    public function getRegion(){
+        return $this->region;
+    }
+    public function getPays(){
+        return $this->pays;
+    }
+    public function getNbAdr(){
+        return $this->nbAdr;
+    }
+    public function getId(){
+        return $this->id;
+    }
+
+    public function getNote(){
+        return $this->note;
+    }
+    public function getLike(){
+        return $this->like;
+    }
+    public function getLogo(){
+        return $this->logo;
+    }
+
+    public function Entreprise(){
+
+    }
+
+    public function chercherEntreprise($var_nom, $var_secteur, $var_adresse, $var_ville, $var_pays, $var_note1, $var_note2, $var_note3, $var_note4, $var_note5, $var_note6, $var_note_asc, $var_note_desc, $var_like_asc, $var_like_desc){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL AfficherEntreprise(:nom, :secteur, :adr, :ville, :pays, :note1, :note2, :note3, :note4, :note5, :note6, :noteasc, :notedesc, :likeasc, :likedesc)");
+        $stmt->bindParam(':nom', $var_nom);
+        $stmt->bindParam(':secteur', $var_secteur);
+        $stmt->bindParam(':adr', $var_adresse);
+        $stmt->bindParam(':ville', $var_ville);
+        $stmt->bindParam(':pays', $var_pays);
+        $stmt->bindParam(':note1', $var_note1);
+        $stmt->bindParam(':note2', $var_note2);
+        $stmt->bindParam(':note3', $var_note3);
+        $stmt->bindParam(':note4', $var_note4);
+        $stmt->bindParam(':note5', $var_note5);
+        $stmt->bindParam(':note6', $var_note6);
+        $stmt->bindParam(':noteasc', $var_note_asc);
+        $stmt->bindParam(':notedesc', $var_note_desc);
+        $stmt->bindParam(':likeasc', $var_like_asc);
+        $stmt->bindParam(':likedesc', $var_like_desc);
+
+        $stmt->execute();
+        $results = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $entreprise = new Entreprise();
+            $entreprise->setId($row['ID_entreprise']);
+            $entreprise->setNom($row['nom']);
+            $entreprise->setSecteur($row['secteur_activité']);
+            $entreprise->setNote($row['moyenne_notes']);
+            $entreprise->setLogo($row['logo']);
+            $entreprise->setLike($row['nombre_wishlists']);
+            $entreprise->setAdresse($row['adresses']);
+            $entreprise->setVille($row['villes']);
+            $entreprise->setPays($row['pays']);
+            $results[] = $entreprise;
+        }
+        return $results;
+    
+    }
+
+
+    public function masquerEntreprise(){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL MasquerEntreprise(:id)");
+        $idIn = $this->getId();
+        $stmt->bindParam(':id', $idIn);
+        $stmt->execute();
+    }
+
+    public function visibleEntreprise(){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL VisibleEntreprise(:id)");
+        $idIn = $this->getId();
+        $stmt->bindParam(':id', $idIn);
+        $stmt->execute();
+    }
+};

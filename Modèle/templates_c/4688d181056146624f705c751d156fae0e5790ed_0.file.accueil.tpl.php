@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-03-30 11:04:48
+/* Smarty version 4.5.1, created on 2024-03-30 15:46:58
   from 'C:\www\Projet_Web\View\accueil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_6607e3c032dc38_56960085',
+  'unifunc' => 'content_660825e27bfbf8_72201779',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4688d181056146624f705c751d156fae0e5790ed' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\accueil.tpl',
-      1 => 1711793078,
+      1 => 1711806973,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6607e3c032dc38_56960085 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660825e27bfbf8_72201779 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 
@@ -35,8 +35,8 @@ function content_6607e3c032dc38_56960085 (Smarty_Internal_Template $_smarty_tpl)
             <img src="../View/Assets/images/logo.png" alt="logo EASYSTAGE">
             <nav class="navbar">
                 Accueil&nbsp;       
-                <a href="offres_stages.html">Offres de stage</a>
-                <a href="recherche_entreprises.html">Entreprises</a>
+                <a href="../View/offres_stages.html">Offres de stage</a>
+                <a href="../Controler/entreprises.php">Entreprises</a>
                 <?php echo $_smarty_tpl->tpl_vars['directionEtudiant']->value;?>
 
                 <?php echo $_smarty_tpl->tpl_vars['directionPilote']->value;?>
