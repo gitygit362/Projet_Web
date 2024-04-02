@@ -139,13 +139,26 @@ function requeteFiltre(event, recherche){
     }
 
 
+    function voirEntreprise(index,recherche, url){
+        var id = index;
+        if (recherche === 1) {
+            window.location.href = "entreprises.php?id="+ id + "&s=TopEntreprise";
+        }
+        else if (recherche == 0){
+            window.location.href = "entreprises.php?id="+ id + "&s=Onload";
+        }
+        else if (recherche == 2){
+            window.location.href = url + "&id="+ id + "&s=Filtres";
+        }
+        return false;
+    }
 
 
-
-
-
-
-
+    function redirectToPrecPageEnt() {
+        var pagePrecedente = document.referrer;
+            window.location.href = pagePrecedente;
+    }
+    
 
 
 
@@ -243,30 +256,7 @@ function TrierFilter(){
 
 
 
-function redirectToPrecPageEnt() {
-    var pagePrecedente = document.referrer;
-        window.location.href = pagePrecedente;
-}
 
-
-
-
-/* Prochaines fonctions en lien avec le backend */
-
-
-function voirEntreprise(index,recherche, url){
-    var id = index;
-    if (recherche === 1) {
-        window.location.href = "entreprises.php?id="+ id + "&s=TopEntreprise";
-    }
-    else if (recherche == 0){
-        window.location.href = "entreprises.php?id="+ id + "&s=Onload";
-    }
-    else if (recherche == 2){
-        window.location.href = url + "&id="+ id + "&s=Filtres";
-    }
-    return false;
-}
 
 
 
@@ -291,6 +281,53 @@ function AddLocaliteEnt() {
     addEventListenersToLocation(index);
 
 }
+
+
+
+
+// -------------- Créer Entreprise --------------------
+
+function redirectToAccueilGE_FromCreate(){
+    var name_ent = document.getElementById("nom_entreprise").value;
+    var sect_ent = document.getElementById("secteur_entreprise").value;
+    var local_ent = document.getElementById("localite1_entreprise").value;
+    if(name_ent == ""){
+        alert("Veuillez entrer un nom d'entreprise");
+        return false;
+    }
+    else if(sect_ent == ""){
+        alert("Veuillez entrer un secteur d'entreprise");
+        return false;
+    }
+    else if(local_ent == ""){
+        alert("Veuillez entrer au moins une localité pour l'entreprise");
+        return false;
+    }
+    else{
+
+
+
+        window.location.href = "GE_accueil.html";
+        return true;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------- API RESTFULL EXTERNE -----------------------------------------------------------------
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -339,3 +376,47 @@ document.addEventListener("DOMContentLoaded", function() {
                 this.style.display = 'none';   
             });
 });
+
+
+function addEventListenersToLocation(index) {
+    var Element = "CP" + index + "_entreprise";
+    var ElementSelect = "selectVilles" + index;
+
+    document.getElementById(Element).addEventListener("input", function () {
+        var codePostal = this.value;
+        var xhr = new XMLHttpRequest(); 
+        xhr.open("GET", "https://apicarto.ign.fr/api/codes-postaux/communes/" + codePostal, true);
+        xhr.onload = function () { 
+            if (xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText); 
+                if (response.length > 1) { 
+                    var selectVilles = document.getElementById(ElementSelect);
+                    selectVilles.innerHTML = ""; 
+                    selectVilles.size = Math.min(response.length, 6);
+                    for (var i = 0; i < response.length; i++) {
+                        var option = document.createElement("option");
+                        option.value = response[i]["nomCommune"];
+                        option.textContent = response[i]["nomCommune"];
+                        selectVilles.appendChild(option);
+                    }
+                    selectVilles.style.display = 'block';
+                }
+                else if (response.length == 1){
+                    var ElementVille = "Ville" + index + "_entreprise";
+                    document.getElementById(ElementVille).value = response[0]["nomCommune"];
+                } else {
+                    alert("Aucune ville trouvée pour ce code postal.");
+                }
+            }
+        };
+        xhr.send();
+    });
+
+    var selectVilles = document.getElementById(ElementSelect); // Déplacer cette ligne ici
+
+    selectVilles.addEventListener("change", function() {
+        var ElementVille = "Ville" + index + "_entreprise";
+        document.getElementById(ElementVille).value = this.value;
+        this.style.display = 'none';   
+    });
+}  
