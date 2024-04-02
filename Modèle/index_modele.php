@@ -87,18 +87,17 @@ class GestionPilote extends GestionUser
         $req->bindParam(':promo',$this->promo);
         $res = $req->execute();
         $row = $req->fetch(PDO::FETCH_NUM);
-        return $row[0];
+        return $row;
     }
 
-    public function modifier($db){
+    public function modifier($db,$id_user){
         $req = $db->prepare("CALL ModifierPilote (:nom, :prenom, :centre, :promo, :id)");
         $req->bindParam(':nom',$this->nom);
         $req->bindParam(':prenom',$this->prenom);
         $req->bindParam(':centre',$this->centre);
         $req->bindParam(':promo',$this->promo);
-        $id = $this->getid();
-        return var_dump($id);
-        $req->bindParam(':id',$id);
+        $req->bindParam(':id',$id_user);
+        var_dump($id_user);
         return $req->execute();
     }
 }

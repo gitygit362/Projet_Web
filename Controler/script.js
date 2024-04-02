@@ -197,12 +197,10 @@ function redirectToAccueilGPEdit(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
-            alert(response);
-            response = response.split('.');
-            
-            if (response[0] === 'true') {
-                alert("profil trouvé avec succès");
-                window.location.href = "GP_modification.html?id_user="+response[1];
+            alert (response);
+            if (response === 'true') {
+                alert("profil modifié avec succès");
+                window.location.href = "GP_accueil.html";
             } else {
                 alert("Erreur : le profil n'a pas pu être modifier");
             }
@@ -278,10 +276,10 @@ function redirectToGP_modification(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
-            alert(response);           
-            if (response === 'true') {
+            response = response.split('.');
+            if (response[0] === 'true') {
                 alert("profil trouvé avec succès");
-                window.location.href = "GP_modification.html";
+                window.location.href = "GP_modification.html?id_user="+response[1];
             } else {
                 alert("Erreur : le profil est introuvable");
             }
