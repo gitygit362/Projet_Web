@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-02 13:06:42
+/* Smarty version 4.5.1, created on 2024-04-02 16:52:23
   from 'C:\www\Projet_Web\View\recherche_entreprises.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660be6c25be933_96829466',
+  'unifunc' => 'content_660c1ba7d728a3_87010885',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8cc5e81f2ae30129c3881eb09f99fb3c1e6e8ebd' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\recherche_entreprises.tpl',
-      1 => 1712055866,
+      1 => 1712069537,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660be6c25be933_96829466 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660c1ba7d728a3_87010885 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
@@ -52,8 +52,8 @@ function content_660be6c25be933_96829466 (Smarty_Internal_Template $_smarty_tpl)
             </div>
 
                 <form class="flex-rechercher-Entreprise">
-                        <input class="rechercheEntreprise" type="text" name="rechercher" placeholder="Rechercher">
-                        <button class="rechercheBouton" type="submit">Rechercher</button>
+                        <input id="rechercheNom" class="rechercheEntreprise" type="text" name="rechercher" placeholder="Rechercher">
+                        <button class="rechercheBouton" type="button" onclick="requeteFiltre(event, 1)">Rechercher</button>
                 </form> 
 
 
@@ -148,7 +148,7 @@ function content_660be6c25be933_96829466 (Smarty_Internal_Template $_smarty_tpl)
                             <input type="radio" id="LikeDesc" name="trieroffre" value="1"> Likes décroissants
                         </div>
                     </div>
-                    <button class="filterButton" type="button" onclick="requeteFiltre(event)">Valider</button>
+                    <button class="filterButton" type="button" onclick="requeteFiltre(event, 2)">Valider</button>
                 </form>
             </div>
 

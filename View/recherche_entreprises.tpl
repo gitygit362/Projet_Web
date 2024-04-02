@@ -26,8 +26,8 @@
             </div>
 
                 <form class="flex-rechercher-Entreprise">
-                        <input class="rechercheEntreprise" type="text" name="rechercher" placeholder="Rechercher">
-                        <button class="rechercheBouton" type="submit">Rechercher</button>
+                        <input id="rechercheNom" class="rechercheEntreprise" type="text" name="rechercher" placeholder="Rechercher">
+                        <button class="rechercheBouton" type="button" onclick="requeteFiltre(event, 1)">Rechercher</button>
                 </form> 
 
 
@@ -110,7 +110,7 @@
                             <input type="radio" id="LikeDesc" name="trieroffre" value="1"> Likes décroissants
                         </div>
                     </div>
-                    <button class="filterButton" type="button" onclick="requeteFiltre(event)">Valider</button>
+                    <button class="filterButton" type="button" onclick="requeteFiltre(event, 2)">Valider</button>
                 </form>
             </div>
 

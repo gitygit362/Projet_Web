@@ -72,13 +72,17 @@ document.getElementById('masquerInput').addEventListener('change', function () {
 
 
 
-function requeteFiltre(event){
+function requeteFiltre(event, recherche){
         event.preventDefault();
 
         localisation = document.getElementsByClassName('inputLieu');
 
-
-        var nom = document.getElementById('inputEntreprise').value;
+        if (recherche == 1){
+            var nom = document.getElementById('rechercheNom').value;
+        }
+        else if(recherche == 2){
+            var nom = document.getElementById('inputEntreprise').value;
+        }
         var activite = document.getElementById('inputActivite').value;
         var pays = localisation[0].value;
         var ville = localisation[1].value;
@@ -115,6 +119,7 @@ function requeteFiltre(event){
         params.append('LikeDesc', likeDesc);
         
         var url = 'entreprisesFiltres.php?type=' + type + '&' + params.toString();
+        alert(url);
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.onreadystatechange = function() {
