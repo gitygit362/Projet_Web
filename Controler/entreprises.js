@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         localisation = document.getElementsByClassName('inputLieu');
 
+
         var nom = document.getElementById('inputEntreprise').value.trim() == '' ? 'all' : document.getElementById('inputEntreprise').value;
         var activite = document.getElementById('inputActivite').value.trim() == '' ? 'all' : document.getElementById('inputActivite').value;
         var pays = localisation[0].value.trim() == '' ? 'all' : localisation[0].value.trim();

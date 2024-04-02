@@ -7,7 +7,7 @@ class Database {
     // Informations de connexion à la base de données
     private $host = 'localhost';
     private $username = 'root';
-    private $password = 'Jemyf371'; // changer par le mdp de chacun 
+    private $password = 'Re38ke14&*'; // changer par le mdp de chacun 
     private $dbname = 'Projet_Web';
 
     // Connexion PDO
