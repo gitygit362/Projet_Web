@@ -11,7 +11,7 @@
         <img src="../View/Assets/images/logo.png" alt="logo EASYSTAGE">
         <nav class="navbar">Entreprises
             <a href="../Modèle/accueil.php">Accueil</a>
-            <a href="offres_stages.html">Offres de stage</a>
+            <a href="../View/offres_stages.html">Offres de stage</a>
             {$directionEtudiant}
             {$directionPilote}
             <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
@@ -21,7 +21,7 @@
         </nav>
     </header>
         <main>
-            <a id="espaceEntreprise" href="gestion_entreprise/GE_accueil.html">Espace entreprise</a>
+            <a id="espaceEntreprise" href="../View/gestion_entreprise/GE_accueil.html">Espace entreprise</a>
             <div id="Entreprise">
             </div>
 

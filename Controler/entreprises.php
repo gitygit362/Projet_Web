@@ -273,6 +273,14 @@ function MasquerEntreprise(){
         global $ent;
         $resTopEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1);
     }
+    /*
+    else if (isset($_GET['id']) && $_GET['s'] === 'Filtres') {
+        $current_ent = $_GET['id'];
+        global $resFiltresEnt;
+        $resFiltresEnt[$current_ent]->masquerEntreprise();
+        global $ent;
+        $resFiltresEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1);
+    }*/
 }
 
 function VisibleEntreprise(){

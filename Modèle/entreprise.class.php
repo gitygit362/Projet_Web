@@ -138,7 +138,16 @@ public function setId ($var_id){
         $stmt = $connexion->prepare("CALL MasquerEntreprise(:id)");
         $idIn = $this->getId();
         $stmt->bindParam(':id', $idIn);
-        $stmt->execute();
+        try {
+            $res = $stmt->execute();
+            if ($res) {
+                echo "L'entreprise a été masquée avec succès.";
+            } else {
+                echo "Échec de la procédure de masquage de l'entreprise.";
+            }
+        } catch(PDOException $e) {
+            echo "Une erreur s'est produite lors du masquage de l'entreprise : " . $e->getMessage();
+        }
     }
 
     public function visibleEntreprise(){

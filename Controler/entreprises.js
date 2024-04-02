@@ -15,7 +15,7 @@ document.getElementById('masquerInput').addEventListener('change', function () {
     if (isChecked) {
         // Effectuer une requête AJAX en utilisant GET pour appeler la méthode MasquerEntreprise
         var xhr = new XMLHttpRequest();
-        xhr.open('PUT', 'entreprises.php?action=MasquerEntreprise', true);
+        xhr.open('GET', 'entreprises.php?action=MasquerEntreprise', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
