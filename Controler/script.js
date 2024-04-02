@@ -59,6 +59,7 @@ function redirectToAccueilGPform(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
+            alert(response);
             if (response === 'true') {
                 alert("profil créé avec succès");
                 window.location.href = 'GP_accueil.html';
@@ -66,12 +67,12 @@ function redirectToAccueilGPform(event){
                 alert("Erreur : le profil n'a pas été créé");
             }
         } else {
-            alert ("Erreur : Impossible de contacter le serveurswdrffgdcsf");
+            alert ("Erreur : Impossible de contacter le serveur");
             alert (xhr.status);
         }
     };
     xhr.onerror = function () {
-        alert("Erreur : Impossible de contacter le serveusdsdr");
+        alert("Erreur : Impossible de contacter le serveur");
     };
     xhr.send(JSON.stringify(data));
 }
@@ -175,9 +176,47 @@ function redirectToGE_modification(){
 }
 
 //gestion pilote redirection
-function redirectToAccueilGP(){
-    window.location.href = "GP_accueil.html";
+
+function redirectToAccueilGPEdit(event){
+    event.preventDefault();
+    var nom_pilote = document.getElementById("nom_pilote").value;
+    var prenom_pilote = document.getElementById("prenom_pilote").value;
+    var centre_pilote = document.getElementById("centre_pilote").value;
+    var promo_pilote =  document.getElementById("promo_pilote").value;
+    
+    var data = {
+        nom: nom_pilote,
+        prenom: prenom_pilote,
+        centre: centre_pilote,
+        promo: promo_pilote
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=editpilote",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            alert(response);
+            response = response.split('.');
+            
+            if (response[0] === 'true') {
+                alert("profil trouvé avec succès");
+                window.location.href = "GP_modification.html?id_user="+response[1];
+            } else {
+                alert("Erreur : le profil n'a pas pu être modifier");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
 }
+
 
 function redirectToAccueilGE_FromCreate(){
     var name_pil = document.getElementById("nom_pilote").value;
@@ -239,14 +278,12 @@ function redirectToGP_modification(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
-            alert(response);
-            response = response.split('.');
-            
-            if (response[0] === 'true') {
+            alert(response);           
+            if (response === 'true') {
                 alert("profil trouvé avec succès");
-                window.location.href = "GP_modification.html?id_user="+response[1];
+                window.location.href = "GP_modification.html";
             } else {
-                alert("Erreur : le profil n'a pas été trouvé");
+                alert("Erreur : le profil est introuvable");
             }
         } else {
             alert ("Erreur : Impossible de contacter le serveur");

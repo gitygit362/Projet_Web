@@ -7,6 +7,7 @@ class GestionUser
     protected $prenom;
     protected $centre;
     protected $promo;
+    protected $id;
 
     public function __construct($n, $p, $c, $pro){
         $this->nom = $n;
@@ -47,6 +48,13 @@ class GestionUser
     public function setpromo($promo){
         $this->promo = $promo;
     }
+    public function getid(){
+        return $this->id;
+    }
+
+    public function setid($id){
+        $this->id = $id;
+    }
 }
 
 class GestionPilote extends GestionUser
@@ -77,9 +85,20 @@ class GestionPilote extends GestionUser
         $req->bindParam(':prenom',$this->prenom);
         $req->bindParam(':centre',$this->centre);
         $req->bindParam(':promo',$this->promo);
-        $req->execute();
+        $res = $req->execute();
         $row = $req->fetch(PDO::FETCH_NUM);
-        return $row;
+        return $row[0];
     }
 
+    public function modifier($db){
+        $req = $db->prepare("CALL ModifierPilote (:nom, :prenom, :centre, :promo, :id)");
+        $req->bindParam(':nom',$this->nom);
+        $req->bindParam(':prenom',$this->prenom);
+        $req->bindParam(':centre',$this->centre);
+        $req->bindParam(':promo',$this->promo);
+        $id = $this->getid();
+        return var_dump($id);
+        $req->bindParam(':id',$id);
+        return $req->execute();
+    }
 }
