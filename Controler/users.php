@@ -1,21 +1,7 @@
 <?php
+require "connect_db.php";
 include "../Modèle/index_modele.php";
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-
-$servername = 'localhost';
-$username = 'root';
-$password = 'jydtntom';
-$dbname = 'Projet_Web';
-
-
-try{
-    $db = new PDO("mysql:host=$servername;dbname=$dbname", $username);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e){
-    echo "Erreur :".$e->getMessage();
-}
 //______________________________________________________________________________________________________
 
 $data = json_decode(file_get_contents('php://input'), true);

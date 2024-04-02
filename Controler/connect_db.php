@@ -2,14 +2,13 @@
 
 $servername = 'localhost';
 $username = 'root';
-$password = '';
+$password = 'Re38ke14&*';
 $dbname = 'Projet_Web';
 
 
 try{
-    $db = new PDO("mysql:host=$servername;dbname=$dbname", $username);
+    $db = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    var_dump($db);
     /*$query = $db->prepare("SELECT mot_de_passe FROM utilisateurs WHERE nom = 'Bow'");
     $query->execute();
     $tab = $query->fetch(PDO::FETCH_ASSOC);
