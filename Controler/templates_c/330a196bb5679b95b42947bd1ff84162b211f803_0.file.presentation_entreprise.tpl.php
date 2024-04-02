@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-01 15:27:12
+/* Smarty version 4.5.1, created on 2024-04-02 18:46:23
   from 'C:\www\Projet_Web\View\presentation_entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660ab6308cc251_95038992',
+  'unifunc' => 'content_660c365f356124_61417775',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '330a196bb5679b95b42947bd1ff84162b211f803' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\presentation_entreprise.tpl',
-      1 => 1711978030,
+      1 => 1712076373,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660ab6308cc251_95038992 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660c365f356124_61417775 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
@@ -33,9 +33,9 @@ function content_660ab6308cc251_95038992 (Smarty_Internal_Template $_smarty_tpl)
     <header class="header1">
         <img src="../View/Assets/images/logo.png" alt="logo EASYSTAGE">
         <nav class="navbar">
-            <a href="../View/accueil.html">Accueil</a>
+            <a href="../Controler/accueil.php">Accueil</a>
             <a href="../View/offres_stages.html">Offres de stages</a>
-            <a href="../View/presentation_entreprise.html" id="pagepre">Entreprises</a>
+            <a href="../Controler/entreprises.php" id="pagepre">Entreprises</a>
             <?php echo $_smarty_tpl->tpl_vars['directionEtudiant']->value;?>
 
             <?php echo $_smarty_tpl->tpl_vars['directionPilote']->value;?>
@@ -43,7 +43,7 @@ function content_660ab6308cc251_95038992 (Smarty_Internal_Template $_smarty_tpl)
             <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
             <?php echo $_smarty_tpl->tpl_vars['directionProfil']->value;?>
 
-            <a class="Deconnexion" href="../View/page_connexion.html">Déconnexion</a>
+            <a class="Deconnexion" href="page_connexion.html" onclick="deconnexion(event)">Déconnexion</a>
             </div>
         </nav> 
         <style>

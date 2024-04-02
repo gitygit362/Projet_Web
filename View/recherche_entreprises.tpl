@@ -10,13 +10,13 @@
     <header class="header1">
         <img src="../View/Assets/images/logo.png" alt="logo EASYSTAGE">
         <nav class="navbar">Entreprises
-            <a href="../Modèle/accueil.php">Accueil</a>
+            <a href="../Controler/accueil.php">Accueil</a>
             <a href="../View/offres_stages.html">Offres de stage</a>
             {$directionEtudiant}
             {$directionPilote}
             <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
                 {$directionProfil}
-                <a class="Deconnexion" href="page_connexion.html">Déconnexion</a>
+                <a class="Deconnexion" href="page_connexion.html" onclick="deconnexion(event)">Déconnexion</a>
             </div>
         </nav>
     </header>

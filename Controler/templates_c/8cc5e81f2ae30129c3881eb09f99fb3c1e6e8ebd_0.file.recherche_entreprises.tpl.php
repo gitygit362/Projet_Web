@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-02 16:52:23
+/* Smarty version 4.5.1, created on 2024-04-02 18:42:45
   from 'C:\www\Projet_Web\View\recherche_entreprises.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660c1ba7d728a3_87010885',
+  'unifunc' => 'content_660c35857d99c9_51328309',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8cc5e81f2ae30129c3881eb09f99fb3c1e6e8ebd' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\recherche_entreprises.tpl',
-      1 => 1712069537,
+      1 => 1712076161,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660c1ba7d728a3_87010885 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660c35857d99c9_51328309 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
@@ -33,8 +33,8 @@ function content_660c1ba7d728a3_87010885 (Smarty_Internal_Template $_smarty_tpl)
     <header class="header1">
         <img src="../View/Assets/images/logo.png" alt="logo EASYSTAGE">
         <nav class="navbar">Entreprises
-            <a href="../Modèle/accueil.php">Accueil</a>
-            <a href="offres_stages.html">Offres de stage</a>
+            <a href="../Controler/accueil.php">Accueil</a>
+            <a href="../View/offres_stages.html">Offres de stage</a>
             <?php echo $_smarty_tpl->tpl_vars['directionEtudiant']->value;?>
 
             <?php echo $_smarty_tpl->tpl_vars['directionPilote']->value;?>
@@ -42,12 +42,12 @@ function content_660c1ba7d728a3_87010885 (Smarty_Internal_Template $_smarty_tpl)
             <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
                 <?php echo $_smarty_tpl->tpl_vars['directionProfil']->value;?>
 
-                <a class="Deconnexion" href="page_connexion.html">Déconnexion</a>
+                <a class="Deconnexion" href="page_connexion.html" onclick="deconnexion(event)">Déconnexion</a>
             </div>
         </nav>
     </header>
         <main>
-            <a id="espaceEntreprise" href="gestion_entreprise/GE_accueil.html">Espace entreprise</a>
+            <a id="espaceEntreprise" href="../View/gestion_entreprise/GE_accueil.html">Espace entreprise</a>
             <div id="Entreprise">
             </div>
 

@@ -20,7 +20,7 @@ function redirectToAccueilFromConnexion(event) {
         var response = xhr.responseText.trim();
         if (response === 'true') {
             alert("Authentification réussie");
-            window.location.href = '../Modèle/accueil.php';
+            window.location.href = '../Controler/accueil.php';
         } else {
             alert("Identifiant ou mot de passe incorrect");
         }
