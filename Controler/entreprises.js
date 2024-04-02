@@ -1,39 +1,11 @@
 //Entreprises
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    // Sélectionnez tous les liens de page dans la pagination
-    var pageLinks = document.querySelectorAll('.pagination a');
-
-    // Parcourez chaque lien de page et ajoutez un gestionnaire d'événements de clic
-    pageLinks.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            // Empêchez le comportement par défaut du lien
-            event.preventDefault();
-
-            paginationChildren.forEach(function(child) {
-                // Faites quelque chose avec chaque enfant, par exemple :
-                console.log(child); // Affiche chaque enfant dans la console
-            });
-            // Supprimez la classe 'active' de tous les liens de page
-            pageLinks.forEach(function(link) {
-                link.classList.remove('active');
-            });
-
-            // Ajoutez la classe 'active' au lien de page cliqué
-            this.classList.add('active');
-        });
-    });
-});*/
 
 
 
 
 
 
-
-
-
-
+// --------------------- Masquer et rendre visible non fonctionnel------------------------------------
 
 
 document.getElementById('masquerInput').addEventListener('change', function () {
@@ -100,7 +72,6 @@ document.getElementById('masquerInput').addEventListener('change', function () {
 
 
 
-
 function requeteFiltre(event){
         event.preventDefault();
 
@@ -144,16 +115,12 @@ function requeteFiltre(event){
         params.append('LikeDesc', likeDesc);
         
         var url = 'entreprisesFiltres.php?type=' + type + '&' + params.toString();
-       alert(url);
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
-                
-                    alert("Requête réussie");
                     window.location.href = url;
-
                 } else {
                     alert('Erreur lors de la requête AJAX');
                 }
@@ -282,13 +249,16 @@ function redirectToPrecPageEnt() {
 /* Prochaines fonctions en lien avec le backend */
 
 
-function voirEntreprise(index,recherche){
+function voirEntreprise(index,recherche, url){
     var id = index;
     if (recherche === 1) {
         window.location.href = "entreprises.php?id="+ id + "&s=TopEntreprise";
     }
     else if (recherche == 0){
         window.location.href = "entreprises.php?id="+ id + "&s=Onload";
+    }
+    else if (recherche == 2){
+        window.location.href = url + "&id="+ id + "&s=Filtres";
     }
     return false;
 }
