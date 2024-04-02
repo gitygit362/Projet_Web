@@ -154,3 +154,40 @@ $statement->bindParam(':nom_input', $nom_input, PDO::PARAM_STR);
 $statement->bindParam(':prenom_input', $prenom_input, PDO::PARAM_STR);
 
 $statement->execute();
+
+
+//-------------------------------------------------------------------------------
+// SFx 21 - Consulter les statistiques d'un étudiant
+//-------------------------------------------------------------------------------
+
+
+$nom_input = 'HIRLI';
+$prenom_input = 'Baptiste';
+
+$sql_query = 'SET @id_utilisateur = (SELECT ID_utilisateur FROM Utilisateurs WHERE nom = :nom_input AND prenom = :prenom_input);
+SET @id_etudiant = (SELECT ID_etudiant FROM etudiant WHERE ID_utilisateur = @id_utilisateur);
+SET @nb_wl = (SELECT COUNT(ID_offre) FROM Offre_wl WHERE ID_wish_list = @id_etudiant);
+SET @nb_candidature = (SELECT COUNT(ID_offre) FROM Candidature WHERE ID_etudiant = @id_etudiant);
+SET @nb_refus = (SELECT COUNT(ID_offre) FROM Candidature WHERE ID_etudiant = @id_etudiant AND etat = "Rejeté");
+SET @nb_attente = (SELECT COUNT(ID_offre) FROM Candidature WHERE ID_etudiant = @id_etudiant AND etat = "En cours");
+SET @nb_valide = (SELECT COUNT(ID_offre) FROM Candidature WHERE ID_etudiant = @id_etudiant AND etat = "Validé");
+SET @nb_accepte = (SELECT COUNT(ID_offre) FROM Candidature WHERE ID_etudiant = @id_etudiant AND etat = "Accepté");
+
+SELECT @id_utilisateur AS ID_Utilisateur, @id_etudiant AS ID_etudiant, nom, prenom, nom_centre, promo, @nb_wl AS OffresEnWishList, @nb_candidature AS NombreDeCandidatures, @nb_refus AS CandidaturesRejetées, @nb_attente AS CandidaturesEnAttente, @nb_valide AS CandidatureValidées, @nb_accepte AS OffresAcceptées
+FROM Utilisateurs
+JOIN Etudiant on Etudiant.ID_utilisateur = Utilisateurs.ID_utilisateur
+JOIN Centre on Centre.ID_centre = Etudiant.ID_centre
+JOIN Promo on Promo.ID_promo = Etudiant.ID_promo
+WHERE Utilisateurs.ID_utilisateur = @id_utilisateur
+GROUP BY nom, prenom, nom_centre, promo
+;';
+
+$statement = $db->prepare($sql_query);
+
+$statement->bindParam(':nom_input', $nom_input, PDO::PARAM_STR);
+$statement->bindParam(':prenom_input', $prenom_input, PDO::PARAM_STR);
+
+$statement->execute();
+
+$result = $statement->fetch(PDO::FETCH_ASSOC);
+
