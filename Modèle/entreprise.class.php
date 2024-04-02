@@ -158,4 +158,50 @@ public function setId ($var_id){
         $stmt->bindParam(':id', $idIn);
         $stmt->execute();
     }
+
+
+    public function creerEntreprise($var_nom, $var_secteur, $var_logo){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL CreerEntreprise(:nom, :secteur, :logo)");
+        $stmt->bindParam(':nom', $var_nom);
+        $stmt->bindParam(':secteur', $var_secteur);
+        $stmt->bindParam(':logo', $var_logo);
+        $res = $stmt->execute();
+    
+        if ($res == false) {
+            return false;
+        } else {
+            $resId = $connexion->query("SELECT @resEntreprise")->fetchColumn();
+            return $resId;
+        }
+    }
+    public function creerEntrepriseAdresse($var_adresse, $var_ville, $var_pays, $var_idEnt){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL VerifPaysVilleAdresse(:pays, :ville, :adresse)");
+        $stmt->bindParam(':pays', $var_nom);
+        $stmt->bindParam(':ville', $var_secteur);
+        $stmt->bindParam(':adresse', $var_secteur);
+        $resVerif = $stmt->execute();
+        if ($resVerif == false) {
+            return false;
+        } else {
+            $resIdPays = $connexion->query("SELECT @resPays")->fetchColumn();
+            $resIdVille = $connexion->query("SELECT @resVille")->fetchColumn();
+            $resIdAdr = $connexion->query("SELECT @resAdresse")->fetchColumn();
+
+            $stmt = $connexion->prepare("CALL CreerEntrepriseAdresse(:idEnt, :idAdr)");
+            $stmt->bindParam(':idEnt', $var_idEnt);
+            $stmt->bindParam(':idAdr', $resIdAdr);
+            $resInsert = $stmt->execute();
+            if ($resInsert == false) {
+                return false;
+            } else { 
+                return true;
+            }
+        }
+    }
+
+
 };

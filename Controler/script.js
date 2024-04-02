@@ -54,31 +54,6 @@ function redirectToAccueilFromConnexion(event) {
 function redirectToAccueil(){
     window.location.href = "../accueil.html";
 }
-function redirectToAccueilGE(){
-    window.location.href = "GE_accueil.html";
-}
-
-function redirectToAccueilGE_FromCreate(){
-    var name_ent = document.getElementById("nom_entreprise").value;
-    var sect_ent = document.getElementById("secteur_entreprise").value;
-    var local_ent = document.getElementById("localite1_entreprise").value;
-    if(name_ent == ""){
-        alert("Veuillez entrer un nom d'entreprise");
-        return false;
-    }
-    else if(sect_ent == ""){
-        alert("Veuillez entrer un secteur d'entreprise");
-        return false;
-    }
-    else if(local_ent == ""){
-        alert("Veuillez entrer au moins une localité pour l'entreprise");
-        return false;
-    }
-    else{
-        window.location.href = "GE_accueil.html";
-        return true;
-    }
-}
 
 
 function redirectToAccueilGE_FromSuprr(){

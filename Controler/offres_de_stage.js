@@ -260,7 +260,7 @@ function CreerOffre(){
 }
 
 var nbcompetences = 1;
-
+console.log("nbLocalites = "+ nbLocalites);
 function AddCompetence() {
     var newInput = document.createElement("input");
     newInput.className = "Candidatureinput";

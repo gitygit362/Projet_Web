@@ -267,8 +267,10 @@ var nbLocalites = 1;
 
 function AddLocaliteEnt() {
     nbLocalites += 1;
+    console.log("nbLocalites apres incrémentation : " + nbLocalites);
     var newDiv = document.createElement("div");
     var index = nbLocalites;
+    console.log("index : " + index);
 
     newDiv.innerHTML = "<div style='margin-top:5rem'> <label for='Adresse" + index + "_entreprise'>Adresse " + index + " :</label><input type='text' id='Adresse" + index + "_entreprise' name='Adresse" + index + "_entreprise' required> </div>";
     newDiv.innerHTML += "<div><label for='CP" + index + "_entreprise'>Code Postal :</label><input type='number' id='CP" + index + "_entreprise' name='CP" + index + "_entreprise' required></div>";
@@ -284,13 +286,14 @@ function AddLocaliteEnt() {
 
 
 
-
 // -------------- Créer Entreprise --------------------
 
-function redirectToAccueilGE_FromCreate(){
+function redirectToAccueilGE_FromCreate(event){
+    event.preventDefault();
     var name_ent = document.getElementById("nom_entreprise").value;
     var sect_ent = document.getElementById("secteur_entreprise").value;
-    var local_ent = document.getElementById("localite1_entreprise").value;
+    var logo_ent = document.getElementById("logo_entreprise").value;
+    
     if(name_ent == ""){
         alert("Veuillez entrer un nom d'entreprise");
         return false;
@@ -299,16 +302,86 @@ function redirectToAccueilGE_FromCreate(){
         alert("Veuillez entrer un secteur d'entreprise");
         return false;
     }
-    else if(local_ent == ""){
+    else if(adr_ent == ""){
         alert("Veuillez entrer au moins une localité pour l'entreprise");
         return false;
     }
-    else{
+    else if(ville_ent == ""){
+        alert("Veuillez entrer au moins une localité pour l'entreprise");
+        return false;
+    }
+    else if(pays_ent == ""){
+        alert("Veuillez entrer au moins une localité pour l'entreprise");
+        return false;
+    }
+    else{        
+        var data1 = {
+            nom: name_ent,
+            secteur: sect_ent,
+            logo: logo_ent
+        };
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST","../../Modèle/entrepriseGestion.php?action=creerEntreprise",false);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                var response = xhr.responseText;
+                alert(response);
+                if (response === 'true') {
+                    alert("entreprise créé avec succès");
+                    return true;
+                } else {
+                    alert("Erreur : l'entreprise' n'a pas été créé");
+                }
+            } else {
+                alert ("Erreur : Impossible de contacter le serveur");
+                alert (xhr.status);
+            }
+        };
+        xhr.onerror = function () {
+            alert("Erreur : Impossible de charger la requete");
+        };
+        xhr.send(JSON.stringify(data1));
 
+        for(i=1; i <= nbLocalites; i++){
 
+            var adr_ent = document.getElementById("Adresse"+ i +"_entreprise").value;
+            var ville_ent = document.getElementById("Ville"+ i +"_entreprise").value;
+            var pays_ent = document.getElementById("Pays"+ i +"_entreprise").value;
 
-        window.location.href = "GE_accueil.html";
-        return true;
+            var data2 = {
+                adresse: adr_ent,
+                ville: ville_ent,
+                pays: pays_ent
+            };
+        
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST","../../Modèle/entrepriseGestion.php?action=creerEntrepriseAdresse",false);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    var response = xhr.responseText;
+                    alert(response);
+                    if (response === 'true') {
+                        alert("adresse "+ i +" créé avec succès");
+                        if(i == nbLocalites){
+                            window.location.href = "GE_accueil.html";
+                        }
+                    } else {
+                        alert("Erreur : Adresse" + i);
+                    }
+                } else {
+                    alert ("Erreur : Impossible de contacter le serveur" + i);
+                    alert (xhr.status);
+                }
+            };
+            xhr.onerror = function () {
+                alert("Erreur : Impossible de charger la requete" + i);
+            };
+            xhr.send(JSON.stringify(data2));
+        
+        }
     }
 }
 
@@ -316,12 +389,9 @@ function redirectToAccueilGE_FromCreate(){
 
 
 
-
-
-
-
-
-
+function redirectToAccueilGE(){
+    window.location.href = "GE_accueil.html";
+}
 
 
 
@@ -331,11 +401,12 @@ function redirectToAccueilGE_FromCreate(){
 
 
 document.addEventListener("DOMContentLoaded", function() {
-
+    alert("fonction API");
     // Le code postal 5202 n'est pas répertorié 
 
             var Element = "CP1_entreprise";
             document.getElementById(Element).addEventListener("input", function () {
+                alert("entrée a changer");
                 var codePostal = this.value;
                 var xhr = new XMLHttpRequest(); 
                 xhr.open("GET", "https://apicarto.ign.fr/api/codes-postaux/communes/" + codePostal, true);
@@ -419,4 +490,4 @@ function addEventListenersToLocation(index) {
         document.getElementById(ElementVille).value = this.value;
         this.style.display = 'none';   
     });
-}  
+}
