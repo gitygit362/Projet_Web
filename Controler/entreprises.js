@@ -100,18 +100,17 @@ document.getElementById('masquerInput').addEventListener('change', function () {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('filtresForm');
-    form.addEventListener('submit', function(event) {
+
+function requeteFiltre(event){
         event.preventDefault();
 
         localisation = document.getElementsByClassName('inputLieu');
 
-        var nom = document.getElementById('inputEntreprise').value.trim() == '' ? 'all' : document.getElementById('inputEntreprise').value;
-        var activite = document.getElementById('inputActivite').value.trim() == '' ? 'all' : document.getElementById('inputActivite').value;
-        var pays = localisation[0].value.trim() == '' ? 'all' : localisation[0].value.trim();
-        var ville = localisation[1].value.trim() == '' ? 'all' : localisation[1].value.trim();
-        var adresse = localisation[2].value.trim() == '' ? 'all' : localisation[2].value;
+        var nom = document.getElementById('inputEntreprise').value;
+        var activite = document.getElementById('inputActivite').value;
+        var pays = localisation[0].value;
+        var ville = localisation[1].value;
+        var adresse = localisation[2].value;
         
         var filter1Param = document.getElementById('evaluationFilter1').checked ? 1 : 0;
         var filter2Param = document.getElementById('evaluationFilter2').checked ? 1 : 0;
@@ -123,28 +122,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var noteDesc = document.getElementById('NoteDesc').checked ? 1 : 0;
         var likeAsc = document.getElementById('LikeAsc').checked ? 1 : 0;
         var likeDesc = document.getElementById('LikeDesc').checked ? 1 : 0;
-       
-      /*  var data = {
-            type: 'filtre',
-            nom: nom,
-            activite: activite,
-            pays: pays,
-            ville: ville,
-            adresse: adresse,
-            evaluationFilter1: filter1Param,
-            evaluationFilter2: filter2Param,
-            evaluationFilter3: filter3Param,
-            evaluationFilter4: filter4Param,
-            evaluationFilter5: filter5Param,
-            evaluationFilter6: filter6Param,
-            NoteAsc: noteAsc,
-            NoteDesc: noteDesc,
-            LikeAsc: likeAsc,
-            LikeDesc: likeDesc
+       var type = 'filtres';
 
-        }*/
+        var params = new URLSearchParams();
 
-        params.append('type', 'filtres');
         params.append('nom', nom);
         params.append('activite', activite);
         params.append('pays', pays);
@@ -161,14 +142,17 @@ document.addEventListener('DOMContentLoaded', function() {
         params.append('LikeAsc', likeAsc);
         params.append('LikeDesc', likeDesc);
         
-        var url = 'entreprises.php?' + params.toString();
-       
+        var url = 'entreprisesFiltres.php?type=' + type + '&' + params.toString();
+       alert(url);
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);//POST
+        xhr.open('GET', url, true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
+                
                     alert("Requête réussie");
+                    window.location.href = url;
+
                 } else {
                     alert('Erreur lors de la requête AJAX');
                 }
@@ -179,8 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         //var userData = JSON.stringify(data);
         xhr.send();//userData
-    });
-});
+    }
+
 
 
 

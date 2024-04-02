@@ -62,29 +62,27 @@
 
                 <form id="filtresForm" class="filtresEntreprises">
                     <h2>Filtres de la recherche : </h2>
-                
-                <!-- filtres -->
 
                     <div>
                         <h3 onclick="EntrepriseFilter()">Nom ▼</h3>
                         <label id="hideEntreprise" class="hideEntreprise">Nom de l'entreprise :</label>
-                        <input id="inputEntreprise" type="text" name="entreprise">
+                        <input id="inputEntreprise" type="text" name="entreprise" value="Nom">
                     </div>
 
                     <div>
                         <h3 onclick="ActiviteFilter()">Secteur d'activité ▼</h3>
-                        <input id="inputActivite" type="text" name="activite"> 
-            <!-- faudra donnée les propositions de la BDD quand il tape pcq sinon c trop compliquer pour l'utilisateur =-->
+                        <input id="inputActivite" type="text" name="activite" value="Activite"> 
+           
                     </div>
 
                     <div>
                         <h3 onclick="LieuFilter()">Lieu ▼</h3>
                         <label class="hideLieu">Pays :</label>
-                        <input class="inputLieu" type="text" name="pays">
+                        <input class="inputLieu" type="text" name="pays" value="Pays">
                         <label class="hideLieu">Ville :</label>
-                        <input class="inputLieu" type="text" name="ville">
+                        <input class="inputLieu" type="text" name="ville" value="Ville">
                         <label class="hideLieu">Adresse :</label>
-                        <input class="inputLieu" type="text" name="adresse">
+                        <input class="inputLieu" type="text" name="adresse" value="Adresse">
                     </div>
                 
                     <div>
@@ -112,7 +110,7 @@
                             <input type="radio" id="LikeDesc" name="trieroffre" value="1"> Likes décroissants
                         </div>
                     </div>
-                    <button class="filterButton" type="submit">Valider</button>
+                    <button class="filterButton" type="button" onclick="requeteFiltre(event)">Valider</button>
                 </form>
             </div>
 
