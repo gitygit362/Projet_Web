@@ -180,9 +180,9 @@ public function setId ($var_id){
         $db = Database::getInstance();
         $connexion = $db->getConnexion();
         $stmt = $connexion->prepare("CALL VerifPaysVilleAdresse(:pays, :ville, :adresse)");
-        $stmt->bindParam(':pays', $var_nom);
-        $stmt->bindParam(':ville', $var_secteur);
-        $stmt->bindParam(':adresse', $var_secteur);
+        $stmt->bindParam(':pays', $var_pays);
+        $stmt->bindParam(':ville', $var_ville);
+        $stmt->bindParam(':adresse', $var_adresse);
         $resVerif = $stmt->execute();
         if ($resVerif == false) {
             return false;
