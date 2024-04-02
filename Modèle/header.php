@@ -1,5 +1,5 @@
 <?php 
-require_once '../../libs/Smarty.class.php';
+require_once '../Controler/libs/Smarty.class.php';
 require_once '../Controler/session.php';
 $smarty_obj = new Smarty();
 demarrerSession();

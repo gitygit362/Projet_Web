@@ -106,6 +106,7 @@ function requeteFiltre(event){
 
         localisation = document.getElementsByClassName('inputLieu');
 
+
         var nom = document.getElementById('inputEntreprise').value;
         var activite = document.getElementById('inputActivite').value;
         var pays = localisation[0].value;
