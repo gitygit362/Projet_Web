@@ -25,10 +25,43 @@
                 <input type="text" id="nom_etudiant" name="nom_etudiant" required>
                 <label for="prenom">Prénom :</label>
                 <input type="text" id="prenom_etudiant" name="prenom_etudiant" required>
-                <label for="centre_etudiant">Centre :</label>
-                <input type="text" id="centre_etudiant" name="centre_etudiant" required>
-                <label for="promo_etudiant">Promotion :</label>
-                <input type="text" id="promo_etudiant" name="promo_etudiant" required>
+                <label for="centre">Centre :</label><select id="centre_pilote" name="centre_pilote" required>
+                    <option value="" disabled selected>Choisissez un centre</option>
+                    <option value="CESI Paris">CESI Paris</option>
+                    <option value="CESI Toulouse">CESI Toulouse</option>
+                    <option value="CESI Lyon">CESI Lyon</option>
+                    <option value="CESI Bordeaux">CESI Bordeaux</option>
+                    <option value="CESI Nantes">CESI Nantes</option>
+                    <option value="CESI Lille">CESI Lille</option>
+                    <option value="CESI Rennes">CESI Rennes</option>
+                    <option value="CESI Strasbourg">CESI Strasbourg</option>
+                    <option value="CESI Nice">CESI Nice</option>
+                    <option value="CESI Montpellier">CESI Montpellier</option>
+                    <option value="CESI Aix-en-Provence">CESI Aix-en-Provence</option>
+                    <option value="CESI Angers">CESI Angers</option>
+                    <option value="CESI Rouen">CESI Rouen</option>
+                    <option value="CESI Grenoble">CESI Grenoble</option>
+                    <option value="CESI Toulon">CESI Toulon</option>
+                    <option value="CESI Tours">CESI Tours</option>
+                    <option value="CESI Reims">CESI Reims</option>
+                    <option value="CESI Le Mans">CESI Le Mans</option>
+                    <option value="CESI Poitiers">CESI Poitiers</option>
+                    <option value="CESI Saint-Nazaire">CESI Saint-Nazaire</option>
+                    <option value="CESI Brest">CESI Brest</option>
+                    <option value="CESI Caen">CESI Caen</option>
+                    <option value="CESI Dijon">CESI Dijon</option>
+                    <option value="CESI Orléans">CESI Orléans</option>
+                    <option value="CESI Mulhouse">CESI Mulhouse</option>
+                </select>
+                <label for="promo_pilote">Promotion :</label>
+                <select id="promo_pilote" name="promo_pilote" required>
+                    <option value="" disabled selected>Choisissez une promotion</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="A3">A3</option>
+                    <option value="A4">A4</option>
+                    <option value="A5">A5</option>
+                </select>
                 <button class="button" type="submit" onclick="redirectToAccueilGETU()">Supprimer</button>
             </fieldset>
         </form>

@@ -5,19 +5,19 @@ include "../Modèle/index_modele.php";
 //______________________________________________________________________________________________________
 
 $data = json_decode(file_get_contents('php://input'), true);
-$nom_pilote = $data['nom'];
-$prenom_pilote = $data['prenom'];
-$centre_pilote = $data['centre'];
-$promo_pilote =  $data['promo'];
+$nom = $data['nom'];
+$prenom = $data['prenom'];
+$centre = $data['centre'];
+$promo =  $data['promo'];
 
 
 
-$obj = new GestionPilote($nom_pilote,$prenom_pilote,$centre_pilote,$promo_pilote);
-
+$pilote = new GestionPilote($nom,$prenom,$centre,$promo);
+$etudiant = new GestionEtudiant($nom,$prenom,$centre,$promo);
 
 function create_pilote(){
-    global $obj,$db;
-    $resultat = $obj->creer($db);
+    global $pilote,$db;
+    $resultat = $pilote->creer($db);
     if($resultat == false){
         header('Content-Type: test/plain');
         echo 'false';
@@ -27,8 +27,8 @@ function create_pilote(){
 }
 
 function find_pilote(){
-    global $obj,$db;
-    $resultat = $obj->recherche($db);
+    global $pilote,$db;
+    $resultat = $pilote->recherche($db);
     if($resultat == null){
         header('Content-Type: test/plain');
         echo 'false';
@@ -38,10 +38,10 @@ function find_pilote(){
 }
 
 function edit_pilote(){
-    global $obj,$db,$data;
+    global $pilote,$db,$data;
     $id = $data['id'];
     $id = intval($id);
-    $resultat = $obj->modifier($db,$id);
+    $resultat = $pilote->modifier($db,$id);
     if($resultat == false){
         header('Content-Type: test/plain');
         echo 'false';
@@ -51,8 +51,8 @@ function edit_pilote(){
 }
 
 function delete_pilote(){
-    global $obj,$db;
-    $resultat = $obj->supprimer($db);
+    global $pilote,$db;
+    $resultat = $pilote->supprimer($db);
     if($resultat == null){
         header('Content-Type: test/plain');
         echo 'false';
@@ -61,7 +61,16 @@ function delete_pilote(){
     }
 }
 
-
+function create_etudiant(){
+    global $etudiant,$db;
+    $resultat = $etudiant->creer($db);
+    if($resultat == false){
+        header('Content-Type: test/plain');
+        echo 'false';
+    } else {
+        echo 'true';
+    }
+}
 
 
 if (isset($_GET['action']) && $_GET['action'] === 'createpilote') {
@@ -80,4 +89,20 @@ if (isset($_GET['action']) && $_GET['action'] === 'supprpilote') {
     delete_pilote();
 } 
 
+//____________________________________________________________________________________
 
+if (isset($_GET['action']) && $_GET['action'] === 'creeretudiant') {
+    create_etudiant();
+} 
+
+if (isset($_GET['action']) && $_GET['action'] === 'preeditetudiant' || isset($_GET['action']) && $_GET['action'] === 'rechercheetudiant') {
+    find_etudiant();
+} 
+
+if (isset($_GET['action']) && $_GET['action'] === 'editetudiant') {
+    edit_etudiant();
+} 
+
+if (isset($_GET['action']) && $_GET['action'] === 'suppretudiant') {
+    delete_etudiant();
+} 

@@ -41,6 +41,7 @@ function redirectToAccueilFromConnexion(event) {
 
 function redirectToAccueilGPform(event){
     event.preventDefault();
+    alert("test");
     var nom_pilote = document.getElementById("nom_pilote").value;
     var prenom_pilote = document.getElementById("prenom_pilote").value;
     var centre_pilote = document.getElementById("centre_pilote").value;
@@ -57,7 +58,7 @@ function redirectToAccueilGPform(event){
         centre: centre_pilote,
         promo: promo_pilote
     };
-
+    alert ("data = "+data)
     var xhr = new XMLHttpRequest();
     xhr.open("POST","../../Controler/users.php?action=createpilote",false);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -405,6 +406,54 @@ function redirectToGP_modification(event){
 function redirectToAccueilGETU(){
     window.location.href = "GETU_accueil.html";
 }
+
+
+
+
+
+function redirectToAccueilGETUCreate(event){
+    event.preventDefault();
+    var nom_etudiant = document.getElementById("nom_etudiant").value;
+    var prenom_etudiant = document.getElementById("prenom_etudiant").value;
+    var centre_etudiant = document.getElementById("centre_etudiant").value;
+    var promo_etudiant =  document.getElementById("promo_etudiant").value;
+    
+    if (nom_etudiant.trim() === '' || prenom_etudiant.trim() === '' || centre_etudiant.trim() === '' || promo_etudiant.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    var data = {
+        nom: nom_etudiant,
+        prenom: prenom_etudiant,
+        centre: centre_etudiant,
+        promo: promo_etudiant
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=creeretudiant",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            alert(response);
+            if (response === 'true') {
+                alert("profil créé avec succès");
+                window.location.href = 'GETU_accueil.html';
+            } else {
+                alert("Erreur : le profil n'a pas été créé");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
+
 
 function redirectToCrer_GETU(){
     window.location.href = "GETU_creation.html";
