@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-02 10:41:09
+/* Smarty version 4.5.1, created on 2024-04-02 11:10:56
   from 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\View\recherche_entreprises.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660bc4a588a5b1_18107137',
+  'unifunc' => 'content_660bcba01e7a67_38122142',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5776cb7b49afde9ea42830110797a208697d6d45' => 
     array (
       0 => 'C:\\Users\\axel0\\Desktop\\Bloc_Dev_WEB\\projet\\code\\Projet_Web\\View\\recherche_entreprises.tpl',
-      1 => 1712045076,
+      1 => 1712047913,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660bc4a588a5b1_18107137 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660bcba01e7a67_38122142 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
