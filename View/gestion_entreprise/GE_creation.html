@@ -61,17 +61,15 @@
                 <button class="addCompetence" type="button" onclick="AddLocaliteEnt()">ajouter une adresse</button>
 
 
-                
-                <div class="notation">
-                <img src="../Assets/images/main_stylo.png" alt="logo EASYSTAGE" class="main_stylo">
-                <div class="nota_txt">Notation de l'entreprise</div>
-                <div class="block_star">
-                <img src="../Assets/images/etoiles_jaune.png" alt="logo EASYSTAGE" class="star">
-                <img src="../Assets/images/etoiles_jaune.png" alt="logo EASYSTAGE" class="star">
-                <img src="../Assets/images/etoiles_jaune.png" alt="logo EASYSTAGE" class="star">
-                <img src="../Assets/images/etoiles_jaune.png" alt="logo EASYSTAGE" class="star">
-                <img src="../Assets/images/etoiles_jaune.png" alt="logo EASYSTAGE" class="star">
-                </div>
+                <div>
+                <label>Notation de l'entreprise</label>
+                <select id="note_entreprise">
+                    <option id='etoile1' value='1'>1 étoile</option>
+                    <option id='etoile2' value='2'>2 étoiles</option>
+                    <option id='etoile3' value='3'>3 étoiles</option>
+                    <option id='etoile4' value='4'>4 étoiles</option>
+                    <option id='etoile5' value='5'>5 étoiles</option>
+                </select>
                 </div>
                 <button class="button" type="button" onclick="redirectToAccueilGE_FromCreate(event)">Créer</button>
             </fieldset>

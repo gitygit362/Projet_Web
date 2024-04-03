@@ -163,7 +163,7 @@ public function setId ($var_id){
     public function creerEntreprise($var_nom, $var_secteur, $var_logo){
         $db = Database::getInstance();
         $connexion = $db->getConnexion();
-        $stmt = $connexion->prepare("CALL CreerEntreprise(:nom, :secteur, :logo)");
+        $stmt = $connexion->prepare("CALL CreerEntreprise(:nom, :secteur, :logo, @resEntreprise)");
         $stmt->bindParam(':nom', $var_nom);
         $stmt->bindParam(':secteur', $var_secteur);
         $stmt->bindParam(':logo', $var_logo);
@@ -176,6 +176,27 @@ public function setId ($var_id){
             return $resId;
         }
     }
+
+    public function noterEntreprise($var_id_user, $var_statut_user, $var_id_ent, $var_note){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL NoterEntreprise(:id_user, :statut_user, :id_ent, :note)");
+        $stmt->bindParam(':id_user', $var_id_user);
+        $stmt->bindParam(':statut_user', $var_statut_user);
+        $stmt->bindParam(':id_ent', $var_id_ent);
+        $stmt->bindParam(':note', $var_note);
+        $res = $stmt->execute();
+    
+        if ($res == false) {
+            return false;
+        } else {
+            $resId = $connexion->query("SELECT @resEntreprise")->fetchColumn();
+            return $resId;
+        }
+    }
+
+
+
     public function creerEntrepriseAdresse($var_adresse, $var_ville, $var_pays, $var_idEnt){
         $db = Database::getInstance();
         $connexion = $db->getConnexion();

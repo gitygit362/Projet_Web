@@ -1,5 +1,8 @@
 <?php 
 require_once '../Modèle/entreprise.class.php'; // Inclure votre classe PHP
+require 'session.php';
+demarrerSession();
+creerSession();
 
 if (isset($_GET['action']) && $_GET['action'] == 'creerEntreprise') {
     $data = json_decode(file_get_contents("php://input"));
@@ -8,7 +11,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'creerEntreprise') {
     $resultat = $entreprise->creerEntreprise($data->nom, $data->secteur, $data->logo);
 
     $id = $resultat;
-
+    $entreprise->noterEntreprise($_SESSION['id'], $_SESSION['statut'], $id, $data->note);
+    echo 'true';
 }
 
 if (isset($_GET['action']) && $_GET['action'] == 'creerEntrepriseAdresse') {

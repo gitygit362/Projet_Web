@@ -293,7 +293,8 @@ function redirectToAccueilGE_FromCreate(event){
     var name_ent = document.getElementById("nom_entreprise").value;
     var sect_ent = document.getElementById("secteur_entreprise").value;
     var logo_ent = document.getElementById("logo_entreprise").value;
-    
+    var note_ent = document.getElementById("note_entreprise").value;
+
     if(name_ent == ""){
         alert("Veuillez entrer un nom d'entreprise");
         return false;
@@ -318,11 +319,12 @@ function redirectToAccueilGE_FromCreate(event){
         var data1 = {
             nom: name_ent,
             secteur: sect_ent,
-            logo: logo_ent
+            logo: logo_ent,
+            note: note_ent
         };
     
         var xhr = new XMLHttpRequest();
-        xhr.open("POST","../../Modèle/entrepriseGestion.php?action=creerEntreprise",false);
+        xhr.open("POST","../../Controler/entrepriseGestion.php?action=creerEntreprise",false);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload = function () {
             if (xhr.status >= 200 && xhr.status < 300) {
@@ -332,7 +334,7 @@ function redirectToAccueilGE_FromCreate(event){
                     alert("entreprise créé avec succès");
                     return true;
                 } else {
-                    alert("Erreur : l'entreprise' n'a pas été créé");
+                    alert("Erreur : l'entreprise n'a pas été créé");
                 }
             } else {
                 alert ("Erreur : Impossible de contacter le serveur");
