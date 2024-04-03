@@ -207,6 +207,14 @@ else {
         $smarty_obj->assign('TopEnt6',"<article class='OptionTopEntreprises' onclick='voirEntreprise(5, 1)'><h5 class='TitreEntreprise'>". $resTopEnt[5]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resTopEnt[5]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resTopEnt[5]->getLike() ."</p></article>");
     }
 
+
+    if ($_SESSION['statut'] == 'etudiant'){
+        $smarty_obj->assign('espaceEnt', '');
+    } else if ($_SESSION['statut'] == 'pilote' || ($_SESSION['statut'] == 'admin')){
+        $smarty_obj->assign('espaceEnt', "<a id='espaceEntreprise' href='../View/gestion_entreprise/GE_accueil.html'>Espace entreprise</a>");
+    }
+
+    
 $smarty_obj->display('../View/recherche_entreprises.tpl');
 
 }

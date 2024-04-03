@@ -14,8 +14,8 @@
             <a href="accueil.php">Accueil</a>
             <a href="offres_stages.php">Offres de stages</a>
             <a href="entreprises.php">Entreprises</a>
-            <a class="refPilote" href="../View/gestion_etudiant/GETU_accueil.html">Etudiants</a>
-            <a class="refAdmin" href="../View/gestion_pilote/GP_accueil.html">Pilotes</a>
+            {$directionEtudiant}
+            {$directionPilote}
             <a class="DeconnectProfil" href="../View/page_connexion.html">Déconnexion</a>
         </nav>
     </header>
@@ -25,8 +25,8 @@
             <img src="../View/Assets/images/profile.jpg" alt="Photo de profil">
         </div>
         <div class="informations">
-            <span>Nom  </span><label>{$NomUser}</label><br>
-            <span>Prenom: </span><label>{$PrenomUser}</label><br>
+            <span>Nom  </span><label>{$nomUser}</label><br>
+            <span>Prenom: </span><label>{$prenomUser}</label><br>
         </div>
     </div>
   </div> 

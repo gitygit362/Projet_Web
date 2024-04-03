@@ -21,7 +21,7 @@
         </nav>
     </header>
         <main>
-            <a id="espaceEntreprise" href="../View/gestion_entreprise/GE_accueil.html">Espace entreprise</a>
+            {$espaceEnt}
             <div id="Entreprise">
             </div>
 

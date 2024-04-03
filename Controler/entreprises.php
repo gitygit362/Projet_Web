@@ -25,11 +25,7 @@ if (isset($_GET['id']) && isset($_GET['s']) && $_GET['s'] === 'Onload') {
     $smarty_obj->assign('PaysEnt', $resEnt[$current_ent]->getPays());
     $smarty_obj->assign('NoteEnt', $resEnt[$current_ent]->getNote());
     $smarty_obj->assign('WhListEnt', $resEnt[$current_ent]->getLike());
-    if ($_SESSION['statut'] == 'etudiant'){
-        $smarty_obj->assign('masquer', '');
-    } else {
-        $smarty_obj->assign('masquer', "<label id='masquer'>masquer<input  id='masquerInput' type='checkbox' name='masquer' value='masquer'></label>");
-    }
+
     $smarty_obj->display("../View/presentation_entreprise.tpl");
 
 } else if (isset($_GET['id']) && isset($_GET['s']) && $_GET['s'] === 'TopEntreprise') {
@@ -43,11 +39,7 @@ if (isset($_GET['id']) && isset($_GET['s']) && $_GET['s'] === 'Onload') {
     $smarty_obj->assign('PaysEnt', $resTopEnt[$current_ent]->getPays());
     $smarty_obj->assign('NoteEnt', $resTopEnt[$current_ent]->getNote());
     $smarty_obj->assign('WhListEnt', $resTopEnt[$current_ent]->getLike());
-    if ($_SESSION['statut'] == 'etudiant'){
-        $smarty_obj->assign('masquer', '');
-    } else {
-        $smarty_obj->assign('masquer', "<label id='masquer'>masquer<input  id='masquerInput' type='checkbox' name='masquer' value='masquer'></label>");
-    }
+
     $smarty_obj->display("../View/presentation_entreprise.tpl");
 
 
@@ -195,49 +187,14 @@ if (count($resTopEnt) >= 6) {
     $smarty_obj->assign('TopEnt6',"<article class='OptionTopEntreprises' onclick='voirEntreprise(5, 1)'><h5 class='TitreEntreprise'>". $resTopEnt[5]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resTopEnt[5]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resTopEnt[5]->getLike() ."</p></article>");
 }
 
+
+if ($_SESSION['statut'] == 'etudiant'){
+    $smarty_obj->assign('espaceEnt', '');
+} else if ($_SESSION['statut'] == 'pilote' || ($_SESSION['statut'] == 'admin')){
+    $smarty_obj->assign('espaceEnt', "<a id='espaceEntreprise' href='../View/gestion_entreprise/GE_accueil.html'>Espace entreprise</a>");
+}
+
 $smarty_obj->display('../View/recherche_entreprises.tpl');
 
 }
 
-
-
-/*
-function MasquerEntreprise(){
-    if (isset($_GET['id']) && $_GET['s'] === 'Onload') {
-        $current_ent = $_GET['id'];
-        global $resEnt;
-        $resEnt[$current_ent]->masquerEntreprise();
-
-    }
-    else if (isset($_GET['id']) && $_GET['s'] === 'TopEntreprise') {
-        $current_ent = $_GET['id'];
-        global $resTopEnt;
-        $resTopEnt[$current_ent]->masquerEntreprise();
-        global $ent;
-        $resTopEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1);
-    }
-    
-    else if (isset($_GET['id']) && $_GET['s'] === 'Filtres') {
-        $current_ent = $_GET['id'];
-        global $resFiltresEnt;
-        $resFiltresEnt[$current_ent]->masquerEntreprise();
-        global $ent;
-        $resFiltresEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1);
-    }
-}
-
-function VisibleEntreprise(){
-    if (isset($_GET['id']) && $_GET['s'] === 'Onload') {
-        $current_ent = $_GET['id'];
-        global $resEnt;
-        $resEnt[$current_ent]->visibleEntreprise();
-    }
-    else if (isset($_GET['id']) && $_GET['s'] === 'TopEntreprise') {
-        $current_ent = $_GET['id'];
-        global $resTopEnt;
-        $resTopEnt[$current_ent]->visibleEntreprise();
-        global $ent;
-        $resTopEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1);
-    }
-}
-*/

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-02 19:18:54
+/* Smarty version 4.5.1, created on 2024-04-03 19:55:47
   from 'C:\www\Projet_Web\View\recherche_entreprises.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660c3dfe5b3388_27199645',
+  'unifunc' => 'content_660d9823c13b85_30461022',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8cc5e81f2ae30129c3881eb09f99fb3c1e6e8ebd' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\recherche_entreprises.tpl',
-      1 => 1712078220,
+      1 => 1712166789,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660c3dfe5b3388_27199645 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660d9823c13b85_30461022 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
@@ -47,7 +47,8 @@ function content_660c3dfe5b3388_27199645 (Smarty_Internal_Template $_smarty_tpl)
         </nav>
     </header>
         <main>
-            <a id="espaceEntreprise" href="../View/gestion_entreprise/GE_accueil.html">Espace entreprise</a>
+            <?php echo $_smarty_tpl->tpl_vars['espaceEnt']->value;?>
+
             <div id="Entreprise">
             </div>
 

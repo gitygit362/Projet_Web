@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-02 18:46:23
+/* Smarty version 4.5.1, created on 2024-04-03 19:55:52
   from 'C:\www\Projet_Web\View\presentation_entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660c365f356124_61417775',
+  'unifunc' => 'content_660d9828e2be74_25271805',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '330a196bb5679b95b42947bd1ff84162b211f803' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\presentation_entreprise.tpl',
-      1 => 1712076373,
+      1 => 1712166943,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660c365f356124_61417775 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660d9828e2be74_25271805 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
@@ -89,7 +89,6 @@ function content_660c365f356124_61417775 (Smarty_Internal_Template $_smarty_tpl)
 
 
     </pre>
-        <?php echo $_smarty_tpl->tpl_vars['masquer']->value;?>
 
         </div>
 </div>

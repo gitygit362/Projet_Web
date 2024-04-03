@@ -9,6 +9,7 @@ class Utilisateur {
     protected $evaluation = [];
     protected $whlists = [];
     protected $candidature = [];
+    protected $offres = [];
 
 // ------------------ setteurs ---------------------
 
@@ -36,7 +37,10 @@ public function setId ($var_id){
     public function setCandidature($var_candidature){
         $this->candidature = $var_candidature;
     }
-
+    public function setOffres($var_offres){
+        // Fusionner le tableau des nouvelles offres avec le tableau existant
+        $this->offres = array_merge($this->offres, $var_offres);
+    }
 
     // -------------- getteurs ---------------------
 
@@ -63,6 +67,10 @@ public function setId ($var_id){
     }
     public function getCandidature(){
         return $this->candidature;
+    }
+
+    public function getOffres(){
+        return $this->offres;
     }
 
     public function Utilisateur(){
@@ -113,10 +121,65 @@ public function setId ($var_id){
         $this->setCentre($centres);
     }
 
+
+    public function etudiantCentrePromo(){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+
+        //promo
+        $stmt = $connexion->prepare("SELECT promo.promo FROM etudiant INNER JOIN promo ON etudiant.ID_promo = promo.ID_promo WHERE etudiant.ID_utilisateur = :id_user;");
+        $id_user = $this->getId();
+        $stmt->bindParam(':id_user', $id_user);
+        $stmt->execute();
+        $resPromo = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $promos = [];
+        foreach ($resPromo as $row) {
+            $promos[] = $row['promo'];
+        }
+        $this->setPromo($promos);
+
+        // centre 
+        $stmt = $connexion->prepare("SELECT centre.nom_centre FROM etudiant INNER JOIN centre ON etudiant.ID_centre = centre.ID_centre WHERE etudiant.ID_utilisateur = :id_user;");
+        $stmt->bindParam(':id_user', $id_user);
+        $stmt->execute();
+        $resCentre = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $centres = [];
+        foreach ($resCentre as $row) {
+            $centres[] = $row['nom_centre'];
+        }
+        $this->setCentre($centres);
+    }
     
 
+    public function etudiantWhList(){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
 
+        // recherche des offres de la wl
+        $stmt = $connexion->prepare("CALL WishListEtudiant(:id_user)");
+        $id_user = $this->getId();
+        $stmt->bindParam(':id_user', $id_user);
+        $stmt->execute();
+        $resWL = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $wl = [];
+        foreach ($resWL as $row) {
+            $wl[] = $row['ID_offre'];
+        }
+        $this->setWhLists($wl);
+    }
 
+    public function etudiantOffreWhList($var_id_offre){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
 
+        //chercher les info de l'offre de la wl
+        $stmt = $connexion->prepare("CALL OffreWLEtudiant(:id_offre)");
+        $stmt->bindParam(':id_offre', $var_id_offre);
+        $stmt->execute();
+        $offre = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($offre) {
+            $this->setOffres($offre);
+        }
+    }
 
 };

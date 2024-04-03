@@ -55,7 +55,7 @@
  <b>- nombre de wishlist contenants leurs offres : </b>{$WhListEnt}
 
     </pre>
-        {$masquer}
+
         </div>
 </div>
 <div>
