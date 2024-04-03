@@ -172,10 +172,8 @@ function hideLogout() {
 /* Prochaines fonctions en lien avec le backend */
 
 // ------------------------ Acces au profil ----------------------------
-function redirectToProfil(statut) {
-    var Statut = statut;
-    window.location.href = "../View/profil_utilisateur_" + Statut + ".html";
-        // dans le profil on va chercher les infos 
+function redirectToProfil() {
+    window.location.href = "utilisateur.php";
 }
 
 
