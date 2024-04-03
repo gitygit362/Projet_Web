@@ -24,7 +24,7 @@ function recherche(){
     $trie3 = isset($_GET['LikeAsc']) ? $_GET['LikeAsc'] : 0;
     $trie4 = isset($_GET['LikeDesc']) ? $_GET['LikeDesc'] : 0;
 
-    $resFiltresEnt = $ent->chercherEntreprise($entreprise, $activite, $pays, $ville, $adresse, $filtre1, $filtre2, $filtre3, $filtre4, $filtre5, $filtre6, $trie1, $trie2, $trie3, $trie4);
+    $resFiltresEnt = $ent->chercherEntreprise($entreprise, $activite, $adresse, $ville, $pays, $filtre1, $filtre2, $filtre3, $filtre4, $filtre5, $filtre6, $trie1, $trie2, $trie3, $trie4);
     
     return $resFiltresEnt;
 }
