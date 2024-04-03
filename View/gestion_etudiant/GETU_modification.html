@@ -25,7 +25,7 @@
                 <input type="text" id="nom_etudiant" name="nom_etudiant" required>
                 <label for="prenom">Prénom :</label>
                 <input type="text" id="prenom_etudiant" name="prenom_etudiant" required>
-                <label for="centre">Centre :</label><select id="centre_pilote" name="centre_pilote" required>
+                <label for="centre">Centre :</label><select id="centre_etudiant" name="centre_etudiant" required>
                     <option value="" disabled selected>Choisissez un centre</option>
                     <option value="CESI Paris">CESI Paris</option>
                     <option value="CESI Toulouse">CESI Toulouse</option>
@@ -53,8 +53,8 @@
                     <option value="CESI Orléans">CESI Orléans</option>
                     <option value="CESI Mulhouse">CESI Mulhouse</option>
                 </select>
-                <label for="promo_pilote">Promotion :</label>
-                <select id="promo_pilote" name="promo_pilote" required>
+                <label for="promo_etudiant">Promotion :</label>
+                <select id="promo_etudiant" name="promo_etudiant" required>
                     <option value="" disabled selected>Choisissez une promotion</option>
                     <option value="A1">A1</option>
                     <option value="A2">A2</option>
@@ -62,7 +62,7 @@
                     <option value="A4">A4</option>
                     <option value="A5">A5</option>
                 </select>
-                <button class="button" type="submit" onclick="redirectToAccueilGETU()">Modifier</button>
+                <button class="button" type="submit" onclick="redirectToAccueilGETUEdit(event)">Modifier</button>
             </fieldset>
         </form>
     </main>

@@ -381,7 +381,6 @@ function redirectToGETU_modification(event){
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
             response = response.split('.');
-            alert(response);
             if (response[0] === 'true') {
                 alert("profil trouvé avec succès");
                 window.location.href = "GETU_modification.html?id_user="+response[1];
@@ -452,6 +451,56 @@ function redirectToAccueilGETUCreate(event){
     };
     xhr.send(JSON.stringify(data));
 }
+
+
+
+
+function redirectToAccueilGETUEdit(event){
+    event.preventDefault();
+    var nom_etudiant = document.getElementById("nom_etudiant").value;
+    var prenom_etudiant = document.getElementById("prenom_etudiant").value;
+    var centre_etudiant = document.getElementById("centre_etudiant").value;
+    var promo_etudiant =  document.getElementById("promo_etudiant").value;
+
+    var url = new URL(window.location.href);
+    var id_user = url.searchParams.get("id_user");  
+
+    if (nom_etudiant.trim() === '' || prenom_etudiant.trim() === '' || centre_etudiant.trim() === '' || promo_etudiant.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    var data = {
+        nom: nom_etudiant,
+        prenom: prenom_etudiant,
+        centre: centre_etudiant,
+        promo: promo_etudiant,
+        id: id_user
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=editetudiant",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            if (response === 'true') {
+                alert("profil modifié avec succès");
+                window.location.href = "GETU_accueil.html";
+            } else {
+                alert("Erreur : le profil n'a pas pu être modifier");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
+
 
 
 function redirectToCrer_GETU(){
