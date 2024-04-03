@@ -60,14 +60,6 @@
         <footer>
             <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
         </footer>
-            <script>
-        {literal}
-        function redirectToProfil(statut) {
-            var Statut = statut;
-            window.location.href = "../View/profil_utilisateur_" + Statut + ".html";
-        }
-        {/literal}
-    </script>
     <script src="../Controler/script.js"></script>
     </body>
 </html>
