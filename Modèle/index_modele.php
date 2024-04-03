@@ -97,7 +97,6 @@ class GestionPilote extends GestionUser
         $req->bindParam(':centre',$this->centre);
         $req->bindParam(':promo',$this->promo);
         $req->bindParam(':id',$id_user);
-        var_dump($id_user);
         return $req->execute();
     }
 }

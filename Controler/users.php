@@ -11,9 +11,10 @@ $centre_pilote = $data['centre'];
 $promo_pilote =  $data['promo'];
 
 
+
 $obj = new GestionPilote($nom_pilote,$prenom_pilote,$centre_pilote,$promo_pilote);
-$id_user = isset($_GET['id_user']) ?  $_GET['id_user'] : 0;
-var_dump(isset($_GET['id_user']));
+
+
 function create_pilote(){
     global $obj,$db;
     $resultat = $obj->creer($db);
@@ -36,12 +37,12 @@ function preedit_pilote(){
     }
 }
 
-function edit_pilote($id){
-    echo $id.var_dump($id);
-    global $obj,$db;
+function edit_pilote(){
+    global $obj,$db,$data;
+    $id = $data['id'];
+    $id = intval($id);
     $resultat = $obj->modifier($db,$id);
     if($resultat == false){
-        
         header('Content-Type: test/plain');
         echo 'false';
     } else {
@@ -58,7 +59,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'preeditpilote') {
 } 
 
 if (isset($_GET['action']) && $_GET['action'] === 'editpilote') {
-    edit_pilote($id_user);
+    edit_pilote();
 } 
 
 

@@ -183,12 +183,16 @@ function redirectToAccueilGPEdit(event){
     var prenom_pilote = document.getElementById("prenom_pilote").value;
     var centre_pilote = document.getElementById("centre_pilote").value;
     var promo_pilote =  document.getElementById("promo_pilote").value;
-    
+
+    var url = new URL(window.location.href);
+    var id_user = url.searchParams.get("id_user");  
+
     var data = {
         nom: nom_pilote,
         prenom: prenom_pilote,
         centre: centre_pilote,
-        promo: promo_pilote
+        promo: promo_pilote,
+        id: id_user
     };
 
     var xhr = new XMLHttpRequest();
@@ -276,6 +280,7 @@ function redirectToGP_modification(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
+            alert (response);
             response = response.split('.');
             if (response[0] === 'true') {
                 alert("profil trouvé avec succès");
