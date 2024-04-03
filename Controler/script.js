@@ -52,7 +52,7 @@ function redirectToAccueilFromConnexion(event) {
 //utilisation php de page connexion
 
 function redirectToAccueil(){
-    window.location.href = "../accueil.html";
+    window.location.href = "../../Controler/accueil.php";
 }
 
 
@@ -88,30 +88,6 @@ function redirectToCreerOffre() {
 }
 
 
-function redirectToCrerEnt_GE(){
-    window.location.href = "GE_creation.html";    
-}
-
-function redirectToSuppEnt_GE(){
-    window.location.href = "GE_suppression.html";
-}
-
-function redirectToEditEnt_GE(){
-    window.location.href = "GE_a_modifier.html";
-}
-
-function redirectToGE_modification(){
-     var name_ent = document.getElementById("nom_entreprise").value;
-     if(name_ent == ""){
-         alert("Veuillez entrer un nom d'entreprise");
-         return false;
-    }
-     else{
-         alert("test");
-        window.location.href = "GE_modification.html";
-         return true;
-    }
-}
 
 //gestion pilote redirection
 function redirectToAccueilGP(){

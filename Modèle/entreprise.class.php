@@ -132,24 +132,19 @@ public function setId ($var_id){
     }
 
 
-    public function masquerEntreprise(){
+    public function masquerEntreprise($var_nom1, $var_nom2){
         $db = Database::getInstance();
         $connexion = $db->getConnexion();
-        $stmt = $connexion->prepare("CALL MasquerEntreprise(:id)");
-        $idIn = $this->getId();
-        $stmt->bindParam(':id', $idIn);
+        $stmt = $connexion->prepare("CALL SupprimerEntreprise(:nom1, :nom2)");
+        $stmt->bindParam(':nom1', $var_nom1);
+        $stmt->bindParam(':nom2', $var_nom2);
         try {
-            $res = $stmt->execute();
-            if ($res) {
-                echo "L'entreprise a été masquée avec succès.";
-            } else {
-                echo "Échec de la procédure de masquage de l'entreprise.";
-            }
+            $stmt->execute();
         } catch(PDOException $e) {
-            echo "Une erreur s'est produite lors du masquage de l'entreprise : " . $e->getMessage();
+            error_log("Une erreur s'est produite lors du masquage de l'entreprise : " . $e->getMessage());
         }
     }
-
+/*
     public function visibleEntreprise(){
         $db = Database::getInstance();
         $connexion = $db->getConnexion();
@@ -157,6 +152,29 @@ public function setId ($var_id){
         $idIn = $this->getId();
         $stmt->bindParam(':id', $idIn);
         $stmt->execute();
+    }*/
+
+    public function entrepriseAModifier($var_nom){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL EntrepriseAModifier(:nom, @resId, @resEnt, @resSecteur, @resLogo)");
+        $stmt->bindParam(':nom', $var_nom);
+        $res = $stmt->execute();
+        if ($res == false) {
+            return false;
+        } else {
+            $resId = $connexion->query("SELECT @resId")->fetchColumn();
+            $resEnt = $connexion->query("SELECT @resEnt")->fetchColumn();
+            $resSecteur = $connexion->query("SELECT @resSecteur")->fetchColumn();
+            $resLogo = $connexion->query("SELECT @resLogo")->fetchColumn();
+            $resData = array(
+                'id' => $resId,
+                'nom' => $resEnt,
+                'secteur' => $resSecteur,
+                'logo' => $resLogo
+            );
+            return json_encode($resData);
+        }
     }
 
 
@@ -190,8 +208,7 @@ public function setId ($var_id){
         if ($res == false) {
             return false;
         } else {
-            $resId = $connexion->query("SELECT @resEntreprise")->fetchColumn();
-            return $resId;
+
         }
     }
 
@@ -200,7 +217,7 @@ public function setId ($var_id){
     public function creerEntrepriseAdresse($var_adresse, $var_ville, $var_pays, $var_idEnt){
         $db = Database::getInstance();
         $connexion = $db->getConnexion();
-        $stmt = $connexion->prepare("CALL VerifPaysVilleAdresse(:pays, :ville, :adresse)");
+        $stmt = $connexion->prepare("CALL VerifPaysVilleAdresse(:pays, :ville, :adresse, @resPays, @resVille, @resAdresse)");
         $stmt->bindParam(':pays', $var_pays);
         $stmt->bindParam(':ville', $var_ville);
         $stmt->bindParam(':adresse', $var_adresse);
@@ -208,8 +225,6 @@ public function setId ($var_id){
         if ($resVerif == false) {
             return false;
         } else {
-            $resIdPays = $connexion->query("SELECT @resPays")->fetchColumn();
-            $resIdVille = $connexion->query("SELECT @resVille")->fetchColumn();
             $resIdAdr = $connexion->query("SELECT @resAdresse")->fetchColumn();
 
             $stmt = $connexion->prepare("CALL CreerEntrepriseAdresse(:idEnt, :idAdr)");
@@ -219,7 +234,7 @@ public function setId ($var_id){
             if ($resInsert == false) {
                 return false;
             } else { 
-                return true;
+
             }
         }
     }

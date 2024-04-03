@@ -53,103 +53,46 @@ if (isset($_GET['id']) && isset($_GET['s']) && $_GET['s'] === 'Onload') {
 
 } else {
 
-
-
-   
-//-------------------------------------------- Avec recherche filtres (page de base) ---------------------------------------------------------
-    
-$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-if ($_SERVER["REQUEST_METHOD"] === "GET") {
-    if (isset($_GET['type']) && $_GET['type'] === 'filtres') {
-
-        $entreprise = ($_GET['nom'] == 'Nom') ? "" : $_GET['nom'];
-
-        $activite = ($_GET['activite'] == 'Activite') ? "" : $_GET['activite'];
-        $pays = ($_GET['pays'] == 'Pays') ? "" : $_GET['pays'];
-        $ville = ($_GET['ville'] == 'Ville') ? "" : $_GET['ville'];
-        $adresse = ($_GET['adresse'] == 'Adresse') ? "" : $_GET['adresse'];
-        $filtre1 = isset($_GET['evaluationFilter1']) ? $_GET['evaluationFilter1'] : 0;
-        $filtre1 = isset($_GET['evaluationFilter2']) ? $_GET['evaluationFilter2'] : 0;
-        $filtre1 = isset($_GET['evaluationFilter3']) ? $_GET['evaluationFilter3'] : 0;
-        $filtre1 = isset($_GET['evaluationFilter4']) ? $_GET['evaluationFilter4'] : 0;
-        $filtre1 = isset($_GET['evaluationFilter5']) ? $_GET['evaluationFilter5'] : 0;
-        $filtre1 = isset($_GET['evaluationFilter6']) ? $_GET['evaluationFilter6'] : 0;
-        $trie1 = isset($_GET['NoteAsc']) ? $_GET['NoteAsc'] : 0;
-        $trie2 = isset($_GET['NoteDesc']) ? $_GET['NoteDesc'] : 0;
-        $trie3 = isset($_GET['LikeAsc']) ? $_GET['LikeAsc'] : 0;
-        $trie4 = isset($_GET['LikeDesc']) ? $_GET['LikeDesc'] : 0;
-    
-        $resFiltresEnt = $ent->chercherEntreprise($entreprise, $activite, $pays, $ville, $adresse, $filtre1, $filtre2, $filtre3, $filtre4, $filtre5, $filtre6, $trie1, $trie2, $trie3, $trie4);
-
-        $nbtotalEnt = count($resFiltresEnt);
-
-        $nbpage = ceil($nbtotalEnt / 4);
-
-        $livre = ceil($current_page / 6);
-    
-        $derpage = $livre * 6;
-    
-        $page1 = $derpage -5;
-        $page2 = $derpage -4;
-        $page3 = $derpage -3;
-        $page4 = $derpage -2;
-        $page5 = $derpage -1;
-    
-        $i = 4 * ($current_page - 1);
-
-        $smarty_obj->assign('Ent1',"<li class='OptionEntreprise' onclick='voirEntreprise(". $i .", 0, '')'><article><h5 class='TitreEntreprise'>". $resFiltresEnt[$i]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resFiltresEnt[$i]->getNote() . " &nbsp;&nbsp;&nbsp; likes : ". $resFiltresEnt[$i]->getLike() ."</p></article></li>");
-        $smarty_obj->assign('Ent2',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+1) .", 0, '')'><article><h5 class='TitreEntreprise'>". $resFiltresEnt[$i+1]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resFiltresEnt[$i+1]->getNote() ." &nbsp;&nbsp;&nbsp; likes :". $resFiltresEnt[$i+1]->getLike() ."</p></article></li>");
-        $smarty_obj->assign('Ent3',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+2) .", 0, '')'><article><h5 class='TitreEntreprise'>". $resFiltresEnt[$i+2]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resFiltresEnt[$i+2]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resFiltresEnt[$i+2]->getLike() ."</p></article></li>");
-        $smarty_obj->assign('Ent4',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+3) .", 0, '')'><article><h5 class='TitreEntreprise'>". $resFiltresEnt[$i+3]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resFiltresEnt[$i+3]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resFiltresEnt[$i+3]->getLike() ."</p></article></li>");
-        header('Content-Type: application/json');
-        echo json_encode($resFiltresEnt);
-
-    }
-
-
-
 //-------------------------------------------- Apres chargement (page de base) --------------------------------------------------------------
-    else {
-        $nbtotalEnt = count($resEnt);
 
-        $nbpage = ceil($nbtotalEnt / 4);
-    
-        $livre = ceil($current_page / 6);
-    
-        $derpage = $livre * 6;
-    
-        $page1 = $derpage -5;
-        $page2 = $derpage -4;
-        $page3 = $derpage -3;
-        $page4 = $derpage -2;
-        $page5 = $derpage -1;
-    
-        $i = 4 * ($current_page - 1);
-    
-        if (isset($resEnt[$i])) {
-            $smarty_obj->assign('Ent1',"<li class='OptionEntreprise' onclick='voirEntreprise(". $i .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i]->getNote() . " &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i]->getLike() ."</p></article></li>");
-        } else {
-            $smarty_obj->assign('Ent1',"");
-        }
-        if (isset($resEnt[$i+1])){    
-            $smarty_obj->assign('Ent2',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+1) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+1]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+1]->getNote() ." &nbsp;&nbsp;&nbsp; likes :". $resEnt[$i+1]->getLike() ."</p></article></li>");
-        } else {
-            $smarty_obj->assign('Ent2',"");
-        }
-        if (isset($resEnt[$i+2])){
-            $smarty_obj->assign('Ent3',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+2) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+2]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+2]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+2]->getLike() ."</p></article></li>");
-        } else{
-            $smarty_obj->assign('Ent3',"");
-        }
-        if (isset($resEnt[$i+3])){
-            $smarty_obj->assign('Ent4',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+3) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+3]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+3]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+3]->getLike() ."</p></article></li>");
-        } else {
-            $smarty_obj->assign('Ent4',"");
-        }
+    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+    $nbtotalEnt = count($resEnt);
+
+    $nbpage = ceil($nbtotalEnt / 4);
+
+    $livre = ceil($current_page / 6);
+
+    $derpage = $livre * 6;
+
+    $page1 = $derpage -5;
+    $page2 = $derpage -4;
+    $page3 = $derpage -3;
+    $page4 = $derpage -2;
+    $page5 = $derpage -1;
+
+    $i = 4 * ($current_page - 1);
+
+    if (isset($resEnt[$i])) {
+        $smarty_obj->assign('Ent1',"<li class='OptionEntreprise' onclick='voirEntreprise(". $i .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i]->getNote() . " &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i]->getLike() ."</p></article></li>");
+    } else {
+        $smarty_obj->assign('Ent1',"");
     }
-
-}
+    if (isset($resEnt[$i+1])){    
+        $smarty_obj->assign('Ent2',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+1) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+1]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+1]->getNote() ." &nbsp;&nbsp;&nbsp; likes :". $resEnt[$i+1]->getLike() ."</p></article></li>");
+    } else {
+        $smarty_obj->assign('Ent2',"");
+    }
+    if (isset($resEnt[$i+2])){
+        $smarty_obj->assign('Ent3',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+2) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+2]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+2]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+2]->getLike() ."</p></article></li>");
+    } else{
+        $smarty_obj->assign('Ent3',"");
+    }
+    if (isset($resEnt[$i+3])){
+        $smarty_obj->assign('Ent4',"<li class='OptionEntreprise' onclick='voirEntreprise(". ($i+3) .", 0)'><article><h5 class='TitreEntreprise'>". $resEnt[$i+3]->getNom() ."</h5><p class='DescriptionEntreprise'>note : ". $resEnt[$i+3]->getNote() ." &nbsp;&nbsp;&nbsp; likes : ". $resEnt[$i+3]->getLike() ."</p></article></li>");
+    } else {
+        $smarty_obj->assign('Ent4',"");
+    }
 
 
 
@@ -258,7 +201,7 @@ $smarty_obj->display('../View/recherche_entreprises.tpl');
 
 
 
-
+/*
 function MasquerEntreprise(){
     if (isset($_GET['id']) && $_GET['s'] === 'Onload') {
         $current_ent = $_GET['id'];
@@ -273,14 +216,14 @@ function MasquerEntreprise(){
         global $ent;
         $resTopEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1);
     }
-    /*
+    
     else if (isset($_GET['id']) && $_GET['s'] === 'Filtres') {
         $current_ent = $_GET['id'];
         global $resFiltresEnt;
         $resFiltresEnt[$current_ent]->masquerEntreprise();
         global $ent;
         $resFiltresEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1);
-    }*/
+    }
 }
 
 function VisibleEntreprise(){
@@ -297,3 +240,4 @@ function VisibleEntreprise(){
         $resTopEnt = $ent->chercherEntreprise('', '', '', '', '', 0, 0, 0 ,0 ,0 ,1 ,0 ,0 ,0 , 1);
     }
 }
+*/
