@@ -219,6 +219,46 @@ function redirectToAccueilGPEdit(event){
     xhr.send(JSON.stringify(data));
 }
 
+function Profil_Pil(event){
+    event.preventDefault();
+    var nom_pilote = document.getElementById("nom_pilote").value;
+    var prenom_pilote = document.getElementById("prenom_pilote").value;
+    var centre_pilote = document.getElementById("centre_pilote").value;
+    var promo_pilote =  document.getElementById("promo_pilote").value;
+
+    var data = {
+        nom: nom_pilote,
+        prenom: prenom_pilote,
+        centre: centre_pilote,
+        promo: promo_pilote,
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=recherchepilote",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            alert (response);
+            response = response.split('.');
+            if (response[0] === 'true') {
+                alert("profil trouvé avec succès");
+                window.location.href = "../profil_utilisateur_pilote.html?id_user="+response[1];
+            } else {
+                alert("Erreur : le profil n'a pas pu être trouver");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
 
 function redirectToAccueilGE_FromCreate(){
     var name_pil = document.getElementById("nom_pilote").value;

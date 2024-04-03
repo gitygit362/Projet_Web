@@ -26,7 +26,7 @@ function create_pilote(){
     }
 }
 
-function preedit_pilote(){
+function find_pilote(){
     global $obj,$db;
     $resultat = $obj->recherche($db);
     if($resultat == null){
@@ -50,17 +50,21 @@ function edit_pilote(){
     }
 }
 
+
+
+
 if (isset($_GET['action']) && $_GET['action'] === 'createpilote') {
     create_pilote();
 } 
 
-if (isset($_GET['action']) && $_GET['action'] === 'preeditpilote') {
-    preedit_pilote();
+if (isset($_GET['action']) && $_GET['action'] === 'preeditpilote' || isset($_GET['action']) && $_GET['action'] === 'recherchepilote') {
+    find_pilote();
 } 
 
 if (isset($_GET['action']) && $_GET['action'] === 'editpilote') {
     edit_pilote();
 } 
+
 
 
 
