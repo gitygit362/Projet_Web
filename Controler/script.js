@@ -356,35 +356,35 @@ function redirectToRecherche_GP(){
 }
 
 
-function redirectToGP_modification(event){
+function redirectToGETU_modification(event){
     event.preventDefault();
-    var nom_pilote = document.getElementById("nom_pilote").value;
-    var prenom_pilote = document.getElementById("prenom_pilote").value;
-    var centre_pilote = document.getElementById("centre_pilote").value;
-    var promo_pilote =  document.getElementById("promo_pilote").value;
+    var nom_etudiant = document.getElementById("nom_etudiant").value;
+    var prenom_etudiant = document.getElementById("prenom_etudiant").value;
+    var centre_etudiant = document.getElementById("centre_etudiant").value;
+    var promo_etudiant =  document.getElementById("promo_etudiant").value;
     
-    if (nom_pilote.trim() === '' || prenom_pilote.trim() === '' || centre_pilote.trim() === '' || promo_pilote.trim() === '') {
+    if (nom_etudiant.trim() === '' || prenom_etudiant.trim() === '' || centre_etudiant.trim() === '' || promo_etudiant.trim() === '') {
         alert("Veuillez remplir tous les champs.");
         return;
     }
-
     var data = {
-        nom: nom_pilote,
-        prenom: prenom_pilote,
-        centre: centre_pilote,
-        promo: promo_pilote
+        nom: nom_etudiant,
+        prenom: prenom_etudiant,
+        centre: centre_etudiant,
+        promo: promo_etudiant
     };
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST","../../Controler/users.php?action=preeditpilote",true);
+    xhr.open("POST","../../Controler/users.php?action=preeditetudiant",true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
             response = response.split('.');
+            alert(response);
             if (response[0] === 'true') {
                 alert("profil trouvé avec succès");
-                window.location.href = "GP_modification.html?id_user="+response[1];
+                window.location.href = "GETU_modification.html?id_user="+response[1];
             } else {
                 alert("Erreur : le profil est introuvable");
             }
@@ -436,7 +436,6 @@ function redirectToAccueilGETUCreate(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
-            alert(response);
             if (response === 'true') {
                 alert("profil créé avec succès");
                 window.location.href = 'GETU_accueil.html';
@@ -467,8 +466,48 @@ function redirectToEdit_GETU(){
     window.location.href = "GETU_a_modifier.html";
 }
 
-function redirectToGETU_modification(){
-    window.location.href = "GETU_modification.html";
+
+function redirectToGP_modification(event){
+    event.preventDefault();
+    var nom_pilote = document.getElementById("nom_pilote").value;
+    var prenom_pilote = document.getElementById("prenom_pilote").value;
+    var centre_pilote = document.getElementById("centre_pilote").value;
+    var promo_pilote =  document.getElementById("promo_pilote").value;
+    
+    if (nom_pilote.trim() === '' || prenom_pilote.trim() === '' || centre_pilote.trim() === '' || promo_pilote.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    var data = {
+        nom: nom_pilote,
+        prenom: prenom_pilote,
+        centre: centre_pilote,
+        promo: promo_pilote
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=preeditpilote",true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            response = response.split('.');
+            if (response[0] === 'true') {
+                alert("profil trouvé avec succès");
+                window.location.href = "GETU_modification.html?id_user="+response[1];
+            } else {
+                alert("Erreur : le profil est introuvable");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
 }
 
 function redirectToRecherche_GETU(){

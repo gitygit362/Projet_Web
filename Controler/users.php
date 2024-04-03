@@ -72,6 +72,40 @@ function create_etudiant(){
     }
 }
 
+function find_etudiant(){
+    global $etudiant,$db;
+    $resultat = $etudiant->recherche($db);
+    if($resultat == null){
+        header('Content-Type: test/plain');
+        echo 'false';
+    } else {
+        echo 'true'.'.'.$resultat[0];
+    }
+}
+
+function edit_etudiant(){
+    global $etudiant,$db,$data;
+    $id = $data['id'];
+    $id = intval($id);
+    $resultat = $etudiant->modifier($db,$id);
+    if($resultat == false){
+        header('Content-Type: test/plain');
+        echo 'false';
+    } else {
+        echo 'true';
+    }
+}
+
+function delete_etudiant(){
+    global $etudiant,$db;
+    $resultat = $etudiant->supprimer($db);
+    if($resultat == null){
+        header('Content-Type: test/plain');
+        echo 'false';
+    } else {
+        echo 'true';
+    }
+}
 
 if (isset($_GET['action']) && $_GET['action'] === 'createpilote') {
     create_pilote();
