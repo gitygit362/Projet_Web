@@ -201,7 +201,6 @@ function redirectToAccueilGPEdit(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
-            alert (response);
             if (response === 'true') {
                 alert("profil modifié avec succès");
                 window.location.href = "GP_accueil.html";
@@ -239,7 +238,6 @@ function Profil_Pil(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
-            alert (response);
             response = response.split('.');
             if (response[0] === 'true') {
                 alert("profil trouvé avec succès");
@@ -320,7 +318,6 @@ function redirectToGP_modification(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
-            alert (response);
             response = response.split('.');
             if (response[0] === 'true') {
                 alert("profil trouvé avec succès");
