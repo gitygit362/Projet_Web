@@ -46,6 +46,11 @@ function redirectToAccueilGPform(event){
     var centre_pilote = document.getElementById("centre_pilote").value;
     var promo_pilote =  document.getElementById("promo_pilote").value;
     
+    if (nom_pilote.trim() === '' || prenom_pilote.trim() === '' || centre_pilote.trim() === '' || promo_pilote.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
     var data = {
         nom: nom_pilote,
         prenom: prenom_pilote,
@@ -59,7 +64,6 @@ function redirectToAccueilGPform(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
-            alert(response);
             if (response === 'true') {
                 alert("profil créé avec succès");
                 window.location.href = 'GP_accueil.html';
@@ -187,6 +191,11 @@ function redirectToAccueilGPEdit(event){
     var url = new URL(window.location.href);
     var id_user = url.searchParams.get("id_user");  
 
+    if (nom_pilote.trim() === '' || prenom_pilote.trim() === '' || centre_pilote.trim() === '' || promo_pilote.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
     var data = {
         nom: nom_pilote,
         prenom: prenom_pilote,
@@ -225,6 +234,11 @@ function Profil_Pil(event){
     var centre_pilote = document.getElementById("centre_pilote").value;
     var promo_pilote =  document.getElementById("promo_pilote").value;
 
+    if (nom_pilote.trim() === '' || prenom_pilote.trim() === '' || centre_pilote.trim() === '' || promo_pilote.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+    
     var data = {
         nom: nom_pilote,
         prenom: prenom_pilote,
@@ -256,6 +270,49 @@ function Profil_Pil(event){
     xhr.send(JSON.stringify(data));
 }
 
+
+function redirectToAccueilGPSuppr(event){
+    event.preventDefault();
+    var nom_pilote = document.getElementById("nom_pilote").value;
+    var prenom_pilote = document.getElementById("prenom_pilote").value;
+    var centre_pilote = document.getElementById("centre_pilote").value;
+    var promo_pilote =  document.getElementById("promo_pilote").value;
+    
+    if (nom_pilote.trim() === '' || prenom_pilote.trim() === '' || centre_pilote.trim() === '' || promo_pilote.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    var data = {
+        nom: nom_pilote,
+        prenom: prenom_pilote,
+        centre: centre_pilote,
+        promo: promo_pilote
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=supprpilote",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            alert(response);
+            if (response === 'true') {
+                alert("profil supprimé avec succès");
+                window.location.href = 'GP_accueil.html';
+            } else {
+                alert("Erreur : le profil n'a pas pu être supprimer");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
 
 
 function redirectToAccueilGE_FromCreate(){
@@ -305,6 +362,11 @@ function redirectToGP_modification(event){
     var centre_pilote = document.getElementById("centre_pilote").value;
     var promo_pilote =  document.getElementById("promo_pilote").value;
     
+    if (nom_pilote.trim() === '' || prenom_pilote.trim() === '' || centre_pilote.trim() === '' || promo_pilote.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
     var data = {
         nom: nom_pilote,
         prenom: prenom_pilote,

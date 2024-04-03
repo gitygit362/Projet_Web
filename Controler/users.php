@@ -50,6 +50,17 @@ function edit_pilote(){
     }
 }
 
+function delete_pilote(){
+    global $obj,$db;
+    $resultat = $obj->supprimer($db);
+    if($resultat == null){
+        header('Content-Type: test/plain');
+        echo 'false';
+    } else {
+        echo 'true';
+    }
+}
+
 
 
 
@@ -65,6 +76,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'editpilote') {
     edit_pilote();
 } 
 
-
+if (isset($_GET['action']) && $_GET['action'] === 'supprpilote') {
+    delete_pilote();
+} 
 
 

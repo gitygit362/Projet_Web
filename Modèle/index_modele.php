@@ -99,4 +99,13 @@ class GestionPilote extends GestionUser
         $req->bindParam(':id',$id_user);
         return $req->execute();
     }
+
+    public function supprimer($db){
+        $req = $db->prepare("CALL SupprimerPilote (:nom, :prenom, :centre, :promo)");
+        $req->bindParam(':nom',$this->nom);
+        $req->bindParam(':prenom',$this->prenom);
+        $req->bindParam(':centre',$this->centre);
+        $req->bindParam(':promo',$this->promo);
+        return $req->execute();
+    }
 }
