@@ -1,4 +1,5 @@
 // redirections 
+console.log("js connected");
 
 function redirectToAccueilFromConnexion(event) {
 
@@ -38,7 +39,47 @@ function redirectToAccueilFromConnexion(event) {
    return false;
 }
 
+function redirectToAccueilGPform(event){
+    event.preventDefault();
+    var nom_pilote = document.getElementById("nom_pilote").value;
+    var prenom_pilote = document.getElementById("prenom_pilote").value;
+    var centre_pilote = document.getElementById("centre_pilote").value;
+    var promo_pilote =  document.getElementById("promo_pilote").value;
+    
+    if (nom_pilote.trim() === '' || prenom_pilote.trim() === '' || centre_pilote.trim() === '' || promo_pilote.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
 
+    var data = {
+        nom: nom_pilote,
+        prenom: prenom_pilote,
+        centre: centre_pilote,
+        promo: promo_pilote
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=createpilote",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            if (response === 'true') {
+                alert("profil créé avec succès");
+                window.location.href = 'GP_accueil.html';
+            } else {
+                alert("Erreur : le profil n'a pas été créé");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
 
 
 
@@ -90,10 +131,164 @@ function redirectToCreerOffre() {
 
 
 //gestion pilote redirection
-function redirectToAccueilGP(){
-    window.location.href = "GP_accueil.html";
+
+function redirectToAccueilGPEdit(event){
+    event.preventDefault();
+    var nom_pilote = document.getElementById("nom_pilote").value;
+    var prenom_pilote = document.getElementById("prenom_pilote").value;
+    var centre_pilote = document.getElementById("centre_pilote").value;
+    var promo_pilote =  document.getElementById("promo_pilote").value;
+
+    var url = new URL(window.location.href);
+    var id_user = url.searchParams.get("id_user");  
+
+    if (nom_pilote.trim() === '' || prenom_pilote.trim() === '' || centre_pilote.trim() === '' || promo_pilote.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    var data = {
+        nom: nom_pilote,
+        prenom: prenom_pilote,
+        centre: centre_pilote,
+        promo: promo_pilote,
+        id: id_user
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=editpilote",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            if (response === 'true') {
+                alert("profil modifié avec succès");
+                window.location.href = "GP_accueil.html";
+            } else {
+                alert("Erreur : le profil n'a pas pu être modifier");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
 }
 
+
+function Profil_Pil(event){
+    event.preventDefault();
+    var nom_pilote = document.getElementById("nom_pilote").value;
+    var prenom_pilote = document.getElementById("prenom_pilote").value;
+    var centre_pilote = document.getElementById("centre_pilote").value;
+    var promo_pilote =  document.getElementById("promo_pilote").value;
+
+    if (nom_pilote.trim() === '' || prenom_pilote.trim() === '' || centre_pilote.trim() === '' || promo_pilote.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+    
+    var data = {
+        nom: nom_pilote,
+        prenom: prenom_pilote,
+        centre: centre_pilote,
+        promo: promo_pilote,
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=recherchepilote",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            response = response.split('.');
+            if (response[0] === 'true') {
+                alert("profil trouvé avec succès");
+                window.location.href = "../profil_utilisateur_pilote.html?id_user="+response[1];
+            } else {
+                alert("Erreur : le profil n'a pas pu être trouver");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
+function redirectToAccueilGPSuppr(event){
+    event.preventDefault();
+    var nom_pilote = document.getElementById("nom_pilote").value;
+    var prenom_pilote = document.getElementById("prenom_pilote").value;
+    var centre_pilote = document.getElementById("centre_pilote").value;
+    var promo_pilote =  document.getElementById("promo_pilote").value;
+    
+    if (nom_pilote.trim() === '' || prenom_pilote.trim() === '' || centre_pilote.trim() === '' || promo_pilote.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    var data = {
+        nom: nom_pilote,
+        prenom: prenom_pilote,
+        centre: centre_pilote,
+        promo: promo_pilote
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=supprpilote",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            alert(response);
+            if (response === 'true') {
+                alert("profil supprimé avec succès");
+                window.location.href = 'GP_accueil.html';
+            } else {
+                alert("Erreur : le profil n'a pas pu être supprimer");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
+function redirectToAccueilGE_FromCreate(){
+    var name_pil = document.getElementById("nom_pilote").value;
+    var fname_pil = document.getElementById("prenom_pilote").value;
+    var centre_pil = document.getElementById("centre_pilote").value;
+    var local_pil = document.getElementById("promo_pilote").value;
+    if(name_ent == ""){
+        alert("Veuillez entrer un nom d'entreprise");
+        return false;
+    }
+    else if(sect_ent == ""){
+        alert("Veuillez entrer un secteur d'entreprise");
+        return false;
+    }
+    else if(local_ent == ""){
+        alert("Veuillez entrer au moins une localité pour l'entreprise");
+        return false;
+    }
+    else{
+        window.location.href = "GE_accueil.html";
+        return true;
+    }
+}
 
 
 function redirectToCrer_GP(){
@@ -112,9 +307,52 @@ function redirectToRecherche_GP(){
     window.location.href = "GP_recherche.html";
 }
 
-function redirectToGP_modification(){
-    window.location.href = "GP_modification.html";
+
+function redirectToGP_modification(event){
+    event.preventDefault();
+    var nom_pilote = document.getElementById("nom_pilote").value;
+    var prenom_pilote = document.getElementById("prenom_pilote").value;
+    var centre_pilote = document.getElementById("centre_pilote").value;
+    var promo_pilote =  document.getElementById("promo_pilote").value;
+    
+    if (nom_pilote.trim() === '' || prenom_pilote.trim() === '' || centre_pilote.trim() === '' || promo_pilote.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    var data = {
+        nom: nom_pilote,
+        prenom: prenom_pilote,
+        centre: centre_pilote,
+        promo: promo_pilote
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=preeditpilote",true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            response = response.split('.');
+            if (response[0] === 'true') {
+                alert("profil trouvé avec succès");
+                window.location.href = "GP_modification.html?id_user="+response[1];
+            } else {
+                alert("Erreur : le profil est introuvable");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
 }
+
+
+
 
 // gestion etudiant redirection
 function redirectToAccueilGETU(){

@@ -54,5 +54,4 @@ if ($res == false) {
         echo 'false';
     }
 }
-
 exit();

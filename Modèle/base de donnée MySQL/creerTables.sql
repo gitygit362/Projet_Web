@@ -17,7 +17,8 @@ CREATE TABLE Entreprise(
    ID_entreprise INT NOT NULL AUTO_INCREMENT,
    secteur_activité VARCHAR(50),
    nom VARCHAR(50),
-   logo VARCHAR(100),		-- Notre url Assets/images/logo n° fait 26 caractères à voir si plus 
+   logo VARCHAR(100),		-- Notre url Assets/images/logo n° fait 26 caractères à voir si plus
+   statut VARCHAR(50),
    PRIMARY KEY(ID_entreprise)
 );
 
@@ -79,7 +80,7 @@ CREATE TABLE Etudiant(/*45*/
    ID_etudiant INT NOT NULL AUTO_INCREMENT,
    ID_centre INT NOT NULL,
    ID_utilisateur INT NOT NULL,
-   ID_promo INT NOT NULL;
+   ID_promo INT NOT NULL,
    PRIMARY KEY(ID_etudiant),
    constraint FOREIGN KEY(ID_centre) REFERENCES Centre(ID_centre),
    constraint FOREIGN KEY(ID_utilisateur) REFERENCES Utilisateurs(ID_utilisateur),
@@ -150,6 +151,7 @@ CREATE TABLE Candidature(
    lettre_motivation VARCHAR(5000),/*CV*/
    ID_etudiant INT NOT NULL,
    ID_offre INT NOT NULL,
+   etat VARCHAR(50),
    PRIMARY KEY(ID_candidature),
    constraint FOREIGN KEY(ID_etudiant) REFERENCES Etudiant(ID_etudiant),
    constraint FOREIGN KEY(ID_offre) REFERENCES Offre_de_stage(ID_offre)

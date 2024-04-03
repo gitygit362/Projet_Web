@@ -38,56 +38,88 @@ insert into Promo (promo) values ('A3');
 insert into Promo (promo) values ('A4');
 insert into Promo (promo) values ('A5');
 
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Informatique', 'NovaTech Solutions', '../logo/logo1');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Finance/Investissement', 'Quantum Ventures', '../logo/logo2');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Électronique', 'BlueWave Innovations', '../logo/logo3');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Fabrication/Industrie', 'SilverLinx Industries', '../logo/logo4');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Ingénierie/Mécanique', 'Zenith Dynamics', '../logo/logo5');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Consulting/Conseil', 'OptiMystic Enterprises', '../logo/logo6');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Énergie/Renouvelable', 'Apex Fusion Group', '../logo/logo7');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Médias/Communication', 'Velocity Visions Inc.', '../logo/logo8');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Services professionnels', 'Stellar Synergy Co.', '../logo/logo9');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Immobilier/Construction', 'Horizon Heights Corporation', '../logo/logo10');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Internet', 'Nexus Nexus Inc.', '../logo/logo11');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Fabrication/Métallurgie', 'Fusion Forge Industries', '../logo/logo12');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Audio', 'EchoEcho Enterprises', '../logo/logo13');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Santé/Pharmaceutique', 'OmniGenix Solutions', '../logo/logo14');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Robotique', 'Phoenix Spark Technologies', '../logo/logo15');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Chimie/Matériaux', 'Alchemy Alcove Ltd.', '../logo/logo16');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Maritime/Transport', 'TitanTide Ventures', '../logo/logo17');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Éducation/Formation', 'Pinnacle Prodigy Inc.', '../logo/logo18');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Environnement/Développement durable', 'Solstice Solutions Group', '../logo/logo19');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Luxe/Mode', 'Lumina Luxe Enterprises', '../logo/logo20');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Logistique/Transport', 'Streamline Syndicate', '../logo/logo21');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Environnement/Énergie propre', 'Infinity Impact Inc.', '../logo/logo22');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Cloud computing', 'Nimbus Nexus Corporation', '../logo/logo23');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Astronomie/Technologie spatiale', 'Astral Axis Solutions', '../logo/logo24');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Communication vocale', 'VirtuVox Ventures', '../logo/logo25');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Internet des objets (IoT)', 'EchoSphere Enterprises', '../logo/logo26');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Recherche/Développement', 'Arcane Innovations Inc.', '../logo/logo27');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Marketing/Publicité', 'Element Edge Group', '../logo/logo28');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Divertissement/Jeux vidéo', 'Radiant Realms Corporation', '../logo/logo29');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Sécurité/Technologie de l''information', 'Enigma Enterprises', '../logo/logo30');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Design/Architecture', 'Cascade Concepts Co.', '../logo/logo31');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Beauté/Produits de soins', 'Elysian Elements Inc.', '../logo/logo32');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Aérospatiale/Aviation', 'Aurora Apex Ventures', '../logo/logo33');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Logiciel', 'Nexus Nucleus Solutions', '../logo/logo34');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Consulting/Conseil en stratégie', 'Envision Enterprises', '../logo/logo35');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Énergie/Éolien', 'Zephyr Zenith Inc.', '../logo/logo36');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Santé/Bien-être', 'Serenity Systems Group', '../logo/logo37');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Énergie alternative', 'Synergy Sphere Solutions', '../logo/logo38');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Voyage/Tourisme spatial', 'Odyssey OmniCorp', '../logo/logo39');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Finance/Trading', 'Momentum Matrix Ltd.', '../logo/logo40');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Bien-être numérique', 'TranquilTech Enterprises', '../logo/logo41');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Métallurgie/Fonderie', 'Phoenix Forge Inc.', '../logo/logo42');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Équipement/Électronique grand public', 'Apex Ascent Corporation', '../logo/logo43');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Blockchain', 'Paragon Pinnacle Group', '../logo/logo44');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Éducation/Formation en ligne', 'Genesis Grid Solutions', '../logo/logo45');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Énergie/Fusion nucléaire', 'Quantum Quest Enterprises', '../logo/logo46');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Internet spatial', 'Fusion Flux Inc.', '../logo/logo47');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Secteur non spécifié', 'Nebula Nexus Co.', '../logo/logo48');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Technologie/Informatique', 'Apexia Alliance Ltd.', '../logo/logo49');
-INSERT INTO Entreprise (secteur_activité, nom, logo) VALUES ('Finance/Investissement', 'Zenith Zone Ventures', '../logo/logo50');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Technologie/Informatique', 'NovaTech Solutions', '../logo/logo1', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Finance/Investissement', 'Quantum Ventures', '../logo/logo2', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Technologie/Électronique', 'BlueWave Innovations', '../logo/logo3', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Fabrication/Industrie', 'SilverLinx Industries', '../logo/logo4', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Ingénierie/Mécanique', 'Zenith Dynamics', '../logo/logo5', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Consulting/Conseil', 'OptiMystic Enterprises', '../logo/logo6', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Énergie/Renouvelable', 'Apex Fusion Group', '../logo/logo7', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Médias/Communication', 'Velocity Visions Inc.', '../logo/logo8', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Services professionnels', 'Stellar Synergy Co.', '../logo/logo9', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Immobilier/Construction', 'Horizon Heights Corporation', '../logo/logo10', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Technologie/Internet', 'Nexus Nexus Inc.', '../logo/logo11', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Fabrication/Métallurgie', 'Fusion Forge Industries', '../logo/logo12', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Technologie/Audio', 'EchoEcho Enterprises', '../logo/logo13', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Santé/Pharmaceutique', 'OmniGenix Solutions', '../logo/logo14', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Technologie/Robotique', 'Phoenix Spark Technologies', '../logo/logo15', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Chimie/Matériaux', 'Alchemy Alcove Ltd.', '../logo/logo16', 'visible');
+
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) 
+VALUES ('Maritime/Transport', 'TitanTide Ventures', '../logo/logo17', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Éducation/Formation', 'Pinnacle Prodigy Inc.', '../logo/logo18', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Environnement/Développement durable', 'Solstice Solutions Group', '../logo/logo19', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Luxe/Mode', 'Lumina Luxe Enterprises', '../logo/logo20', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Logistique/Transport', 'Streamline Syndicate', '../logo/logo21', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Environnement/Énergie propre', 'Infinity Impact Inc.', '../logo/logo22', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Technologie/Cloud computing', 'Nimbus Nexus Corporation', '../logo/logo23', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Astronomie/Technologie spatiale', 'Astral Axis Solutions', '../logo/logo24', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Technologie/Communication vocale', 'VirtuVox Ventures', '../logo/logo25', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Technologie/Internet des objets (IoT)', 'EchoSphere Enterprises', '../logo/logo26', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Recherche/Développement', 'Arcane Innovations Inc.', '../logo/logo27', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Marketing/Publicité', 'Element Edge Group', '../logo/logo28', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Divertissement/Jeux vidéo', 'Radiant Realms Corporation', '../logo/logo29', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Sécurité/Technologie de l''information', 'Enigma Enterprises', '../logo/logo30', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Design/Architecture', 'Cascade Concepts Co.', '../logo/logo31', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Beauté/Produits de soins', 'Elysian Elements Inc.', '../logo/logo32', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Aérospatiale/Aviation', 'Aurora Apex Ventures', '../logo/logo33', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Technologie/Logiciel', 'Nexus Nucleus Solutions', '../logo/logo34', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Consulting/Conseil en stratégie', 'Envision Enterprises', '../logo/logo35', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Énergie/Éolien', 'Zephyr Zenith Inc.', '../logo/logo36', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Santé/Bien-être', 'Serenity Systems Group', '../logo/logo37', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Technologie/Énergie alternative', 'Synergy Sphere Solutions', '../logo/logo38', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Voyage/Tourisme spatial', 'Odyssey OmniCorp', '../logo/logo39', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Finance/Trading', 'Momentum Matrix Ltd.', '../logo/logo40', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Technologie/Bien-être numérique', 'TranquilTech Enterprises', '../logo/logo41', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Métallurgie/Fonderie', 'Phoenix Forge Inc.', '../logo/logo42', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Équipement/Électronique grand public', 'Apex Ascent Corporation', '../logo/logo43', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Technologie/Blockchain', 'Paragon Pinnacle Group', '../logo/logo44', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Éducation/Formation en ligne', 'Genesis Grid Solutions', '../logo/logo45', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Énergie/Fusion nucléaire', 'Quantum Quest Enterprises', '../logo/logo46', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Technologie/Internet spatial', 'Fusion Flux Inc.', '../logo/logo47', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Secteur non spécifié', 'Nebula Nexus Co.', '../logo/logo48', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Technologie/Informatique', 'Apexia Alliance Ltd.', '../logo/logo49', 'visible');
+INSERT INTO Entreprise (secteur_activité, nom, logo, statut) VALUES ('Finance/Investissement', 'Zenith Zone Ventures', '../logo/logo50', 'visible');
+
 
 
 
