@@ -11,7 +11,6 @@ $centre_pilote = $data['centre'];
 $promo_pilote =  $data['promo'];
 
 
-
 $obj = new GestionPilote($nom_pilote,$prenom_pilote,$centre_pilote,$promo_pilote);
 
 

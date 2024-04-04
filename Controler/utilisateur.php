@@ -5,12 +5,28 @@ require '../Modèle/utilisateur.class.php';
 $id_user = $_SESSION['id'];
 
 if ($_SESSION['statut'] == 'admin'){
-    $smarty_obj->assign("","");
-    $smarty_obj->assign("","");
-    $smarty_obj->assign("","");
+    $utilisateur = new Utilisateur();
+    $utilisateur->infosUtilisateur($_SESSION['id'], $_SESSION['statut']);
+    $utilisateur->adminCentres();
+    $id = $utilisateur->getId();
+    $nom = $utilisateur->getNom();
+    $prenom = $utilisateur->getPrenom();
+    $centres = $utilisateur->getCentre();
+    $taille = count($centres);
+    $smarty_obj->assign("nomUser",$nom);
+    $smarty_obj->assign("prenomUser", $prenom);
 
+    for ($i = 0; $i < 25; $i++) {
+        if ($i < $taille) {
+            $smarty_obj->assign("centre" . ($i + 1), "<button class='centre-button'>" . $centres[$i] . "</button>");
+        } else {
+            $smarty_obj->assign("centre" . ($i + 1), "");
+        }
+    }
 
     $smarty_obj->display('../View/profil_utilisateur_admin.tpl');
+
+
 }
 else if ($_SESSION['statut'] == 'pilote'){
     $utilisateur = new Utilisateur();
