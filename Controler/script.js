@@ -21,7 +21,7 @@ function redirectToAccueilFromConnexion(event) {
         var response = xhr.responseText.trim();
         if (response === 'true') {
             alert("Authentification réussie");
-            window.location.href = '../Modèle/accueil.php';
+            window.location.href = '../Controler/accueil.php';
         } else {
             alert("Identifiant ou mot de passe incorrect");
         }
@@ -94,32 +94,7 @@ function redirectToAccueilGPform(event){
 //utilisation php de page connexion
 
 function redirectToAccueil(){
-    window.location.href = "../accueil.html";
-}
-function redirectToAccueilGE(){
-    window.location.href = "GE_accueil.html";
-}
-
-function redirectToAccueilGE_FromCreate(){
-    var name_ent = document.getElementById("nom_entreprise").value;
-    var sect_ent = document.getElementById("secteur_entreprise").value;
-    var local_ent = document.getElementById("localite1_entreprise").value;
-    if(name_ent == ""){
-        alert("Veuillez entrer un nom d'entreprise");
-        return false;
-    }
-    else if(sect_ent == ""){
-        alert("Veuillez entrer un secteur d'entreprise");
-        return false;
-    }
-    else if(local_ent == ""){
-        alert("Veuillez entrer au moins une localité pour l'entreprise");
-        return false;
-    }
-    else{
-        window.location.href = "GE_accueil.html";
-        return true;
-    }
+    window.location.href = "../../Controler/accueil.php";
 }
 
 
@@ -155,30 +130,6 @@ function redirectToCreerOffre() {
 }
 
 
-function redirectToCrerEnt_GE(){
-    window.location.href = "GE_creation.html";    
-}
-
-function redirectToSuppEnt_GE(){
-    window.location.href = "GE_suppression.html";
-}
-
-function redirectToEditEnt_GE(){
-    window.location.href = "GE_a_modifier.html";
-}
-
-function redirectToGE_modification(){
-     var name_ent = document.getElementById("nom_entreprise").value;
-     if(name_ent == ""){
-         alert("Veuillez entrer un nom d'entreprise");
-         return false;
-    }
-     else{
-         alert("test");
-        window.location.href = "GE_modification.html";
-         return true;
-    }
-}
 
 //gestion pilote redirection
 
@@ -227,6 +178,7 @@ function redirectToAccueilGPEdit(event){
     };
     xhr.send(JSON.stringify(data));
 }
+
 
 function Profil_Pil(event){
     event.preventDefault();
@@ -337,6 +289,7 @@ function redirectToAccueilGE_FromCreate(){
         return true;
     }
 }
+
 
 function redirectToCrer_GP(){
     window.location.href = "GP_creation.html";
@@ -684,10 +637,8 @@ function hideLogout() {
 /* Prochaines fonctions en lien avec le backend */
 
 // ------------------------ Acces au profil ----------------------------
-function redirectToProfil(statut) {
-    var Statut = statut;
-    window.location.href = "../View/profil_utilisateur_" + Statut + ".html";
-        // dans le profil on va chercher les infos 
+function redirectToProfil() {
+    window.location.href = "utilisateur.php";
 }
 
 

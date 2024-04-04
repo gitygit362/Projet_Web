@@ -10,14 +10,14 @@
     <header class="header1">
         <img src="../View/Assets/images/logo.png" alt="logo EASYSTAGE">
         <nav class="navbar">
-            <a href="../View/accueil.html">Accueil</a>
+            <a href="../Controler/accueil.php">Accueil</a>
             <a href="../View/offres_stages.html">Offres de stages</a>
-            <a href="../View/presentation_entreprise.html" id="pagepre">Entreprises</a>
+            <a href="../Controler/entreprises.php" id="pagepre">Entreprises</a>
             {$directionEtudiant}
             {$directionPilote}
             <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
             {$directionProfil}
-            <a class="Deconnexion" href="../View/page_connexion.html">Déconnexion</a>
+            <a class="Deconnexion" href="page_connexion.html" onclick="deconnexion(event)">Déconnexion</a>
             </div>
         </nav> 
         <style>
@@ -55,7 +55,7 @@
  <b>- nombre de wishlist contenants leurs offres : </b>{$WhListEnt}
 
     </pre>
-        {$masquer}
+
         </div>
 </div>
 <div>
@@ -65,7 +65,7 @@
 </div>
 </main>
 <footer>
-    <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+    <a class="mentions-legales" href="../View/mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
 </footer>
 
 <script src="../Controler/script.js"></script>

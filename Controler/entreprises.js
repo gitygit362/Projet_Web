@@ -1,118 +1,23 @@
 //Entreprises
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    // Sélectionnez tous les liens de page dans la pagination
-    var pageLinks = document.querySelectorAll('.pagination a');
-
-    // Parcourez chaque lien de page et ajoutez un gestionnaire d'événements de clic
-    pageLinks.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            // Empêchez le comportement par défaut du lien
-            event.preventDefault();
-
-            paginationChildren.forEach(function(child) {
-                // Faites quelque chose avec chaque enfant, par exemple :
-                console.log(child); // Affiche chaque enfant dans la console
-            });
-            // Supprimez la classe 'active' de tous les liens de page
-            pageLinks.forEach(function(link) {
-                link.classList.remove('active');
-            });
-
-            // Ajoutez la classe 'active' au lien de page cliqué
-            this.classList.add('active');
-        });
-    });
-});*/
 
 
 
 
-
-
-
-
-
-
-
-
-document.getElementById('masquerInput').addEventListener('change', function () {
-    var isChecked = document.getElementById('masquerInput').checked;
-
-    // Si la case à cocher est cochée
-    if (isChecked) {
-        // Effectuer une requête AJAX en utilisant GET pour appeler la méthode MasquerEntreprise
-        var xhr = new XMLHttpRequest();
-        xhr.open('PUT', 'entreprises.php?action=MasquerEntreprise', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    alert("Vous avez masqué cette entreprise. Elle ne sera plus visible dans la recherche.");
-                } else {
-                    // Erreur lors de la requête AJAX
-                    console.error('Erreur lors de la requête AJAX');
-                }
-            }
-        };
-        xhr.onerror = function () {
-            alert("Erreur lors de la requête masquer");
-        };
-        xhr.send();
-    }
-    else {
-        var xhr = new XMLHttpRequest();
-        xhr.open('PUT', 'entreprises.php?action=VisibleEntreprise', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    alert("Vous allez rendre visible cette entreprise pour les étudiants. \nCes informations seront prisent en compte dans les statistiques de recherche.");
-                } else {
-                    // Erreur lors de la requête AJAX
-                    console.error('Erreur lors de la requête AJAX');
-                }
-            }
-        };
-        xhr.onerror = function () {
-            alert("Erreur lors de la requête masquer");
-        };
-        xhr.send();
-    }
-}
-);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('filtresForm');
-    form.addEventListener('submit', function(event) {
+function requeteFiltre(event, recherche){
         event.preventDefault();
 
         localisation = document.getElementsByClassName('inputLieu');
 
-
-        var nom = document.getElementById('inputEntreprise').value.trim() == '' ? 'all' : document.getElementById('inputEntreprise').value;
-        var activite = document.getElementById('inputActivite').value.trim() == '' ? 'all' : document.getElementById('inputActivite').value;
-        var pays = localisation[0].value.trim() == '' ? 'all' : localisation[0].value.trim();
-        var ville = localisation[1].value.trim() == '' ? 'all' : localisation[1].value.trim();
-        var adresse = localisation[2].value.trim() == '' ? 'all' : localisation[2].value;
+        if (recherche == 1){
+            var nom = document.getElementById('rechercheNom').value;
+        }
+        else if(recherche == 2){
+            var nom = document.getElementById('inputEntreprise').value;
+        }
+        var activite = document.getElementById('inputActivite').value;
+        var pays = localisation[0].value;
+        var ville = localisation[1].value;
+        var adresse = localisation[2].value;
         
         var filter1Param = document.getElementById('evaluationFilter1').checked ? 1 : 0;
         var filter2Param = document.getElementById('evaluationFilter2').checked ? 1 : 0;
@@ -124,28 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var noteDesc = document.getElementById('NoteDesc').checked ? 1 : 0;
         var likeAsc = document.getElementById('LikeAsc').checked ? 1 : 0;
         var likeDesc = document.getElementById('LikeDesc').checked ? 1 : 0;
-       
-      /*  var data = {
-            type: 'filtre',
-            nom: nom,
-            activite: activite,
-            pays: pays,
-            ville: ville,
-            adresse: adresse,
-            evaluationFilter1: filter1Param,
-            evaluationFilter2: filter2Param,
-            evaluationFilter3: filter3Param,
-            evaluationFilter4: filter4Param,
-            evaluationFilter5: filter5Param,
-            evaluationFilter6: filter6Param,
-            NoteAsc: noteAsc,
-            NoteDesc: noteDesc,
-            LikeAsc: likeAsc,
-            LikeDesc: likeDesc
+       var type = 'filtres';
 
-        }*/
+        var params = new URLSearchParams();
 
-        params.append('type', 'filtres');
         params.append('nom', nom);
         params.append('activite', activite);
         params.append('pays', pays);
@@ -162,14 +49,13 @@ document.addEventListener('DOMContentLoaded', function() {
         params.append('LikeAsc', likeAsc);
         params.append('LikeDesc', likeDesc);
         
-        var url = 'entreprises.php?' + params.toString();
-       
+        var url = 'entreprisesFiltres.php?type=' + type + '&' + params.toString();
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);//POST
+        xhr.open('GET', url, true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
-                    alert("Requête réussie");
+                    window.location.href = url;
                 } else {
                     alert('Erreur lors de la requête AJAX');
                 }
@@ -180,8 +66,29 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         //var userData = JSON.stringify(data);
         xhr.send();//userData
-    });
-});
+    }
+
+
+    function voirEntreprise(index,recherche, url){
+        var id = index;
+        if (recherche === 1) {
+            window.location.href = "entreprises.php?id="+ id + "&s=TopEntreprise";
+        }
+        else if (recherche == 0){
+            window.location.href = "entreprises.php?id="+ id + "&s=Onload";
+        }
+        else if (recherche == 2){
+            window.location.href = url + "&id="+ id + "&s=Filtres";
+        }
+        return false;
+    }
+
+
+    function redirectToPrecPageEnt() {
+        var pagePrecedente = document.referrer;
+            window.location.href = pagePrecedente;
+    }
+    
 
 
 
@@ -189,34 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// ----------------------- Filtres ------------------------------------
 
 
 function EntrepriseFilter(){
@@ -287,27 +167,7 @@ function TrierFilter(){
 
 
 
-function redirectToPrecPageEnt() {
-    var pagePrecedente = document.referrer;
-        window.location.href = pagePrecedente;
-}
 
-
-
-
-/* Prochaines fonctions en lien avec le backend */
-
-
-function voirEntreprise(index,recherche){
-    var id = index;
-    if (recherche === 1) {
-        window.location.href = "entreprises.php?id="+ id + "&s=TopEntreprise";
-    }
-    else if (recherche == 0){
-        window.location.href = "entreprises.php?id="+ id + "&s=Onload";
-    }
-    return false;
-}
 
 
 
@@ -332,6 +192,225 @@ function AddLocaliteEnt() {
     addEventListenersToLocation(index);
 
 }
+
+
+
+// -------------- Créer Entreprise --------------------
+
+function redirectToAccueilGE_FromCreate(event){
+    event.preventDefault();
+    var name_ent = document.getElementById("nom_entreprise").value;
+    var sect_ent = document.getElementById("secteur_entreprise").value;
+    var logo_ent = document.getElementById("logo_entreprise").value;
+    var note_ent = document.getElementById("note_entreprise").value;
+
+    if(name_ent == ""){
+        alert("Veuillez entrer un nom d'entreprise");
+        return false;
+    }
+    else if(sect_ent == ""){
+        alert("Veuillez entrer un secteur d'entreprise");
+        return false;
+    }
+    else if(adr_ent == ""){
+        alert("Veuillez entrer au moins une localité pour l'entreprise");
+        return false;
+    }
+    else if(ville_ent == ""){
+        alert("Veuillez entrer au moins une localité pour l'entreprise");
+        return false;
+    }
+    else if(pays_ent == ""){
+        alert("Veuillez entrer au moins une localité pour l'entreprise");
+        return false;
+    }
+    else{        
+        var data1 = {
+            nom: name_ent,
+            secteur: sect_ent,
+            logo: logo_ent,
+            note: note_ent
+        };
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST","../../Controler/entrepriseGestion.php?action=creerEntreprise",false);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        var response1 = '';
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                response1 = xhr.responseText;
+                alert(response1);
+                if (response1 !== '') {
+                    alert("entreprise créé avec succès");
+                    return true;
+                } else {
+                    alert("Erreur : l'entreprise n'a pas été créé");
+                }
+            } else {
+                alert ("Erreur : Impossible de contacter le serveur");
+                alert (xhr.status);
+            }
+        };
+        xhr.onerror = function () {
+            alert("Erreur : Impossible de charger la requete");
+        };
+        xhr.send(JSON.stringify(data1));
+        alert(response1);
+        for(i=1; i <= nbLocalites; i++){
+
+            var adr_ent = document.getElementById("Adresse"+i+"_entreprise").value;
+            var ville_ent = document.getElementById("Ville"+i+"_entreprise").value;
+            var pays_ent = document.getElementById("Pays"+i+"_entreprise").value;
+            var data2 = {
+                id: response1,
+                adresse: adr_ent,
+                ville: ville_ent,
+                pays: pays_ent
+            };
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST","../../Controler/entrepriseGestion.php?action=creerEntrepriseAdresse",false);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    var response = xhr.responseText;
+                    alert(response);
+                    if (response === 'true') {
+                        alert("adresse "+ i +" créé avec succès");
+                        if(i == nbLocalites){
+                            window.location.href = "GE_accueil.html";
+                        }
+                    } else {
+                        alert("Erreur : Adresse" + i);
+                    }
+                } else {
+                    alert ("Erreur : Impossible de contacter le serveur" + i);
+                    alert (xhr.status);
+                }
+            };
+            xhr.onerror = function () {
+                alert("Erreur : Impossible de charger la requete" + i);
+            };
+            xhr.send(JSON.stringify(data2));
+        
+        }
+    }
+}
+
+
+// ------------- Masquer Entreprise -------------------
+
+function redirectToAccueilGE_FromSuprr(event){
+    event.preventDefault();
+    var nom1_ent = document.getElementById("nom1").value;
+    var nom2_ent = document.getElementById("nom2").value;
+    var data = {
+        nom1: nom1_ent,
+        nom2: nom2_ent,
+    };
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/entrepriseGestion.php?action=masquerEntreprise",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            if (response === 'true') {
+                alert("entreprise masquée avec succès");
+                window.location.href = "GE_accueil.html";
+            } else {
+                alert("Erreur : impossible de masquer cette entreprise. Veuillez vérifier le nom entré.");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de charger la requête");
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
+
+
+
+// ------------- Modifier Entreprise -------------------
+
+
+function redirectToGE_modification(event, page){
+    event.preventDefault();
+
+if (page == 1){
+    var name_ent = document.getElementById("nom_entreprise").value;
+    if(name_ent == ""){
+        alert("Veuillez entrer un nom d'entreprise");
+        return false;
+   }
+    else{
+        var data = {
+            nom: name_ent
+        };
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST","../../Controler/entrepriseGestion.php?action=aModifierEntreprise",false);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                response = JSON.parse(xhr.responseText);
+                if (response['id'] !== null) {
+                    alert(response);
+                    window.location.href = "../../Controler/entrepriseGestion.php";
+                } else {
+                    alert("Erreur : Veuillez entrer une entreprise valide.");
+                }
+            } else {
+                alert ("Erreur : Impossible de contacter le serveur");
+            }
+        };
+        xhr.onerror = function () {
+            alert("Erreur : Impossible de charger la requête");
+        };
+        xhr.send(JSON.stringify(data));
+    }
+}
+    else if (page == 2){
+
+        //requete pour modifier 
+
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+// ------------- redirections -----------------------
+
+function redirectToAccueilGE(){
+    window.location.href = "GE_accueil.html";
+}
+
+function redirectToCrerEnt_GE(){
+    window.location.href = "GE_creation.html";    
+}
+
+function redirectToSuppEnt_GE(){
+    window.location.href = "GE_suppression.html";
+}
+
+function redirectToEditEnt_GE(){
+    window.location.href = "GE_a_modifier.html";
+}
+
+
+
+
+
+// ----------------------------------------------- API RESTFULL EXTERNE -----------------------------------------------------------------
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -380,3 +459,47 @@ document.addEventListener("DOMContentLoaded", function() {
                 this.style.display = 'none';   
             });
 });
+
+
+function addEventListenersToLocation(index) {
+    var Element = "CP" + index + "_entreprise";
+    var ElementSelect = "selectVilles" + index;
+
+    document.getElementById(Element).addEventListener("input", function () {
+        var codePostal = this.value;
+        var xhr = new XMLHttpRequest(); 
+        xhr.open("GET", "https://apicarto.ign.fr/api/codes-postaux/communes/" + codePostal, true);
+        xhr.onload = function () { 
+            if (xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText); 
+                if (response.length > 1) { 
+                    var selectVilles = document.getElementById(ElementSelect);
+                    selectVilles.innerHTML = ""; 
+                    selectVilles.size = Math.min(response.length, 6);
+                    for (var i = 0; i < response.length; i++) {
+                        var option = document.createElement("option");
+                        option.value = response[i]["nomCommune"];
+                        option.textContent = response[i]["nomCommune"];
+                        selectVilles.appendChild(option);
+                    }
+                    selectVilles.style.display = 'block';
+                }
+                else if (response.length == 1){
+                    var ElementVille = "Ville" + index + "_entreprise";
+                    document.getElementById(ElementVille).value = response[0]["nomCommune"];
+                } else {
+                    alert("Aucune ville trouvée pour ce code postal.");
+                }
+            }
+        };
+        xhr.send();
+    });
+
+    var selectVilles = document.getElementById(ElementSelect);
+
+    selectVilles.addEventListener("change", function() {
+        var ElementVille = "Ville" + index + "_entreprise";
+        document.getElementById(ElementVille).value = this.value;
+        this.style.display = 'none';   
+    });
+}

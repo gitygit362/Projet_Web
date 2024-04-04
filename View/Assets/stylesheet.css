@@ -828,6 +828,7 @@ input[type="radio"]{
     background-color:rgb(255, 221, 0);
     font-family: Arial;
     font-size:1rem;
+    margin-bottom:0.5rem;
 }
 
 .DivValidationButton {

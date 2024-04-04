@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-01 21:50:18
+/* Smarty version 4.5.1, created on 2024-04-03 19:55:47
   from 'C:\www\Projet_Web\View\recherche_entreprises.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660b0ffa269544_21613442',
+  'unifunc' => 'content_660d9823c13b85_30461022',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8cc5e81f2ae30129c3881eb09f99fb3c1e6e8ebd' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\recherche_entreprises.tpl',
-      1 => 1712001006,
+      1 => 1712166789,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660b0ffa269544_21613442 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660d9823c13b85_30461022 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
@@ -33,8 +33,8 @@ function content_660b0ffa269544_21613442 (Smarty_Internal_Template $_smarty_tpl)
     <header class="header1">
         <img src="../View/Assets/images/logo.png" alt="logo EASYSTAGE">
         <nav class="navbar">Entreprises
-            <a href="../Modèle/accueil.php">Accueil</a>
-            <a href="offres_stages.html">Offres de stage</a>
+            <a href="../Controler/accueil.php">Accueil</a>
+            <a href="../View/offres_stages.html">Offres de stage</a>
             <?php echo $_smarty_tpl->tpl_vars['directionEtudiant']->value;?>
 
             <?php echo $_smarty_tpl->tpl_vars['directionPilote']->value;?>
@@ -42,18 +42,19 @@ function content_660b0ffa269544_21613442 (Smarty_Internal_Template $_smarty_tpl)
             <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
                 <?php echo $_smarty_tpl->tpl_vars['directionProfil']->value;?>
 
-                <a class="Deconnexion" href="page_connexion.html">Déconnexion</a>
+                <a class="Deconnexion" href="page_connexion.html" onclick="deconnexion(event)">Déconnexion</a>
             </div>
         </nav>
     </header>
         <main>
-            <a id="espaceEntreprise" href="gestion_entreprise/GE_accueil.html">Espace entreprise</a>
+            <?php echo $_smarty_tpl->tpl_vars['espaceEnt']->value;?>
+
             <div id="Entreprise">
             </div>
 
                 <form class="flex-rechercher-Entreprise">
-                        <input class="rechercheEntreprise" type="text" name="rechercher" placeholder="Rechercher">
-                        <button class="rechercheBouton" type="submit">Rechercher</button>
+                        <input id="rechercheNom" class="rechercheEntreprise" type="text" name="rechercher" placeholder="Rechercher">
+                        <button class="rechercheBouton" type="button" onclick="requeteFiltre(event, 1)">Rechercher</button>
                 </form> 
 
 
@@ -100,29 +101,27 @@ function content_660b0ffa269544_21613442 (Smarty_Internal_Template $_smarty_tpl)
 
                 <form id="filtresForm" class="filtresEntreprises">
                     <h2>Filtres de la recherche : </h2>
-                
-                <!-- filtres -->
 
                     <div>
                         <h3 onclick="EntrepriseFilter()">Nom ▼</h3>
                         <label id="hideEntreprise" class="hideEntreprise">Nom de l'entreprise :</label>
-                        <input id="inputEntreprise" type="text" name="entreprise">
+                        <input id="inputEntreprise" type="text" name="entreprise" value="Nom">
                     </div>
 
                     <div>
                         <h3 onclick="ActiviteFilter()">Secteur d'activité ▼</h3>
-                        <input id="inputActivite" type="text" name="activite"> 
-            <!-- faudra donnée les propositions de la BDD quand il tape pcq sinon c trop compliquer pour l'utilisateur =-->
+                        <input id="inputActivite" type="text" name="activite" value="Activite"> 
+           
                     </div>
 
                     <div>
                         <h3 onclick="LieuFilter()">Lieu ▼</h3>
                         <label class="hideLieu">Pays :</label>
-                        <input class="inputLieu" type="text" name="pays">
+                        <input class="inputLieu" type="text" name="pays" value="Pays">
                         <label class="hideLieu">Ville :</label>
-                        <input class="inputLieu" type="text" name="ville">
+                        <input class="inputLieu" type="text" name="ville" value="Ville">
                         <label class="hideLieu">Adresse :</label>
-                        <input class="inputLieu" type="text" name="adresse">
+                        <input class="inputLieu" type="text" name="adresse" value="Adresse">
                     </div>
                 
                     <div>
@@ -150,7 +149,7 @@ function content_660b0ffa269544_21613442 (Smarty_Internal_Template $_smarty_tpl)
                             <input type="radio" id="LikeDesc" name="trieroffre" value="1"> Likes décroissants
                         </div>
                     </div>
-                    <button class="filterButton" type="submit">Valider</button>
+                    <button class="filterButton" type="button" onclick="requeteFiltre(event, 2)">Valider</button>
                 </form>
             </div>
 

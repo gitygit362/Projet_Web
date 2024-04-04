@@ -132,15 +132,19 @@ public function setId ($var_id){
     }
 
 
-    public function masquerEntreprise(){
+    public function masquerEntreprise($var_nom1, $var_nom2){
         $db = Database::getInstance();
         $connexion = $db->getConnexion();
-        $stmt = $connexion->prepare("CALL MasquerEntreprise(:id)");
-        $idIn = $this->getId();
-        $stmt->bindParam(':id', $idIn);
-        $stmt->execute();
+        $stmt = $connexion->prepare("CALL SupprimerEntreprise(:nom1, :nom2)");
+        $stmt->bindParam(':nom1', $var_nom1);
+        $stmt->bindParam(':nom2', $var_nom2);
+        try {
+            $stmt->execute();
+        } catch(PDOException $e) {
+            error_log("Une erreur s'est produite lors du masquage de l'entreprise : " . $e->getMessage());
+        }
     }
-
+/*
     public function visibleEntreprise(){
         $db = Database::getInstance();
         $connexion = $db->getConnexion();
@@ -148,5 +152,92 @@ public function setId ($var_id){
         $idIn = $this->getId();
         $stmt->bindParam(':id', $idIn);
         $stmt->execute();
+    }*/
+
+    public function entrepriseAModifier($var_nom){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL EntrepriseAModifier(:nom, @resId, @resEnt, @resSecteur, @resLogo)");
+        $stmt->bindParam(':nom', $var_nom);
+        $res = $stmt->execute();
+        if ($res == false) {
+            return false;
+        } else {
+            $resId = $connexion->query("SELECT @resId")->fetchColumn();
+            $resEnt = $connexion->query("SELECT @resEnt")->fetchColumn();
+            $resSecteur = $connexion->query("SELECT @resSecteur")->fetchColumn();
+            $resLogo = $connexion->query("SELECT @resLogo")->fetchColumn();
+            $resData = array(
+                'id' => $resId,
+                'nom' => $resEnt,
+                'secteur' => $resSecteur,
+                'logo' => $resLogo
+            );
+            return json_encode($resData);
+        }
     }
+
+
+    public function creerEntreprise($var_nom, $var_secteur, $var_logo){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL CreerEntreprise(:nom, :secteur, :logo, @resEntreprise)");
+        $stmt->bindParam(':nom', $var_nom);
+        $stmt->bindParam(':secteur', $var_secteur);
+        $stmt->bindParam(':logo', $var_logo);
+        $res = $stmt->execute();
+    
+        if ($res == false) {
+            return false;
+        } else {
+            $resId = $connexion->query("SELECT @resEntreprise")->fetchColumn();
+            return $resId;
+        }
+    }
+
+    public function noterEntreprise($var_id_user, $var_statut_user, $var_id_ent, $var_note){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL NoterEntreprise(:id_user, :statut_user, :id_ent, :note)");
+        $stmt->bindParam(':id_user', $var_id_user);
+        $stmt->bindParam(':statut_user', $var_statut_user);
+        $stmt->bindParam(':id_ent', $var_id_ent);
+        $stmt->bindParam(':note', $var_note);
+        $res = $stmt->execute();
+    
+        if ($res == false) {
+            return false;
+        } else {
+
+        }
+    }
+
+
+
+    public function creerEntrepriseAdresse($var_adresse, $var_ville, $var_pays, $var_idEnt){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL VerifPaysVilleAdresse(:pays, :ville, :adresse, @resPays, @resVille, @resAdresse)");
+        $stmt->bindParam(':pays', $var_pays);
+        $stmt->bindParam(':ville', $var_ville);
+        $stmt->bindParam(':adresse', $var_adresse);
+        $resVerif = $stmt->execute();
+        if ($resVerif == false) {
+            return false;
+        } else {
+            $resIdAdr = $connexion->query("SELECT @resAdresse")->fetchColumn();
+
+            $stmt = $connexion->prepare("CALL CreerEntrepriseAdresse(:idEnt, :idAdr)");
+            $stmt->bindParam(':idEnt', $var_idEnt);
+            $stmt->bindParam(':idAdr', $resIdAdr);
+            $resInsert = $stmt->execute();
+            if ($resInsert == false) {
+                return false;
+            } else { 
+
+            }
+        }
+    }
+
+
 };
