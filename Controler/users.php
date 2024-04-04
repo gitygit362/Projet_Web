@@ -1,5 +1,5 @@
 <?php
-require "connect_db.php";
+require "../Modèle/config.php";
 include "../Modèle/index_modele.php";
 
 //______________________________________________________________________________________________________
@@ -14,10 +14,11 @@ $promo =  $data['promo'];
 
 $pilote = new GestionPilote($nom,$prenom,$centre,$promo);
 $etudiant = new GestionEtudiant($nom,$prenom,$centre,$promo);
-
+$db = Database::getInstance();
+$connexion = $db->getConnexion();
 function create_pilote(){
-    global $pilote,$db;
-    $resultat = $pilote->creer($db);
+    global $pilote,$connexion;
+    $resultat = $pilote->creer($connexion);
     if($resultat == false){
         header('Content-Type: test/plain');
         echo 'false';
@@ -27,8 +28,8 @@ function create_pilote(){
 }
 
 function find_pilote(){
-    global $pilote,$db;
-    $resultat = $pilote->recherche($db);
+    global $pilote,$connexion;
+    $resultat = $pilote->recherche($connexion);
     if($resultat == null){
         header('Content-Type: test/plain');
         echo 'false';
@@ -38,10 +39,10 @@ function find_pilote(){
 }
 
 function edit_pilote(){
-    global $pilote,$db,$data;
+    global $pilote,$connexion,$data;
     $id = $data['id'];
     $id = intval($id);
-    $resultat = $pilote->modifier($db,$id);
+    $resultat = $pilote->modifier($connexion,$id);
     if($resultat == false){
         header('Content-Type: test/plain');
         echo 'false';
@@ -51,8 +52,8 @@ function edit_pilote(){
 }
 
 function delete_pilote(){
-    global $pilote,$db;
-    $resultat = $pilote->supprimer($db);
+    global $pilote,$connexion;
+    $resultat = $pilote->supprimer($connexion);
     if($resultat == null){
         header('Content-Type: test/plain');
         echo 'false';
@@ -62,8 +63,8 @@ function delete_pilote(){
 }
 
 function create_etudiant(){
-    global $etudiant,$db;
-    $resultat = $etudiant->creer($db);
+    global $etudiant,$connexion;
+    $resultat = $etudiant->creer($connexion);
     if($resultat == false){
         header('Content-Type: test/plain');
         echo 'false';
@@ -73,8 +74,8 @@ function create_etudiant(){
 }
 
 function find_etudiant(){
-    global $etudiant,$db;
-    $resultat = $etudiant->recherche($db);
+    global $etudiant,$connexion;
+    $resultat = $etudiant->recherche($connexion);
     if($resultat == null){
         header('Content-Type: test/plain');
         echo 'false';
@@ -84,10 +85,10 @@ function find_etudiant(){
 }
 
 function edit_etudiant(){
-    global $etudiant,$db,$data;
+    global $etudiant,$connexion,$data;
     $id = $data['id'];
     $id = intval($id);
-    $resultat = $etudiant->modifier($db,$id);
+    $resultat = $etudiant->modifier($connexion,$id);
     if($resultat == false){
         header('Content-Type: test/plain');
         echo 'false';
@@ -97,8 +98,8 @@ function edit_etudiant(){
 }
 
 function delete_etudiant(){
-    global $etudiant,$db;
-    $resultat = $etudiant->supprimer($db);
+    global $etudiant,$connexion;
+    $resultat = $etudiant->supprimer($connexion);
     if($resultat == null){
         header('Content-Type: test/plain');
         echo 'false';

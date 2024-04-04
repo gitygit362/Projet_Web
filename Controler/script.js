@@ -387,6 +387,7 @@ function redirectToAccueilGETUCreate(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
+            alert(response);
             if (response === 'true') {
                 alert("profil créé avec succès");
                 window.location.href = 'GETU_accueil.html';
@@ -530,7 +531,7 @@ function PROFIL_ETU(event){
             response = response.split('.');
             if (response[0] === 'true') {
                 alert("profil trouvé avec succès");
-                window.location.href = "../profil_utilisateur_etudiant.html?id_user="+response[1];
+                window.location.href = "../../Controler/utilisateur.php?id_user="+response[1];
             } else {
                 alert("Erreur : le profil n'a pas pu être trouver");
             }

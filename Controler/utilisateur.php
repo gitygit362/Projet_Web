@@ -2,7 +2,12 @@
 require_once '../Modèle/header.php';
 require '../Modèle/utilisateur.class.php';
 
-$id_user = $_SESSION['id'];
+
+if (isset($_GET['action']) && $_GET['id_users'] === 'suppretudiant') {
+    $id_user = $_GET['id'];
+} else{
+    $id_user = $_SESSION['id'];
+}
 
 if ($_SESSION['statut'] == 'admin'){
     $smarty_obj->assign("","");
