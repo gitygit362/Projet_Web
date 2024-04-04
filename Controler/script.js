@@ -34,7 +34,6 @@ function redirectToAccueilFromConnexion(event) {
             user: identifiant,
             passwd: hashedValue
         };
-        alert(data['passwd']);
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '../Modèle/connexion.php', true);
         xhr.setRequestHeader('Content-Type', 'application/json');

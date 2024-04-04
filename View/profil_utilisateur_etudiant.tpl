@@ -20,7 +20,7 @@
             <a href="entreprises.php">Entreprises</a>
             {$directionEtudiant}
             {$directionPilote}
-            <a class="DeconnectProfil" href="page_connexion.html">Déconnexion</a>
+            <a class="DeconnectProfil" href="page_connexion.html" onclick="deconnexion(event)">Déconnexion</a>
         </nav>
     </header>
     <main>

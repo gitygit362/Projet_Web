@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-03 21:31:05
+/* Smarty version 4.5.1, created on 2024-04-04 22:23:11
   from 'C:\www\Projet_Web\View\profil_utilisateur_etudiant.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660dae792a28c0_57347422',
+  'unifunc' => 'content_660f0c2f789ca0_92348011',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3bf211beea2fea3ad079391dbbf1f026ff3b7a3a' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\profil_utilisateur_etudiant.tpl',
-      1 => 1712172270,
+      1 => 1712262165,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660dae792a28c0_57347422 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660f0c2f789ca0_92348011 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,6 +29,9 @@ function content_660dae792a28c0_57347422 (Smarty_Internal_Template $_smarty_tpl)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CESI</title>
     <link rel="stylesheet" href="../View/Assets/stylesheet.css">
+    <meta name="theme-color" content="#FFA500s">
+    <?php echo $_smarty_tpl->tpl_vars['manifest']->value;?>
+
 </head>
 <body>
 </head>
@@ -43,7 +46,7 @@ function content_660dae792a28c0_57347422 (Smarty_Internal_Template $_smarty_tpl)
 
             <?php echo $_smarty_tpl->tpl_vars['directionPilote']->value;?>
 
-            <a class="DeconnectProfil" href="page_connexion.html">Déconnexion</a>
+            <a class="DeconnectProfil" href="page_connexion.html" onclick="deconnexion(event)">Déconnexion</a>
         </nav>
     </header>
     <main>
@@ -154,6 +157,9 @@ function content_660dae792a28c0_57347422 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo '<script'; ?>
  src="../Controler/script.js"><?php echo '</script'; ?>
 >
+    <footer>
+        <a class="mentions-legales" href="../View/mentions_legales.html" aria-label="Accéder aux mentions légales">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+    </footer>
 </body>
 </html>
 

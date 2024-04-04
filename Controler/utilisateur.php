@@ -112,5 +112,25 @@ else if ($_SESSION['statut'] == 'etudiant'){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
     $smarty_obj->display('../View/profil_utilisateur_etudiant.tpl');
 }
