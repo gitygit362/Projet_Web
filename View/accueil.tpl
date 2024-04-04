@@ -61,7 +61,7 @@
         </main>
 
         <footer>
-            <a class="mentions-legales" href="../View/mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+            <a class="mentions-legales" href="../View/mentions_legales.html" aria-label="Accéder aux mentions légales">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
         </footer>
     <script src="../Controler/script.js"></script>
     </body>
