@@ -62,7 +62,6 @@ else if ($_SESSION['statut'] == 'etudiant'){
     $utilisateur->etudiantWhList();
     $wl = $utilisateur->getWhLists();
     $nbWl = count($wl); 
-    var_dump($wl);
     // Initialiser un tableau pour stocker toutes les offres
     $allOffres = [];
     
@@ -81,7 +80,6 @@ else if ($_SESSION['statut'] == 'etudiant'){
     
     // Réindexer le tableau
     $uniqueArray = array_values($uniqueArray);
-    var_dump($allOffres);
 
     
     for($i=0; $i<20; $i++){

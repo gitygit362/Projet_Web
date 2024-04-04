@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-04 17:27:05
+/* Smarty version 4.5.1, created on 2024-04-04 20:13:20
   from 'C:\www\Projet_Web\View\accueil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660ec6c90a56a8_15481322',
+  'unifunc' => 'content_660eedc0666047_52108395',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd859c765ef4f4ca89205e32d093593ab5f03632b' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\accueil.tpl',
-      1 => 1712244161,
+      1 => 1712254182,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660ec6c90a56a8_15481322 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660eedc0666047_52108395 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 
@@ -28,9 +28,8 @@ function content_660ec6c90a56a8_15481322 (Smarty_Internal_Template $_smarty_tpl)
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../View/Assets/stylesheet.css">
+        <meta name="theme-color" content="#FFA500s">
         <title>Accueil</title>
-        <?php echo $_smarty_tpl->tpl_vars['serviceworker']->value;?>
-
         <?php echo $_smarty_tpl->tpl_vars['manifest']->value;?>
 
     </head>

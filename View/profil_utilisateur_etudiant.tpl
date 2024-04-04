@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CESI</title>
     <link rel="stylesheet" href="../View/Assets/stylesheet.css">
+    <meta name="theme-color" content="#FFA500s">
     {$manifest}
 </head>
 <body>

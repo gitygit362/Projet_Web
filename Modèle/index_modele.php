@@ -74,7 +74,8 @@ class GestionPilote extends GestionUser
         {
             $chaineAleatoire .= $caracteres[rand(0, $longueurMax)];
         }    
-        $req->bindParam(':mdp',$chaineAleatoire);
+        $hashHex = hash('sha256', $chaineAleatoire);
+        $req->bindParam(':mdp',$hashHex);
         return $req->execute();
 
     }

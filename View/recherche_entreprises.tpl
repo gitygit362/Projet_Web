@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../View/Assets/stylesheet.css">
+    <meta name="theme-color" content="#FFA500s">
     {$manifest}
     <title>Entreprises</title>
 </head>

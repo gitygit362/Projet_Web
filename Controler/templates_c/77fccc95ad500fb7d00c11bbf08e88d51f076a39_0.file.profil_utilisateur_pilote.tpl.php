@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-04 09:13:57
+/* Smarty version 4.5.1, created on 2024-04-04 20:13:36
   from 'C:\www\Projet_Web\View\profil_utilisateur_pilote.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660e533510f8d5_21266798',
+  'unifunc' => 'content_660eedd02b3ba1_93655572',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '77fccc95ad500fb7d00c11bbf08e88d51f076a39' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\profil_utilisateur_pilote.tpl',
-      1 => 1712167577,
+      1 => 1712254199,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660e533510f8d5_21266798 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660eedd02b3ba1_93655572 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,6 +29,9 @@ function content_660e533510f8d5_21266798 (Smarty_Internal_Template $_smarty_tpl)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CESI</title>
     <link rel="stylesheet" href="../View/Assets/stylesheet.css">
+    <meta name="theme-color" content="#FFA500s">
+    <?php echo $_smarty_tpl->tpl_vars['manifest']->value;?>
+
 </head>
 <body>
     <header class="header1">
