@@ -142,7 +142,7 @@
             </div>
         </main>
         <footer id="footerMentions">
-            <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+            <a class="mentions-legales" href="../View/mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
         </footer>
 
 
