@@ -182,4 +182,20 @@ public function setId ($var_id){
         }
     }
 
+
+    public function adminCentres(){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+
+        //promo
+        $stmt = $connexion->prepare("SELECT nom_centre FROM centre");
+        $stmt->execute();
+        $resCentres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $centres = [];
+        foreach ($resCentres as $row) {
+            $centres[] = $row['nom_centre'];
+        }
+        $this->setCentre($centres);
+    }
+
 };
