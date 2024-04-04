@@ -19,8 +19,8 @@ $connexion = $db->getConnexion();
 function create_pilote(){
     global $pilote,$connexion;
     $resultat = $pilote->creer($connexion);
+    header('Content-Type: test/plain');
     if($resultat == false){
-        header('Content-Type: test/plain');
         echo 'false';
     } else {
         echo 'true';

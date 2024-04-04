@@ -26,7 +26,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'creerEntrepriseAdresse') {
     $entreprise = new Entreprise();
     $resultat = $entreprise->creerEntrepriseAdresse($data2->adresse, $data2->ville, $data2->pays, $data2->id);
     echo 'true';
-
 }
 
 if(isset($_GET['action']) && $_GET['action'] == 'masquerEntreprise'){

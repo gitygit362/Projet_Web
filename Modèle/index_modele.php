@@ -70,7 +70,7 @@ class GestionPilote extends GestionUser
         $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $longueurMax = strlen($caracteres)-1;
         $chaineAleatoire = '';
-        for ($i = 0; $i < 10; $i++)
+        for ($i = 0; $i < 5; $i++)
         {
             $chaineAleatoire .= $caracteres[rand(0, $longueurMax)];
         }    
@@ -124,13 +124,14 @@ class GestionEtudiant extends GestionUser
         $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $longueurMax = strlen($caracteres)-1;
         $chaineAleatoire = '';
-        for ($i = 0; $i < 10; $i++)
+        for ($i = 0; $i < 5; $i++)
         {
             $chaineAleatoire .= $caracteres[rand(0, $longueurMax)];
         }    
-        $req->bindParam(':mdp',$chaineAleatoire);
+        var_dump($chaineAleatoire);
+        $hashHex = hash('sha256', $chaineAleatoire);
+        $req->bindParam(':mdp',$hashHex);
         return $req->execute();
-
     }
 
     public function recherche($db){

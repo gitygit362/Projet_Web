@@ -102,7 +102,7 @@ function redirectToAccueilGPform(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
-            if (response === 'true') {
+            if (response == 'true') {
                 alert("profil créé avec succès");
                 window.location.href = 'GP_accueil.html';
             } else {
