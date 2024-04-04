@@ -350,15 +350,16 @@ if (page == 1){
             nom: name_ent
         };
         var xhr = new XMLHttpRequest();
-        xhr.open("POST","../../Controler/entrepriseGestion.php?action=aModifierEntreprise",false);
+        xhr.open("POST","../../Controler/entrepriseGestion.php?action=aModifierEntreprise",true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         
         xhr.onload = function () {
             if (xhr.status >= 200 && xhr.status < 300) {
                 response = JSON.parse(xhr.responseText);
-                if (response['id'] !== null) {
+                alert(response);
+                if (response == true) {
                     alert(response);
-                    window.location.href = "../../Controler/entrepriseGestion.php";
+                    window.location.href = "../../Controler/entrepriseGestion.php?action=aModifierEntreprise";
                 } else {
                     alert("Erreur : Veuillez entrer une entreprise valide.");
                 }

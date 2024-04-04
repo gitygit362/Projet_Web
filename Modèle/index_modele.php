@@ -77,7 +77,6 @@ class GestionPilote extends GestionUser
         $hashHex = hash('sha256', $chaineAleatoire);
         $req->bindParam(':mdp',$hashHex);
         return $req->execute();
-
     }
 
     public function recherche($db){
