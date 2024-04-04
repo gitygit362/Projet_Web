@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-03 19:48:39
+/* Smarty version 4.5.1, created on 2024-04-04 09:13:22
   from 'C:\www\Projet_Web\View\accueil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660d96777419c7_56204748',
+  'unifunc' => 'content_660e53126eb265_90630222',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd859c765ef4f4ca89205e32d093593ab5f03632b' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\accueil.tpl',
-      1 => 1712166515,
+      1 => 1712214637,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660d96777419c7_56204748 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660e53126eb265_90630222 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 
@@ -84,7 +84,7 @@ function content_660d96777419c7_56204748 (Smarty_Internal_Template $_smarty_tpl)
         </main>
 
         <footer>
-            <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+            <a class="mentions-legales" href="../View/mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
         </footer>
     <?php echo '<script'; ?>
  src="../Controler/script.js"><?php echo '</script'; ?>

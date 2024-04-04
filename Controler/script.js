@@ -1,43 +1,69 @@
 // redirections 
 console.log("js connected");
 
-function redirectToAccueilFromConnexion(event) {
 
+// Fonction de hachage SHA-256 avec une clé secrète
+async function strHash(plainText, algorithm = 'SHA-256') {
+    const data = new TextEncoder().encode(plainText);
+    const hashBuffer = await crypto.subtle.digest(algorithm, data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+    return hashHex;
+}
+
+function redirectToAccueilFromConnexion(event) {
     event.preventDefault();
 
     var identifiant = document.getElementById("user").value;
     var motdepasse = document.getElementById("password").value;
 
-   var data = {
-        user: identifiant,
-        passwd: motdepasse
-   }
-   var xhr = new XMLHttpRequest();
-   xhr.open('POST', '../Modèle/connexion.php', true);
-   xhr.setRequestHeader('Content-Type', 'application/json');
-   xhr.onload = function () {
-    if (xhr.status >= 200 && xhr.status < 300) {
-        //on rentre la 
-        var response = xhr.responseText.trim();
-        if (response === 'true') {
-            alert("Authentification réussie");
-            window.location.href = '../Controler/accueil.php';
-        } else {
-            alert("Identifiant ou mot de passe incorrect");
-        }
-    } else {
-        alert("Erreur lors de la requête1");
-    }
-};
-   xhr.onerror = function () {
-    alert("Erreur lors de la requête");
-    };
+    // Utilisation de la fonction de hachage avec la clé secrète
+    strHash(motdepasse).then(function(hashedValue) {
+        var data = {
+            user: identifiant,
+            passwd: hashedValue
+        };
+        alert(data['passwd']);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '../Modèle/connexion.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                var response = xhr.responseText.trim();
+                if (response === 'true') {
+                    alert("Authentification réussie");
+                    window.location.href = '../Controler/accueil.php';
+                } else {
+                    alert("Identifiant ou mot de passe incorrect");
+                }
+            } else {
+                alert("Erreur lors de la requête");
+            }
+        };
+        xhr.onerror = function() {
+            alert("Erreur lors de la requête");
+        };
 
+        var userData = JSON.stringify(data);
+        xhr.send(userData);
+    })
+    .catch(function(error) {
+        console.error('Erreur de hachage : ', error);
+    });
 
-   var userData = JSON.stringify(data);
-   xhr.send(userData);
-   return false;
+    return false;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 function redirectToAccueilGPform(event){
     event.preventDefault();
