@@ -78,7 +78,6 @@ function redirectToAccueilFromConnexion(event) {
 
 function redirectToAccueilGPform(event){
     event.preventDefault();
-    alert("test");
     var nom_pilote = document.getElementById("nom_pilote").value;
     var prenom_pilote = document.getElementById("prenom_pilote").value;
     var centre_pilote = document.getElementById("centre_pilote").value;
@@ -95,7 +94,6 @@ function redirectToAccueilGPform(event){
         centre: centre_pilote,
         promo: promo_pilote
     };
-    alert ("data = "+data)
     var xhr = new XMLHttpRequest();
     xhr.open("POST","../../Controler/users.php?action=createpilote",false);
     xhr.setRequestHeader('Content-Type', 'application/json');

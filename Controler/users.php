@@ -16,6 +16,8 @@ $pilote = new GestionPilote($nom,$prenom,$centre,$promo);
 $etudiant = new GestionEtudiant($nom,$prenom,$centre,$promo);
 $db = Database::getInstance();
 $connexion = $db->getConnexion();
+
+
 function create_pilote(){
     global $pilote,$connexion;
     $resultat = $pilote->creer($connexion);

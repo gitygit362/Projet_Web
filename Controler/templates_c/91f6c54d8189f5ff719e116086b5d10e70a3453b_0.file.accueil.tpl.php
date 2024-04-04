@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-04 19:16:01
+/* Smarty version 4.5.1, created on 2024-04-04 22:24:10
   from 'C:\Users\axel0\Desktop\Bloc_Dev_WEB\projet\code\Projet_Web\View\accueil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660ee051d9a216_79430243',
+  'unifunc' => 'content_660f0c6a62ca20_58928492',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '91f6c54d8189f5ff719e116086b5d10e70a3453b' => 
     array (
       0 => 'C:\\Users\\axel0\\Desktop\\Bloc_Dev_WEB\\projet\\code\\Projet_Web\\View\\accueil.tpl',
-      1 => 1712244756,
+      1 => 1712258998,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660ee051d9a216_79430243 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660f0c6a62ca20_58928492 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 
@@ -28,6 +28,7 @@ function content_660ee051d9a216_79430243 (Smarty_Internal_Template $_smarty_tpl)
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../View/Assets/stylesheet.css">
+        <meta name="theme-color" content="#FFA500s">
         <title>Accueil</title>
         <?php echo $_smarty_tpl->tpl_vars['manifest']->value;?>
 
@@ -87,7 +88,7 @@ function content_660ee051d9a216_79430243 (Smarty_Internal_Template $_smarty_tpl)
         </main>
 
         <footer>
-            <a class="mentions-legales" href="../View/mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+            <a class="mentions-legales" href="../View/mentions_legales.html" aria-label="Accéder aux mentions légales">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
         </footer>
     <?php echo '<script'; ?>
  src="../Controler/script.js"><?php echo '</script'; ?>
