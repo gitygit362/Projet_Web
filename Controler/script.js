@@ -451,6 +451,46 @@ function redirectToProfil() {
 }
 
 
+
+function supprWishList(id_wl, var_id_offre, event){
+    event.preventDefault();
+
+    var data = {
+        id_wl: id_wl,
+        id_offre: var_id_offre
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/utilisateur.php?action=supprWishList",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            if (response === 'true') {
+                alert("Offre supprimée de la wishlist avec succès");
+                window.location.href = 'GP_accueil.html';
+            } else {
+                alert("Une erreur s'est produite lors de la suppression de l'offre");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur1");
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
+
+
+
+
+
+
+
+
 function deconnexion(event) {
     event.preventDefault(); // Empêcher le comportement par défaut du lien
     

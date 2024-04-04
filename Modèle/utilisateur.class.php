@@ -187,7 +187,7 @@ public function setId ($var_id){
         $db = Database::getInstance();
         $connexion = $db->getConnexion();
 
-        //promo
+        //centres
         $stmt = $connexion->prepare("SELECT nom_centre FROM centre");
         $stmt->execute();
         $resCentres = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -196,6 +196,20 @@ public function setId ($var_id){
             $centres[] = $row['nom_centre'];
         }
         $this->setCentre($centres);
+    }
+
+
+    public function supprimerWishList($var_id_user, $var_id_offre){
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $stmt = $connexion->prepare("CALL SupprimerWishList(:id_user, :id_offre");
+        $stmt->bindParam(':id_user', $var_id_user);
+        $stmt->bindParam(':id_offre', $var_id_offre);
+        try {
+            $stmt->execute();
+        } catch(PDOException $e) {
+            error_log("Une erreur s'est produite lors de la suppression de l'offre de la wish list : " . $e->getMessage());
+        }
     }
 
 };

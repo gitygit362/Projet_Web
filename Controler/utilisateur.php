@@ -4,6 +4,19 @@ require '../Modèle/utilisateur.class.php';
 
 $id_user = $_SESSION['id'];
 
+function supprWishList(){
+    global $smarty_obj;
+    $data = json_decode(file_get_contents('php://input'), true);
+    $idWL = $data['id_wl'];
+    $idOffre = $data['id_offre'];
+    var_dump($idWL);
+    var_dump($idOffre);
+    $utilisateur = new Utilisateur();
+    $utilisateur->supprimerWishList($_SESSION['id'], $idOffre);
+    $smarty_obj->assign("WL".$idWL,"");
+
+}
+
 if ($_SESSION['statut'] == 'admin'){
     $utilisateur = new Utilisateur();
     $utilisateur->infosUtilisateur($_SESSION['id'], $_SESSION['statut']);
@@ -103,34 +116,24 @@ else if ($_SESSION['statut'] == 'etudiant'){
             $smarty_obj->assign("WL".$i,"<div class='job-offer-container'>
             <div class='job-offer-header'><img src='../View/". $allOffres[$i]['logo'] ."' class='brand-logo'><h3>". $allOffres[$i]['ID_offre'] ."</h3><p>". $allOffres[$i]['nom'] ."</p></div>
             <div class='job-offer-details'><span class='detail'>". $allOffres[$i]['secteur_activité'] ."</span><span class='detail'>niveau :". $allOffres[$i]['promo'] ."</span><span class='detail'>nb places :". $allOffres[$i]['nombre_places'] ."</span><span class='detail'>duree :". $allOffres[$i]['duree'] ." semaines</span></div>
-            <button class='delete-button' onclick='SupprWishList(".$allOffres[$i]['ID_offre'].")'><img src='../View/Assets/images/bin.png' alt='Delete'></button></div>");
+            <button class='delete-button' onclick='supprWishList(".$i.",".$allOffres[$i]['ID_offre'].", event)'><img src='../View/Assets/images/bin.png' alt='Delete'></button></div>");
         }
         else {
             $smarty_obj->assign("WL".$i,"");
         }
+
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
+    if(isset($_GET['action']) && $_GET['action'] == 'masquerEntreprise'){
+        $data = json_decode(file_get_contents('php://input'));
+        $idWL = $data['id_wl'];
+        $idOffre = $data['id_offre'];
+        var_dump($idWL);
+        var_dump($idOffre);
+        $utilisateur = new Utilisateur();
+        $utilisateur->supprimerWishList($_SESSION['id'], $idOffre);
+        $smarty_obj->assign("WL".$idWL,"");
+    }
 
     $smarty_obj->display('../View/profil_utilisateur_etudiant.tpl');
 }
