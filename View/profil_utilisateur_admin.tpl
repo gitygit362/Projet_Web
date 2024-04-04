@@ -51,63 +51,7 @@
         <button class="centre-button">Centre 7</button>
         <button class="centre-button">Centre 8</button>
     </div>
-    <h3 class="page-title2">Les Tuteurs</h3>
 
-    <details class="details-table">
-    <summary>Informations des tuteurs</summary>
-    <table>
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Stage</th>
-        </tr>
-        <tr>
-            <td>Nom1</td>
-            <td>Prénom1</td>
-            <td>Stage1</td>
-        </tr>
-        
-        <tr>
-            <td>Nom2</td>
-            <td>Prénom2</td>
-            <td>Stage2</td>
-        </tr>
-        <tr>
-            <td>Nom3</td>
-            <td>Prénom3</td>
-            <td>Stage3</td>
-        </tr>
-        
-    </table>
-    </details>
-    <h4 class="page-title3">Les Etudiants</h4>
-    <details class="details-table">
-    <summary>Informations des etudiants</summary>
-    <table>
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Stage</th>
-        </tr>
-        <tr>
-            <td>Nom1</td>
-            <td>Prénom1</td>
-            <td>Stage1</td>
-        </tr>
-        
-        <tr>
-            <td>Nom2</td>
-            <td>Prénom2</td>
-            <td>Stage2</td>
-        </tr>
-        <tr>
-            <td>Nom3</td>
-            <td>Prénom3</td>
-            <td>Stage3</td>
-        </tr>
-        
-    </table>
-    </details>
 </main>
 <footer>
     <a class="mentions-legales" href="../View/mentions_legales.html" aria-label="Accéder aux mentions légales">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
