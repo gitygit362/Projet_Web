@@ -40,7 +40,7 @@ function redirectToAccueilFromConnexion(event) {
         xhr.onload = function() {
             if (xhr.status >= 200 && xhr.status < 300) {
                 var response = xhr.responseText.trim();
-                if (response === 'true') {
+                if (response === 'true') { 
                     alert("Authentification réussie");
                     window.location.href = '../Controler/accueil.php';
                 } else {
@@ -461,6 +461,7 @@ function deconnexion(event) {
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
             window.location.href = '../View/page_connexion.html';
+            navigator.serviceWorker.controller.postMessage({ action: 'clearCache' });
         } else {
             console.error('Erreur lors de la requête : ' + xhr.status);
         }

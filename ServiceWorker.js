@@ -17,7 +17,7 @@ self.addEventListener('activate', evt => {
 //fetch event afin de répondre quand on est en mode hors ligne.
 self.addEventListener('fetch', function(event) {
     event.respondWith(
-    caches.open('ma_sauvegarde').then(function(cache) {
+    caches.open('easy-stage-cache').then(function(cache) {
     return cache.match(event.request).then(function (response) {
     return response || fetch(event.request).then(function(response) {
     cache.put(event.request, response.clone());
@@ -26,4 +26,17 @@ self.addEventListener('fetch', function(event) {
     });
     })
     );
+    });
+
+    self.addEventListener('message', function(event) {
+        if (event.data && event.data.action === 'clearCache') {
+            // Effacer le cache ou les données stockées
+            caches.open('easy-stage-cache').then(function(cache) {
+                cache.keys().then(function(keys) {
+                    keys.forEach(function(key) {
+                        cache.delete(key);
+                    });
+                });
+            });
+        }
     });
