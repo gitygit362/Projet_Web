@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Assets/stylesheet.css">
+    <meta name="theme-color" content="#FFA500s">
+    <title>Gestion des entreprises</title>
+</head>
+
+<body>
+    <header>
+        <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
+        <h1 class="GE">Espace entreprise</h1>
+    </header>
+    <div class="back_to_hub">
+    <div class="text_bth" onclick="redirectToAccueil()">Retour à l'accueil</div>
+    </div>
+    <main>
+        <form name="GE_accueil"  action="" method="post"> 
+            <fieldset>
+                <img src="../Assets/images/logo.png" alt="logo EASYSTAGE">
+                <br>
+                <button class="ValidationButton" type="button" onclick="redirectToCrerEnt_GE()">Créer une entrerpise</button>
+                <button class="ValidationButton" type="button" onclick="redirectToEditEnt_GE()">Modifier une entreprise</button>
+                <button class="ValidationButton" type="button" onclick="redirectToSuppEnt_GE()">Supprimer une entreprise</button>
+            </fieldset>
+        </form>
+    </main>
+    <footer>
+        <a class="mentions-legales" href="../mentions_legales.html" aria-label="Accéder aux mentions légales">©Mentions légales EasyStage</em>
+    </footer>
+    <script src="../../Controler/script.js"></script>
+    <script src="../../Controler/entreprises.js"></script>
+</body>
+</html>  
