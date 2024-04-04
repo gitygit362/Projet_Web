@@ -22,4 +22,3 @@ else if ($_SESSION['statut'] == 'etudiant'){
 }
 $smarty_obj->assign('manifest', "<link rel='manifest' href='../Controler/manifest.json'>");
 
-

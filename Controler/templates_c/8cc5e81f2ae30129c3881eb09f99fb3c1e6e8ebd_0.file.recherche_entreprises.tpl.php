@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-04 09:13:31
+/* Smarty version 4.5.1, created on 2024-04-04 17:27:28
   from 'C:\www\Projet_Web\View\recherche_entreprises.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660e531b4729a7_05142807',
+  'unifunc' => 'content_660ec6e095aa12_21228181',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8cc5e81f2ae30129c3881eb09f99fb3c1e6e8ebd' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\recherche_entreprises.tpl',
-      1 => 1712214677,
+      1 => 1712242477,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,15 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660e531b4729a7_05142807 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660ec6e095aa12_21228181 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../View/Assets/stylesheet.css">
+    <?php echo $_smarty_tpl->tpl_vars['manifest']->value;?>
+
     <title>Entreprises</title>
 </head>
 <body>
