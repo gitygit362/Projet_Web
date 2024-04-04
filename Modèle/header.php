@@ -20,6 +20,5 @@ else if ($_SESSION['statut'] == 'etudiant'){
     $smarty_obj->assign('directionPilote', '');
     $smarty_obj->assign('directionProfil', "<button class='Profil' type='button' onclick='redirectToProfil()'>Mon profil</button>");
 }
-
-
+$smarty_obj->assign('manifest', "<link rel='manifest' href='../Controler/manifest.json'>");
 

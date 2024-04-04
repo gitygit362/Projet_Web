@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-03 19:55:52
+/* Smarty version 4.5.1, created on 2024-04-04 17:27:32
   from 'C:\www\Projet_Web\View\presentation_entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660d9828e2be74_25271805',
+  'unifunc' => 'content_660ec6e49f0849_42020966',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '330a196bb5679b95b42947bd1ff84162b211f803' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\presentation_entreprise.tpl',
-      1 => 1712166943,
+      1 => 1712242458,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,15 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660d9828e2be74_25271805 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660ec6e49f0849_42020966 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../View/Assets/stylesheet.css">
+    <?php echo $_smarty_tpl->tpl_vars['manifest']->value;?>
+
     <title>Présentation de l'entreprise</title>
 </head>
 <body>
@@ -99,7 +101,7 @@ function content_660d9828e2be74_25271805 (Smarty_Internal_Template $_smarty_tpl)
 </div>
 </main>
 <footer>
-    <a class="mentions-legales" href="mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+    <a class="mentions-legales" href="../View/mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
 </footer>
 
 <?php echo '<script'; ?>

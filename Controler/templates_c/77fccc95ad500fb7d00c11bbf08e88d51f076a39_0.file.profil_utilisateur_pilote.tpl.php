@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-03 18:59:05
+/* Smarty version 4.5.1, created on 2024-04-04 09:13:57
   from 'C:\www\Projet_Web\View\profil_utilisateur_pilote.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660d8ad915ba56_90425156',
+  'unifunc' => 'content_660e533510f8d5_21266798',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '77fccc95ad500fb7d00c11bbf08e88d51f076a39' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\profil_utilisateur_pilote.tpl',
-      1 => 1712163360,
+      1 => 1712167577,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660d8ad915ba56_90425156 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660e533510f8d5_21266798 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -37,8 +37,10 @@ function content_660d8ad915ba56_90425156 (Smarty_Internal_Template $_smarty_tpl)
             <a href="accueil.php">Accueil</a>
             <a href="offres_stages.php">Offres de stages</a>
             <a href="entreprises.php">Entreprises</a>
-            <a class="refPilote" href="../View/gestion_etudiant/GETU_accueil.html">Etudiants</a>
-            <a class="refAdmin" href="../View/gestion_pilote/GP_accueil.html">Pilotes</a>
+            <?php echo $_smarty_tpl->tpl_vars['directionEtudiant']->value;?>
+
+            <?php echo $_smarty_tpl->tpl_vars['directionPilote']->value;?>
+
             <a class="DeconnectProfil" href="../View/page_connexion.html">Déconnexion</a>
         </nav>
     </header>
@@ -48,9 +50,9 @@ function content_660d8ad915ba56_90425156 (Smarty_Internal_Template $_smarty_tpl)
             <img src="../View/Assets/images/profile.jpg" alt="Photo de profil">
         </div>
         <div class="informations">
-            <span>Nom  </span><label><?php echo $_smarty_tpl->tpl_vars['NomUser']->value;?>
+            <span>Nom  </span><label><?php echo $_smarty_tpl->tpl_vars['nomUser']->value;?>
 </label><br>
-            <span>Prenom: </span><label><?php echo $_smarty_tpl->tpl_vars['PrenomUser']->value;?>
+            <span>Prenom: </span><label><?php echo $_smarty_tpl->tpl_vars['prenomUser']->value;?>
 </label><br>
         </div>
     </div>
