@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/stylesheet.css">
+    <script src="Assets/script.js"></script>
+    <meta name="theme-color" content="#FFA500s">
+    <title>Postuler</title>
+</head>
+<body>
+    <header class="header1">
+        <img src="Assets/images/logo.png" alt="logo EASYSTAGE">
+
+        <nav class="navbar">Postuler
+            <a href="accueil.html">Accueil</a>
+            <a href="offres_stages.html" id="pagepre">Offres de stages</a>
+            <a href="presentation_entreprise.html">Entreprises</a>
+            <div class="DivDeconnexion" onmouseover="showLogout()" onmouseout="hideLogout()">
+                <button class="Profil" type="button" onclick="redirectToProfil()">Mon profil</button>
+                <a class="Deconnexion" href="page_connexion.html">Déconnexion</a>
+            </div>
+        </nav>
+        <style>
+            #pagepre {
+                background: linear-gradient(to bottom, white, white, rgb(255, 221, 0));
+            }
+        </style>
+    </header>
+    <main>
+        <button class="Retour" onclick="voirOffre()">Retour à l'offre</button>
+        <form class="Candidatureform">
+            <label class="Candidaturelabel">Commentaire</label>
+            <textarea id="commentaire" class="Candidatureinput" type="text" placeholder="Ecrivez votre message" rows="5" cols="49"></textarea>
+            <label class="Candidaturelabel">CV</label>
+            <input  id="file1" class="Candidatureinput" type="file" accept="image/jpeg, image/png, application/pdf, application/msword">
+            <label class="Candidaturelabel">Lettre de motivation</label>
+            <input id="file2" class="Candidatureinput" type="file" accept="image/jpeg, image/png, application/pdf, application/msword">
+            <button class="ValidationButton" type="submit" onclick="ValidationCandidature()">Postuler</button>
+        </form>
+    </main>
+    <footer>
+        <a class="mentions-legales" href="mentions_legales.html" aria-label="Accéder aux mentions légales">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+    </footer>
+    <style>
+        .Retour {
+            margin-left: 80%;
+            margin-top:2rem;
+        }
+        footer {
+            margin-top: 3rem;
+        }
+    </style>
+<script src="../Controler/script.js"></script>
+<script src="../Controler/offres_de_stage.js"></script>
+</body>
+</html>
+    
