@@ -41,6 +41,13 @@ if(isset($_GET['action']) && $_GET['action'] == 'aModifierEntreprise'){
     $entreprise = new Entreprise();
     echo $resData = $entreprise->entrepriseAModifier($data->nom);
 }
+
+if(isset($_GET['action']) && $_GET['action'] == 'aModifierEntreprise'){
+    $data = json_decode(file_get_contents("php://input"));
+    $entreprise = new Entreprise();
+    echo $resData = $entreprise->entrepriseAModifier($data->nom);
+}
+
 else {
     $smarty_obj->assign("nomEntreprise", "");
     $smarty_obj->assign("secteurEntreprise", "");

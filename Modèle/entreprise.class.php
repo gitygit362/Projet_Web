@@ -157,24 +157,9 @@ public function setId ($var_id){
     public function entrepriseAModifier($var_nom){
         $db = Database::getInstance();
         $connexion = $db->getConnexion();
-        $stmt = $connexion->prepare("CALL EntrepriseAModifier(:nom, @resId, @resEnt, @resSecteur, @resLogo)");
+        $stmt = $connexion->prepare("CALL EntrepriseAModifier(:nom)");
         $stmt->bindParam(':nom', $var_nom);
         $res = $stmt->execute();
-        if ($res == false) {
-            return false;
-        } else {
-            $resId = $connexion->query("SELECT @resId")->fetchColumn();
-            $resEnt = $connexion->query("SELECT @resEnt")->fetchColumn();
-            $resSecteur = $connexion->query("SELECT @resSecteur")->fetchColumn();
-            $resLogo = $connexion->query("SELECT @resLogo")->fetchColumn();
-            $resData = array(
-                'id' => $resId,
-                'nom' => $resEnt,
-                'secteur' => $resSecteur,
-                'logo' => $resLogo
-            );
-            return json_encode($resData);
-        }
     }
 
 
@@ -238,6 +223,9 @@ public function setId ($var_id){
             }
         }
     }
+
+
+
 
 
 };
