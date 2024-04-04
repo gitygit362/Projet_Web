@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CESI</title>
     <link rel="stylesheet" href="../View/Assets/stylesheet.css">
+    <meta name="theme-color" content="#FFA500s">
     {$manifest}
 </head>
 <body>
@@ -61,7 +62,9 @@
 </center>
 </details>
 
-
+<footer>
+    <a class="mentions-legales" href="../View/mentions_legales.html" aria-label="Accéder aux mentions légales">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+</footer>
 
 </body>
 <script src="script.js"></script>

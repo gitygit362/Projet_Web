@@ -1,0 +1,98 @@
+{   
+    "lang": "fr",
+    "name": "EasyStage",
+    "short_name": "EZtage",
+    "start_url": "../View/page_connexion.html",
+    "display": "standalone",
+    "description": "L'application qui vous aide dans votre recherche de stage !",
+    "background_color": "#FFFF",
+    "theme_color": "#FFA500s",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "../View/Assets/images/logo(7).png",
+        "sizes": "96x96",
+        "type": "image/png"
+      },
+      {
+        "src": "../View/Assets/images/logo(6).png",
+        "sizes": "128x128",
+        "type": "image/png"
+      },
+      {
+        "src": "../View/Assets/images/logo(5).png",
+        "sizes": "144x144",
+        "type": "image/png"
+      },
+      {
+        "src": "../View/Assets/images/logo(4).png",
+        "sizes": "152x152",
+        "type": "image/png"
+      },
+      {
+        "src": "../View/Assets/images/logo(3).png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "../View/Assets/images/logo(2).png",
+        "sizes": "384x384",
+        "type": "image/png"
+      },
+      {
+        "src": "../View/Assets/images/logo(1).png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "../View/Assets/images/logo.png",
+        "sizes": "585x376",
+        "type": "image/png",
+        "form_factor": "wide",
+        "purpose": "maskable"
+      }
+    ],
+
+    "screenshots": [
+      {
+        "src": "../View/Assets/images/screenAccueil.png",
+        "sizes": "1889x861",
+        "type": "image/png"
+      },
+      {
+        "src": "../View/Assets/images/screenEntreprises.png",
+        "sizes": "1870x866",
+        "type": "image/png"
+      } ,
+      {
+        "src": "../View/Assets/images/screenFiltresEnt.png",
+        "sizes": "1518x783",
+        "type": "image/png"
+      },
+      {
+        "src": "../View/Assets/images/screenOffres.png",
+        "sizes": "1880x876",
+        "type": "image/png"
+      },
+      {
+        "src": "../View/Assets/images/screenProfil.png",
+        "sizes": "1895x852",
+        "type": "image/png"
+      },
+      {
+        "src": "../View/Assets/images/screenAccueil.png",
+        "sizes": "1889x861",
+        "type": "image/png",
+        "form_factor": "wide"
+      }
+    ],
+
+
+    "related_applications": [
+      {
+        "platform": "web",
+        "url": "http://localhost/Projet_Web/View/page_connexion.html"
+      }
+    ]
+}
+  
