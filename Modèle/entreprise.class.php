@@ -157,9 +157,19 @@ public function setId ($var_id){
     public function entrepriseAModifier($var_nom){
         $db = Database::getInstance();
         $connexion = $db->getConnexion();
-        $stmt = $connexion->prepare("CALL EntrepriseAModifier(:nom)");
+        $stmt = $connexion->prepare("CALL EntrepriseAModifier1(:nom,@resid,@resnbadr)");
         $stmt->bindParam(':nom', $var_nom);
         $res = $stmt->execute();
+        if ($res == false) {
+            return false;
+        } else {
+            $resId = $connexion->query("SELECT @resid")->fetchColumn();
+            $resnbadr = $connexion->query("SELECT @resnbadr")->fetchColumn();
+            $i=0;
+            while ($i<=$resnbadr){
+                
+            }
+        }
     }
 
 
