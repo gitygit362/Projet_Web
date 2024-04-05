@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-04 20:13:42
+/* Smarty version 4.5.1, created on 2024-04-05 09:27:44
   from 'C:\www\Projet_Web\View\recherche_entreprises.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660eedd61804f8_41328307',
+  'unifunc' => 'content_660fa7f08263d8_32789216',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8cc5e81f2ae30129c3881eb09f99fb3c1e6e8ebd' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\recherche_entreprises.tpl',
-      1 => 1712254202,
+      1 => 1712302047,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660eedd61804f8_41328307 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660fa7f08263d8_32789216 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 <head>
@@ -190,9 +190,8 @@ function content_660eedd61804f8_41328307 (Smarty_Internal_Template $_smarty_tpl)
             </div>
         </main>
         <footer id="footerMentions">
-            <a class="mentions-legales" href="../View/mentions_legales.html">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
+            <a class="mentions-legales" href="../View/mentions_legales.html" aria-label="Accéder aux mentions légales">©2024 - Tous droits réservés -	Mentions légales EasyStage</em>
         </footer>
-
 
     <?php echo '<script'; ?>
  src="../Controler/script.js"><?php echo '</script'; ?>

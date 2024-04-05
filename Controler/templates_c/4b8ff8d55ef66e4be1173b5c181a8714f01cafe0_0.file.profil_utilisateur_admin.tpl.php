@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-04 21:17:26
+/* Smarty version 4.5.1, created on 2024-04-05 09:27:41
   from 'C:\www\Projet_Web\View\profil_utilisateur_admin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_660efcc6111de4_17440094',
+  'unifunc' => 'content_660fa7ed66de62_49450222',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4b8ff8d55ef66e4be1173b5c181a8714f01cafe0' => 
     array (
       0 => 'C:\\www\\Projet_Web\\View\\profil_utilisateur_admin.tpl',
-      1 => 1712258192,
+      1 => 1712302058,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660efcc6111de4_17440094 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660fa7ed66de62_49450222 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -38,14 +38,14 @@ function content_660efcc6111de4_17440094 (Smarty_Internal_Template $_smarty_tpl)
     <header class="header1">
         <img src="../View/Assets/images/logo.png" alt="logo EASYSTAGE">
         <nav class="navbar">Profil Utilisateur
-            <a href="../Controler/accueil.php">Accueil</a>
+            <a href="accueil.php">Accueil</a>
             <a href="../View/offres_stages.html">Offres de stages</a>
-            <a href="../View/recherche_entreprises.html">Entreprises</a>
+            <a href="entreprises.php">Entreprises</a>
             <?php echo $_smarty_tpl->tpl_vars['directionEtudiant']->value;?>
 
             <?php echo $_smarty_tpl->tpl_vars['directionPilote']->value;?>
 
-            <a class="DeconnectProfil" href="../View/page_connexion.html">Déconnexion</a>
+            <a class="DeconnectProfil" href="../View/page_connexion.html" onclick="deconnexion(event)">Déconnexion</a>
         </nav>
     </header>
     <main>

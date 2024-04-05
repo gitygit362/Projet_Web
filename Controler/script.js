@@ -115,7 +115,9 @@ function redirectToAccueilGPform(event){
     xhr.send(JSON.stringify(data));
 }
 
-
+function redirectToAccueilGP(){
+    window.location.href = "GP_accueil.html";
+}
 
 
 

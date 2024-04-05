@@ -13,9 +13,9 @@
     <header class="header1">
         <img src="../View/Assets/images/logo.png" alt="logo EASYSTAGE">
         <nav class="navbar">Profil Utilisateur
-            <a href="../Controler/accueil.php">Accueil</a>
+            <a href="accueil.php">Accueil</a>
             <a href="../View/offres_stages.html">Offres de stages</a>
-            <a href="../View/recherche_entreprises.html">Entreprises</a>
+            <a href="entreprises.php">Entreprises</a>
             {$directionEtudiant}
             {$directionPilote}
             <a class="DeconnectProfil" href="../View/page_connexion.html" onclick="deconnexion(event)">Déconnexion</a>

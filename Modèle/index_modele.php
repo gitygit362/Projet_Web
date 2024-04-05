@@ -76,6 +76,7 @@ class GestionPilote extends GestionUser
         }    
         $hashHex = hash('sha256', $chaineAleatoire);
         $req->bindParam(':mdp',$hashHex);
+        var_dump($this->promo);
         return $req->execute();
     }
 
