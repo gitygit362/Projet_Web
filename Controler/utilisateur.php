@@ -2,16 +2,23 @@
 require_once '../Modèle/header.php';
 require '../Modèle/utilisateur.class.php';
 
-
-if (isset($_GET['action']) && $_GET['id_users'] === 'suppretudiant') {
-    $id_user = $_GET['id'];
+if (isset($_GET['id_user'])) {
+    $id_user = intval($_GET['id_user']);
 } else{
     $id_user = $_SESSION['id'];
 }
+if (isset($_GET['statut'])) {
+    $stat = $_GET['statut'];
+} else{
+    $stat = $_SESSION['statut'];
+}
 
-if ($_SESSION['statut'] == 'admin'){
+
+
+if ($stat == 'admin'){
     $utilisateur = new Utilisateur();
-    $utilisateur->infosUtilisateur($_SESSION['id'], $_SESSION['statut']);
+    $utilisateur->infosUtilisateur($id_user,$stat);
+    
     $utilisateur->adminCentres();
     $id = $utilisateur->getId();
     $nom = $utilisateur->getNom();
@@ -33,9 +40,9 @@ if ($_SESSION['statut'] == 'admin'){
 
 
 }
-else if ($_SESSION['statut'] == 'pilote'){
+else if ($stat == 'pilote'){
     $utilisateur = new Utilisateur();
-    $utilisateur->infosUtilisateur($_SESSION['id'], $_SESSION['statut']);
+    $utilisateur->infosUtilisateur($id_user, $stat);
     $utilisateur->piloteCentrePromo();
     $id = $utilisateur->getId();
     $nom = $utilisateur->getNom();
@@ -66,9 +73,9 @@ else if ($_SESSION['statut'] == 'pilote'){
     $smarty_obj->display('../View/profil_utilisateur_pilote.tpl');
 }
 
-else if ($_SESSION['statut'] == 'etudiant'){
+else if ($stat == 'etudiant'){
     $utilisateur = new Utilisateur();
-    $utilisateur->infosUtilisateur($_SESSION['id'], $_SESSION['statut']);
+    $utilisateur->infosUtilisateur($id_user, $stat);
     $utilisateur->etudiantCentrePromo();
     $id = $utilisateur->getId();
     $nom = $utilisateur->getNom();

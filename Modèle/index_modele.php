@@ -76,7 +76,6 @@ class GestionPilote extends GestionUser
         }    
         $hashHex = hash('sha256', $chaineAleatoire);
         $req->bindParam(':mdp',$hashHex);
-        var_dump($this->promo);
         return $req->execute();
     }
 
@@ -129,7 +128,6 @@ class GestionEtudiant extends GestionUser
         {
             $chaineAleatoire .= $caracteres[rand(0, $longueurMax)];
         }    
-        var_dump($chaineAleatoire);
         $hashHex = hash('sha256', $chaineAleatoire);
         $req->bindParam(':mdp',$hashHex);
         return $req->execute();
