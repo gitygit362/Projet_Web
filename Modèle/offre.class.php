@@ -215,6 +215,29 @@ class Offre_stages {
         return $results;
     }
 
+    public function creerOffre($var_competence, $var_adresse, $var_ville, $var_region, $var_pays, $var_entreprise, $var_promo, $var_date_debut, $var_date_fin, $var_date_online, $var_remuneration, $var_nb_places){
+        $var_date_online = date('Y-m-d H:i:s', time());
+        $db = Database::getInstance();
+        $connexion = $db->getConnexion();
+        $statement = $connexion->prepare("");
+        $statement->bindParam(":competence", $var_competence, PDO::PARAM_STR);
+        $statement->bindParam(":adresse", $var_adresse, PDO::PARAM_STR);
+        $statement->bindParam(":ville", $var_ville, PDO::PARAM_STR);
+        $statement->bindParam(":region", $var_region, PDO::PARAM_STR);
+        $statement->bindParam(":pays", $var_pays, PDO::PARAM_STR);
+        $statement->bindParam(":entreprise", $var_entreprise, PDO::PARAM_STR);
+        $statement->bindParam(":promo", $var_promo, PDO::PARAM_STR);
+        $statement->bindParam(":date_debut", $var_date_debut, PDO::PARAM_STR);
+        $statement->bindParam(":date_fin", $var_date_fin, PDO::PARAM_STR);
+        $statement->bindParam(":date_online", $var_date_online, PDO::PARAM_INT);
+        $statement->bindParam(":remuneration", $var_remuneration, PDO::PARAM_INT);
+        $statement->bindParam(":nb_places", $var_nb_places, PDO::PARAM_INT);
+        
+        $statement->execute();
+
+
+    }
+
 
 
 
