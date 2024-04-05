@@ -198,7 +198,7 @@ public function setId ($var_id){
         $this->setCentre($centres);
     }
 
-
+/*
     public function supprimerWishList($var_id_user, $var_id_offre){
         $db = Database::getInstance();
         $connexion = $db->getConnexion();
@@ -210,6 +210,6 @@ public function setId ($var_id){
         } catch(PDOException $e) {
             error_log("Une erreur s'est produite lors de la suppression de l'offre de la wish list : " . $e->getMessage());
         }
-    }
+    }*/
 
 };

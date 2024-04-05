@@ -3,7 +3,7 @@ require_once '../Modèle/header.php';
 require '../Modèle/utilisateur.class.php';
 
 $id_user = $_SESSION['id'];
-
+/*
 function supprWishList(){
     global $smarty_obj;
     $data = json_decode(file_get_contents('php://input'), true);
@@ -16,7 +16,7 @@ function supprWishList(){
     $smarty_obj->assign("WL".$idWL,"");
 
 }
-
+*/
 if ($_SESSION['statut'] == 'admin'){
     $utilisateur = new Utilisateur();
     $utilisateur->infosUtilisateur($_SESSION['id'], $_SESSION['statut']);
@@ -100,7 +100,6 @@ else if ($_SESSION['statut'] == 'etudiant'){
         $utilisateur->etudiantOffreWhList($id_offre);
         $allOffres[] = $utilisateur->getOffres();
     }
-    
     // Convertir le tableau multidimensionnel en un tableau unidimensionnel
     $uniqueArray = call_user_func_array('array_merge', $allOffres);
     
@@ -123,8 +122,8 @@ else if ($_SESSION['statut'] == 'etudiant'){
         }
 
     }
-
-    if(isset($_GET['action']) && $_GET['action'] == 'masquerEntreprise'){
+/*
+    if(isset($_GET['action']) && $_GET['action'] == 'supprWishList'){
         $data = json_decode(file_get_contents('php://input'));
         $idWL = $data['id_wl'];
         $idOffre = $data['id_offre'];
@@ -134,6 +133,6 @@ else if ($_SESSION['statut'] == 'etudiant'){
         $utilisateur->supprimerWishList($_SESSION['id'], $idOffre);
         $smarty_obj->assign("WL".$idWL,"");
     }
-
+*/
     $smarty_obj->display('../View/profil_utilisateur_etudiant.tpl');
 }

@@ -77,7 +77,6 @@ class GestionPilote extends GestionUser
         $hashHex = hash('sha256', $chaineAleatoire);
         $req->bindParam(':mdp',$hashHex);
         return $req->execute();
-
     }
 
     public function recherche($db){
@@ -103,6 +102,60 @@ class GestionPilote extends GestionUser
 
     public function supprimer($db){
         $req = $db->prepare("CALL SupprimerPilote (:nom, :prenom, :centre, :promo)");
+        $req->bindParam(':nom',$this->nom);
+        $req->bindParam(':prenom',$this->prenom);
+        $req->bindParam(':centre',$this->centre);
+        $req->bindParam(':promo',$this->promo);
+        return $req->execute();
+    }
+}
+
+
+class GestionEtudiant extends GestionUser
+{
+    public function creer($db){
+        
+        $req = $db->prepare("CALL CreerEtudiant(:nom, :prenom, :centre, :promo, :mdp)");
+        $req->bindParam(':nom',$this->nom);
+        $req->bindParam(':prenom',$this->prenom);
+        $req->bindParam(':centre',$this->centre);
+        $req->bindParam(':promo',$this->promo);
+
+        $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $longueurMax = strlen($caracteres)-1;
+        $chaineAleatoire = '';
+        for ($i = 0; $i < 10; $i++)
+        {
+            $chaineAleatoire .= $caracteres[rand(0, $longueurMax)];
+        }    
+        $req->bindParam(':mdp',$chaineAleatoire);
+        return $req->execute();
+
+    }
+
+    public function recherche($db){
+        $req = $db->prepare("CALL RechercherEtudiant (:nom, :prenom, :centre, :promo)");
+        $req->bindParam(':nom',$this->nom);
+        $req->bindParam(':prenom',$this->prenom);
+        $req->bindParam(':centre',$this->centre);
+        $req->bindParam(':promo',$this->promo);
+        $res = $req->execute();
+        $row = $req->fetch(PDO::FETCH_NUM);
+        return $row;
+    }
+
+    public function modifier($db,$id_user){
+        $req = $db->prepare("CALL ModifierEtudiant (:nom, :prenom, :centre, :promo, :id)");
+        $req->bindParam(':nom',$this->nom);
+        $req->bindParam(':prenom',$this->prenom);
+        $req->bindParam(':centre',$this->centre);
+        $req->bindParam(':promo',$this->promo);
+        $req->bindParam(':id',$id_user);
+        return $req->execute();
+    }
+
+    public function supprimer($db){
+        $req = $db->prepare("CALL SupprimerEtudiant (:nom, :prenom, :centre, :promo)");
         $req->bindParam(':nom',$this->nom);
         $req->bindParam(':prenom',$this->prenom);
         $req->bindParam(':centre',$this->centre);

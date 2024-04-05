@@ -74,7 +74,6 @@ function redirectToAccueilFromConnexion(event) {
 
 
 
-
 function redirectToAccueilGPform(event){
     event.preventDefault();
     var nom_pilote = document.getElementById("nom_pilote").value;
@@ -93,7 +92,6 @@ function redirectToAccueilGPform(event){
         centre: centre_pilote,
         promo: promo_pilote
     };
-
     var xhr = new XMLHttpRequest();
     xhr.open("POST","../../Controler/users.php?action=createpilote",false);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -116,7 +114,6 @@ function redirectToAccueilGPform(event){
     };
     xhr.send(JSON.stringify(data));
 }
-
 
 
 
@@ -451,7 +448,7 @@ function redirectToProfil() {
 }
 
 
-
+/*
 function supprWishList(id_wl, var_id_offre, event){
     event.preventDefault();
 
@@ -481,7 +478,7 @@ function supprWishList(id_wl, var_id_offre, event){
     };
     xhr.send(JSON.stringify(data));
 }
-
+*/
 
 
 
