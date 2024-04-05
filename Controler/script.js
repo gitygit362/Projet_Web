@@ -76,6 +76,7 @@ function redirectToAccueilFromConnexion(event) {
 
 function redirectToAccueilGPform(event){
     event.preventDefault();
+    alert("test");
     var nom_pilote = document.getElementById("nom_pilote").value;
     var prenom_pilote = document.getElementById("prenom_pilote").value;
     var centre_pilote = document.getElementById("centre_pilote").value;
@@ -98,7 +99,7 @@ function redirectToAccueilGPform(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
-            if (response === 'true') {
+            if (response == 'true') {
                 alert("profil créé avec succès");
                 window.location.href = 'GP_accueil.html';
             } else {
@@ -283,7 +284,6 @@ function redirectToAccueilGPSuppr(event){
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
-            alert(response);
             if (response === 'true') {
                 alert("profil supprimé avec succès");
                 window.location.href = 'GP_accueil.html';
@@ -343,6 +343,258 @@ function redirectToRecherche_GP(){
 }
 
 
+function redirectToGETU_modification(event){
+    event.preventDefault();
+    var nom_etudiant = document.getElementById("nom_etudiant").value;
+    var prenom_etudiant = document.getElementById("prenom_etudiant").value;
+    var centre_etudiant = document.getElementById("centre_etudiant").value;
+    var promo_etudiant =  document.getElementById("promo_etudiant").value;
+    
+    if (nom_etudiant.trim() === '' || prenom_etudiant.trim() === '' || centre_etudiant.trim() === '' || promo_etudiant.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+    var data = {
+        nom: nom_etudiant,
+        prenom: prenom_etudiant,
+        centre: centre_etudiant,
+        promo: promo_etudiant
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=preeditetudiant",true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            response = response.split('.');
+            if (response[0] === 'true') {
+                alert("profil trouvé avec succès");
+                window.location.href = "GETU_modification.html?id_user="+response[1];
+            } else {
+                alert("Erreur : le profil est introuvable");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
+
+
+// gestion etudiant redirection
+function redirectToAccueilGETU(){
+    window.location.href = "GETU_accueil.html";
+}
+
+
+
+
+
+function redirectToAccueilGETUCreate(event){
+    event.preventDefault();
+    var nom_etudiant = document.getElementById("nom_etudiant").value;
+    var prenom_etudiant = document.getElementById("prenom_etudiant").value;
+    var centre_etudiant = document.getElementById("centre_etudiant").value;
+    var promo_etudiant =  document.getElementById("promo_etudiant").value;
+    
+    if (nom_etudiant.trim() === '' || prenom_etudiant.trim() === '' || centre_etudiant.trim() === '' || promo_etudiant.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    var data = {
+        nom: nom_etudiant,
+        prenom: prenom_etudiant,
+        centre: centre_etudiant,
+        promo: promo_etudiant
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=creeretudiant",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            alert(response);
+            if (response === 'true') {
+                alert("profil créé avec succès");
+                window.location.href = 'GETU_accueil.html';
+            } else {
+                alert("Erreur : le profil n'a pas été créé");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
+
+
+function redirectToAccueilGETUEdit(event){
+    event.preventDefault();
+    var nom_etudiant = document.getElementById("nom_etudiant").value;
+    var prenom_etudiant = document.getElementById("prenom_etudiant").value;
+    var centre_etudiant = document.getElementById("centre_etudiant").value;
+    var promo_etudiant =  document.getElementById("promo_etudiant").value;
+
+    var url = new URL(window.location.href);
+    var id_user = url.searchParams.get("id_user");  
+
+    if (nom_etudiant.trim() === '' || prenom_etudiant.trim() === '' || centre_etudiant.trim() === '' || promo_etudiant.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    var data = {
+        nom: nom_etudiant,
+        prenom: prenom_etudiant,
+        centre: centre_etudiant,
+        promo: promo_etudiant,
+        id: id_user
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=editetudiant",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            if (response === 'true') {
+                alert("profil modifié avec succès");
+                window.location.href = "GETU_accueil.html";
+            } else {
+                alert("Erreur : le profil n'a pas pu être modifier");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
+
+
+
+function redirectToAccueilGETUSuppr(event){
+    event.preventDefault();
+    var nom_etudiant = document.getElementById("nom_etudiant").value;
+    var prenom_etudiant = document.getElementById("prenom_etudiant").value;
+    var centre_etudiant = document.getElementById("centre_etudiant").value;
+    var promo_etudiant =  document.getElementById("promo_etudiant").value;
+    if (nom_etudiant.trim() === '' || prenom_etudiant.trim() === '' || centre_etudiant.trim() === '' || promo_etudiant.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    var data = {
+        nom: nom_etudiant,
+        prenom: prenom_etudiant,
+        centre: centre_etudiant,
+        promo: promo_etudiant
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=suppretudiant",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            if (response === 'true') {
+                alert("profil supprimé avec succès");
+                window.location.href = 'GETU_accueil.html';
+            } else {
+                alert("Erreur : le profil n'a pas pu être supprimer");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
+
+
+
+function PROFIL_ETU(event){
+    event.preventDefault();
+    var nom_etudiant = document.getElementById("nom_etudiant").value;
+    var prenom_etudiant = document.getElementById("prenom_etudiant").value;
+    var centre_etudiant = document.getElementById("centre_etudiant").value;
+    var promo_etudiant =  document.getElementById("promo_etudiant").value;
+
+    if (nom_etudiant.trim() === '' || prenom_etudiant.trim() === '' || centre_etudiant.trim() === '' || promo_etudiant.trim() === '') {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+    
+    var data = {
+        nom: nom_etudiant,
+        prenom: prenom_etudiant,
+        centre: centre_etudiant,
+        promo: promo_etudiant,
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","../../Controler/users.php?action=rechercheetudiant",false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            response = response.split('.');
+            if (response[0] === 'true') {
+                alert("profil trouvé avec succès");
+                window.location.href = "../../Controler/utilisateur.php?id_user="+response[1];
+            } else {
+                alert("Erreur : le profil n'a pas pu être trouver");
+            }
+        } else {
+            alert ("Erreur : Impossible de contacter le serveur");
+            alert (xhr.status);
+        }
+    };
+    xhr.onerror = function () {
+        alert("Erreur : Impossible de contacter le serveur");
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
+function redirectToCrer_GETU(){
+    window.location.href = "GETU_creation.html";
+}
+
+function redirectToSupp_GETU(){
+    window.location.href = "GETU_suppression.html";
+}
+
+function redirectToEdit_GETU(){
+    window.location.href = "GETU_a_modifier.html";
+}
+
+
 function redirectToGP_modification(event){
     event.preventDefault();
     var nom_pilote = document.getElementById("nom_pilote").value;
@@ -371,7 +623,7 @@ function redirectToGP_modification(event){
             response = response.split('.');
             if (response[0] === 'true') {
                 alert("profil trouvé avec succès");
-                window.location.href = "GP_modification.html?id_user="+response[1];
+                window.location.href = "GETU_modification.html?id_user="+response[1];
             } else {
                 alert("Erreur : le profil est introuvable");
             }
@@ -384,30 +636,6 @@ function redirectToGP_modification(event){
         alert("Erreur : Impossible de contacter le serveur");
     };
     xhr.send(JSON.stringify(data));
-}
-
-
-
-
-// gestion etudiant redirection
-function redirectToAccueilGETU(){
-    window.location.href = "GETU_accueil.html";
-}
-
-function redirectToCrer_GETU(){
-    window.location.href = "GETU_creation.html";
-}
-
-function redirectToSupp_GETU(){
-    window.location.href = "GETU_suppression.html";
-}
-
-function redirectToEdit_GETU(){
-    window.location.href = "GETU_a_modifier.html";
-}
-
-function redirectToGETU_modification(){
-    window.location.href = "GETU_modification.html";
 }
 
 function redirectToRecherche_GETU(){

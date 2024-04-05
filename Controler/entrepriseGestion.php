@@ -26,7 +26,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'creerEntrepriseAdresse') {
     $entreprise = new Entreprise();
     $resultat = $entreprise->creerEntrepriseAdresse($data2->adresse, $data2->ville, $data2->pays, $data2->id);
     echo 'true';
-
 }
 
 if(isset($_GET['action']) && $_GET['action'] == 'masquerEntreprise'){
@@ -41,6 +40,13 @@ if(isset($_GET['action']) && $_GET['action'] == 'aModifierEntreprise'){
     $entreprise = new Entreprise();
     echo $resData = $entreprise->entrepriseAModifier($data->nom);
 }
+
+if(isset($_GET['action']) && $_GET['action'] == 'aModifierEntreprise'){
+    $data = json_decode(file_get_contents("php://input"));
+    $entreprise = new Entreprise();
+    echo $resData = $entreprise->entrepriseAModifier($data->nom);
+}
+
 else {
     $smarty_obj->assign("nomEntreprise", "");
     $smarty_obj->assign("secteurEntreprise", "");

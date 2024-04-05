@@ -2,21 +2,13 @@
 require_once '../Modèle/header.php';
 require '../Modèle/utilisateur.class.php';
 
-$id_user = $_SESSION['id'];
-/*
-function supprWishList(){
-    global $smarty_obj;
-    $data = json_decode(file_get_contents('php://input'), true);
-    $idWL = $data['id_wl'];
-    $idOffre = $data['id_offre'];
-    var_dump($idWL);
-    var_dump($idOffre);
-    $utilisateur = new Utilisateur();
-    $utilisateur->supprimerWishList($_SESSION['id'], $idOffre);
-    $smarty_obj->assign("WL".$idWL,"");
 
+if (isset($_GET['action']) && $_GET['id_users'] === 'suppretudiant') {
+    $id_user = $_GET['id'];
+} else{
+    $id_user = $_SESSION['id'];
 }
-*/
+
 if ($_SESSION['statut'] == 'admin'){
     $utilisateur = new Utilisateur();
     $utilisateur->infosUtilisateur($_SESSION['id'], $_SESSION['statut']);
